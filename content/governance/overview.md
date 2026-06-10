@@ -40,6 +40,6 @@ Our governance model follows COBIT 2019 and ITIL 4 principles, adapted for a uni
 ## Contact
 
 **Information Technology Services**  
-MBS University  
+MBS  
 Email: [its@mbs.edu](mailto:its@mbs.edu)  
 For tech support: [support.mbs.edu](https://support.mbs.edu)
