@@ -4,8 +4,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'ICT Knowledge Base',
-  tagline: 'Governance, Runbooks, Processes, Configuration & Asset Life Cycle',
+  tagline: 'Governance. Runbooks. Processes. Configuration. Asset Life Cycle.',
   favicon: 'img/favicon.ico',
+  trailingSlash: false,
 
   future: {
     v4: true,

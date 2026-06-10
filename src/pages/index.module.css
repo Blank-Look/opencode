@@ -1,44 +1,66 @@
 .heroBanner {
-  padding: 4rem 0;
+  padding: 5rem 0 4rem;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
+.heroEyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  opacity: 0.85;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.heroDescription {
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 3rem 1rem;
+  }
+
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+
+  .heroDescription {
+    font-size: 1rem;
   }
 }
 
 .sections {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 3rem 0 4rem;
   width: 100%;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-}
-
-.card {
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--ifm-card-border-radius);
-  padding: 1.5rem;
-  transition: all 0.15s ease;
-}
-
-.card:hover {
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .cardLink {
   text-decoration: none;
   color: inherit;
+  display: block;
 }
 
 .cardLink:hover {
@@ -46,7 +68,50 @@
   color: inherit;
 }
 
-.cardLink p {
+.card {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 20px rgba(122, 27, 44, 0.1);
+  transform: translateY(-2px);
+}
+
+.cardNumber {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ifm-color-primary);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.cardDescription {
+  font-size: 0.925rem;
   color: var(--ifm-color-emphasis-700);
   margin: 0;
+  line-height: 1.6;
+}
+
+.cardArrow {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  transition: transform 0.2s ease;
+  color: var(--ifm-color-primary);
+}
+
+.card:hover .cardArrow {
+  transform: translateX(4px);
 }

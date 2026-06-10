@@ -1,22 +1,38 @@
 :root {
-  --ifm-color-primary: #1a73e8;
-  --ifm-color-primary-dark: #1565d0;
-  --ifm-color-primary-darker: #135cc1;
-  --ifm-color-primary-darkest: #0f4c9e;
-  --ifm-color-primary-light: #3583eb;
-  --ifm-color-primary-lighter: #418aed;
-  --ifm-color-primary-lightest: #68a1f1;
+  --ifm-color-primary: #7A1B2C;
+  --ifm-color-primary-dark: #6D1827;
+  --ifm-color-primary-darker: #631625;
+  --ifm-color-primary-darkest: #52121E;
+  --ifm-color-primary-light: #871E31;
+  --ifm-color-primary-lighter: #912034;
+  --ifm-color-primary-lightest: #A3243B;
+  --ifm-color-primary-contrast: #F5F0F0;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-heading-font-weight: 700;
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #4da3ff;
-  --ifm-color-primary-dark: #2e91ff;
-  --ifm-color-primary-darker: #1e88ff;
-  --ifm-color-primary-darkest: #006ee6;
-  --ifm-color-primary-light: #6cb5ff;
-  --ifm-color-primary-lighter: #7cbeff;
-  --ifm-color-primary-lightest: #abd8ff;
+  --ifm-color-primary: #C84B5E;
+  --ifm-color-primary-dark: #BE3D51;
+  --ifm-color-primary-darker: #B5394C;
+  --ifm-color-primary-darkest: #952E3E;
+  --ifm-color-primary-light: #CF5C6E;
+  --ifm-color-primary-lighter: #D26879;
+  --ifm-color-primary-lightest: #DB8391;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.hero--primary {
+  --ifm-hero-text-color: var(--ifm-font-color-base-inverse);
+}
+
+.navbar__brand b {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.card {
+  transition: all 0.2s ease;
 }

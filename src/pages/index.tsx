@@ -12,26 +12,31 @@ const sections = [
     title: 'Governance',
     description: 'Policies, compliance frameworks, and risk management to ensure ICT aligns with business objectives.',
     link: '/docs/governance/overview',
+    number: '01',
   },
   {
     title: 'Runbooks',
     description: 'Step-by-step operational procedures for routine tasks, incident response, and system administration.',
     link: '/docs/runbooks/overview',
+    number: '02',
   },
   {
     title: 'Processes',
     description: 'Standardized workflows for change, incident, request, and problem management (ITIL-aligned).',
     link: '/docs/processes/overview',
+    number: '03',
   },
   {
     title: 'Configuration',
     description: 'Network, server, software, and security configuration baselines and reference documentation.',
     link: '/docs/configuration/overview',
+    number: '04',
   },
   {
     title: 'Asset Life Cycle',
     description: 'End-to-end management of ICT assets from procurement through deployment, maintenance, and disposal.',
     link: '/docs/asset-life-cycle/overview',
+    number: '05',
   },
 ];
 
@@ -40,23 +45,29 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+        <p className={styles.heroEyebrow}>ICT Team Knowledge Base</p>
+        <Heading as="h1" className={styles.heroTitle}>
+          Built. Not Born.
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className={styles.heroDescription}>
+          Great ICT operations are built through purpose, process, and consistency.
+          Everything you need to run a <strong>governed, automated, and resilient</strong> team — in one place.
+        </p>
       </div>
     </header>
   );
 }
 
-function SectionCard({title, description, link}: {title: string; description: string; link: string}) {
+function SectionCard({title, description, link, number}: {title: string; description: string; link: string; number: string}) {
   return (
-    <div className={styles.card}>
-      <Link to={link} className={styles.cardLink}>
-        <Heading as="h2">{title}</Heading>
-        <p>{description}</p>
-      </Link>
-    </div>
+    <Link to={link} className={styles.cardLink}>
+      <div className={styles.card}>
+        <span className={styles.cardNumber}>{number}</span>
+        <Heading as="h2" className={styles.cardTitle}>{title}</Heading>
+        <p className={styles.cardDescription}>{description}</p>
+        <span className={styles.cardArrow}>→</span>
+      </div>
+    </Link>
   );
 }
 
