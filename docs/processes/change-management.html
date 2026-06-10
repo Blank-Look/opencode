@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Management — ICT Knowledge Base</title>
+<meta name="description" content="Ensure changes to ICT systems are assessed, approved, and implemented in a controlled manner.">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../../index.html" class="navbar-brand">
+      <img src="../../img/logo.svg" alt="ICT Logo" width="28" height="28">
+      ICT Knowledge Base
+    </a>
+    <div class="navbar-links">
+      <a href="../governance/overview.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/overview.html">Overview</a><a class="sidebar-item" href="../governance/policies.html">Policies</a><a class="sidebar-item" href="../governance/compliance.html">Compliance</a><a class="sidebar-item" href="../governance/risk-management.html">Risk Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Runbooks</div><a class="sidebar-item" href="../runbooks/overview.html">Overview</a><a class="sidebar-item" href="../runbooks/server-provisioning.html">Server Provisioning</a><a class="sidebar-item" href="../runbooks/backup-and-restore.html">Backup & Restore</a><a class="sidebar-item" href="../runbooks/incident-response.html">Incident Response</a><a class="sidebar-item" href="../runbooks/user-management.html">User Management</a><a class="sidebar-item" href="../runbooks/monitoring-setup.html">Monitoring Setup</a></div><div class="sidebar-section"><div class="sidebar-section-title">Processes</div><a class="sidebar-item" href="../processes/overview.html">Overview</a><a class="sidebar-item active" href="../processes/change-management.html">Change Management</a><a class="sidebar-item" href="../processes/incident-management.html">Incident Management</a><a class="sidebar-item" href="../processes/request-fulfillment.html">Request Fulfillment</a><a class="sidebar-item" href="../processes/problem-management.html">Problem Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Configuration</div><a class="sidebar-item" href="../configuration/overview.html">Overview</a><a class="sidebar-item" href="../configuration/network-config.html">Network Config</a><a class="sidebar-item" href="../configuration/server-config.html">Server Config</a><a class="sidebar-item" href="../configuration/software-config.html">Software Config</a><a class="sidebar-item" href="../configuration/security-config.html">Security Config</a></div><div class="sidebar-section"><div class="sidebar-section-title">Asset Life Cycle</div><a class="sidebar-item" href="../asset-life-cycle/overview.html">Overview</a><a class="sidebar-item" href="../asset-life-cycle/procurement.html">Procurement</a><a class="sidebar-item" href="../asset-life-cycle/deployment.html">Deployment</a><a class="sidebar-item" href="../asset-life-cycle/maintenance.html">Maintenance</a><a class="sidebar-item" href="../asset-life-cycle/disposal.html">Disposal</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <h1>Change Management</h1>
+<p>Ensure changes to ICT systems are assessed, approved, and implemented in a controlled manner.</p>
+<h2>Change Types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Definition</th>
+<th>Approval</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Standard</td>
+<td>Pre-approved, low risk (e.g., password reset, user add)</td>
+<td>Pre-approved</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>Requires assessment and approval</td>
+<td>Change Advisory Board</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Emergency</td>
+<td>Urgent fix for active incident (e.g., security patch)</td>
+<td>Emergency CAB</td>
+<td>High</td>
+</tr>
+</tbody></table>
+<h2>Workflow</h2>
+<h3>1. Submission</h3>
+<ul>
+<li>Raise a change request in the ticketing system</li>
+<li>Include: description, reason, scope, timeline, risk assessment</li>
+<li>Attach implementation and rollback plans</li>
+</ul>
+<h3>2. Assessment</h3>
+<ul>
+<li>Technical review by ICT team</li>
+<li>Impact and resource assessment</li>
+<li>Risk classification</li>
+</ul>
+<h3>3. Approval</h3>
+<table>
+<thead>
+<tr>
+<th>Change Type</th>
+<th>Approver</th>
+<th>SLA</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Standard</td>
+<td>Auto-approved</td>
+<td>Immediate</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>CAB (ICT Manager + 2 team members)</td>
+<td>2 business days</td>
+</tr>
+<tr>
+<td>Emergency</td>
+<td>Emergency CAB (ICT Manager)</td>
+<td>1 hour</td>
+</tr>
+</tbody></table>
+<h3>4. Implementation</h3>
+<ul>
+<li>Follow the implementation plan</li>
+<li>Update configuration documentation</li>
+<li>Notify stakeholders</li>
+</ul>
+<h3>5. Review</h3>
+<ul>
+<li>Post-implementation review within 5 days</li>
+<li>Verify change achieved the intended outcome</li>
+<li>Update the change record</li>
+<li>Identify lessons learned</li>
+</ul>
+<h2>Rollback Plan</h2>
+<p>Every change must have a rollback plan approved before implementation. If rollback is required:</p>
+<ol>
+<li>Execute the approved rollback procedure</li>
+<li>Notify stakeholders</li>
+<li>Create an incident ticket if service was affected</li>
+<li>Schedule a post-mortem</li>
+</ol>
+<h2>Blackout Periods</h2>
+<ul>
+<li>No normal changes during: financial year-end, major audits, planned DR tests</li>
+<li>Emergency changes still permitted with appropriate approvals</li>
+</ul>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 ICT Team. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

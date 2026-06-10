@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overview — ICT Knowledge Base</title>
+<meta name="description" content="This section documents the configuration baselines, standards, and reference configurations for all ICT systems.">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../../index.html" class="navbar-brand">
+      <img src="../../img/logo.svg" alt="ICT Logo" width="28" height="28">
+      ICT Knowledge Base
+    </a>
+    <div class="navbar-links">
+      <a href="../governance/overview.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/overview.html">Overview</a><a class="sidebar-item" href="../governance/policies.html">Policies</a><a class="sidebar-item" href="../governance/compliance.html">Compliance</a><a class="sidebar-item" href="../governance/risk-management.html">Risk Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Runbooks</div><a class="sidebar-item" href="../runbooks/overview.html">Overview</a><a class="sidebar-item" href="../runbooks/server-provisioning.html">Server Provisioning</a><a class="sidebar-item" href="../runbooks/backup-and-restore.html">Backup & Restore</a><a class="sidebar-item" href="../runbooks/incident-response.html">Incident Response</a><a class="sidebar-item" href="../runbooks/user-management.html">User Management</a><a class="sidebar-item" href="../runbooks/monitoring-setup.html">Monitoring Setup</a></div><div class="sidebar-section"><div class="sidebar-section-title">Processes</div><a class="sidebar-item" href="../processes/overview.html">Overview</a><a class="sidebar-item" href="../processes/change-management.html">Change Management</a><a class="sidebar-item" href="../processes/incident-management.html">Incident Management</a><a class="sidebar-item" href="../processes/request-fulfillment.html">Request Fulfillment</a><a class="sidebar-item" href="../processes/problem-management.html">Problem Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Configuration</div><a class="sidebar-item active" href="../configuration/overview.html">Overview</a><a class="sidebar-item" href="../configuration/network-config.html">Network Config</a><a class="sidebar-item" href="../configuration/server-config.html">Server Config</a><a class="sidebar-item" href="../configuration/software-config.html">Software Config</a><a class="sidebar-item" href="../configuration/security-config.html">Security Config</a></div><div class="sidebar-section"><div class="sidebar-section-title">Asset Life Cycle</div><a class="sidebar-item" href="../asset-life-cycle/overview.html">Overview</a><a class="sidebar-item" href="../asset-life-cycle/procurement.html">Procurement</a><a class="sidebar-item" href="../asset-life-cycle/deployment.html">Deployment</a><a class="sidebar-item" href="../asset-life-cycle/maintenance.html">Maintenance</a><a class="sidebar-item" href="../asset-life-cycle/disposal.html">Disposal</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <h1>Configuration Overview</h1>
+<p>This section documents the configuration baselines, standards, and reference configurations for all ICT systems.</p>
+<h2>Purpose</h2>
+<ul>
+<li>Ensure consistent, repeatable system builds</li>
+<li>Reduce configuration drift</li>
+<li>Simplify troubleshooting with known-good references</li>
+<li>Support disaster recovery by enabling rapid rebuilds</li>
+</ul>
+<h2>Configuration Management Approach</h2>
+<p>We follow a <strong>configuration-as-code</strong> philosophy where possible:</p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Tool</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Servers</td>
+<td>Ansible</td>
+<td><code>ansible/</code> in monorepo</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>Unifi / Cisco config</td>
+<td><code>network/</code> in monorepo</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Policy-as-code</td>
+<td><code>security/</code> in monorepo</td>
+</tr>
+<tr>
+<td>Endpoints</td>
+<td>MDM (Intune / Jamf)</td>
+<td>MDM console</td>
+</tr>
+</tbody></table>
+<h2>Baseline Standards</h2>
+<p>All configurations must adhere to:</p>
+<ul>
+<li><strong>CIS Benchmarks</strong> for OS hardening</li>
+<li><strong>OWASP</strong> guidelines for web applications</li>
+<li><strong>Vendor security best practices</strong></li>
+<li><strong>Least privilege</strong> principle</li>
+</ul>
+<h2>Version Control</h2>
+<p>All configuration files are stored in the Git repository. Changes go through the <a href="../processes/change-management">Change Management</a> process.</p>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 ICT Team. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

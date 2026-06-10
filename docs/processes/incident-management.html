@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incident Management — ICT Knowledge Base</title>
+<meta name="description" content="Restore normal service operation as quickly as possible and minimise business impact.">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../../index.html" class="navbar-brand">
+      <img src="../../img/logo.svg" alt="ICT Logo" width="28" height="28">
+      ICT Knowledge Base
+    </a>
+    <div class="navbar-links">
+      <a href="../governance/overview.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/overview.html">Overview</a><a class="sidebar-item" href="../governance/policies.html">Policies</a><a class="sidebar-item" href="../governance/compliance.html">Compliance</a><a class="sidebar-item" href="../governance/risk-management.html">Risk Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Runbooks</div><a class="sidebar-item" href="../runbooks/overview.html">Overview</a><a class="sidebar-item" href="../runbooks/server-provisioning.html">Server Provisioning</a><a class="sidebar-item" href="../runbooks/backup-and-restore.html">Backup & Restore</a><a class="sidebar-item" href="../runbooks/incident-response.html">Incident Response</a><a class="sidebar-item" href="../runbooks/user-management.html">User Management</a><a class="sidebar-item" href="../runbooks/monitoring-setup.html">Monitoring Setup</a></div><div class="sidebar-section"><div class="sidebar-section-title">Processes</div><a class="sidebar-item" href="../processes/overview.html">Overview</a><a class="sidebar-item" href="../processes/change-management.html">Change Management</a><a class="sidebar-item active" href="../processes/incident-management.html">Incident Management</a><a class="sidebar-item" href="../processes/request-fulfillment.html">Request Fulfillment</a><a class="sidebar-item" href="../processes/problem-management.html">Problem Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Configuration</div><a class="sidebar-item" href="../configuration/overview.html">Overview</a><a class="sidebar-item" href="../configuration/network-config.html">Network Config</a><a class="sidebar-item" href="../configuration/server-config.html">Server Config</a><a class="sidebar-item" href="../configuration/software-config.html">Software Config</a><a class="sidebar-item" href="../configuration/security-config.html">Security Config</a></div><div class="sidebar-section"><div class="sidebar-section-title">Asset Life Cycle</div><a class="sidebar-item" href="../asset-life-cycle/overview.html">Overview</a><a class="sidebar-item" href="../asset-life-cycle/procurement.html">Procurement</a><a class="sidebar-item" href="../asset-life-cycle/deployment.html">Deployment</a><a class="sidebar-item" href="../asset-life-cycle/maintenance.html">Maintenance</a><a class="sidebar-item" href="../asset-life-cycle/disposal.html">Disposal</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <h1>Incident Management</h1>
+<p>Restore normal service operation as quickly as possible and minimise business impact.</p>
+<h2>Incident Classification</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Impact</th>
+<th>Urgency</th>
+<th>Response SLA</th>
+<th>Resolution SLA</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P1</td>
+<td>Critical business processes down</td>
+<td>Immediate</td>
+<td>15 min</td>
+<td>4 hours</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Major feature unavailable</td>
+<td>High</td>
+<td>30 min</td>
+<td>8 hours</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Minor feature issue</td>
+<td>Medium</td>
+<td>4 hours</td>
+<td>24 hours</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>Informational / cosmetic</td>
+<td>Low</td>
+<td>1 business day</td>
+<td>5 business days</td>
+</tr>
+</tbody></table>
+<h2>Workflow</h2>
+<h3>1. Detection</h3>
+<ul>
+<li>User reports via portal, email, or phone</li>
+<li>Automated alert from monitoring system</li>
+<li>Team member observation</li>
+</ul>
+<h3>2. Logging</h3>
+<ul>
+<li>Create ticket with: user info, description, time, system affected</li>
+<li>Assign incident ID</li>
+<li>Categorise and prioritise</li>
+</ul>
+<h3>3. Investigation &amp; Diagnosis</h3>
+<ul>
+<li>Assign to appropriate team member</li>
+<li>Document findings in ticket</li>
+<li>Escalate if unresolved within SLA</li>
+</ul>
+<h3>4. Resolution &amp; Recovery</h3>
+<ul>
+<li>Apply workaround or permanent fix</li>
+<li>Verify service restoration</li>
+<li>Update ticket with resolution details</li>
+</ul>
+<h3>5. Closure</h3>
+<ul>
+<li>Confirm with reporter that issue is resolved</li>
+<li>Conduct satisfaction survey (P1-P2)</li>
+<li>Document lessons learned (P1 only)</li>
+</ul>
+<h2>Escalation</h2>
+<ul>
+<li><strong>Functional escalation</strong>: P1 unresolved after 2 hours → ICT Manager</li>
+<li><strong>Hierarchical escalation</strong>: P1 unresolved after 4 hours → Executive</li>
+</ul>
+<h2>Major Incident Protocol (P1)</h2>
+<ol>
+<li>Assemble incident team in dedicated channel</li>
+<li>Appoint incident commander</li>
+<li>Regular updates every 30 min to stakeholders</li>
+<li>Post-incident review within 48 hours</li>
+<li>Root cause analysis within 5 business days</li>
+</ol>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 ICT Team. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Problem Management — ICT Knowledge Base</title>
+<meta name="description" content="Identify and resolve the root causes of incidents to prevent recurrence.">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../../index.html" class="navbar-brand">
+      <img src="../../img/logo.svg" alt="ICT Logo" width="28" height="28">
+      ICT Knowledge Base
+    </a>
+    <div class="navbar-links">
+      <a href="../governance/overview.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/overview.html">Overview</a><a class="sidebar-item" href="../governance/policies.html">Policies</a><a class="sidebar-item" href="../governance/compliance.html">Compliance</a><a class="sidebar-item" href="../governance/risk-management.html">Risk Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Runbooks</div><a class="sidebar-item" href="../runbooks/overview.html">Overview</a><a class="sidebar-item" href="../runbooks/server-provisioning.html">Server Provisioning</a><a class="sidebar-item" href="../runbooks/backup-and-restore.html">Backup & Restore</a><a class="sidebar-item" href="../runbooks/incident-response.html">Incident Response</a><a class="sidebar-item" href="../runbooks/user-management.html">User Management</a><a class="sidebar-item" href="../runbooks/monitoring-setup.html">Monitoring Setup</a></div><div class="sidebar-section"><div class="sidebar-section-title">Processes</div><a class="sidebar-item" href="../processes/overview.html">Overview</a><a class="sidebar-item" href="../processes/change-management.html">Change Management</a><a class="sidebar-item" href="../processes/incident-management.html">Incident Management</a><a class="sidebar-item" href="../processes/request-fulfillment.html">Request Fulfillment</a><a class="sidebar-item active" href="../processes/problem-management.html">Problem Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Configuration</div><a class="sidebar-item" href="../configuration/overview.html">Overview</a><a class="sidebar-item" href="../configuration/network-config.html">Network Config</a><a class="sidebar-item" href="../configuration/server-config.html">Server Config</a><a class="sidebar-item" href="../configuration/software-config.html">Software Config</a><a class="sidebar-item" href="../configuration/security-config.html">Security Config</a></div><div class="sidebar-section"><div class="sidebar-section-title">Asset Life Cycle</div><a class="sidebar-item" href="../asset-life-cycle/overview.html">Overview</a><a class="sidebar-item" href="../asset-life-cycle/procurement.html">Procurement</a><a class="sidebar-item" href="../asset-life-cycle/deployment.html">Deployment</a><a class="sidebar-item" href="../asset-life-cycle/maintenance.html">Maintenance</a><a class="sidebar-item" href="../asset-life-cycle/disposal.html">Disposal</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <h1>Problem Management</h1>
+<p>Identify and resolve the root causes of incidents to prevent recurrence.</p>
+<h2>Problem vs Incident</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Incident</th>
+<th>Problem</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Focus</td>
+<td>Restore service</td>
+<td>Find root cause</td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>User report or alert</td>
+<td>Trend analysis or major incident</td>
+</tr>
+<tr>
+<td>Outcome</td>
+<td>Workaround or fix</td>
+<td>Permanent resolution</td>
+</tr>
+<tr>
+<td>Timeline</td>
+<td>SLA-driven</td>
+<td>Continuous improvement</td>
+</tr>
+</tbody></table>
+<h2>Workflow</h2>
+<h3>1. Problem Detection</h3>
+<ul>
+<li>Analysis of recurring incidents (3+ similar incidents in 30 days)</li>
+<li>Major incident post-mortem</li>
+<li>Proactive identification from monitoring trends</li>
+<li>Supplier/vendor notification</li>
+</ul>
+<h3>2. Logging</h3>
+<ul>
+<li>Create problem record in ticketing system</li>
+<li>Link related incidents</li>
+<li>Assign priority based on business impact</li>
+</ul>
+<h3>3. Root Cause Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>5 Whys</td>
+<td>Simple or moderate problems</td>
+</tr>
+<tr>
+<td>Fishbone / Ishikawa</td>
+<td>Complex problems with multiple causes</td>
+</tr>
+<tr>
+<td>Kepner-Tregoe</td>
+<td>High-impact, time-sensitive problems</td>
+</tr>
+<tr>
+<td>Timeline analysis</td>
+<td>Problems with temporal patterns</td>
+</tr>
+</tbody></table>
+<h3>4. Known Error</h3>
+<ul>
+<li>Document the root cause</li>
+<li>Identify workaround if permanent fix is delayed</li>
+<li>Publish to the knowledge base</li>
+<li>Link to related incidents</li>
+</ul>
+<h3>5. Resolution</h3>
+<ul>
+<li>Implement permanent fix via Change Management</li>
+<li>Verify fix in test environment first</li>
+<li>Deploy to production per change process</li>
+<li>Monitor for recurrence</li>
+</ul>
+<h2>Problem Prioritisation</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Business Impact</th>
+<th>Number of Incidents</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P1</td>
+<td>Critical</td>
+<td>10+ in 30 days</td>
+<td>Immediate RCA</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>High</td>
+<td>5-9 in 30 days</td>
+<td>RCA within 5 days</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Medium</td>
+<td>3-4 in 30 days</td>
+<td>RCA within 10 days</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>Low</td>
+<td>&lt; 3 in 30 days</td>
+<td>Log and monitor</td>
+</tr>
+</tbody></table>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 ICT Team. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

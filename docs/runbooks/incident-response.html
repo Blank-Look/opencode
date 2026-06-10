@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incident Response — ICT Knowledge Base</title>
+<meta name="description" content="Standardised procedure for detecting, responding to, and recovering from security incidents.">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../../index.html" class="navbar-brand">
+      <img src="../../img/logo.svg" alt="ICT Logo" width="28" height="28">
+      ICT Knowledge Base
+    </a>
+    <div class="navbar-links">
+      <a href="../governance/overview.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/overview.html">Overview</a><a class="sidebar-item" href="../governance/policies.html">Policies</a><a class="sidebar-item" href="../governance/compliance.html">Compliance</a><a class="sidebar-item" href="../governance/risk-management.html">Risk Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Runbooks</div><a class="sidebar-item" href="../runbooks/overview.html">Overview</a><a class="sidebar-item" href="../runbooks/server-provisioning.html">Server Provisioning</a><a class="sidebar-item" href="../runbooks/backup-and-restore.html">Backup & Restore</a><a class="sidebar-item active" href="../runbooks/incident-response.html">Incident Response</a><a class="sidebar-item" href="../runbooks/user-management.html">User Management</a><a class="sidebar-item" href="../runbooks/monitoring-setup.html">Monitoring Setup</a></div><div class="sidebar-section"><div class="sidebar-section-title">Processes</div><a class="sidebar-item" href="../processes/overview.html">Overview</a><a class="sidebar-item" href="../processes/change-management.html">Change Management</a><a class="sidebar-item" href="../processes/incident-management.html">Incident Management</a><a class="sidebar-item" href="../processes/request-fulfillment.html">Request Fulfillment</a><a class="sidebar-item" href="../processes/problem-management.html">Problem Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Configuration</div><a class="sidebar-item" href="../configuration/overview.html">Overview</a><a class="sidebar-item" href="../configuration/network-config.html">Network Config</a><a class="sidebar-item" href="../configuration/server-config.html">Server Config</a><a class="sidebar-item" href="../configuration/software-config.html">Software Config</a><a class="sidebar-item" href="../configuration/security-config.html">Security Config</a></div><div class="sidebar-section"><div class="sidebar-section-title">Asset Life Cycle</div><a class="sidebar-item" href="../asset-life-cycle/overview.html">Overview</a><a class="sidebar-item" href="../asset-life-cycle/procurement.html">Procurement</a><a class="sidebar-item" href="../asset-life-cycle/deployment.html">Deployment</a><a class="sidebar-item" href="../asset-life-cycle/maintenance.html">Maintenance</a><a class="sidebar-item" href="../asset-life-cycle/disposal.html">Disposal</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <h1>Incident Response</h1>
+<p>Standardised procedure for detecting, responding to, and recovering from security incidents.</p>
+<h2>Incident Severity Levels</h2>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Definition</th>
+<th>Response Time</th>
+<th>Escalation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P1 - Critical</td>
+<td>Active breach, data loss, service down</td>
+<td>15 min</td>
+<td>ICT Manager, Exec</td>
+</tr>
+<tr>
+<td>P2 - High</td>
+<td>Suspected breach, malware, privilege escalation</td>
+<td>30 min</td>
+<td>Security Lead</td>
+</tr>
+<tr>
+<td>P3 - Medium</td>
+<td>Policy violation, suspicious activity</td>
+<td>4 hours</td>
+<td>Team Lead</td>
+</tr>
+<tr>
+<td>P4 - Low</td>
+<td>Phishing report, minor anomaly</td>
+<td>24 hours</td>
+<td>Assignee</td>
+</tr>
+</tbody></table>
+<h2>Response Stages</h2>
+<h3>1. Identification</h3>
+<ul>
+<li>User reports incident via ticketing system</li>
+<li>Alert from monitoring / SIEM</li>
+<li>Automated scan detection</li>
+</ul>
+<h3>2. Triage</h3>
+<ul>
+<li>Determine severity level</li>
+<li>Assign incident handler</li>
+<li>Create incident ticket</li>
+<li>Initial containment if needed</li>
+</ul>
+<h3>3. Containment</h3>
+<ul>
+<li>Isolate affected systems from network</li>
+<li>Preserve evidence (disk images, memory dumps, logs)</li>
+<li>Apply temporary access blocks</li>
+</ul>
+<h3>4. Eradication</h3>
+<ul>
+<li>Remove malware / malicious accounts</li>
+<li>Patch vulnerabilities</li>
+<li>Reset compromised credentials</li>
+</ul>
+<h3>5. Recovery</h3>
+<ul>
+<li>Restore from clean backups</li>
+<li>Verify system integrity</li>
+<li>Monitor for recurrence</li>
+</ul>
+<h3>6. Lessons Learned</h3>
+<ul>
+<li>Root cause analysis</li>
+<li>Update runbooks and controls</li>
+<li>Incident report for management</li>
+</ul>
+<h2>Communication</h2>
+<ul>
+<li>P1: Notify ICT Manager immediately by phone</li>
+<li>All incidents: Update ticket within 1 hour</li>
+<li>Post-incident: Written report within 5 business days</li>
+</ul>
+<h2>Tools</h2>
+<ul>
+<li><strong>SIEM</strong>: Wazuh / Splunk</li>
+<li><strong>EDR</strong>: CrowdStrike / Defender for Endpoint</li>
+<li><strong>Ticketing</strong>: Jira Service Management</li>
+<li><strong>Forensics</strong>: Autopsy / FTK Imager</li>
+</ul>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 ICT Team. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

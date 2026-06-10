@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Server Config — ICT Knowledge Base</title>
+<meta name="description" content="Baseline configuration standards for all servers.">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../../index.html" class="navbar-brand">
+      <img src="../../img/logo.svg" alt="ICT Logo" width="28" height="28">
+      ICT Knowledge Base
+    </a>
+    <div class="navbar-links">
+      <a href="../governance/overview.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/overview.html">Overview</a><a class="sidebar-item" href="../governance/policies.html">Policies</a><a class="sidebar-item" href="../governance/compliance.html">Compliance</a><a class="sidebar-item" href="../governance/risk-management.html">Risk Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Runbooks</div><a class="sidebar-item" href="../runbooks/overview.html">Overview</a><a class="sidebar-item" href="../runbooks/server-provisioning.html">Server Provisioning</a><a class="sidebar-item" href="../runbooks/backup-and-restore.html">Backup & Restore</a><a class="sidebar-item" href="../runbooks/incident-response.html">Incident Response</a><a class="sidebar-item" href="../runbooks/user-management.html">User Management</a><a class="sidebar-item" href="../runbooks/monitoring-setup.html">Monitoring Setup</a></div><div class="sidebar-section"><div class="sidebar-section-title">Processes</div><a class="sidebar-item" href="../processes/overview.html">Overview</a><a class="sidebar-item" href="../processes/change-management.html">Change Management</a><a class="sidebar-item" href="../processes/incident-management.html">Incident Management</a><a class="sidebar-item" href="../processes/request-fulfillment.html">Request Fulfillment</a><a class="sidebar-item" href="../processes/problem-management.html">Problem Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Configuration</div><a class="sidebar-item" href="../configuration/overview.html">Overview</a><a class="sidebar-item" href="../configuration/network-config.html">Network Config</a><a class="sidebar-item active" href="../configuration/server-config.html">Server Config</a><a class="sidebar-item" href="../configuration/software-config.html">Software Config</a><a class="sidebar-item" href="../configuration/security-config.html">Security Config</a></div><div class="sidebar-section"><div class="sidebar-section-title">Asset Life Cycle</div><a class="sidebar-item" href="../asset-life-cycle/overview.html">Overview</a><a class="sidebar-item" href="../asset-life-cycle/procurement.html">Procurement</a><a class="sidebar-item" href="../asset-life-cycle/deployment.html">Deployment</a><a class="sidebar-item" href="../asset-life-cycle/maintenance.html">Maintenance</a><a class="sidebar-item" href="../asset-life-cycle/disposal.html">Disposal</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <h1>Server Configuration</h1>
+<p>Baseline configuration standards for all servers.</p>
+<h2>OS Baseline (Ubuntu 24.04 LTS)</h2>
+<h3>System Settings</h3>
+<pre><code class="language-bash"># Timezone
+timedatectl set-timezone UTC
+
+# NTP
+apt install chrony
+
+# Firewall
+ufw default deny incoming
+ufw default allow outgoing
+ufw allow ssh
+
+# Automatic updates
+apt install unattended-upgrades
+dpkg-reconfigure --priority=low unattended-upgrades
+</code></pre>
+<h3>SSH Hardening</h3>
+<pre><code>PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+MaxAuthTries 3
+ClientAliveInterval 300
+ClientAliveCountMax 2
+UsePAM no
+</code></pre>
+<h3>Logging</h3>
+<pre><code class="language-bash"># Install rsyslog and configure remote logging
+# Log rotation per OS defaults
+# Forward all auth logs to SIEM
+</code></pre>
+<h2>Monitoring Agent</h2>
+<p>All servers must run:</p>
+<ul>
+<li>Node Exporter (Prometheus metrics)</li>
+<li>rsyslog remote forwarding</li>
+<li>osquery (for security visibility)</li>
+<li>CrowdStrike / Wazuh agent (EDR)</li>
+</ul>
+<h2>Directory Structure</h2>
+<pre><code>/opt/ict/          — Team-managed applications
+/var/log/apps/     — Application logs
+/backup/           — Local backup staging
+/data/             — Application data
+</code></pre>
+<h2>Patching Schedule</h2>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>Day</th>
+<th>Time</th>
+<th>Max Downtime</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Development</td>
+<td>Monday</td>
+<td>09:00-12:00</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Staging</td>
+<td>Wednesday</td>
+<td>12:00-14:00</td>
+<td>30 min</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>Thursday</td>
+<td>18:00-22:00</td>
+<td>15 min</td>
+</tr>
+</tbody></table>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 ICT Team. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

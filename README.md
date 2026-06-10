@@ -1,19 +1,27 @@
 # ICT Knowledge Base
 
-A Confluence-like web portal for a small ICT team covering governance, runbooks, processes, configuration, and asset life cycle management.
+A static documentation portal for a small ICT team covering governance, runbooks, processes, configuration, and asset life cycle management.
 
-Built with [Docusaurus](https://docusaurus.io/).
+Built with markdown + a simple Node.js generator.
 
-## Quick Start
+## Structure
 
-```bash
-npm install
-npm start
+```
+content/       ← Markdown source files (edit these)
+docs/          ← Generated HTML pages
+css/style.css  ← Shared stylesheet
+generate.js    ← Markdown → HTML generator
+index.html     ← Homepage
 ```
 
-## Build
+## Edit Content
+
+Edit the `.md` files in `content/`, then regenerate:
 
 ```bash
-npm run build
-npm run serve
+node generate.js
 ```
+
+## Deploy
+
+The site is pure HTML/CSS — just push to GitHub and enable GitHub Pages from the root directory.
