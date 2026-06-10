@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asset Inventory — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --maroon: #7A1B2C;
+  --maroon-dark: #6D1827;
+  --maroon-light: #A3243B;
+  --navy: #1A2E4A;
+  --gray-50: #F8F7F6;
+  --gray-100: #F0EFEE;
+  --gray-200: #E2E0DE;
+  --gray-300: #C5C2BE;
+  --gray-400: #A39E99;
+  --gray-500: #847E78;
+  --gray-600: #66605A;
+  --gray-700: #4D4843;
+  --gray-800: #34302C;
+  --gray-900: #1C1A18;
+  --white: #FFFFFF;
+  --green: #16A34A;
+  --amber: #D97706;
+  --blue: #2563EB;
+  --red: #DC2626;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--gray-50);
+  color: var(--gray-900);
+  line-height: 1.5;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 50%, var(--maroon-light) 100%);
+  color: var(--white);
+  padding: 1.5rem 2rem;
+}
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.header p {
+  opacity: 0.85;
+  font-size: 0.875rem;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+}
+
+/* Stats row */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.stat-card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--gray-200);
+}
+.stat-card .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
+  margin-bottom: 0.25rem;
+}
+.stat-card .value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+.stat-card .sub {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 0.125rem;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.search-box {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  background: var(--white);
+}
+.search-box:focus {
+  outline: none;
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(122,27,44,0.12);
+}
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  background: var(--white);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  cursor: default;
+}
+.filter-btn.active {
+  background: var(--maroon);
+  color: var(--white);
+  border-color: var(--maroon);
+}
+
+/* Table */
+.table-wrap {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+thead th {
+  text-align: left;
+  padding: 0.625rem 1rem;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+}
+tbody tr {
+  border-bottom: 1px solid var(--gray-100);
+  transition: background 0.15s;
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--gray-50); }
+tbody td {
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+}
+
+/* Badges */
+.source-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.source-badge.entra { background: #EFF6FF; color: #1D4ED8; }
+.source-badge.sharepoint { background: #F0FDF4; color: #15803D; }
+.source-badge.defender { background: #FEF2F2; color: #B91C1C; }
+.source-badge.powerautomate { background: #FFF7ED; color: #C2410C; }
+.source-badge.manual { background: var(--gray-100); color: var(--gray-600); }
+
+.owner-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.owner-tag .avatar {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--gray-600);
+}
+.owner-tag .avatar.initials { background: var(--navy); color: var(--white); }
+
+.status-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.status-dot::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+.status-dot.active::before { background: var(--green); }
+.status-dot.inactive::before { background: var(--gray-400); }
+.status-dot.unknown::before { background: var(--amber); }
+
+/* Type icon */
+.type-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.type-icon .emoji { font-size: 1rem; }
+
+/* Footer note */
+.footer-note {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--gray-100);
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-note strong { color: var(--gray-800); }
+.footer-note .step { display: flex; align-items: center; gap: 0.5rem; }
+.footer-note .step-num {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--maroon);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 1rem; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .header { padding: 1rem 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Asset Inventory</h1>
+  <p>Discover, tag, and assign ownership across Entra ID, SharePoint, Defender &amp; Power Automate</p>
+</div>
+
+<div class="container">
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="label">Total Assets</div>
+      <div class="value">347</div>
+      <div class="sub">across 4 sources</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Unassigned</div>
+      <div class="value">89</div>
+      <div class="sub">needs owner</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Active</div>
+      <div class="value">312</div>
+      <div class="sub">seen in last 30d</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Last Sync</div>
+      <div class="value">12 min</div>
+      <div class="sub">ago — auto daily</div>
+    </div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <input class="search-box" type="text" placeholder="Search assets, owners, or tags..." value="contoso">
+    <span class="filter-btn active">All</span>
+    <span class="filter-btn">Entra</span>
+    <span class="filter-btn">SharePoint</span>
+    <span class="filter-btn">Defender</span>
+    <span class="filter-btn">Power Automate</span>
+    <span class="filter-btn" style="margin-left:auto;">+ Add Asset</span>
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:32%">Asset</th>
+          <th style="width:10%">Source</th>
+          <th style="width:10%">Status</th>
+          <th style="width:18%">Owner</th>
+          <th style="width:12%">Category</th>
+          <th style="width:18%">Last Seen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="type-icon"><span class="emoji">💬</span> Contoso Sales Team</span></td>
+          <td><span class="source-badge entra">Entra</span></td>
+          <td><span class="status-dot active">Active</span></td>
+          <td><span class="owner-tag"><span class="avatar initials">KM</span> Kate M.</span></td>
+          <td><span style="color:var(--gray-500)">Team</span></td>
+          <td><span style="color:var(--gray-500)">2026-06-09</span></td>
+        </tr>
+        <tr>
+          <td><span class="type-icon"><span class="emoji">📄</span> Contoso HR Portal</span></td>
+          <td><span class="source-badge sharepoint">SPO</span></td>
+          <td><span class="status-dot active">Active</span></td>
+          <td><span class="owner-tag"><span class="avatar initials">JR</span> James R.</span></td>
+          <td><span style="color:var(--gray-500)">Site</span></td>
+          <td><span style="color:var(--gray-500)">2026-06-10</span></td>
+        </tr>
+        <tr>
+          <td><span class="type-icon"><span class="emoji">🔒</span> Microsoft Defender AV</span></td>
+          <td><span class="source-badge defender">Defender</span></td>
+          <td><span class="status-dot active">Active</span></td>
+          <td><span class="owner-tag"><span class="avatar initials">AL</span> Alex L.</span></td>
+          <td><span style="color:var(--gray-500)">App</span></td>
+          <td><span style="color:var(--gray-500)">2026-06-10</span></td>
+        </tr>
+        <tr>
+          <td><span class="type-icon"><span class="emoji">⚡</span> Onboarding Flow</span></td>
+          <td><span class="source-badge powerautomate">PA</span></td>
+          <td><span class="status-dot active">Active</span></td>
+          <td><span class="owner-tag"><span class="avatar initials">KM</span> Kate M.</span></td>
+          <td><span style="color:var(--gray-500)">Flow</span></td>
+          <td><span style="color:var(--gray-500)">2026-06-08</span></td>
+        </tr>
+        <tr>
+          <td><span class="type-icon"><span class="emoji">🗄️</span> IT Asset DB App</span></td>
+          <td><span class="source-badge entra">Entra</span></td>
+          <td><span class="status-dot active">Active</span></td>
+          <td><span class="owner-tag"><span class="avatar" style="background:var(--gray-100)">?</span> <em style="color:var(--gray-400)">Unassigned</em></span></td>
+          <td><span style="color:var(--gray-500)">App</span></td>
+          <td><span style="color:var(--gray-500)">2026-06-09</span></td>
+        </tr>
+        <tr>
+          <td><span class="type-icon"><span class="emoji">📋</span> Compliance Review Site</span></td>
+          <td><span class="source-badge sharepoint">SPO</span></td>
+          <td><span class="status-dot inactive">Inactive</span></td>
+          <td><span class="owner-tag"><span class="avatar initials">JR</span> James R.</span></td>
+          <td><span style="color:var(--gray-500)">Site</span></td>
+          <td><span style="color:var(--gray-500)">2026-04-12</span></td>
+        </tr>
+        <tr>
+          <td><span class="type-icon"><span class="emoji">🔒</span> SolarWinds Agent</span></td>
+          <td><span class="source-badge defender">Defender</span></td>
+          <td><span class="status-dot active">Active</span></td>
+          <td><span class="owner-tag"><span class="avatar" style="background:var(--gray-100)">?</span> <em style="color:var(--gray-400)">Unassigned</em></span></td>
+          <td><span style="color:var(--gray-500)">Software</span></td>
+          <td><span style="color:var(--gray-500)">2026-06-07</span></td>
+        </tr>
+        <tr>
+          <td><span class="type-icon"><span class="emoji">⚡</span> Ticket Escalation Flow</span></td>
+          <td><span class="source-badge powerautomate">PA</span></td>
+          <td><span class="status-dot unknown">Disabled</span></td>
+          <td><span class="owner-tag"><span class="avatar initials">AL</span> Alex L.</span></td>
+          <td><span style="color:var(--gray-500)">Flow</span></td>
+          <td><span style="color:var(--gray-500)">2026-05-20</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer note -->
+  <div class="footer-note">
+    <div class="step"><span class="step-num">1</span> <strong>Discover</strong> — Collector runs daily via Graph API</div>
+    <div class="step"><span class="step-num">2</span> <strong>Assign</strong> — Tag owners, roles, and lifecycle status</div>
+    <div class="step"><span class="step-num">3</span> <strong>Export</strong> — CSV/SharePoint list sync anytime</div>
+  </div>
+
+</div>
+
+</body>
+</html>

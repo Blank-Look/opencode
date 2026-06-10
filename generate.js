@@ -1,6 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const { marked } = require('marked');
+let marked;
+
+async function initMarked() {
+  marked = await import('marked');
+}
 
 const DOCS_SRC = path.join(__dirname, 'content');
 const DOCS_DST = path.join(__dirname, 'docs');
@@ -40,6 +44,13 @@ const sidebar = [
     { label: 'Deployment', file: 'deployment' },
     { label: 'Maintenance', file: 'maintenance' },
     { label: 'Disposal', file: 'disposal' },
+  ]},
+  { label: 'Security', id: 'security', pages: [
+    { label: 'Overview', file: 'overview' },
+    { label: 'Threat Management', file: 'threat-management' },
+    { label: 'Access Control', file: 'access-control' },
+    { label: 'Vulnerability Management', file: 'vulnerability-management' },
+    { label: 'Security Awareness', file: 'security-awareness' },
   ]},
 ];
 
@@ -107,7 +118,7 @@ function pageHtml(title, description, sectionId, pageFile, contentHtml) {
 }
 
 function mdToHtml(markdown) {
-  return marked.parse(markdown, { breaks: true, gfm: true });
+  return marked.marked.parse(markdown, { breaks: true, gfm: true });
 }
 
 // Helper: extract frontmatter title
@@ -150,7 +161,8 @@ function buildPageMeta() {
   return meta;
 }
 
-function generate() {
+async function generate() {
+  if (!marked) await initMarked();
   const pageMeta = buildPageMeta();
 
   for (const section of sidebar) {
@@ -180,4 +192,4 @@ function generate() {
   console.log('\nDone! All pages generated.');
 }
 
-generate();
+generate().catch(err => { console.error(err); process.exit(1); });
