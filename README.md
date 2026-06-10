@@ -25,3 +25,5 @@ node generate.js
 ## Deploy
 
 The site is pure HTML/CSS — just push to GitHub and enable GitHub Pages from the root directory.
+
+**Live**: https://blank-look.github.io/opencode/
