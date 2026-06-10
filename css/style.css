@@ -382,7 +382,43 @@ body {
 
 .section-card:hover .card-arrow { transform: translateX(4px); }
 
+/* Governance grid (used inside governance overview page content) */
+.governance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.governance-card {
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1.5rem;
+  background: var(--white);
+}
+.governance-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--maroon);
+}
+.governance-card p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.governance-card .card-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--maroon);
+  text-decoration: none;
+}
+.governance-card .card-link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
+  .governance-grid { grid-template-columns: 1fr; }
   .hero { padding: 2rem 1rem; }
   .hero h1 { font-size: 2.25rem; }
   .section-grid { padding: 2rem 1rem 3rem; grid-template-columns: 1fr; }

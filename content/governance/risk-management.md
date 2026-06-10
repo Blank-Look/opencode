@@ -1,18 +1,18 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 # Risk Management
 
-A structured approach to identifying, assessing, and treating ICT risks. Our methodology follows ISO 31000 principles scaled for a small team.
+A structured approach to identifying, assessing, and treating ICT risks. Our methodology follows ISO 31000 principles, with oversight from the IT Board of Directors and the Information Security Advisory Council.
 
 ## Risk Process
 
-1. **Identify** — Find risks through regular assessments, incident reviews, and change management
+1. **Identify** — Find risks through regular assessments, incident reviews, change management, and threat intelligence
 2. **Assess** — Evaluate likelihood and impact using the criteria below
 3. **Treat** — Select controls (avoid, reduce, transfer, accept)
 4. **Monitor** — Track risks and control effectiveness
-5. **Report** — Report to management quarterly
+5. **Report** — Report to IT Board of Directors quarterly
 
 ## Risk Matrix
 
@@ -24,15 +24,25 @@ A structured approach to identifying, assessing, and treating ICT risks. Our met
 | Unlikely | Low | Low | Medium | Medium |
 | Rare | Low | Low | Low | Medium |
 
+## Governance Oversight
+
+| Body | Risk Role |
+|---|---|
+| IT Executive Council (ITEC) | Institutional IT risk appetite, strategic risk decisions |
+| IT Board of Directors (IT BoD) | Operational risk review, control effectiveness |
+| Information Security Advisory Council (ISAC) | Security risk assessment, threat prioritisation |
+| Data Stewards Council (DSC) | Data-related risk identification and escalation |
+
 ## Current Top Risks
 
 | Risk | Likelihood | Impact | Rating | Treatment | Owner |
 |---|---|---|---|---|---|
-| Ransomware attack | Possible | Critical | High | EDR deployment, backups, training | Security Lead |
-| Single point of failure (key person) | Likely | Major | High | Cross-training, documentation | ICT Manager |
-| Unpatched vulnerabilities | Likely | Major | High | Automated patching, weekly scans | Operations Lead |
-| Data breach (insider) | Unlikely | Critical | Medium | Access controls, monitoring, DLP | Security Lead |
+| Ransomware attack | Possible | Critical | High | EDR, offline backups, staff training | CISO |
+| Single point of failure (key person) | Likely | Major | High | Cross-training, documentation, succession planning | IT Director |
+| Unpatched vulnerabilities | Likely | Major | High | Automated patching, weekly scans, vulnerability management | Operations Lead |
+| Data breach (insider) | Unlikely | Critical | Medium | Access controls, monitoring, DLP, least privilege | CISO |
+| Cloud service outage | Possible | Major | Medium | Multi-region deployment, DR plan, SLAs | IT Director |
 
 ## Risk Register
 
-The full risk register is maintained in the document management system. It is reviewed quarterly by the ICT team and reported to management.
+The full risk register is maintained in the document management system. It is reviewed quarterly by the IT Board of Directors and reported to ITEC.

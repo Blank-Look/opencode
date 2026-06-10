@@ -12,7 +12,9 @@ const DOCS_DST = path.join(__dirname, 'docs');
 const sidebar = [
   { label: 'Governance', id: 'governance', pages: [
     { label: 'Overview', file: 'overview' },
-    { label: 'Policies', file: 'policies' },
+    { label: 'IT Governance', file: 'it-governance' },
+    { label: 'Data Governance', file: 'data-governance' },
+    { label: 'Data Classification', file: 'data-classification' },
     { label: 'Compliance', file: 'compliance' },
     { label: 'Risk Management', file: 'risk-management' },
   ]},

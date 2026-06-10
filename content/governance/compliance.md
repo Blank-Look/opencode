@@ -1,30 +1,42 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 # Compliance
 
-The ICT team must comply with various regulatory, contractual, and industry obligations. This page tracks our compliance obligations and controls.
+The ICT team must comply with regulatory, contractual, and industry obligations. Compliance oversight is provided by the IT Executive Council and the Data Stewards Council.
 
 ## Regulatory Obligations
 
 | Regulation | Scope | Applicable | Controls Required |
 |---|---|---|---|
+| FERPA | Student education records | Yes | Access controls, audit logging, data classification |
 | GDPR | Personal data of EU residents | Yes | Data protection, breach notification, DPIAs |
-| ISO 27001 | Information security management | Target 2026 | ISMS, risk assessment, audit trail |
-| PCI DSS | Payment card data | No (not applicable) | — |
-| SOC 2 | Service organisation controls | No (not applicable) | — |
+| PCI DSS | Payment card data | Partial (if accepting cards) | Segmentation, encryption, quarterly scans |
+| HIPAA | Protected health information | As applicable | BAAs, access controls, audit trails |
 
 ## Compliance Register
 
-All obligations are tracked in the compliance register, which is reviewed quarterly.
+All obligations are tracked in the compliance register, reviewed quarterly by the Data Stewards Council.
 
 ### Key Activities
 
-- **Monthly** — Review access logs, patch compliance reports
-- **Quarterly** — Compliance register review, policy attestations
-- **Annually** — External audit, penetration test, policy reviews
-- **Ad-hoc** — Breach notification, regulatory change responses
+| Frequency | Activity | Owner |
+|---|---|---|
+| Monthly | Access log review, patch compliance | IT Operations |
+| Quarterly | Compliance register review, policy attestations, DSC review | Data Stewards Council |
+| Annually | External audit, penetration test, policy reviews, risk assessment | CIO / CISO |
+| Ad-hoc | Breach notification, regulatory change responses | CISO / Legal |
+
+## Roles and Responsibilities
+
+| Role | Compliance Responsibility |
+|---|---|
+| Data Trustees | Policy-level oversight of compliance for their data domains |
+| Data Stewards Council | Operational compliance monitoring and escalation |
+| CISO | Information security compliance, breach response |
+| IT Director | Operational compliance, audit support |
+| Internal Audit | Independent compliance assessment |
 
 ## Evidence Retention
 
@@ -34,3 +46,4 @@ All obligations are tracked in the compliance register, which is reviewed quarte
 | Access reviews | 3 years | Signed documentation |
 | Policy acknowledgements | Duration of employment + 2 years | HR system |
 | Incident reports | 5 years | Document management system |
+| Compliance register | Current + 3 years | SharePoint |
