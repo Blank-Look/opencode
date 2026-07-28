@@ -7,8 +7,25 @@ Built with markdown + a simple Node.js generator.
 ## Structure
 
 ```
-content/       ← Markdown source files (edit these)
-docs/          ← Generated HTML pages
+content/                        ← Markdown source files (edit these)
+├── coo/
+│   └── policy-and-governance/  ← Governance, compliance, risk
+├── service-desk/
+│   ├── process-runbooks/       ← Incident, request, change, problem, user mgmt
+│   ├── config/
+│   ├── projects/
+│   └── standards/
+├── enterprise-apps/
+│   ├── process-runbooks/
+│   ├── config/
+│   ├── projects/
+│   └── standards/
+└── infrastructure-and-security/
+    ├── process-runbooks/       ← Server provisioning, backup, incident response, monitoring, threat
+    ├── config/                 ← Network, server, software, security config
+    ├── projects/
+    └── standards/              ← Asset life cycle, access control, security awareness
+docs/          ← Generated HTML pages (regenerate after editing content)
 css/style.css  ← Shared stylesheet
 generate.js    ← Markdown → HTML generator
 index.html     ← Homepage

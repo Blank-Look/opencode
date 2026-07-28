@@ -122,6 +122,15 @@ body {
   padding: 0 0.5rem;
 }
 
+.sidebar-subsection-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  padding: 0.25rem 0.5rem 0.125rem 1rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
 .sidebar-item {
   display: block;
   padding: 0.3rem 0.5rem;
