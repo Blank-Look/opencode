@@ -24,6 +24,6 @@ node generate.js
 
 ## Deploy
 
-The site is pure HTML/CSS — just push to GitHub and enable GitHub Pages from the root directory.
+The site is pure HTML/CSS — just push to GitHub. Configure GitHub Pages to serve from the `knowledgebase/` directory (or browse it directly at the path below).
 
-**Live**: https://blank-look.github.io/opencode/
+**Live**: https://blank-look.github.io/opencode/knowledgebase/
