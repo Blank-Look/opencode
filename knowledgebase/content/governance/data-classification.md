@@ -44,7 +44,7 @@ Is the data protected by law or regulation?
 
 ## Key Resources
 
-- [Data Classification Decision Tree (PDF)](/docs/governance/data-classification)
+- [Data Classification Decision Tree (PDF)](data-classification)
 - [Data Management Standard](data-governance#data-management-standard)
 - [Data Storage and Sharing Guidelines](data-governance)
 - [Report a Data or Security Concern](mailto:security@mbs.edu)
