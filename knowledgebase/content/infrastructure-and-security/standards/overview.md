@@ -2,7 +2,15 @@
 sidebar_position: 1
 ---
 
-# Asset Life Cycle Overview
+# Standards Overview
+
+Technical standards and lifecycle policies that support governance for Infrastructure & Security.
+
+## Application & Data Lifecycle Governance
+
+The [Application & Data Lifecycle Governance Policy](asset-lifecycle-policy) defines governance, accountability, and control requirements for managing applications and data throughout their lifecycle — from procurement through to disposal.
+
+## Asset Life Cycle
 
 End-to-end management of ICT assets from identification through procurement, deployment, maintenance, and disposal.
 

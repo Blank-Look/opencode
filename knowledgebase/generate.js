@@ -19,6 +19,7 @@ const sidebar = [
       { label: 'Compliance', file: 'compliance' },
       { label: 'Policies', file: 'policies' },
       { label: 'Risk Management', file: 'risk-management' },
+      { label: 'Technology Roadmap', file: 'technology-roadmap' },
     ]},
   ]},
   { label: 'Service Desk', subsections: [
@@ -43,6 +44,7 @@ const sidebar = [
   { label: 'Enterprise Apps', subsections: [
     { label: 'Process & Runbooks', dir: 'enterprise-apps/process-runbooks', pages: [
       { label: 'Overview', file: 'overview' },
+      { label: 'Governance Framework', file: 'governance-framework' },
     ]},
     { label: 'Config', dir: 'enterprise-apps/config', pages: [
       { label: 'Overview', file: 'overview' },
@@ -63,6 +65,8 @@ const sidebar = [
       { label: 'Monitoring Setup', file: 'monitoring-setup' },
       { label: 'Threat Management', file: 'threat-management' },
       { label: 'Vulnerability Management', file: 'vulnerability-management' },
+      { label: 'Sensitivity Control Model', file: 'sensitivity-control-model' },
+      { label: 'Security Assessment', file: 'security-assessment' },
     ]},
     { label: 'Config', dir: 'infrastructure-and-security/config', pages: [
       { label: 'Overview', file: 'overview' },
@@ -76,6 +80,7 @@ const sidebar = [
     ]},
     { label: 'Standards', dir: 'infrastructure-and-security/standards', pages: [
       { label: 'Overview', file: 'overview' },
+      { label: 'Asset Lifecycle Policy', file: 'asset-lifecycle-policy' },
       { label: 'Procurement', file: 'procurement' },
       { label: 'Deployment', file: 'deployment' },
       { label: 'Maintenance', file: 'maintenance' },

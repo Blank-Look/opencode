@@ -28,3 +28,17 @@ Security policies, controls, and procedures to protect ICT assets, data, and ser
 - **Least privilege** — minimum access necessary for roles
 - **Zero trust** — verify every request, never trust by default
 - **Continuous monitoring** — real-time threat detection and alerting
+
+## Operational Models
+
+| Process | Description |
+|---|---|
+| [Sensitivity-Based Control Model](sensitivity-control-model) | Proportional governance based on sensitivity classification |
+| [Security Assessment](security-assessment) | Security evaluation process for new suppliers and services |
+| Incident Response | Standardised procedure for security incidents |
+| Vulnerability Management | Scanning, assessment, and remediation of vulnerabilities |
+| Threat Management | Detection, analysis, and remediation of security threats |
+
+## Sensitivity Routing
+
+Service intake follows a tiered routing model — see the [Sensitivity-Based Control Model](sensitivity-control-model) for details on Low, Medium, and High sensitivity paths.
