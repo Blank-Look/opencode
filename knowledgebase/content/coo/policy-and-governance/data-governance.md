@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Data Governance
 
-MBS relies upon vast amounts of data to facilitate the University's mission and objectives. To ensure that data is managed as a material asset, the University has adopted a Data Management Standard that outlines the roles and responsibilities needed to assure that institutional data provides value, compliance requirements are met, and risks are managed appropriately.
+The School relies upon vast amounts of data to facilitate its mission and objectives. To ensure that data is managed as a material asset, the School has adopted a Data Management Standard that outlines the roles and responsibilities needed to assure that institutional data provides value, compliance requirements are met, and risks are managed appropriately.
 
 ## Why Data Governance
 
@@ -26,7 +26,7 @@ Data governance enables:
 
 ## Data Stewards Council
 
-The Data Stewards Council (DSC) is the primary operational body for data governance at MBS.
+The Data Stewards Council (DSC) is the primary operational body for data governance at the School.
 
 **Membership** includes representatives from:
 - Academic Affairs
@@ -69,4 +69,4 @@ The Data Management Standard establishes:
 - Data quality and retention requirements
 - Compliance and audit obligations
 
-*Contact [its@mbs.edu](mailto:its@mbs.edu) for access to the full Data Management Standard.*
+*Contact [its@school.edu](mailto:its@school.edu) for access to the full Data Management Standard.*

@@ -24,7 +24,7 @@ Is the data protected by law or regulation?
 ├── Yes → Is it FERPA, HIPAA, PCI, or similar?
 │   ├── Yes → CONFIDENTIAL
 │   └── No → SENSITIVE
-└── No → Would unauthorised disclosure cause harm to MBS?
+└── No → Would unauthorised disclosure cause harm to the School?
     ├── Yes → Could it cause financial, reputational, or operational harm?
     │   ├── Yes → SENSITIVE
     │   └── No → INTERNAL
@@ -38,8 +38,8 @@ Is the data protected by law or regulation?
 | Classification | Approved Storage | Sharing Method |
 |---|---|---|
 | Confidential | Encrypted, access-controlled systems only | Secure file transfer, encrypted email |
-| Sensitive | MBS-managed systems with access controls | MBS SharePoint, encrypted attachments |
-| Internal | Any MBS-managed system | MBS email, SharePoint, Teams |
+| Sensitive | the School-managed systems with access controls | the School SharePoint, encrypted attachments |
+| Internal | Any the School-managed system | the School email, SharePoint, Teams |
 | Public | Any system, including external | Any method |
 
 ## Key Resources
@@ -47,6 +47,6 @@ Is the data protected by law or regulation?
 - [Data Classification Decision Tree (PDF)](data-classification)
 - [Data Management Standard](data-governance#data-management-standard)
 - [Data Storage and Sharing Guidelines](data-governance)
-- [Report a Data or Security Concern](mailto:security@mbs.edu)
+- [Report a Data or Security Concern](mailto:security@school.edu)
 
-*Contact [its@mbs.edu](mailto:its@mbs.edu) for assistance with data classification.*
+*Contact [its@school.edu](mailto:its@school.edu) for assistance with data classification.*

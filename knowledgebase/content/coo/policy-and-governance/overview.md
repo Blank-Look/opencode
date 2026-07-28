@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Governance
 
-MBS relies on a strong governance framework to ensure that information resources support the University's mission, goals, and regulatory requirements. Our governance model comprises two complementary domains:
+The School relies on a strong governance framework to ensure that information resources support its mission, goals, and regulatory requirements. Our governance model comprises two complementary domains:
 
 <div class="governance-grid">
   <div class="governance-card">
@@ -32,8 +32,8 @@ Our governance model follows COBIT 2019 and ITIL 4 principles, adapted for a uni
 
 ## Key Documents
 
-- [Information Technology Governance Policy](https://policy.mbs.edu/IT_Governance)
-- [Data Management Standard](https://policy.mbs.edu/Data_Management)
+- [Information Technology Governance Policy](https://policy.school.edu/IT_Governance)
+- [Data Management Standard](https://policy.school.edu/Data_Management)
 - [Data Classification Decision Tree](data-classification)
 - [IT Policy, Standards & Guidelines](it-governance#policies)
 - [Technology Roadmap](technology-roadmap)
@@ -41,6 +41,6 @@ Our governance model follows COBIT 2019 and ITIL 4 principles, adapted for a uni
 ## Contact
 
 **Information Technology Services**  
-MBS  
-Email: [its@mbs.edu](mailto:its@mbs.edu)  
-For tech support: [support.mbs.edu](https://support.mbs.edu)
+School IT  
+Email: [its@school.edu](mailto:its@school.edu)  
+For tech support: [support.school.edu](https://support.school.edu)

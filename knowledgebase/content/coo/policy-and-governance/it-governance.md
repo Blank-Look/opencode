@@ -4,13 +4,13 @@ sidebar_position: 2
 
 # IT Governance
 
-IT Governance is the policies, standards, structures, processes, and guidance established to ensure that MBS's information resources support the University's mission, goals, and regulatory requirements.
+IT Governance is the policies, standards, structures, processes, and guidance established to ensure that the School's information resources support the School's mission, goals, and regulatory requirements.
 
 ## Governance Bodies
 
 ### IT Executive Council (ITEC)
 
-The IT Executive Council serves to discuss IT issues, resources, and challenges at the executive level. Membership includes senior leadership from across the University.
+The IT Executive Council serves to discuss IT issues, resources, and challenges at the executive level. Membership includes senior leadership from across the School.
 
 **Responsibilities:**
 - Strategic IT direction and prioritisation
@@ -30,7 +30,7 @@ The IT Board of Directors reviews IT operations, proposals, and projects to advi
 
 ### Information Security Advisory Council (ISAC)
 
-ISAC provides advisement, review, and endorsement of MBS's Information Security plan, including:
+ISAC provides advisement, review, and endorsement of the School's Information Security plan, including:
 
 - Security policies and standards
 - Strategic security initiatives
@@ -79,4 +79,4 @@ Academic Technology and Learning Management System governance ensures that teach
 
 ---
 
-*MBS's [Information Technology Governance Policy](https://policy.mbs.edu/IT_Governance) contains the full governing document.*
+*the School's [Information Technology Governance Policy](https://policy.school.edu/IT_Governance) contains the full governing document.*
