@@ -21,6 +21,7 @@ const sidebar = [
     { label: '5. Assure', file: 'assure' },
     { label: '6. Release', file: 'release' },
     { label: '7. Operate', file: 'operate' },
+    { label: 'Delivery Prompt Template', file: 'delivery-prompt' },
   ]},
   { label: 'Governance', dir: 'governance', pages: [
     { label: 'Stage Gates', file: 'stage-gates' },

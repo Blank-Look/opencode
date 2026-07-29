@@ -61,3 +61,7 @@ For medium and large work, this gate should also approve:
 - integration approach
 - estimated effort and cost
 - implementation and rollback approach
+
+## Reference Template
+
+See the [Delivery Prompt Template](delivery-prompt) for a complete example OpenCode delivery prompt produced by this process. It covers architecture, governance, integrations, domain model, risk scoring, workflows, CI/CD, and delivery phases for an ICT Asset Governance Manager application.
