@@ -29,4 +29,4 @@ npm install
 node generate.js
 ```
 
-Open `sdlc/index.html` in a browser to browse the portal.
+Browse the portal at [https://blank-look.github.io/opencode/sdlc/index.html](https://blank-look.github.io/opencode/sdlc/index.html)
