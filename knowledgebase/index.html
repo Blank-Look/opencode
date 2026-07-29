@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ICT Knowledge Base</title>
-<meta name="description" content="Governance, runbooks, processes, configuration, projects, and standards for ICT operations.">
+<meta name="description" content="Governance, runbooks, processes, configuration, and standards for ICT operations.">
 <link rel="icon" href="img/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.dept-grid {
+.category-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
@@ -19,7 +19,7 @@
   max-width: 1100px;
   margin: 0 auto;
 }
-.dept-card {
+.category-card {
   border: 1px solid var(--gray-200);
   border-radius: 12px;
   padding: 1.75rem;
@@ -28,36 +28,22 @@
   color: inherit;
   display: block;
 }
-.dept-card:hover {
+.category-card:hover {
   border-color: var(--maroon);
   box-shadow: 0 4px 20px rgba(122, 27, 44, 0.1);
   transform: translateY(-2px);
 }
-.dept-card h2 {
+.category-card h2 {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: var(--gray-900);
 }
-.dept-card p {
+.category-card p {
   font-size: 0.925rem;
   color: var(--gray-600);
   line-height: 1.6;
-  margin-bottom: 1rem;
-}
-.dept-card .sections {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.375rem;
-}
-.dept-card .section-tag {
-  display: inline-block;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  background: var(--gray-100);
-  color: var(--gray-600);
+  margin-bottom: 0;
 }
 .subhero {
   text-align: center;
@@ -78,7 +64,7 @@
       ICT Knowledge Base
     </a>
     <div class="navbar-links">
-      <a href="docs/coo/policy-and-governance/overview.html">Docs</a>
+      <a href="docs/policy-and-governance/overview.html">Docs</a>
       <a href="https://github.com/Blank-Look/opencode">GitHub</a>
     </div>
   </div>
@@ -87,50 +73,37 @@
 <header class="hero">
   <p class="hero-eyebrow">ICT Team Knowledge Base</p>
   <h1>Knowledge Base</h1>
-  <p>Policy, process, configuration, and standards — organised by department.</p>
+  <p>Policies, processes, configurations, and standards — organised by topic.</p>
 </header>
 
 <div class="subhero">
-  <p>Select a department to browse its documentation, or <a href="docs/coo/policy-and-governance/overview.html">start with Policy &amp; Governance</a>.</p>
+  <p>Select a category to browse its documentation, or <a href="docs/policy-and-governance/overview.html">start with Policy &amp; Governance</a>.</p>
 </div>
 
-<div class="dept-grid">
-  <a href="docs/coo/policy-and-governance/overview.html" class="dept-card">
-    <h2>COO</h2>
-    <p>Policy, governance, compliance, and risk management across the ICT division.</p>
-    <div class="sections">
-      <span class="section-tag">Policy &amp; Governance</span>
-    </div>
+<div class="category-grid">
+  <a href="docs/policy-and-governance/overview.html" class="category-card">
+    <h2>Policy &amp; Governance</h2>
+    <p>IT and data governance frameworks, compliance, policies, risk management, and technology roadmap.</p>
   </a>
-  <a href="docs/service-desk/process-runbooks/overview.html" class="dept-card">
-    <h2>Service Desk</h2>
+  <a href="docs/service-operations/overview.html" class="category-card">
+    <h2>Service Operations</h2>
     <p>Incident management, request fulfillment, change management, problem management, and user administration.</p>
-    <div class="sections">
-      <span class="section-tag">Process &amp; Runbooks</span>
-      <span class="section-tag">Config</span>
-      <span class="section-tag">Projects</span>
-      <span class="section-tag">Standards</span>
-    </div>
   </a>
-  <a href="docs/enterprise-apps/process-runbooks/overview.html" class="dept-card">
-    <h2>Enterprise Apps</h2>
-    <p>Operational processes, configuration, projects, and standards for enterprise applications.</p>
-    <div class="sections">
-      <span class="section-tag">Process &amp; Runbooks</span>
-      <span class="section-tag">Config</span>
-      <span class="section-tag">Projects</span>
-      <span class="section-tag">Standards</span>
-    </div>
+  <a href="docs/enterprise-applications/overview.html" class="category-card">
+    <h2>Enterprise Applications</h2>
+    <p>Governance frameworks and operating models for enterprise applications.</p>
   </a>
-  <a href="docs/infrastructure-and-security/process-runbooks/overview.html" class="dept-card">
-    <h2>Infrastructure &amp; Security</h2>
-    <p>Server provisioning, backup &amp; restore, monitoring, threat management, vulnerability management, and system configuration baselines.</p>
-    <div class="sections">
-      <span class="section-tag">Process &amp; Runbooks</span>
-      <span class="section-tag">Config</span>
-      <span class="section-tag">Projects</span>
-      <span class="section-tag">Standards</span>
-    </div>
+  <a href="docs/systems-and-infrastructure/overview.html" class="category-card">
+    <h2>Systems &amp; Infrastructure</h2>
+    <p>Network, server, software, and security configuration baselines and provisioning runbooks.</p>
+  </a>
+  <a href="docs/data-and-protection/overview.html" class="category-card">
+    <h2>Data &amp; Protection</h2>
+    <p>Standards, lifecycle policies, access control, backup, monitoring, and security awareness.</p>
+  </a>
+  <a href="docs/security/overview.html" class="category-card">
+    <h2>Security</h2>
+    <p>Incident response, threat and vulnerability management, security assessment, and sensitivity control.</p>
   </a>
 </div>
 
