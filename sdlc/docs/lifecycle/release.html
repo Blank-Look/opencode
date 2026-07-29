@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6. Release — SDLC</title>
+<meta name="description" content="Azure DevOps orchestrates the CI/CD process, even where GitHub is the source repository.">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../../index.html" class="navbar-brand">
+      <img src="../../img/logo.svg" alt="SDLC Logo" width="28" height="28">
+      AI-Assisted Delivery Lifecycle
+    </a>
+    <div class="navbar-links">
+      <a href="../overview/introduction.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Overview</div><a class="sidebar-item" href="../overview/introduction.html">Introduction</a></div><div class="sidebar-section"><div class="sidebar-section-title">The Lifecycle</div><a class="sidebar-item" href="../lifecycle/capture.html">1. Capture</a><a class="sidebar-item" href="../lifecycle/govern.html">2. Govern</a><a class="sidebar-item" href="../lifecycle/generate.html">3. Generate</a><a class="sidebar-item" href="../lifecycle/build.html">4. Build</a><a class="sidebar-item" href="../lifecycle/assure.html">5. Assure</a><a class="sidebar-item active" href="../lifecycle/release.html">6. Release</a><a class="sidebar-item" href="../lifecycle/operate.html">7. Operate</a></div><div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/stage-gates.html">Stage Gates</a><a class="sidebar-item" href="../governance/project-sizing.html">Project Sizing</a><a class="sidebar-item" href="../governance/scaled-documentation.html">Scaled Documentation</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <p>Azure DevOps orchestrates the CI/CD process, even where GitHub is the source repository.</p>
+<h2>Typical Pipeline Flow</h2>
+<pre><code>GitHub Pull Request
+        ↓
+Build and Validation
+        ↓
+Automated Testing
+        ↓
+Security and Dependency Scanning
+        ↓
+Deploy to Sandbox
+        ↓
+Sandbox Approval
+        ↓
+Deploy to Development
+        ↓
+Development Approval
+        ↓
+Deploy to Test
+        ↓
+Business and Technical Approval
+        ↓
+Deploy to Production
+        ↓
+Verification and Monitoring
+</code></pre>
+<h2>Pipeline Principles</h2>
+<ul>
+<li>Build once and promote the same artefact</li>
+<li>Do not rebuild separately for production</li>
+<li>Store secrets in an approved secrets-management service</li>
+<li>Use service connections with minimum required permissions</li>
+<li>Separate development and production credentials</li>
+<li>Require approval for protected environments</li>
+<li>Record approver, time, version and deployment result</li>
+<li>Automate rollback where practical</li>
+<li>Prevent the AI agent from bypassing branch or environment protections</li>
+</ul>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 Infrastructure & Security. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

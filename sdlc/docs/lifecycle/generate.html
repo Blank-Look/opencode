@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. Generate — SDLC</title>
+<meta name="description" content="Feed the approved requirement and governance references into ChatGPT using a standard template. ChatGPT produces a structured OpenCode Delivery Prompt rather th">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../../index.html" class="navbar-brand">
+      <img src="../../img/logo.svg" alt="SDLC Logo" width="28" height="28">
+      AI-Assisted Delivery Lifecycle
+    </a>
+    <div class="navbar-links">
+      <a href="../overview/introduction.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Overview</div><a class="sidebar-item" href="../overview/introduction.html">Introduction</a></div><div class="sidebar-section"><div class="sidebar-section-title">The Lifecycle</div><a class="sidebar-item" href="../lifecycle/capture.html">1. Capture</a><a class="sidebar-item" href="../lifecycle/govern.html">2. Govern</a><a class="sidebar-item active" href="../lifecycle/generate.html">3. Generate</a><a class="sidebar-item" href="../lifecycle/build.html">4. Build</a><a class="sidebar-item" href="../lifecycle/assure.html">5. Assure</a><a class="sidebar-item" href="../lifecycle/release.html">6. Release</a><a class="sidebar-item" href="../lifecycle/operate.html">7. Operate</a></div><div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/stage-gates.html">Stage Gates</a><a class="sidebar-item" href="../governance/project-sizing.html">Project Sizing</a><a class="sidebar-item" href="../governance/scaled-documentation.html">Scaled Documentation</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <p>Feed the approved requirement and governance references into ChatGPT using a standard template. ChatGPT produces a structured OpenCode Delivery Prompt rather than directly producing uncontrolled implementation instructions.</p>
+<h2>ChatGPT Request Template</h2>
+<p>Act as a solution analyst and delivery planner. Using the requirement and governance references below, create a complete implementation prompt for OpenCode.</p>
+<p>The prompt must:</p>
+<ol>
+<li>Restate the objective and acceptance criteria</li>
+<li>Identify assumptions, uncertainties and questions</li>
+<li>Define the permitted scope and prohibited actions</li>
+<li>Specify the required technology and repository structure</li>
+<li>Require infrastructure as code where applicable</li>
+<li>Require unit, integration, security and deployment tests</li>
+<li>Require architecture, support and operational documentation</li>
+<li>Require traceability between requirements, code and tests</li>
+<li>Define the expected Azure DevOps pipeline</li>
+<li>Require OpenCode to stop and request approval at specified checkpoints</li>
+<li>Prevent deployment to production without human approval</li>
+<li>Produce a completion report listing files created, tests performed, risks, unresolved issues and recommended next actions</li>
+</ol>
+<h3>Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Requirement</td>
+<td>Insert approved AI Delivery Request</td>
+</tr>
+<tr>
+<td>Governance references</td>
+<td>Insert applicable policies, standards and architecture patterns</td>
+</tr>
+<tr>
+<td>Repository and environment information</td>
+<td>Insert approved technical context</td>
+</tr>
+</tbody></table>
+<h2>Output</h2>
+<p>The generated prompt should contain:</p>
+<ul>
+<li>objective</li>
+<li>acceptance criteria</li>
+<li>applicable standards</li>
+<li>architecture constraints</li>
+<li>implementation tasks</li>
+<li>documentation tasks</li>
+<li>test requirements</li>
+<li>security requirements</li>
+<li>pipeline requirements</li>
+<li>agent permissions</li>
+<li>stop conditions</li>
+<li>approval checkpoints</li>
+<li>definition of done</li>
+</ul>
+<h2>Gate 3 — Prompt and Design Approval</h2>
+<p>A technical owner reviews the generated prompt before it is supplied to OpenCode.</p>
+<p>For medium and large work, this gate should also approve:</p>
+<ul>
+<li>solution design</li>
+<li>threat model</li>
+<li>data flows</li>
+<li>integration approach</li>
+<li>estimated effort and cost</li>
+<li>implementation and rollback approach</li>
+</ul>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 Infrastructure & Security. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

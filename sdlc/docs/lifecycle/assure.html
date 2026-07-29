@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5. Assure — SDLC</title>
+<meta name="description" content="Code and documentation move through progressively controlled environments.">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../../index.html" class="navbar-brand">
+      <img src="../../img/logo.svg" alt="SDLC Logo" width="28" height="28">
+      AI-Assisted Delivery Lifecycle
+    </a>
+    <div class="navbar-links">
+      <a href="../overview/introduction.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Overview</div><a class="sidebar-item" href="../overview/introduction.html">Introduction</a></div><div class="sidebar-section"><div class="sidebar-section-title">The Lifecycle</div><a class="sidebar-item" href="../lifecycle/capture.html">1. Capture</a><a class="sidebar-item" href="../lifecycle/govern.html">2. Govern</a><a class="sidebar-item" href="../lifecycle/generate.html">3. Generate</a><a class="sidebar-item" href="../lifecycle/build.html">4. Build</a><a class="sidebar-item active" href="../lifecycle/assure.html">5. Assure</a><a class="sidebar-item" href="../lifecycle/release.html">6. Release</a><a class="sidebar-item" href="../lifecycle/operate.html">7. Operate</a></div><div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/stage-gates.html">Stage Gates</a><a class="sidebar-item" href="../governance/project-sizing.html">Project Sizing</a><a class="sidebar-item" href="../governance/scaled-documentation.html">Scaled Documentation</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <p>Code and documentation move through progressively controlled environments.</p>
+<h2>Environment Path</h2>
+<pre><code>AI Workspace → Sandbox → Development → Test → Production
+</code></pre>
+<h3>AI Workspace</h3>
+<p>Used for planning and initial code generation.</p>
+<p>Controls:</p>
+<ul>
+<li>no production credentials</li>
+<li>no production data</li>
+<li>restricted network and tool access</li>
+<li>disposable environment</li>
+<li>agent activity logged</li>
+</ul>
+<h3>Sandbox</h3>
+<p>Used to prove the concept safely.</p>
+<p>Checks may include:</p>
+<ul>
+<li>code builds successfully</li>
+<li>basic functional tests</li>
+<li>dependency validation</li>
+<li>initial security scanning</li>
+<li>architectural feasibility</li>
+<li>cost and performance assumptions</li>
+</ul>
+<h3>Development</h3>
+<p>Used for integration and completion.</p>
+<p>Checks include:</p>
+<ul>
+<li>peer review</li>
+<li>unit tests</li>
+<li>linting</li>
+<li>static analysis</li>
+<li>secret scanning</li>
+<li>software-composition analysis</li>
+<li>infrastructure validation</li>
+<li>documentation completeness</li>
+</ul>
+<h3>Test</h3>
+<p>Used for formal assurance.</p>
+<p>Checks include:</p>
+<ul>
+<li>functional acceptance</li>
+<li>integration testing</li>
+<li>security testing</li>
+<li>accessibility testing where applicable</li>
+<li>performance testing</li>
+<li>backup and recovery</li>
+<li>deployment and rollback testing</li>
+<li>operational readiness</li>
+<li>business-owner acceptance</li>
+</ul>
+<h2>Gate 4 — Release Approval</h2>
+<p>Approval confirms that:</p>
+<ul>
+<li>acceptance criteria have been met</li>
+<li>automated checks have passed</li>
+<li>risks are accepted or treated</li>
+<li>support documentation is complete</li>
+<li>monitoring is configured</li>
+<li>rollback is proven</li>
+<li>the change window is approved</li>
+<li>the business and technical owners agree to release</li>
+</ul>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 Infrastructure & Security. Built with purpose.</p>
+</footer>
+
+</body>
+</html>
