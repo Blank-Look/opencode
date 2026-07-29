@@ -27,3 +27,7 @@ Each process has a designated process owner responsible for:
 ## Continuous Improvement
 
 All processes are subject to regular review using the Deming cycle (Plan-Do-Check-Act). Improvement suggestions can be submitted via the ticketing system.
+
+## Support
+
+For ICT support, visit [support.school.edu](https://support.school.edu).
