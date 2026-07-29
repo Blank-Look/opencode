@@ -18,16 +18,6 @@ The amount of documentation and oversight is scaled according to project size an
 
 ## The Lifecycle
 
-```
-1. CAPTURE       2. GOVERN       3. GENERATE       4. BUILD
-Requirement  →  Controls and  →  AI delivery   →  Code, tests,
-and outcome     approvals        prompt            infrastructure
-                                                  and documentation
-                                                       │
-                                                       ▼
-7. OPERATE       6. RELEASE       5. ASSURE
-Monitor and  ←  Deploy through ←  Review, test,
-improve          CI/CD gates      scan and approve
-```
+![AI-Assisted Delivery Lifecycle](../img/ai_assisted_delivery_lifecycle.png)
 
 OpenCode fits this model as the implementation agent. It is an open-source AI coding agent that can operate through a terminal, desktop application or IDE extension.
