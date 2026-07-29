@@ -4,12 +4,12 @@ Internal ICT governance tool for consolidated asset lifecycle, ownership, risk, 
 
 ## Design Mockup
 
-[![App Mockup](https://blank-look.github.io/opencode/asset-manager/app-mockup.html)](https://blank-look.github.io/opencode/asset-manager/app-mockup.html)
+[App Mockup →](https://blank-look.github.io/opencode/asset-manager/app-mockup.html)
 Interactive HTML mockup covering dashboard, asset register, asset detail, risk findings, governance work, reports, onboarding, workflows, and integrations.
 
 ## Architecture
 
-[![Architecture](docs/architecture.md)](docs/architecture.md)
+[Architecture docs →](docs/architecture.md)
 Azure Container Apps, PostgreSQL Flexible Server, Key Vault, Application Insights. Modular monolith with internal workflow engine and deterministic risk scoring.
 
 ## Documentation
