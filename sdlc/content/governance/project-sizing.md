@@ -7,13 +7,16 @@ Existing financial thresholds can be retained while adding risk-based criteria.
 ## Size Categories
 
 | Dimension | Small | Medium | Large |
-|---|---|---|---|
+|---|---|---|---|---|
 | 12-month cost | Under $25,000 | $25,000–$200,000 | Over $200,000 |
 | Internal effort | Under 3 weeks | 3 weeks–6 months | Over 6 months |
 | Typical oversight | CTO or delegate | IT Steering Group | Leadership Team |
+| Approving bodies | CTO or delegate | ITEC / IT Steering Group / ISAC | IT BoD / ISAC / Leadership Team |
 | Minimum gates | 3 | 5 | 5 plus additional assurance |
 | AI prompt review | Technical peer | Technical owner and security | Architecture, security and project governance |
 | Environment path | Sandbox → Test → Production | Sandbox → Development → Test → Production | Sandbox → Development → Test → Pilot → Production |
+
+See [IT Governance](https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/it-governance.html) for council membership and terms of reference. See [Stage Gates](../governance/stage-gates.html) for the full gate-to-body mapping.
 
 ## Size Escalation Factors
 

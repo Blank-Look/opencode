@@ -14,6 +14,8 @@ The working product name is:
 
 **ICT Asset Governance Manager**
 
+**Existing asset register:** This repository already contains an [Asset Manager](https://github.com/Blank-Look/opencode/tree/master/asset-manager) application (Express + SQLite + Freshservice/Entra/Defender connectors). Before designing the architecture, inspect this existing application and document in `/docs/assumptions-and-questions.md` whether it should be evolved, replaced, or integrated with the new application. Reference this decision in an Architecture Decision Record under `docs/adr/`.
+
 Your job is to create a secure, maintainable, production-ready MVP that can be hosted in Microsoft Azure with the fewest reasonable components.
 
 Do not begin by writing the entire application.
@@ -671,6 +673,8 @@ Examples:
 - Support Team
 - Retirement Approver
 
+**Alignment with existing ICT role taxonomy:** These roles align to the [ICT Knowledge Base governance model](https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/data-governance.html) (Data Trustees, Data Stewards Council, Data Custodians, Data Owners). The mapping between application governance roles and KB organisational roles must be documented in `docs/security-model.md`.
+
 ### 5.5 RoleAssignment
 
 Connect:
@@ -700,12 +704,12 @@ Assignments must support:
 
 Support configurable classifications rather than hard-coded labels.
 
-Initial example levels:
+Initial example levels (per the [ICT Knowledge Base classification model](https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/data-classification.html)):
 
 - Public
 - Internal
+- Sensitive  *(labelled "Restricted" in earlier drafts — use "Sensitive" to align with the existing KB standard)*
 - Confidential
-- Restricted
 
 Do not assume these are final.
 
@@ -1375,6 +1379,8 @@ Exports must respect the user's permissions.
 Prevent spreadsheet formula injection in CSV exports.
 
 ## 14. Security requirements
+
+Align with the [ICT Knowledge Base Security Assessment](https://blank-look.github.io/opencode/knowledgebase/docs/security/security-assessment.html) process (Initiation → Classification → Questionnaire → Review → Verdict → Onboarding). The application itself must meet the same assessment criteria it will enforce for governed assets.
 
 Implement:
 

@@ -2,13 +2,13 @@
 title: Stage Gates
 ---
 
-| Gate | Decision | Minimum Evidence |
-|---|---|---|
-| 1. Intake | Is the requirement worth progressing? | Requirement, owner, outcome and initial size |
-| 2. Governance | May AI and the proposed technology be used? | Risk classification, policies, data controls and agent permissions |
-| 3. Design | Is the generated delivery plan safe and achievable? | Approved OpenCode prompt, architecture and acceptance criteria |
-| 4. Release | Is the solution ready for production? | Test results, security results, documentation and approvals |
-| 5. Operate | Can the solution be accepted into service? | Monitoring, support, handover and residual risks |
+| Gate | Decision | Minimum Evidence | Approving Body (Small / Medium / Large) |
+|---|---|---|---|---|
+| 1. Intake | Is the requirement worth progressing? | Requirement, owner, outcome and initial size | CTO / ITEC / IT BoD |
+| 2. Governance | May AI and the proposed technology be used? | Risk classification, policies, data controls and agent permissions | CTO / ITEC + ISAC / IT BoD + ISAC |
+| 3. Design | Is the generated delivery plan safe and achievable? | Approved OpenCode prompt, architecture and acceptance criteria | Tech peer / Tech owner + Security / Architecture + Security + Governance |
+| 4. Release | Is the solution ready for production? | Test results, security results, documentation and approvals | CTO / IT Steering Group / IT BoD |
+| 5. Operate | Can the solution be accepted into service? | Monitoring, support, handover and residual risks | Ops owner / Ops owner + ISAC / IT BoD + ISAC |
 
 ## Simplified Stage Gates Summary
 

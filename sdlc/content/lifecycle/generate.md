@@ -65,3 +65,11 @@ For medium and large work, this gate should also approve:
 ## Reference Template
 
 See the [Delivery Prompt Template](delivery-prompt) for a complete example OpenCode delivery prompt produced by this process. It covers architecture, governance, integrations, domain model, risk scoring, workflows, CI/CD, and delivery phases for an ICT Asset Governance Manager application.
+
+### Related KB References
+
+The template references several ICT Knowledge Base sources that should be consulted during prompt generation:
+
+- [Security Assessment](https://blank-look.github.io/opencode/knowledgebase/docs/security/security-assessment.html) — 6-step assessment process for new suppliers, SaaS, and on-prem apps
+- [Data Classification](https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/data-classification.html) — authoritative classification model
+- [Sensitivity Control Model](https://blank-look.github.io/opencode/knowledgebase/docs/security/sensitivity-control-model.html) — tiered routing for Low/Medium/High sensitivity initiatives

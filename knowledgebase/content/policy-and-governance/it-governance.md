@@ -50,6 +50,10 @@ TAGs are chartered to address specific technical domains:
 | Endpoint TAG | Device management, EUC, mobility |
 | Network TAG | Network architecture, SDN, Wi-Fi |
 
+## Delivery Methodology
+
+The [AI-Assisted Delivery Lifecycle](https://blank-look.github.io/opencode/sdlc/index.html) defines how technology initiatives are delivered — from requirements capture through to operations. It provides a seven-phase framework (Capture → Govern → Generate → Build → Assure → Release → Operate) with five stage gates mapped to the governance bodies above. All software delivery projects should follow this lifecycle.
+
 ## Policy Framework
 
 Policies define the rules and standards that all staff, faculty, and affiliates must follow. They are approved by the IT Executive Council and reviewed annually.

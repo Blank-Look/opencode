@@ -8,6 +8,8 @@ This policy defines the governance, accountability, and control requirements for
 
 ## Purpose
 
+This policy covers the **operational asset lifecycle** — managing applications and data once they are in service. For the **delivery lifecycle** (how technology initiatives are built, tested, and released), see the [AI-Assisted Delivery Lifecycle](https://blank-look.github.io/opencode/sdlc/index.html).
+
 This policy ensures that:
 
 - Applications are introduced, operated, changed, and retired in a controlled manner

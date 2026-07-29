@@ -46,3 +46,7 @@ The Enterprise Applications function maintains a suite of governance artefacts:
 ## Governance Intake Model
 
 Enterprise Applications accepts requests through defined governance pathways aligned to the sensitivity and impact of the request. Low-sensitivity requests follow a streamlined path; high-sensitivity requests require full governance review.
+
+## Delivery Lifecycle Alignment
+
+All Enterprise Applications delivery work should follow the [AI-Assisted Delivery Lifecycle](https://blank-look.github.io/opencode/sdlc/index.html). The seven-phase model (Capture → Govern → Generate → Build → Assure → Release → Operate) and its five stage gates replace ad-hoc project initiation and provide consistent governance across all application delivery initiatives.

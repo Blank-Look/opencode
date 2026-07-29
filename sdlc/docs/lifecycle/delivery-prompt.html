@@ -38,6 +38,7 @@
 <p>You are the lead solution architect and senior full-stack engineer responsible for designing and building an internal ICT Asset Lifecycle Governance application.</p>
 <p>The working product name is:</p>
 <p><strong>ICT Asset Governance Manager</strong></p>
+<p><strong>Existing asset register:</strong> This repository already contains an <a href="https://github.com/Blank-Look/opencode/tree/master/asset-manager">Asset Manager</a> application (Express + SQLite + Freshservice/Entra/Defender connectors). Before designing the architecture, inspect this existing application and document in <code>/docs/assumptions-and-questions.md</code> whether it should be evolved, replaced, or integrated with the new application. Reference this decision in an Architecture Decision Record under <code>docs/adr/</code>.</p>
 <p>Your job is to create a secure, maintainable, production-ready MVP that can be hosted in Microsoft Azure with the fewest reasonable components.</p>
 <p>Do not begin by writing the entire application.</p>
 <p>First inspect the repository, identify what already exists, and then produce:</p>
@@ -606,6 +607,7 @@
 <li>Support Team</li>
 <li>Retirement Approver</li>
 </ul>
+<p><strong>Alignment with existing ICT role taxonomy:</strong> These roles align to the <a href="https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/data-governance.html">ICT Knowledge Base governance model</a> (Data Trustees, Data Stewards Council, Data Custodians, Data Owners). The mapping between application governance roles and KB organisational roles must be documented in <code>docs/security-model.md</code>.</p>
 <h3>5.5 RoleAssignment</h3>
 <p>Connect:</p>
 <ul>
@@ -632,12 +634,12 @@
 </ul>
 <h3>5.6 DataClassification</h3>
 <p>Support configurable classifications rather than hard-coded labels.</p>
-<p>Initial example levels:</p>
+<p>Initial example levels (per the <a href="https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/data-classification.html">ICT Knowledge Base classification model</a>):</p>
 <ul>
 <li>Public</li>
 <li>Internal</li>
+<li>Sensitive  <em>(labelled &quot;Restricted&quot; in earlier drafts — use &quot;Sensitive&quot; to align with the existing KB standard)</em></li>
 <li>Confidential</li>
-<li>Restricted</li>
 </ul>
 <p>Do not assume these are final.</p>
 <p>Allow configuration of:</p>
@@ -1229,6 +1231,7 @@
 <p>Exports must respect the user&#39;s permissions.</p>
 <p>Prevent spreadsheet formula injection in CSV exports.</p>
 <h2>14. Security requirements</h2>
+<p>Align with the <a href="https://blank-look.github.io/opencode/knowledgebase/docs/security/security-assessment.html">ICT Knowledge Base Security Assessment</a> process (Initiation → Classification → Questionnaire → Review → Verdict → Onboarding). The application itself must meet the same assessment criteria it will enforce for governed assets.</p>
 <p>Implement:</p>
 <ul>
 <li>Entra authentication;</li>

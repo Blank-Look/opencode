@@ -92,6 +92,15 @@
 <li>preserve an audit trail of prompts, decisions and approvals</li>
 </ul>
 <p><strong>OpenCode may generate the work, but it does not approve its own work.</strong></p>
+<h2>Incident Response During Build</h2>
+<p>If the AI agent generates code or configuration that causes a security incident, data exposure, or service disruption during the Build phase:</p>
+<ol>
+<li><strong>Stop the agent</strong> immediately and revoke repository access</li>
+<li>Follow the <a href="https://blank-look.github.io/opencode/knowledgebase/docs/security/incident-response.html">Incident Response Process</a> in the ICT Knowledge Base</li>
+<li>Preserve the agent&#39;s logs, prompts, and generated output as forensic evidence</li>
+<li>Notify the Technical Owner and Security Reviewer before resuming</li>
+</ol>
+<p>The AI Workspace is a disposable environment (see <a href="../lifecycle/assure.html">Assure</a> phase). Treat any compromise as a full environment rebuild rather than attempting in-place remediation.</p>
 
     </div>
   </main>
