@@ -4,7 +4,7 @@ Internal ICT governance tool for consolidated asset lifecycle, ownership, risk, 
 
 ## Design Mockup
 
-[![App Mockup](app-mockup.html)](app-mockup.html)
+[![App Mockup](https://blank-look.github.io/opencode/asset-manager/app-mockup.html)](https://blank-look.github.io/opencode/asset-manager/app-mockup.html)
 Interactive HTML mockup covering dashboard, asset register, asset detail, risk findings, governance work, reports, onboarding, workflows, and integrations.
 
 ## Architecture
