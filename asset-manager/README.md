@@ -46,4 +46,4 @@ Azure Container Apps, PostgreSQL Flexible Server, Key Vault, Application Insight
 
 ## Status
 
-**Phase 0: Discovery & Foundation** — complete. Architecture reviewed and approved. Ready for Phase 1 implementation.
+**Phase 0: Discovery & Foundation** — complete. Architecture ready for review.
