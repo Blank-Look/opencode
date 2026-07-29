@@ -2,6 +2,11 @@
 
 Internal ICT governance tool for consolidated asset lifecycle, ownership, risk, and compliance management. ASP.NET Core modular monolith hosted in Azure Container Apps with PostgreSQL, Entra ID authentication, and read-only integrations.
 
+## Design Mockup
+
+[![App Mockup](app-mockup.html)](app-mockup.html)
+Interactive HTML mockup covering dashboard, asset register, asset detail, risk findings, governance work, reports, onboarding, workflows, and integrations.
+
 ## Architecture
 
 [![Architecture](docs/architecture.md)](docs/architecture.md)
