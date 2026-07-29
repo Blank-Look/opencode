@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#52121E"/>
+      <stop offset="50%" stop-color="#7A1B2C"/>
+      <stop offset="100%" stop-color="#A3243B"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.12)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.06)"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.10)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.04)"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#63B3ED"/>
+      <stop offset="100%" stop-color="#90CDF4"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.25)"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" rx="16" fill="url(#bg)"/>
+
+  <!-- Subtle pattern overlay -->
+  <g opacity="0.04">
+    <line x1="0" y1="0" x2="900" y2="520" stroke="white" stroke-width="1"/>
+    <line x1="100" y1="0" x2="900" y2="480" stroke="white" stroke-width="1"/>
+    <line x1="200" y1="0" x2="900" y2="380" stroke="white" stroke-width="1"/>
+    <line x1="300" y1="0" x2="900" y2="280" stroke="white" stroke-width="1"/>
+    <line x1="400" y1="0" x2="900" y2="180" stroke="white" stroke-width="1"/>
+    <line x1="500" y1="0" x2="900" y2="80" stroke="white" stroke-width="1"/>
+  </g>
+
+  <!-- Title -->
+  <text x="450" y="44" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="22" fill="white" letter-spacing="-0.3">opencode</text>
+  <text x="450" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="13" fill="rgba(255,255,255,0.7)" letter-spacing="0.5">AI-Assisted Delivery — Governed. Aligned. Fast.</text>
+
+  <!-- ===== TOP LAYER: Vibe AI Coding ===== -->
+  <rect x="50" y="88" width="800" height="90" rx="10" fill="url(#card1)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <rect x="50" y="88" width="800" height="90" rx="10" fill="rgba(255,255,255,0.04)"/>
+
+  <text x="80" y="120" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="white">🚀  Vibe AI Coding</text>
+  <text x="80" y="144" font-family="Inter, sans-serif" font-weight="400" font-size="12" fill="rgba(255,255,255,0.7)">Fast, iterative, creative development — unconstrained speed where it counts.</text>
+
+  <!-- Benefits badges - top -->
+  <rect x="530" y="103" rx="12" width="90" height="22" fill="rgba(255,255,255,0.12)"/>
+  <text x="575" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="#FBD38D">Fast Development</text>
+  <rect x="630" y="103" rx="12" width="80" height="22" fill="rgba(255,255,255,0.12)"/>
+  <text x="670" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="#FBD38D">Rapid Iteration</text>
+  <rect x="720" y="103" rx="12" width="100" height="22" fill="rgba(255,255,255,0.12)"/>
+  <text x="770" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="#FBD38D">AI-Powered Velocity</text>
+
+  <!-- Connecting arrow 1 -->
+  <line x1="450" y1="178" x2="450" y2="206" stroke="url(#arrow)" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="450,210 444,198 456,198" fill="#63B3ED"/>
+  <text x="460" y="196" font-family="Inter, sans-serif" font-weight="500" font-size="10" fill="#90CDF4">channeled through</text>
+
+  <!-- ===== MIDDLE LAYER: OpenCode + SDLC ===== -->
+  <rect x="50" y="215" width="800" height="110" rx="10" fill="url(#card2)" stroke="rgba(255,255,255,0.12)" stroke-width="1" filter="url(#shadow)"/>
+
+  <text x="80" y="247" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="white">⚙️  OpenCode + AI-Assisted Delivery Lifecycle</text>
+  <text x="80" y="267" font-family="Inter, sans-serif" font-weight="400" font-size="12" fill="rgba(255,255,255,0.7)">Structured 7-phase delivery with built-in guardrails, gates, and audit trail.</text>
+
+  <!-- SDLC Phase bubbles -->
+  <g transform="translate(80, 280)">
+    <rect x="0" y="0" rx="6" width="86" height="26" fill="rgba(255,255,255,0.10)"/>
+    <text x="43" y="17" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#FEB2B2">1. Capture</text>
+    <text x="43" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">Requirement</text>
+    <line x1="92" y1="13" x2="110" y2="13" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+    <rect x="116" y="0" rx="6" width="86" height="26" fill="rgba(255,255,255,0.10)"/>
+    <text x="159" y="17" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#FEB2B2">2. Govern</text>
+    <text x="159" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">Controls</text>
+    <line x1="208" y1="13" x2="226" y2="13" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+    <rect x="232" y="0" rx="6" width="86" height="26" fill="rgba(255,255,255,0.10)"/>
+    <text x="275" y="17" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#FEB2B2">3. Generate</text>
+    <text x="275" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">AI Prompt</text>
+    <line x1="324" y1="13" x2="342" y2="13" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+    <rect x="348" y="0" rx="6" width="86" height="26" fill="rgba(255,255,255,0.10)"/>
+    <text x="391" y="17" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#FEB2B2">4. Build</text>
+    <text x="391" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">Code + Tests</text>
+    <line x1="440" y1="13" x2="458" y2="13" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+    <rect x="464" y="0" rx="6" width="86" height="26" fill="rgba(255,255,255,0.10)"/>
+    <text x="507" y="17" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#FEB2B2">5. Assure</text>
+    <text x="507" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">Review + Test</text>
+    <line x1="556" y1="13" x2="574" y2="13" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+    <rect x="580" y="0" rx="6" width="86" height="26" fill="rgba(255,255,255,0.10)"/>
+    <text x="623" y="17" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#FEB2B2">6. Release</text>
+    <text x="623" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">CI/CD</text>
+    <line x1="672" y1="13" x2="690" y2="13" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+    <rect x="696" y="0" rx="6" width="86" height="26" fill="rgba(255,255,255,0.10)"/>
+    <text x="739" y="17" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#FEB2B2">7. Operate</text>
+    <text x="739" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="rgba(255,255,255,0.5)">Monitor</text>
+  </g>
+
+  <!-- Connecting arrow 2 -->
+  <line x1="450" y1="325" x2="450" y2="353" stroke="url(#arrow)" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="450,357 444,345 456,345" fill="#63B3ED"/>
+  <text x="460" y="343" font-family="Inter, sans-serif" font-weight="500" font-size="10" fill="#90CDF4">governed by</text>
+
+  <!-- ===== BOTTOM LAYER: Governance Foundation ===== -->
+  <rect x="50" y="362" width="800" height="90" rx="10" fill="url(#card1)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+  <text x="80" y="394" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="white">🏛  Foundation — School Governance · Architecture · Asset Lifecycle</text>
+  <text x="80" y="414" font-family="Inter, sans-serif" font-weight="400" font-size="12" fill="rgba(255,255,255,0.7)">Every deliverable is automatically aligned with institutional standards.</text>
+
+  <!-- Solved-problem badges -->
+  <g transform="translate(80, 425)">
+    <rect x="0" y="0" rx="10" width="78" height="20" fill="rgba(255,255,255,0.10)"/>
+    <text x="39" y="14" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9.5" fill="#68D391">✓ Discipline</text>
+
+    <rect x="88" y="0" rx="10" width="82" height="20" fill="rgba(255,255,255,0.10)"/>
+    <text x="129" y="14" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9.5" fill="#68D391">✓ Accuracy</text>
+
+    <rect x="180" y="0" rx="10" width="82" height="20" fill="rgba(255,255,255,0.10)"/>
+    <text x="221" y="14" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9.5" fill="#68D391">✓ Alignment</text>
+
+    <rect x="272" y="0" rx="10" width="68" height="20" fill="rgba(255,255,255,0.10)"/>
+    <text x="306" y="14" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9.5" fill="#68D391">✓ Cost</text>
+
+    <rect x="350" y="0" rx="10" width="100" height="20" fill="rgba(255,255,255,0.10)"/>
+    <text x="400" y="14" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9.5" fill="#68D391">✓ Asset Governance</text>
+
+    <rect x="460" y="0" rx="10" width="100" height="20" fill="rgba(255,255,255,0.10)"/>
+    <text x="510" y="14" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9.5" fill="#68D391">✓ Security Governance</text>
+  </g>
+
+  <!-- Right-side feature highlights -->
+  <g transform="translate(620, 362)">
+    <rect x="0" y="0" rx="8" width="220" height="90" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <text x="110" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="#90CDF4">Global SDLC Changes</text>
+    <text x="110" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">When the SDLC evolves, every</text>
+    <text x="110" y="57" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">existing app and ongoing work</text>
+    <text x="110" y="72" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">is instantly realigned globally.</text>
+  </g>
+
+  <!-- Bottom tagline -->
+  <text x="450" y="500" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="rgba(255,255,255,0.5)" letter-spacing="0.3">Vibe at speed. Ship with confidence. Govern automatically.</text>
+</svg>
