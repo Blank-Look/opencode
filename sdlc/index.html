@@ -10,6 +10,32 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+.section-grid-governance {
+  padding-bottom: 0;
+}
+.section-grid-lifecycle {
+  padding-top: 0;
+}
+.grid-separator {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 0;
+  border-top: 2px dashed var(--gray-300);
+  width: calc(100% - 4rem);
+}
+.card-governance {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%);
+}
+.card-governance .card-number {
+  color: var(--accent);
+}
+.card-governance:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 20px rgba(43, 108, 176, 0.15);
+}
+</style>
 </head>
 <body>
 
@@ -32,7 +58,30 @@
   <p>Deliver technology initiatives safely, efficiently and transparently — from capture through to operations.</p>
 </header>
 
-<div class="section-grid">
+<div class="section-grid section-grid-governance">
+  <a href="docs/governance/stage-gates.html" class="section-card card-governance">
+    <span class="card-number">Gate 1–5</span>
+    <div class="card-title">Stage Gates</div>
+    <p class="card-desc">Five gates from intake to operational acceptance with clear decisions and minimum evidence requirements.</p>
+    <span class="card-arrow">→</span>
+  </a>
+  <a href="docs/governance/project-sizing.html" class="section-card card-governance">
+    <span class="card-number">Risk + Cost</span>
+    <div class="card-title">Project Sizing</div>
+    <p class="card-desc">Financial and risk-based criteria to classify projects as small, medium or large with appropriate oversight.</p>
+    <span class="card-arrow">→</span>
+  </a>
+  <a href="docs/governance/scaled-documentation.html" class="section-card card-governance">
+    <span class="card-number">Artefacts</span>
+    <div class="card-title">Scaled Documentation</div>
+    <p class="card-desc">Repository-based documentation requirements scaled by project size — from brief records to detailed artefacts.</p>
+    <span class="card-arrow">→</span>
+  </a>
+</div>
+
+<div class="grid-separator"></div>
+
+<div class="section-grid section-grid-lifecycle">
   <a href="docs/lifecycle/capture.html" class="section-card">
     <span class="card-number">Phase 1</span>
     <div class="card-title">Capture</div>
@@ -73,24 +122,6 @@
     <span class="card-number">Phase 7</span>
     <div class="card-title">Operate</div>
     <p class="card-desc">Production verification, monitoring, incident response, vulnerability management, access reviews and continuous improvement.</p>
-    <span class="card-arrow">→</span>
-  </a>
-  <a href="docs/governance/stage-gates.html" class="section-card">
-    <span class="card-number">Governance</span>
-    <div class="card-title">Stage Gates</div>
-    <p class="card-desc">Five gates from intake to operational acceptance with clear decisions and minimum evidence requirements.</p>
-    <span class="card-arrow">→</span>
-  </a>
-  <a href="docs/governance/project-sizing.html" class="section-card">
-    <span class="card-number">Governance</span>
-    <div class="card-title">Project Sizing</div>
-    <p class="card-desc">Financial and risk-based criteria to classify projects as small, medium or large with appropriate oversight.</p>
-    <span class="card-arrow">→</span>
-  </a>
-  <a href="docs/governance/scaled-documentation.html" class="section-card">
-    <span class="card-number">Governance</span>
-    <div class="card-title">Scaled Documentation</div>
-    <p class="card-desc">Repository-based documentation requirements scaled by project size — from brief records to detailed artefacts.</p>
     <span class="card-arrow">→</span>
   </a>
 </div>
