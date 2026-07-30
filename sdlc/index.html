@@ -11,6 +11,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
+.navbar-schoolcode {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--gray-300);
+  transition: color 0.15s;
+}
+.navbar-schoolcode:hover { color: var(--primary); }
 .section-grid-governance {
   padding-bottom: 0;
 }
@@ -53,10 +66,13 @@
 
 <nav class="navbar">
   <div class="navbar-inner">
-    <a href="index.html" class="navbar-brand">
-      <img src="img/logo.svg" alt="SDLC Logo" width="28" height="28">
-      AI-Assisted Delivery Lifecycle
-    </a>
+    <div style="display:flex;align-items:center;gap:0;">
+      <a href="../index.html" class="navbar-schoolcode">SchoolCode</a>
+      <a href="index.html" class="navbar-brand">
+        <img src="img/logo.svg" alt="SDLC Logo" width="28" height="28">
+        AI-Assisted Delivery Lifecycle
+      </a>
+    </div>
     <div class="navbar-links">
       <a href="docs/overview/introduction.html">Docs</a>
       <a href="https://github.com/Blank-Look/opencode">GitHub</a>
@@ -143,6 +159,17 @@
     <span class="card-number">Template</span>
     <div class="card-title">Delivery Prompt Template</div>
     <p class="card-desc">Complete OpenCode delivery prompt for an ICT Asset Governance Manager — architecture, integrations, domain model, risk scoring, workflows, CI/CD, and delivery phases.</p>
+    <span class="card-arrow">→</span>
+  </a>
+</div>
+
+<div class="grid-separator"></div>
+
+<div class="section-grid" style="padding-top:0;">
+  <a href="docs/governance/cost-benefit-analysis.html" class="section-card card-governance" style="grid-column:1/-1;">
+    <span class="card-number">Economics</span>
+    <div class="card-title">Build vs Buy — Cost-Benefit Analysis</div>
+    <p class="card-desc">AI has changed the economics of building internal tools. A tiered governance model, TCO framework, and capability roadmap for deciding when to buy SaaS, build with AI, or automate — with a budget and investment strategy for the AI era.</p>
     <span class="card-arrow">→</span>
   </a>
 </div>

@@ -27,6 +27,7 @@ const sidebar = [
     { label: 'Stage Gates', file: 'stage-gates' },
     { label: 'Project Sizing', file: 'project-sizing' },
     { label: 'Scaled Documentation', file: 'scaled-documentation' },
+    { label: 'Build vs Buy — Cost-Benefit Analysis', file: 'cost-benefit-analysis' },
   ]},
 ];
 
@@ -82,10 +83,13 @@ function pageHtml(title, description, sectionDir, pageFile, contentHtml) {
 
 <nav class="navbar">
   <div class="navbar-inner">
-    <a href="${root}index.html" class="navbar-brand">
-      <img src="${root}img/logo.svg" alt="SDLC Logo" width="28" height="28">
-      AI-Assisted Delivery Lifecycle
-    </a>
+    <div style="display:flex;align-items:center;gap:0;">
+      <a href="${root}../index.html" class="navbar-schoolcode">SchoolCode</a>
+      <a href="${root}index.html" class="navbar-brand">
+        <img src="${root}img/logo.svg" alt="SDLC Logo" width="28" height="28">
+        AI-Assisted Delivery Lifecycle
+      </a>
+    </div>
     <div class="navbar-links">
       <a href="${docsHref}">Docs</a>
       <a href="https://github.com/Blank-Look/opencode">GitHub</a>

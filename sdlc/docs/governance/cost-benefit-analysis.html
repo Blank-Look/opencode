@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build vs Buy — Cost-Benefit Analysis — SDLC</title>
+<meta name="description" content="The economics of building internal tools have changed. Five years ago, "we don't build bespoke applications" was sensible — a small ICT team couldn't afford sof">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div style="display:flex;align-items:center;gap:0;">
+      <a href="../../../index.html" class="navbar-schoolcode">SchoolCode</a>
+      <a href="../../index.html" class="navbar-brand">
+        <img src="../../img/logo.svg" alt="SDLC Logo" width="28" height="28">
+        AI-Assisted Delivery Lifecycle
+      </a>
+    </div>
+    <div class="navbar-links">
+      <a href="../overview/introduction.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Overview</div><a class="sidebar-item" href="../overview/introduction.html">Introduction</a></div><div class="sidebar-section"><div class="sidebar-section-title">The Lifecycle</div><a class="sidebar-item" href="../lifecycle/capture.html">1. Capture</a><a class="sidebar-item" href="../lifecycle/govern.html">2. Govern</a><a class="sidebar-item" href="../lifecycle/generate.html">3. Generate</a><a class="sidebar-item" href="../lifecycle/build.html">4. Build</a><a class="sidebar-item" href="../lifecycle/assure.html">5. Assure</a><a class="sidebar-item" href="../lifecycle/release.html">6. Release</a><a class="sidebar-item" href="../lifecycle/operate.html">7. Operate</a><a class="sidebar-item" href="../lifecycle/delivery-prompt.html">Delivery Prompt Template</a></div><div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/stage-gates.html">Stage Gates</a><a class="sidebar-item" href="../governance/project-sizing.html">Project Sizing</a><a class="sidebar-item" href="../governance/scaled-documentation.html">Scaled Documentation</a><a class="sidebar-item active" href="../governance/cost-benefit-analysis.html">Build vs Buy — Cost-Benefit Analysis</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <p>The economics of building internal tools have changed. Five years ago, &quot;we don&#39;t build bespoke applications&quot; was sensible — a small ICT team couldn&#39;t afford software engineers, DevOps, UX, testing, hosting, security, and ongoing maintenance. Today, with AI-assisted development, the cost of building small internal tools has dropped dramatically. The limiting factor is no longer coding — it&#39;s governance, architecture, and product ownership.</p>
+<p>The question is no longer &quot;Should we build apps?&quot; It&#39;s: <strong>What is the cheapest, safest way to solve internal problems?</strong> Sometimes that&#39;s buying software. Sometimes it&#39;s Power Platform. Sometimes it&#39;s a 500-line Python app.</p>
+<h2>Policy Recommendation</h2>
+<p>Instead of &quot;We do not develop bespoke applications&quot;, adopt a modern framing:</p>
+<blockquote>
+<p>We adopt Commercial Off-The-Shelf (COTS) solutions by default. Internal applications may be developed where they demonstrably provide lower total cost of ownership, faster delivery, or capabilities unavailable in commercial products.</p>
+</blockquote>
+<p>This changes the conversation from ideology to economics.</p>
+<h2>Investment Strategy</h2>
+<p>Your organisation is probably spending around $2.5M in annual ICT operational expenditure — infrastructure, business applications, corporate IT. Yet engineering capability is often limited. That suggests your organisation is primarily a systems integrator, not a software organisation. AI changes the leverage.</p>
+<p><strong>Where to invest:</strong> Not in new developers. In making your infrastructure team into automation engineers.</p>
+<table>
+<thead>
+<tr>
+<th>Current Model</th>
+<th>Future Model</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Infrastructure</td>
+<td>Platform Engineering</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Azure</td>
+</tr>
+<tr>
+<td>Azure</td>
+<td>M365</td>
+</tr>
+<tr>
+<td>Networking</td>
+<td>GitHub</td>
+</tr>
+<tr>
+<td>M365</td>
+<td>Automation</td>
+</tr>
+<tr>
+<td></td>
+<td>AI</td>
+</tr>
+</tbody></table>
+<p>Same people. Different tools.</p>
+<h2>Capability Roadmap</h2>
+<h3>Stage 1 — Foundations (Everyone learns)</h3>
+<ul>
+<li>GitHub</li>
+<li>Markdown</li>
+<li>GitHub Issues</li>
+<li>GitHub Projects</li>
+<li>Pull Requests</li>
+</ul>
+<p>No coding yet.</p>
+<h3>Stage 2 — Automation Skills</h3>
+<ul>
+<li>PowerShell</li>
+<li>Python</li>
+<li>GitHub Actions</li>
+<li>Copilot</li>
+</ul>
+<h3>Stage 3 — Replace Repetitive Work</h3>
+<table>
+<thead>
+<tr>
+<th>Current</th>
+<th>Future</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>New AD User: 20 manual steps</td>
+<td>GitHub Workflow + PowerShell + API — Done</td>
+</tr>
+</tbody></table>
+<h3>Stage 4 — Internal Tools</h3>
+<p>Not enterprise systems. Things like:</p>
+<ul>
+<li>Certificate checker</li>
+<li>Room booking helper</li>
+<li>Azure reporting</li>
+<li>Licensing dashboard</li>
+<li>Firewall request tracker</li>
+<li>Intune packaging portal</li>
+</ul>
+<p>These are fantastic AI-built applications.</p>
+<h2>Cost Model</h2>
+<p>Evaluate every proposed internal tool using this framework:</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Buy</th>
+<th>Build</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Annual licence</td>
+<td>$35,000</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>Initial build</td>
+<td>$0</td>
+<td>80 hours</td>
+</tr>
+<tr>
+<td>Maintenance</td>
+<td>Vendor</td>
+<td>10 hours/year</td>
+</tr>
+<tr>
+<td>Vendor roadmap</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Customisation</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>AI-assisted enhancement</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<p>Notice that &quot;build&quot; is no longer &quot;12 months of developers.&quot; It might literally be 60 hours + GitHub + Azure App Service + Copilot.</p>
+<h2>Tiered Governance Model</h2>
+<p>Classify software into four tiers:</p>
+<h3>Tier 1 — Enterprise Systems</h3>
+<p>Dynamics, FinanceOne, Canvas, Qualtrics, core ERPs.<br><strong>Buy. Never build.</strong></p>
+<h3>Tier 2 — Department Applications</h3>
+<p>Monday, Smartsheet, PowerApps.<br><strong>Evaluate. Maybe buy.</strong></p>
+<h3>Tier 3 — Internal Operational Tools</h3>
+<p>These are ideal for AI. Examples: Intune package tracker, DNS manager, VM report, Azure cost explorer, user lifecycle dashboard.<br><strong>Build.</strong></p>
+<h3>Tier 4 — Automation</h3>
+<p>PowerShell, Python, GitHub Actions, Azure Functions.<br><strong>Always build.</strong></p>
+<h2>Total Cost of Ownership</h2>
+<p>Don&#39;t compare a $20k licence vs a $20k developer. Compare over five years:</p>
+<p><strong>Buy:</strong> Licence × 5 years + Implementation + Training + Support + Vendor increases + Consultants + Change requests</p>
+<p><strong>Build:</strong> 80 hours build + 10 hours/year maintenance + GitHub + Azure</p>
+<p>That&#39;s the real TCO comparison.</p>
+<h2>Budget for AI</h2>
+<p>Instead of treating AI as discretionary spend, make it a real budget item:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Annual</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ChatGPT Enterprise / Business</td>
+<td>$15k–25k</td>
+</tr>
+<tr>
+<td>GitHub Copilot</td>
+<td>$10k–20k</td>
+</tr>
+<tr>
+<td>GitHub Enterprise</td>
+<td>as required</td>
+</tr>
+<tr>
+<td>Training</td>
+<td>$10k</td>
+</tr>
+</tbody></table>
+<h2>Where New Money Goes</h2>
+<p>If given an additional $100k:</p>
+<ul>
+<li><strong>40%</strong> on GitHub Enterprise, Copilot, and ChatGPT</li>
+<li><strong>30%</strong> on targeted consulting to establish a modern engineering platform (GitHub, CI/CD, IaC, identity, security, reusable templates)</li>
+<li><strong>20%</strong> on structured training and mentoring (GitHub, automation, AI-assisted development, cloud engineering)</li>
+<li><strong>10%</strong> on innovation time to build and validate high-value internal tools</li>
+</ul>
+<p>The objective isn&#39;t to become a software house. It&#39;s to increase the leverage of a small team.</p>
+<h2>Strategic Direction</h2>
+<p>Your organisation is already heavily invested in Microsoft 365, Azure, Dynamics, Fabric, SharePoint, and other SaaS platforms. Rather than trying to compete with those products, position your team as platform engineers who extend and integrate them.</p>
+<p>A concise strategy:</p>
+<ul>
+<li><strong>Buy</strong> enterprise capabilities (ERP, CRM, LMS, collaboration, finance).</li>
+<li><strong>Configure</strong> Microsoft 365 and SaaS platforms to meet business needs.</li>
+<li><strong>Automate</strong> every repeatable operational task using GitHub, PowerShell, Python, Power Automate, and Azure services.</li>
+<li><strong>Build</strong> small, focused internal tools only where there is a clear productivity or capability gap and a positive five-year TCO compared to commercial software.</li>
+</ul>
+<p>This keeps the long-standing &quot;buy before build&quot; philosophy, while acknowledging that AI has fundamentally changed the economics of creating and maintaining lightweight internal solutions. It&#39;s an evolution rather than a reversal, and it&#39;s much easier to explain to executives and auditors.</p>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 Infrastructure & Security. Built with purpose.</p>
+</footer>
+
+</body>
+</html>
