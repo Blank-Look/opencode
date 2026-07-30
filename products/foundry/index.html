@@ -219,24 +219,6 @@ section { padding: 5rem 2rem; }
 .module-card ul { margin-top: 0.5rem; padding-left: 1.25rem; }
 .module-card ul li { font-size: 0.8rem; color: var(--stone-500); line-height: 1.6; }
 
-.assessment { background: var(--white); }
-.assess-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  align-items: start;
-}
-.assess-card {
-  background: var(--cream);
-  border-radius: 16px;
-  padding: 2rem;
-  border: 1px solid var(--stone-200);
-}
-.assess-card h3 { font-size: 1rem; font-weight: 700; color: var(--stone-700); margin-bottom: 0.75rem; }
-.assess-card ul { padding-left: 1.25rem; }
-.assess-card ul li { font-size: 0.85rem; color: var(--stone-500); line-height: 1.7; }
-.assess-card .ac-example { font-size: 0.875rem; color: var(--stone-600); margin-top: 0.5rem; padding: 0.75rem; background: var(--white); border-radius: 8px; border-left: 3px solid var(--ember); }
-
 .cert { background: var(--forge-dark); color: var(--white); text-align: center; }
 .cert .section-tag { color: var(--ember-light); }
 .cert .section-title { color: var(--white); }
@@ -296,7 +278,7 @@ footer .f-copy { font-size: 0.8rem; }
   .nav-links { display: none; }
   .hero h1 { font-size: 2.5rem; }
   .hero { min-height: auto; padding: 6rem 1.5rem 3rem; }
-  .why-grid, .module-grid, .assess-grid, .resource-grid { grid-template-columns: 1fr; }
+  .why-grid, .module-grid, .resource-grid { grid-template-columns: 1fr; }
   .section-title { font-size: 1.75rem; }
   section { padding: 3rem 1.5rem; }
   .cert-sample { padding: 1.5rem; text-align: left; }
@@ -521,48 +503,6 @@ footer .f-copy { font-size: 0.8rem; }
         <h3>AGENTS.md, guardrails, and governance</h3>
         <p>How <code>AGENTS.md</code> acts as the contract between your team and AI tools. Role-based governance, deterministic risk rules, source system authority, and the Delivery Prompt Template — explained with practical examples from real products.</p>
       </a>
-    </div>
-  </div>
-</section>
-
-<section id="assessment" class="assessment">
-  <div class="section-inner">
-    <div class="section-tag">Assessment</div>
-    <h2 class="section-title">Practical assessment.<br><strong>Real task, real repository.</strong></h2>
-    <p class="section-sub">A real task that mirrors how you'll work — create a repository with README, docs, branch, PR, review, and merge.</p>
-    <div class="assess-grid">
-      <div class="assess-card">
-        <h3>Practical task</h3>
-        <p style="font-size:0.85rem;color:var(--stone-500);margin-bottom:0.75rem;">Create a repository called <strong>intune-packaging</strong>:</p>
-        <ul>
-          <li>README.md</li>
-          <li>docs/ folder</li>
-          <li>Markdown page</li>
-          <li>Create a branch</li>
-          <li>Commit</li>
-          <li>Pull Request</li>
-          <li>Review a PR</li>
-          <li>Merge</li>
-          <li>Trigger a GitHub Action</li>
-        </ul>
-        <p style="margin-top:0.75rem;font-size:0.85rem;font-weight:700;color:var(--forge);">Pass mark: 80%</p>
-      </div>
-      <div class="assess-card">
-        <h3>Sample Q&A</h3>
-        <div class="ac-example">
-          <strong>Which command downloads changes from GitHub?</strong><br>
-          A Commit · B Push · C <strong>Pull</strong> ✅ · D Merge
-        </div>
-        <div class="ac-example">
-          <strong>What is a Pull Request used for?</strong><br>
-          A Delete a repository · B <strong>Review changes before merging</strong> ✅ · C Upload files · D Create Markdown
-        </div>
-        <div class="ac-example">
-          <strong>Where should engineering documentation live?</strong><br>
-          A Word · B SharePoint · C <strong>Markdown in repository</strong> ✅ · D Email
-        </div>
-        <p style="margin-top:0.75rem;font-size:0.8rem;color:var(--stone-400);">70 questions across 8 modules. <a href="qa.html" style="color:var(--ember);font-weight:600;">View the full Q&amp;A bank →</a></p>
-      </div>
     </div>
   </div>
 </section>
