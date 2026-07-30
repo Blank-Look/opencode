@@ -15,6 +15,7 @@ const sidebar = [
     { label: 'Compliance', file: 'compliance' },
     { label: 'Data Classification', file: 'data-classification' },
     { label: 'Data Governance', file: 'data-governance' },
+    { label: 'Innovation Governance', file: 'innovation-governance' },
     { label: 'IT Governance', file: 'it-governance' },
     { label: 'Policies', file: 'policies' },
     { label: 'Risk Management', file: 'risk-management' },

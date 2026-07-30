@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600">
+  <defs>
+    <linearGradient id="topBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <linearGradient id="midBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAFAFA"/>
+    </linearGradient>
+    <linearGradient id="botBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0F9FF"/>
+      <stop offset="100%" stop-color="#E0F2FE"/>
+    </linearGradient>
+    <linearGradient id="guardrail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7A1B2C"/>
+      <stop offset="100%" stop-color="#A3243B"/>
+    </linearGradient>
+    <linearGradient id="freedomArrow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="rgba(0,0,0,0.08)"/>
+    </filter>
+  </defs>
+
+  <!-- ===== ZONE 1: INNOVATION FREEDOM (top) ===== -->
+  <rect x="30" y="20" width="840" height="170" rx="12" fill="url(#topBg)" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="60" y="50" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="#64748B" letter-spacing="0.06em" text-transform="uppercase">INNOVATION FREEDOM</text>
+
+  <!-- People icons -->
+  <g transform="translate(80, 75)">
+    <circle cx="15" cy="12" r="8" fill="#CBD5E1"/>
+    <circle cx="15" cy="28" r="10" fill="#CBD5E1"/>
+    <text x="15" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9" fill="#94A3B8">Users</text>
+  </g>
+  <g transform="translate(180, 75)">
+    <circle cx="15" cy="12" r="8" fill="#CBD5E1"/>
+    <circle cx="15" cy="28" r="10" fill="#CBD5E1"/>
+    <text x="15" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9" fill="#94A3B8">Teams</text>
+  </g>
+  <g transform="translate(280, 75)">
+    <circle cx="15" cy="12" r="8" fill="#CBD5E1"/>
+    <circle cx="15" cy="28" r="10" fill="#CBD5E1"/>
+    <text x="15" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9" fill="#94A3B8">Everyone</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="360" y1="100" x2="440" y2="100" stroke="url(#freedomArrow)" stroke-width="2" stroke-dasharray="4,3"/>
+  <polygon points="445,100 435,95 435,105" fill="#64748B"/>
+
+  <!-- Free prompts + model choice -->
+  <g transform="translate(470, 65)">
+    <rect x="0" y="0" width="180" height="50" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1" filter="url(#shadow)"/>
+    <text x="90" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="#334155">Unrestricted Prompts</text>
+    <text x="90" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="9" fill="#94A3B8">Not audited. Not constrained.</text>
+  </g>
+  <g transform="translate(470, 125)">
+    <rect x="0" y="0" width="180" height="40" rx="8" fill="white" stroke="#CBD5E1" stroke-width="1" filter="url(#shadow)"/>
+    <text x="90" y="18" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#334155">Choice of AI Models</text>
+    <text x="90" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="9" fill="#94A3B8">OpenCode CLI connects them all</text>
+  </g>
+  <g transform="translate(680, 80)">
+    <rect x="0" y="0" width="160" height="80" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <text x="80" y="24" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#7A1B2C">⚡ Big Freedom</text>
+    <text x="80" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#991B1B">Prompt however you want.</text>
+    <text x="80" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#991B1B">Choose any model.</text>
+    <text x="80" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#991B1B">Move fast.</text>
+  </g>
+
+  <!-- ===== Arrow from top to middle ===== -->
+  <line x1="450" y1="195" x2="450" y2="228" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="450,233 444,223 456,223" fill="#CBD5E1"/>
+
+  <!-- ===== ZONE 2: GOVERNED DELIVERY PLATFORM (middle) ===== -->
+  <rect x="30" y="238" width="840" height="185" rx="12" fill="url(#midBg)" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Guardrail left -->
+  <rect x="45" y="248" width="10" height="165" rx="5" fill="url(#guardrail)" opacity="0.9"/>
+  <text x="50" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="8" fill="white" transform="rotate(-90,50,340)" letter-spacing="0.15em">GOVERNANCE GUARDRAILS</text>
+  <!-- Guardrail right -->
+  <rect x="845" y="248" width="10" height="165" rx="5" fill="url(#guardrail)" opacity="0.9"/>
+  <text x="850" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="8" fill="white" transform="rotate(90,850,340)" letter-spacing="0.15em">GOVERNANCE GUARDRAILS</text>
+
+  <text x="60" y="268" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="#64748B" letter-spacing="0.06em" text-transform="uppercase">GOVERNED DELIVERY PLATFORM</text>
+
+  <!-- CLI block -->
+  <rect x="140" y="280" width="620" height="55" rx="10" fill="#1E293B" filter="url(#shadow)"/>
+  <text x="170" y="303" font-family="monospace" font-weight="700" font-size="12" fill="#38BDF8">open-code --model claude --task "build auth"</text>
+  <text x="170" y="322" font-family="monospace" font-weight="400" font-size="10" fill="#64748B">open-code --model gpt-4o --arch-guardrails --security-scan</text>
+
+  <!-- Tool badges below CLI -->
+  <g transform="translate(140, 350)">
+    <rect x="0" y="0" rx="6" width="80" height="22" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="40" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9" fill="#475569">AI Models</text>
+
+    <rect x="92" y="0" rx="6" width="90" height="22" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="137" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9" fill="#475569">Architecture</text>
+
+    <rect x="194" y="0" rx="6" width="80" height="22" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="234" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9" fill="#475569">Security</text>
+
+    <rect x="286" y="0" rx="6" width="60" height="22" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="316" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9" fill="#475569">PII Policy</text>
+
+    <rect x="358" y="0" rx="6" width="80" height="22" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="398" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9" fill="#475569">SDLC Gates</text>
+
+    <rect x="450" y="0" rx="6" width="100" height="22" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="500" y="15" text-anchor="middle" font-family="Inter, sans-serif" font-weight="500" font-size="9" fill="#475569">Compliance Checks</text>
+  </g>
+
+  <!-- ===== Arrow from middle to bottom ===== -->
+  <line x1="450" y1="428" x2="450" y2="455" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="450,460 444,450 456,450" fill="#CBD5E1"/>
+
+  <!-- ===== ZONE 3: ALIGNED OUTCOMES (bottom) ===== -->
+  <rect x="30" y="465" width="840" height="115" rx="12" fill="url(#botBg)" stroke="#BAE6FD" stroke-width="1"/>
+
+  <text x="60" y="495" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="#0284C7" letter-spacing="0.06em" text-transform="uppercase">ALIGNED OUTCOMES  →  AUTOMATICALLY GOVERNED</text>
+
+  <!-- Outcome pillars -->
+  <g transform="translate(60, 510)">
+    <rect x="0" y="0" width="230" height="50" rx="8" fill="white" stroke="#BAE6FD" stroke-width="1" filter="url(#shadow)"/>
+    <text x="115" y="20" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="#0284C7">✓ Code</text>
+    <text x="115" y="36" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="9" fill="#64748B">Structured, consistent, auditable</text>
+  </g>
+  <g transform="translate(315, 510)">
+    <rect x="0" y="0" width="230" height="50" rx="8" fill="white" stroke="#BAE6FD" stroke-width="1" filter="url(#shadow)"/>
+    <text x="115" y="20" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="#0284C7">✓ Infrastructure</text>
+    <text x="115" y="36" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="9" fill="#64748B">Architecture guardrails applied</text>
+  </g>
+  <g transform="translate(570, 510)">
+    <rect x="0" y="0" width="270" height="50" rx="8" fill="white" stroke="#BAE6FD" stroke-width="1" filter="url(#shadow)"/>
+    <text x="135" y="20" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="#0284C7">✓ Documentation & Compliance</text>
+    <text x="135" y="36" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="9" fill="#64748B">Security + PII policy enforced</text>
+  </g>
+</svg>
