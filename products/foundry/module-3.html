@@ -103,8 +103,7 @@ footer .f-copy{font-size:.8rem}
     <h1>Module 3: <strong>Git Basics</strong></h1>
     <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">Clone, status, add, commit, push, pull. The six commands you'll use every day.</p>
     <div class="ph-meta">
-      <span><strong>2 h</strong> — 30 min instruction + 1.5 h exercise</span>
-      <span><strong>Morning</strong> Day 1 · 10:45–12:45</span>
+      <span>Self-paced · ~1.5 h</span>
     </div>
   </div>
 </div>
@@ -112,37 +111,14 @@ footer .f-copy{font-size:.8rem}
 <section>
   <div class="section-inner">
 
-    <div class="content-card">
-      <h2>Facilitator preparation</h2>
-      <ul>
-        <li>Ensure Git is installed on every machine: <code>git --version</code></li>
-        <li>Configure Git globally: <code>git config --global user.name</code> and <code>user.email</code></li>
-        <li>Have the training repository URL ready for cloning</li>
-        <li>Prepare a second terminal window showing <code>watch -n 1 git log --oneline --all</code> for live demo</li>
-        <li>Create a scenario where two people edit the same file to demonstrate conflict detection</li>
-      </ul>
-    </div>
+
+
+
 
     <div class="content-card">
-      <h2>Timing breakdown</h2>
-      <table class="timeline-table">
-        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
-        <tbody>
-          <tr class="active"><td>5 min</td><td>What is Git? The four states: Working → Staged → Committed → Pushed</td></tr>
-          <tr class="active"><td>5 min</td><td>Clone — downloading a repository</td></tr>
-          <tr class="active"><td>5 min</td><td>Status and staging — git status, git add</td></tr>
-          <tr class="active"><td>5 min</td><td>Commit — saving a snapshot</td></tr>
-          <tr class="active"><td>5 min</td><td>Push and pull — syncing with GitHub</td></tr>
-          <tr class="active"><td>5 min</td><td>Live demo — the full cycle</td></tr>
-          <tr><td>90 min</td><td>Group exercise — everyone edits the same repo</td></tr>
-        </tbody>
-      </table>
-    </div>
+      <h2>Read</h2>
 
-    <div class="content-card">
-      <h2>Script & talking points</h2>
-
-      <h3>What is Git? (5 min)</h3>
+      <h3>What is Git?</h3>
       <p>Git is a version control system. It tracks every change to every file in a repository. Think of it as "undo for your entire project, forever."</p>
       <p>The four states of a file in Git:</p>
       <ul>
@@ -152,35 +128,30 @@ footer .f-copy{font-size:.8rem}
         <li><strong>Pushed:</strong> You've sent your commits to GitHub (<code>git push</code>).</li>
       </ul>
 
-      <div class="tip-box">
-        <div class="tb-label">Facilitator tip</div>
-        <p>Draw the four states on a whiteboard as a pipeline: Working → <code>git add</code> → Staging → <code>git commit</code> → Local repo → <code>git push</code> → Remote. Refer back to it throughout the exercise.</p>
-      </div>
-
-      <h3>Clone (5 min)</h3>
-      <p><code>git clone &lt;url&gt;</code> downloads the entire repository — all files, all history, all branches — to your machine.</p>
+      <h3>Clone</h3>
+      <p>Open your terminal and run <code>git clone &lt;url&gt;</code> to download the entire repository — all files, all history, all branches — to your machine.</p>
       <div class="cmd-block">
         <span class="prompt">$</span> git clone https://github.com/team/training-repo.git<br>
         <span class="comment"># Creates a folder called training-repo/</span>
       </div>
 
-      <h3>Status and staging (5 min)</h3>
-      <p><code>git status</code> is the most-used command. It shows what's changed, what's staged, and what's untracked.</p>
+      <h3>Status and staging</h3>
+      <p><code>git status</code> will be your most-used command. Run it to see what's changed, what's staged, and what's untracked.</p>
       <div class="cmd-block">
         <span class="prompt">$</span> git status<br>
         <span class="comment"># Shows modified files, staged files, untracked files</span>
       </div>
       <p><code>git add &lt;file&gt;</code> stages a file. <code>git add .</code> stages all changes in the current directory.</p>
 
-      <h3>Commit (5 min)</h3>
-      <p><code>git commit -m "message"</code> saves a snapshot. The message should be present tense and descriptive.</p>
+      <h3>Commit</h3>
+      <p><code>git commit -m "message"</code> saves a snapshot. Your message should be present tense and descriptive. You should see a confirmation like <code>[main abc1234] Your message</code>.</p>
       <div class="cmd-block">
         <span class="prompt">$</span> git add README.md<br>
         <span class="prompt">$</span> git commit -m "Add Intune packaging documentation"<br>
         <span class="comment"># [main abc1234] Add Intune packaging documentation</span>
       </div>
 
-      <h3>Push and pull (5 min)</h3>
+      <h3>Push and pull</h3>
       <p><code>git push</code> sends commits to GitHub. <code>git pull</code> fetches and merges changes from GitHub.</p>
       <div class="cmd-block">
         <span class="prompt">$</span> git push<br>
@@ -188,30 +159,34 @@ footer .f-copy{font-size:.8rem}
         <span class="prompt">$</span> git pull<br>
         <span class="comment"># Gets latest changes from teammates</span>
       </div>
-      <p><strong>Always pull before you push.</strong> If someone else pushed since your last pull, Git will warn you.</p>
+      <p><strong>Always run <code>git pull</code> before you push.</strong> If someone else pushed since your last pull, Git will show a "rejected" error.</p>
 
-      <div class="tip-box">
-        <div class="tb-label">Key workflow</div>
-        <p>The daily cycle: <code>git pull</code> → edit files → <code>git add</code> → <code>git commit -m "..."</code> → <code>git push</code></p>
-      </div>
 
-      <h3>Live demo (5 min)</h3>
-      <p>Run through the full cycle on the training repo. Have everyone watch as you:</p>
+
+      <h3>Try it yourself</h3>
+      <p>Open your terminal and run through the full cycle:</p>
       <ul>
-        <li>Clone the repo</li>
+        <li>Clone a repository</li>
         <li>Edit a file</li>
         <li>Run <code>git status</code></li>
         <li>Stage with <code>git add</code></li>
         <li>Commit with a message</li>
         <li>Push to GitHub</li>
-        <li>Show the commit appearing on GitHub.com</li>
+        <li>Check that the commit appears on GitHub.com</li>
       </ul>
 
-      <h3>Exercise — Shared Repository (90 min)</h3>
-      <div class="tip-box">
-        <div class="tb-label">Instructions</div>
-        <p>Everyone clones the training repository. Each person creates a markdown file with their name (<code>firstname-lastname.md</code>) containing a short bio. Stage, commit, push. Then pull to see everyone else's files.</p>
-        <p>The facilitator then simulates a conflict: two people are told to edit the same line in the same file. When they push, the second person gets a conflict. The facilitator demonstrates how to read the conflict markers and resolve them.</p>
+      <h3>Exercise — Your own test repo</h3>
+      <p>Create a test repository on GitHub, clone it to your machine, add a file, commit, and push the change. Then edit the file, commit again, and push again. Practice the full cycle at least three times until the commands feel automatic.</p>
+      <div class="cmd-block">
+        <span class="comment"># Full cycle recap</span><br>
+        <span class="prompt">$</span> git clone https://github.com/YOUR-USER/YOUR-REPO.git<br>
+        <span class="prompt">$</span> cd YOUR-REPO<br>
+        <span class="prompt">$</span> echo "# My project" &gt; README.md<br>
+        <span class="prompt">$</span> git status<br>
+        <span class="prompt">$</span> git add README.md<br>
+        <span class="prompt">$</span> git commit -m "Add README"<br>
+        <span class="prompt">$</span> git push<br>
+        <span class="comment"># Edit the file in your editor, then repeat add-commit-push</span>
       </div>
     </div>
 
@@ -249,7 +224,7 @@ footer .f-copy{font-size:.8rem}
 
 <footer>
   <div class="f-brand">Foundry</div>
-  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+  <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
 </footer>
 
 </body>

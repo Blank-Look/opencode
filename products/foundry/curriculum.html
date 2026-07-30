@@ -306,14 +306,14 @@ footer .f-copy { font-size: 0.8rem; }
 
 <div class="page-header">
   <h1>Full <strong>Curriculum</strong></h1>
-  <p>Eight modules. Two days. Every exercise, quiz question, and learning objective.</p>
+  <p>Eight self-paced modules. Every exercise, quiz question, and learning objective.</p>
   <a href="index.html" class="back-link">← Back to Foundry</a>
 </div>
 
 <div class="overview-bar">
   <div class="ob-item"><div class="ob-val">8</div><div class="ob-label">Modules</div></div>
-  <div class="ob-item"><div class="ob-val">8h</div><div class="ob-label">Total instruction</div></div>
-  <div class="ob-item"><div class="ob-val">4h</div><div class="ob-label">Hands-on exercises</div></div>
+  <div class="ob-item"><div class="ob-val">~8h</div><div class="ob-label">Total content</div></div>
+  <div class="ob-item"><div class="ob-val">4h</div><div class="ob-label">Exercises</div></div>
   <div class="ob-item"><div class="ob-val">5</div><div class="ob-label">Quizzes</div></div>
   <div class="ob-item"><div class="ob-val">80%</div><div class="ob-label">Pass mark</div></div>
 </div>
@@ -336,41 +336,15 @@ footer .f-copy { font-size: 0.8rem; }
     </div>
 
     <div class="toc-card">
-      <h3>Day plan</h3>
-      <table class="schedule-table">
-        <thead><tr><th>Time</th><th>Day 1</th><th>Duration</th></tr></thead>
-        <tbody>
-          <tr><td>09:00</td><td>Module 1 — Why GitHub?</td><td>30 min</td></tr>
-          <tr><td>09:30</td><td>Module 2 — Markdown</td><td>1 h</td></tr>
-          <tr><td>10:30</td><td>Break</td><td>15 min</td></tr>
-          <tr><td>10:45</td><td>Module 3 — Git Basics</td><td>2 h</td></tr>
-          <tr><td>12:45</td><td>Lunch</td><td>45 min</td></tr>
-          <tr><td>13:30</td><td>Module 4 — Branches & Pull Requests</td><td>2 h</td></tr>
-          <tr><td>15:30</td><td>Module 5 — Repository Standards</td><td>1 h</td></tr>
-          <tr><td>16:30</td><td>Wrap & recap</td><td>15 min</td></tr>
-        </tbody>
-      </table>
-      <br>
-      <table class="schedule-table">
-        <thead><tr><th>Time</th><th>Day 2</th><th>Duration</th></tr></thead>
-        <tbody>
-          <tr><td>09:00</td><td>Module 6 — GitHub Actions</td><td>1 h</td></tr>
-          <tr><td>10:00</td><td>Module 7 — AI</td><td>1 h</td></tr>
-          <tr><td>11:00</td><td>Break</td><td>15 min</td></tr>
-          <tr><td>11:15</td><td>Module 8 — Engineering Standards</td><td>30 min</td></tr>
-          <tr><td>11:45</td><td>Practical assessment</td><td>1.5 h</td></tr>
-          <tr><td>13:15</td><td>Lunch</td><td>45 min</td></tr>
-          <tr><td>14:00</td><td>Q&A revision + quiz</td><td>1 h</td></tr>
-          <tr><td>15:00</td><td>Certificates & close</td><td>30 min</td></tr>
-        </tbody>
-      </table>
+      <h3>Suggested order</h3>
+      <p style="font-size:0.9rem;color:var(--stone-500);line-height:1.7;">Work through modules in order — each builds on the last. Take breaks when you need them. The practical assessment at the end ties everything together.</p>
     </div>
 
     <!-- Module 1 -->
     <div id="m1" class="module-card-full">
       <div class="mc-header">
         <span class="mc-num">Module 1</span>
-        <span class="mc-time"><strong>30 min</strong> — instruction</span>
+        <span class="mc-time"><strong>~30 min</strong> — self-paced</span>
       </div>
       <h2>Why GitHub?</h2>
       <p class="mc-sub">Why not SharePoint? Git vs GitHub. Repositories, Markdown, Pull Requests, GitHub Actions, AI integration.</p>
@@ -408,7 +382,7 @@ footer .f-copy { font-size: 0.8rem; }
     <div id="m2" class="module-card-full">
       <div class="mc-header">
         <span class="mc-num">Module 2</span>
-        <span class="mc-time"><strong>1 h</strong> — 45 min instruction + 15 min exercise</span>
+        <span class="mc-time"><strong>~1 h</strong> — self-paced</span>
       </div>
       <h2>Markdown</h2>
       <p class="mc-sub">Headings, lists, tables, links, images, Mermaid diagrams, code blocks. Hands-on from the start.</p>
@@ -455,7 +429,7 @@ footer .f-copy { font-size: 0.8rem; }
     <div id="m3" class="module-card-full">
       <div class="mc-header">
         <span class="mc-num">Module 3</span>
-        <span class="mc-time"><strong>2 h</strong> — 30 min instruction + 1.5 h group exercise</span>
+        <span class="mc-time"><strong>~1.5 h</strong> — self-paced</span>
       </div>
       <h2>Git Basics</h2>
       <p class="mc-sub">Clone, status, add, commit, push, pull. Working copy → Commit → Repository → Remote.</p>
@@ -481,7 +455,7 @@ footer .f-copy { font-size: 0.8rem; }
 
       <div class="mc-box">
         <div class="mc-label">Exercise — Shared Repository</div>
-        <p>Everyone clones the same training repo. Each person creates a markdown file with their name, stages it, commits, and pushes. Then everyone pulls to see everyone else's files. The facilitator simulates a conflict by having two people edit the same file — then demonstrates how Git detects the conflict.</p>
+        <p>Clone the training repo. Create a markdown file, stage it, commit, and push. Then edit a file another person created and practice the push-pull cycle. To learn conflict resolution, try editing a file you know someone else is also editing — Git will show you how to resolve it when you pull.</p>
       </div>
 
       <h3>Quiz</h3>
@@ -501,7 +475,7 @@ footer .f-copy { font-size: 0.8rem; }
     <div id="m4" class="module-card-full">
       <div class="mc-header">
         <span class="mc-num">Module 4</span>
-        <span class="mc-time"><strong>2 h</strong> — 30 min instruction + 1.5 h exercise</span>
+        <span class="mc-time"><strong>~1.5 h</strong> — self-paced</span>
       </div>
       <h2>Branches & Pull Requests</h2>
       <p class="mc-sub">Create branch → Edit → Commit → Push → PR → Review → Merge. Including merge conflicts — everyone resolves one.</p>
@@ -526,7 +500,7 @@ footer .f-copy { font-size: 0.8rem; }
 
       <div class="mc-box">
         <div class="mc-label">Exercise — Cross-Team PR</div>
-        <p>Split into pairs. Person A creates a branch, edits the team roster, commits, pushes, and opens a PR. Person B reviews the PR, leaves a comment, approves it. Person A merges. Then swap roles. The facilitator introduces a deliberate conflict: both people edit the same line. Each pair resolves their conflict together.</p>
+        <p>Create a branch, edit a file, commit, push, and open a PR. Then review a PR from another person, leave a comment, and approve it. For conflict resolution: edit the same line in a file as someone else, then practice resolving the conflict when you merge.</p>
       </div>
 
       <h3>Quiz</h3>
@@ -546,7 +520,7 @@ footer .f-copy { font-size: 0.8rem; }
     <div id="m5" class="module-card-full">
       <div class="mc-header">
         <span class="mc-num">Module 5</span>
-        <span class="mc-time"><strong>1 h</strong> — 30 min instruction + 30 min exercise</span>
+        <span class="mc-time"><strong>~1 h</strong> — self-paced</span>
       </div>
       <h2>Repository Standards</h2>
       <p class="mc-sub">README, <code>docs/</code>, <code>scripts/</code>, <code>.github/</code>, LICENSE, CODEOWNERS. How to structure every repo consistently.</p>
@@ -579,7 +553,7 @@ footer .f-copy { font-size: 0.8rem; }
     <div id="m6" class="module-card-full">
       <div class="mc-header">
         <span class="mc-num">Module 6</span>
-        <span class="mc-time"><strong>1 h</strong> — 30 min instruction + 30 min exercise</span>
+        <span class="mc-time"><strong>~1 h</strong> — self-paced</span>
       </div>
       <h2>GitHub Actions</h2>
       <p class="mc-sub">Just enough to understand. Push → workflow starts → tests → deploy docs. No deep YAML.</p>
@@ -612,7 +586,7 @@ footer .f-copy { font-size: 0.8rem; }
     <div id="m7" class="module-card-full">
       <div class="mc-header">
         <span class="mc-num">Module 7</span>
-        <span class="mc-time"><strong>1 h</strong> — 20 min demo + 40 min hands-on</span>
+        <span class="mc-time"><strong>~1 h</strong> — self-paced</span>
       </div>
       <h2>AI</h2>
       <p class="mc-sub">ChatGPT, Copilot, OpenCode, Claude Code — generating documentation, writing PowerShell, reviewing PRs, and building workflows with AI.</p>
@@ -648,7 +622,7 @@ footer .f-copy { font-size: 0.8rem; }
     <div id="m8" class="module-card-full">
       <div class="mc-header">
         <span class="mc-num">Module 8</span>
-        <span class="mc-time"><strong>30 min</strong> — discussion and agreement</span>
+        <span class="mc-time"><strong>~30 min</strong> — self-paced</span>
       </div>
       <h2>Engineering Standards</h2>
       <p class="mc-sub">How your organisation will work. Repository naming, PRs, reviews, Issues, Projects, documentation, branch protection.</p>
@@ -674,7 +648,7 @@ footer .f-copy { font-size: 0.8rem; }
 
       <div class="mc-box">
         <div class="mc-label">Team agreement</div>
-        <p>As a group, agree on naming conventions, PR rules, branch protection settings, Issue labels, and Project board columns. The facilitator documents the decisions in a <code>engineering-standards.md</code> file that gets committed to the team's standards repository.</p>
+        <p>Define your team's conventions: naming rules, PR workflow, branch protection, Issue labels, and Project board columns. Document the decisions in an <code>engineering-standards.md</code> file and commit it to your team's standards repository.</p>
       </div>
     </div>
 
@@ -683,7 +657,7 @@ footer .f-copy { font-size: 0.8rem; }
 
 <footer>
   <div class="f-brand">Foundry</div>
-  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+  <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
 </footer>
 
 </body>

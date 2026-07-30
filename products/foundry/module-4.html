@@ -103,8 +103,7 @@ footer .f-copy{font-size:.8rem}
     <h1>Module 4: <strong>Branches & Pull Requests</strong></h1>
     <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">Create branch → Edit → Commit → Push → PR → Review → Merge. Everyone resolves a merge conflict.</p>
     <div class="ph-meta">
-      <span><strong>2 h</strong> — 30 min instruction + 1.5 h exercise</span>
-      <span><strong>Afternoon</strong> Day 1 · 13:30–15:30</span>
+      <span><strong>Self-paced · ~90 min</strong></span>
     </div>
   </div>
 </div>
@@ -113,44 +112,14 @@ footer .f-copy{font-size:.8rem}
   <div class="section-inner">
 
     <div class="content-card">
-      <h2>Facilitator preparation</h2>
-      <ul>
-        <li>Ensure the training repo has branch protection disabled (or use a practice repo)</li>
-        <li>Prepare pairs or small groups for the cross-team PR exercise</li>
-        <li>Create a deliberate conflict scenario — a file with the same line editable by two people</li>
-        <li>Have a sample PR open to show the review interface (comment, approve, request changes)</li>
-        <li>Know the three merge types: merge commit, squash merge, rebase merge</li>
-      </ul>
-    </div>
+      <h2>Read</h2>
 
-    <div class="content-card">
-      <h2>Timing breakdown</h2>
-      <table class="timeline-table">
-        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
-        <tbody>
-          <tr class="active"><td>5 min</td><td>What is a branch? Why not work directly on main?</td></tr>
-          <tr class="active"><td>5 min</td><td>Creating and switching branches</td></tr>
-          <tr class="active"><td>10 min</td><td>Pull Requests — propose, review, discuss, merge</td></tr>
-          <tr class="active"><td>5 min</td><td>Merge types and merge conflicts</td></tr>
-          <tr class="active"><td>5 min</td><td>Live demo — full cycle with a conflict</td></tr>
-          <tr><td>90 min</td><td>Cross-team PR exercise with deliberate conflict</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="content-card">
-      <h2>Script & talking points</h2>
-
-      <h3>What is a branch? (5 min)</h3>
+      <h3>What is a branch?</h3>
       <p>A branch is a parallel version of the repository. Changes on a branch don't affect <code>main</code> until they're merged. This lets you work safely without breaking the stable version.</p>
       <p><strong>Never commit directly to <code>main</code>.</strong> Always create a branch, make changes, open a PR, get reviewed, and merge.</p>
+      <p>Think of <code>main</code> as a straight line. A branch diverges from it, commits happen on the branch, then a PR merges it back into <code>main</code>. This mental model makes everything click.</p>
 
-      <div class="tip-box">
-        <div class="tb-label">Whiteboard</div>
-        <p>Draw <code>main</code> as a straight line. Show a branch diverging, commits happening on it, then a PR merging it back into <code>main</code>. This visual makes everything click.</p>
-      </div>
-
-      <h3>Creating and switching branches (5 min)</h3>
+      <h3>Creating and switching branches</h3>
       <div class="cmd-block">
         <span class="prompt">$</span> git branch add-docs<br>
         <span class="comment"># Creates a branch called add-docs</span><br>
@@ -159,7 +128,7 @@ footer .f-copy{font-size:.8rem}
       </div>
       <p>Shortcut — create and switch in one command: <code>git switch -c add-docs</code></p>
 
-      <h3>Pull Requests (10 min)</h3>
+      <h3>Pull Requests</h3>
       <p>A Pull Request proposes changes from a branch to <code>main</code>. It's where review happens.</p>
       <p>Every PR should include:</p>
       <ul>
@@ -174,7 +143,7 @@ footer .f-copy{font-size:.8rem}
         <li><strong>Request changes</strong> — something needs fixing before merging</li>
       </ul>
 
-      <h3>Merge types and conflicts (5 min)</h3>
+      <h3>Merge types and conflicts</h3>
       <p><strong>Three merge types:</strong></p>
       <ul>
         <li><strong>Merge commit:</strong> Preserves all commits from the branch. History shows the branch existed.</li>
@@ -190,38 +159,36 @@ footer .f-copy{font-size:.8rem}
         &gt;&gt;&gt;&gt;&gt;&gt;&gt; my-branch
       </div>
       <p>You edit the file to keep the correct version, remove the conflict markers, stage, commit, and push.</p>
+      <p>Conflicts are normal. They're not a mistake. Every engineer resolves conflicts. Read the markers, keep the correct version, and move on.</p>
 
-      <div class="tip-box">
-        <div class="tb-label">Conflict tip</div>
-        <p>Conflicts are normal. They're not a mistake. Every engineer resolves conflicts. The key is to read the markers, talk to the other person if you're unsure, and keep the correct version.</p>
-      </div>
-
-      <h3>Live demo (5 min)</h3>
-      <p>Run through the complete cycle:</p>
+      <h3>Try it yourself — Full PR Cycle</h3>
+      <p>Run through the complete cycle on your own practice repo:</p>
       <ul>
         <li>Create a branch: <code>git switch -c demo-pr</code></li>
         <li>Edit a file, stage, commit, push</li>
-        <li>Open a PR on GitHub.com — show the description, diff, and reviewer assignment</li>
+        <li>Open a PR on GitHub.com — write a description, check the diff, assign yourself as reviewer</li>
         <li>Merge the PR (squash merge)</li>
         <li>Switch to <code>main</code>, pull, verify the changes</li>
-        <li>Introduce a conflict: have someone else edit the same line on main, then try to merge your branch</li>
+        <li>Create a deliberate conflict: edit a line on <code>main</code>, then try to merge a branch that edits the same line differently — resolve it manually</li>
       </ul>
 
-      <h3>Exercise — Cross-Team PR (90 min)</h3>
-      <div class="tip-box">
-        <div class="tb-label">Instructions</div>
-        <p>Split into pairs. Person A creates a branch, edits the team roster file, commits, pushes, and opens a PR. Person B reviews the PR, leaves a comment, approves. Person A merges. Swap roles.</p>
-        <p>The facilitator introduces a deliberate conflict: both people edit the same line in the same file. Each pair resolves their conflict together.</p>
-      </div>
+      <h3>Exercise — Cross-Team PR</h3>
+      <p>Find a partner or use two GitHub accounts. Create a shared practice repository and add each other as collaborators:</p>
+      <ul>
+        <li>You create a branch, edit the team roster file, commit, push, and open a PR</li>
+        <li>Your partner reviews the PR, leaves a comment, approves</li>
+        <li>You merge. Swap roles.</li>
+        <li>Now create a deliberate conflict: both of you edit the same line in the same file on separate branches. Try merging — resolve the conflict together.</li>
+      </ul>
     </div>
 
     <div class="content-card">
       <h2>Common pitfalls</h2>
       <ul>
-        <li><strong>Working on main:</strong> Remind constantly — never commit to main directly. Always branch.</li>
-        <li><strong>Vague PR descriptions:</strong> "Updated stuff" is not a description. Write what and why.</li>
+        <li><strong>Working on main:</strong> Never commit to main directly. Always create a branch first.</li>
+        <li><strong>Vague PR descriptions:</strong> "Updated stuff" is not a description. Write what changed and why.</li>
         <li><strong>Merging your own PR:</strong> Always get at least one review. No self-merges to main.</li>
-        <li><strong>Fear of conflicts:</strong> Demystify conflict markers. Show that it's just a decision: keep left, keep right, or combine.</li>
+        <li><strong>Fear of conflicts:</strong> Conflict markers just mean you need to decide: keep the left version, the right version, or combine them.</li>
       </ul>
     </div>
 
@@ -249,7 +216,7 @@ footer .f-copy{font-size:.8rem}
 
 <footer>
   <div class="f-brand">Foundry</div>
-  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+  <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
 </footer>
 
 </body>

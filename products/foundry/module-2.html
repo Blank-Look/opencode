@@ -110,8 +110,7 @@ footer .f-copy{font-size:.8rem}
     <h1>Module 2: <strong>Markdown</strong></h1>
     <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">Headings, lists, tables, links, images, code blocks, Mermaid diagrams.</p>
     <div class="ph-meta">
-      <span><strong>1 h</strong> 45 min instruction + 15 min exercise</span>
-      <span><strong>Morning</strong> Day 1 · 09:30–10:30</span>
+      <span>Self-paced · <strong>~1 h</strong></span>
     </div>
   </div>
 </div>
@@ -120,34 +119,9 @@ footer .f-copy{font-size:.8rem}
   <div class="section-inner">
 
     <div class="content-card">
-      <h2>Facilitator preparation</h2>
-      <ul>
-        <li>Open a Markdown reference sheet (or have one printed)</li>
-        <li>Prepare a README.md on screen that participants can see rendering live</li>
-        <li>Have a GitHub repo open showing how Markdown renders in the Code tab</li>
-        <li>Prepare the exercise repo with a blank README.md each person will edit</li>
-      </ul>
-    </div>
+      <h2>Read</h2>
 
-    <div class="content-card">
-      <h2>Timing breakdown</h2>
-      <table class="timeline-table">
-        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
-        <tbody>
-          <tr class="active"><td>5 min</td><td>Why Markdown? — plain text, versionable, everywhere</td></tr>
-          <tr class="active"><td>10 min</td><td>Headings, text formatting, lists</td></tr>
-          <tr class="active"><td>10 min</td><td>Links, images, tables</td></tr>
-          <tr class="active"><td>10 min</td><td>Code blocks, Mermaid diagrams</td></tr>
-          <tr class="active"><td>10 min</td><td>Live demo — writing and rendering in real time</td></tr>
-          <tr><td>15 min</td><td>Exercise — write a README.md for an Intune app</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="content-card">
-      <h2>Script & talking points</h2>
-
-      <h3>Why Markdown? (5 min)</h3>
+      <h3>Why Markdown?</h3>
       <p>Markdown is plain text that renders as formatted HTML. Every GitHub repository uses it. README, Issues, PR descriptions, Wiki pages — all Markdown.</p>
       <p>Why Markdown instead of Word or Google Docs?</p>
       <ul>
@@ -157,13 +131,8 @@ footer .f-copy{font-size:.8rem}
         <li><strong>Everywhere.</strong> GitHub, Teams, VS Code, Obsidian, Notion — all support Markdown.</li>
       </ul>
 
-      <div class="tip-box">
-        <div class="tb-label">Facilitator note</div>
-        <p>Some participants may never have used Markdown. Reassure them: there are only about 10 syntax rules. They'll know 90% of it within 30 minutes. The rest they'll Google as needed.</p>
-      </div>
-
-      <h3>Headings & text (10 min)</h3>
-      <p>Demonstrate each syntax and show the rendered output side by side:</p>
+      <h3>Headings & text</h3>
+      <p>Try each syntax and see how it renders:</p>
       <div class="md-demo">
 # Heading 1 (document title, use once)<br>
 ## Heading 2 (section)<br>
@@ -179,9 +148,9 @@ Ordered list:<br>
 1. First<br>
 2. Second
       </div>
-      <p>Emphasise: one <code># Heading 1</code> per document. Use that as the title. Sections use <code>##</code> and <code>###</code>.</p>
+      <p>Use one <code># Heading 1</code> per document as the title. Sections use <code>##</code> and <code>###</code>.</p>
 
-      <h3>Links, images, tables (10 min)</h3>
+      <h3>Links, images, tables</h3>
       <div class="md-demo">
 [Link text](https://example.com)<br>
 ![Alt text](image.png)<br><br>
@@ -193,7 +162,7 @@ Ordered list:<br>
       <p>For tables, the colon in the separator row controls alignment: <code>:---</code> left, <code>:---:</code> center, <code>---:</code> right. Without colons, default is left-aligned.</p>
       <p><strong>Relative links:</strong> Link between docs in the same repository using relative paths: <code>[Policy](docs/policy.md)</code>. These work on GitHub and in cloned repos.</p>
 
-      <h3>Code blocks & Mermaid (10 min)</h3>
+      <h3>Code blocks & Mermaid</h3>
       <p>Code blocks use triple backticks. The language name after the opening backticks enables syntax highlighting:</p>
       <div class="md-demo">
 ```powershell<br>
@@ -212,24 +181,16 @@ graph LR<br>
       </div>
       <p><strong>Mermaid</strong> is embedded diagramming. Fenced code blocks with <code>```mermaid</code> render as flowcharts, sequence diagrams, Gantt charts, and more. GitHub renders them automatically.</p>
 
-      <div class="tip-box">
-        <div class="tb-label">Live demo</div>
-        <p>Open a file in GitHub's web editor. Write Markdown on the left, see it render on the right. Edit the repo's README.md live to demonstrate. This is the fastest way for people to "get it."</p>
-      </div>
-
-      <h3>Exercise (15 min)</h3>
-      <div class="tip-box">
-        <div class="tb-label">README.md for Intune App Packaging</div>
-        <p>Each person creates a README.md that includes:</p>
-        <ul>
-          <li>Heading: "Intune Application Packaging Repository"</li>
-          <li>Description paragraph</li>
-          <li>Table with 3+ apps (App Name, Version, Install Command)</li>
-          <li>A PowerShell code block showing a sample install command</li>
-          <li>A Mermaid flowchart showing: Request → Package → Test → Deploy</li>
-          <li>A link to the team's documentation standards</li>
-        </ul>
-      </div>
+      <h3>Now try it yourself</h3>
+      <p>Create a README.md that includes:</p>
+      <ul>
+        <li>Heading: "Intune Application Packaging Repository"</li>
+        <li>Description paragraph</li>
+        <li>Table with 3+ apps (App Name, Version, Install Command)</li>
+        <li>A PowerShell code block showing a sample install command</li>
+        <li>A Mermaid flowchart showing: Request → Package → Test → Deploy</li>
+        <li>A link to the team's documentation standards</li>
+      </ul>
     </div>
 
     <div class="content-card">
@@ -266,7 +227,7 @@ graph LR<br>
 
 <footer>
   <div class="f-brand">Foundry</div>
-  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+  <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
 </footer>
 
 </body>

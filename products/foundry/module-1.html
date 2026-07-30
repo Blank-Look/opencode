@@ -109,8 +109,7 @@ footer .f-copy{font-size:.8rem}
     <h1>Module 1: <strong>Why GitHub?</strong></h1>
     <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">Why SharePoint is the wrong tool. Git vs GitHub. Core features. How AI fits in.</p>
     <div class="ph-meta">
-      <span><strong>30 min</strong> instruction</span>
-      <span><strong>Morning</strong> Day 1 · 09:00–09:30</span>
+      <span><strong>Self-paced</strong> · ~30 min</span>
     </div>
   </div>
 </div>
@@ -119,43 +118,14 @@ footer .f-copy{font-size:.8rem}
   <div class="section-inner">
 
     <div class="content-card">
-      <h2>Facilitator preparation</h2>
-      <ul>
-        <li>Have a GitHub repository ready to demonstrate (a simple one with README, issues, a PR, and an Actions tab)</li>
-        <li>Prepare a slide or whiteboard showing Git vs GitHub side by side</li>
-        <li>Have the comparison table of SharePoint vs GitHub ready</li>
-        <li>Ensure all participants have GitHub accounts created before the session</li>
-      </ul>
-    </div>
+      <h2>Read</h2>
 
-    <div class="content-card">
-      <h2>Timing breakdown</h2>
-      <table class="timeline-table">
-        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
-        <tbody>
-          <tr><td>5 min</td><td>Opening — why are we here? Set context for the bootcamp</td></tr>
-          <tr class="active"><td>5 min</td><td>Why not SharePoint? — the fundamental problem</td></tr>
-          <tr class="active"><td>5 min</td><td>Git vs GitHub — what's the difference?</td></tr>
-          <tr class="active"><td>10 min</td><td>Core concepts tour — live demo of a GitHub repository</td></tr>
-          <tr class="active"><td>5 min</td><td>AI and GitHub — how AI tools connect</td></tr>
-        </tbody>
-      </table>
-    </div>
+      <h3>Your learning path</h3>
+      <p>Welcome to Foundry. In this module you'll build your GitHub baseline. By the end you'll understand why GitHub matters for your work, how it differs from what you use today, and how its core features—and AI—fit together.</p>
+      <p>This isn't a developer course. You're an M365 infrastructure engineer. Every concept here is based on the work you actually do: Intune packaging, Azure landing zone docs, PowerShell scripts, Teams automation. Real work.</p>
 
-    <div class="content-card">
-      <h2>Script & talking points</h2>
-
-      <h3>Opening (5 min)</h3>
-      <p>Welcome to Foundry. Over two days we'll build your team's GitHub baseline. By the end, every person will be able to clone a repo, make changes, open a pull request, and get their work reviewed and merged.</p>
-      <p>This isn't a developer bootcamp. You're M365 infrastructure engineers. Everything we do — every example, every exercise — is based on the work you actually do. Intune packaging, Azure landing zone docs, PowerShell scripts, Teams automation. Real work.</p>
-
-      <div class="tip-box">
-        <div class="tb-label">Facilitator note</div>
-        <p>If anyone expresses anxiety about "not being a developer," address it immediately. GitHub is for docs and config, not just code. Emphasise that Markdown is easier than Word once you know 5 syntax rules.</p>
-      </div>
-
-      <h3>Why not SharePoint? (5 min)</h3>
-      <p>Ask the room: "Where do we store our documentation today?" The answer will be SharePoint, network drives, or Teams. Then ask: "What happens when two people edit the same file?"</p>
+      <h3>Why not SharePoint?</h3>
+      <p>Think about where you store your documentation today. SharePoint? Network drives? Teams? Now consider: what happens when two people edit the same file at the same time?</p>
       <p>SharePoint's problems for engineering work:</p>
       <ul>
         <li><strong>Version history is per-file.</strong> You can't see the state of the whole doc set at a point in time.</li>
@@ -167,32 +137,23 @@ footer .f-copy{font-size:.8rem}
       <p>GitHub treats <em>everything</em> as code — docs, config, scripts, policies. That means you get version control, branching, review, automation, and AI integration. One platform. Consistent workflow.</p>
       <p><strong>Key message:</strong> GitHub is not "another tool to learn." It's the tool that makes all your other tools work better.</p>
 
-      <h3>Git vs GitHub (5 min)</h3>
+      <h3>Git vs GitHub</h3>
       <p><strong>Git</strong> is the version control engine. It runs on your machine. It tracks changes, creates commits, manages branches. You interact with it through commands like <code>git add</code>, <code>git commit</code>, <code>git push</code>.</p>
       <p><strong>GitHub</strong> is the hosting platform. It stores repositories online, adds collaboration features (Pull Requests, Issues, Projects), and connects to automation and AI tools.</p>
       <p>Analogy: Git is the engine. GitHub is the car. You need both to go anywhere.</p>
 
-      <div class="tip-box">
-        <div class="tb-label">Whiteboard exercise</div>
-        <p>Draw two columns. Left: what Git does (local, command-line, version tracking). Right: what GitHub adds (remote hosting, PRs, issues, Actions, AI). Ask participants to suggest items for each column.</p>
-      </div>
-
-      <h3>Core concepts tour (10 min)</h3>
-      <p>Open a GitHub repository live. Walk through each tab:</p>
+      <h3>Core concepts tour</h3>
+      <p>Open any GitHub repository — for example, <a href="https://github.com/Blank-Look/opencode" style="color:var(--ember);font-weight:600;">the OpenCode repo</a> — and explore the tabs yourself:</p>
       <ul>
-        <li><strong>Code tab:</strong> Files, commit history, branches dropdown. Show the README rendering.</li>
-        <li><strong>Issues tab:</strong> Show an issue. Explain: tasks, bugs, feature requests. Labels, assignees, comments.</li>
-        <li><strong>Pull Requests tab:</strong> Show an open PR. Explain: propose changes, review, discuss, merge.</li>
-        <li><strong>Actions tab:</strong> Show a completed workflow run. Explain: automation triggered by push or PR.</li>
-        <li><strong>Wiki / Projects:</strong> Mention briefly — documentation and Kanban boards.</li>
+        <li><strong>Code tab:</strong> Browse the files, look at the commit history, check the branches dropdown. See how the README renders.</li>
+        <li><strong>Issues tab:</strong> Browse open issues. Each one is a task, bug, or feature request with labels, assignees, and comments.</li>
+        <li><strong>Pull Requests tab:</strong> Look at open or closed PRs. Each one proposes changes, includes discussion, and ends with a merge.</li>
+        <li><strong>Actions tab:</strong> Find a completed workflow run. This is automation triggered by a push or PR — tests, deployments, validation.</li>
+        <li><strong>Wiki / Projects:</strong> Documentation and Kanban-style project boards.</li>
       </ul>
+      <p>Spend a few minutes clicking through each tab. This is the interface you'll be working with every day.</p>
 
-      <div class="tip-box">
-        <div class="tb-label">Live demo tips</div>
-        <p>Use the training repository. Have at least one open issue and one open PR ready to show. If you have a workflow that already ran, even better — showing the green checkmark on a PR is a powerful moment.</p>
-      </div>
-
-      <h3>AI and GitHub (5 min)</h3>
+      <h3>AI and GitHub</h3>
       <p>GitHub is the single source of truth that AI tools connect to:</p>
       <ul>
         <li><strong>ChatGPT:</strong> Generate READMEs, PowerShell scripts, documentation. Paste the output directly into your repo.</li>
@@ -200,11 +161,18 @@ footer .f-copy{font-size:.8rem}
         <li><strong>OpenCode / Claude Code:</strong> Terminal-based agents. Give them a prompt, they build files, run commands, commit changes. Review and approve.</li>
       </ul>
       <p><strong>Golden rule:</strong> AI generates. Humans approve. Never commit AI output without reading it first.</p>
+    </div>
 
-      <div class="tip-box">
-        <div class="tb-label">Key takeaway</div>
-        <p>"GitHub is where your engineering work lives. AI, automation, and collaboration all connect through it."</p>
-      </div>
+    <div class="content-card">
+      <h2>Try it</h2>
+      <p>Open <a href="https://github.com/Blank-Look/opencode" style="color:var(--ember);font-weight:600;">the OpenCode repository</a> (or any public repository) in a new tab. Spend 5–10 minutes exploring:</p>
+      <ul>
+        <li>Click the <strong>Code</strong> tab and browse the file tree. Open a file to see its contents. Switch branches using the dropdown.</li>
+        <li>Click the <strong>Issues</strong> tab. Read through one or two open issues. See how they're labelled and assigned.</li>
+        <li>Click the <strong>Pull Requests</strong> tab. Find a merged PR and read through the conversation and the diff.</li>
+        <li>Click the <strong>Actions</strong> tab. Look at a completed workflow run to see what steps it executed.</li>
+      </ul>
+      <p>Don't worry if some of these tabs are empty — every repository is different. The goal is to get comfortable navigating the interface.</p>
     </div>
 
     <div class="content-card">
@@ -243,7 +211,7 @@ footer .f-copy{font-size:.8rem}
 
 <footer>
   <div class="f-brand">Foundry</div>
-  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+  <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
 </footer>
 
 </body>

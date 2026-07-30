@@ -102,8 +102,7 @@ footer .f-copy{font-size:.8rem}
     <h1>Module 5: <strong>Repository Standards</strong></h1>
     <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">README, docs/, scripts/, .github/, LICENSE, CODEOWNERS, .gitignore. Structure every repo consistently.</p>
     <div class="ph-meta">
-      <span><strong>1 h</strong> — 30 min instruction + 30 min exercise</span>
-      <span><strong>Afternoon</strong> Day 1 · 15:30–16:30</span>
+      <span><strong>Self-paced · ~45 min</strong></span>
     </div>
   </div>
 </div>
@@ -112,34 +111,9 @@ footer .f-copy{font-size:.8rem}
   <div class="section-inner">
 
     <div class="content-card">
-      <h2>Facilitator preparation</h2>
-      <ul>
-        <li>Have example repositories open showing good structure and bad structure</li>
-        <li>Prepare a repository template with the standard layout</li>
-        <li>Know your team's naming conventions (or be ready to decide them)</li>
-        <li>Have CODEOWNERS, .gitignore, and LICENSE file templates ready</li>
-      </ul>
-    </div>
+      <h2>Read</h2>
 
-    <div class="content-card">
-      <h2>Timing breakdown</h2>
-      <table class="timeline-table">
-        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
-        <tbody>
-          <tr class="active"><td>5 min</td><td>Why standards matter — consistency, onboarding, automation</td></tr>
-          <tr class="active"><td>10 min</td><td>Standard layout walkthrough</td></tr>
-          <tr class="active"><td>5 min</td><td>README, LICENSE, CODEOWNERS</td></tr>
-          <tr class="active"><td>5 min</td><td>.gitignore and naming conventions</td></tr>
-          <tr class="active"><td>5 min</td><td>Repository templates — start every repo the same way</td></tr>
-          <tr><td>30 min</td><td>Exercise — build a repository from scratch</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="content-card">
-      <h2>Script & talking points</h2>
-
-      <h3>Why standards matter (5 min)</h3>
+      <h3>Why standards matter</h3>
       <p>Every repository should look the same. When a new engineer joins and opens a repo, they should know exactly where to find docs, scripts, and config. Consistency removes cognitive load.</p>
       <ul>
         <li><strong>Onboarding:</strong> New team members can navigate any repo immediately</li>
@@ -147,7 +121,7 @@ footer .f-copy{font-size:.8rem}
         <li><strong>Review:</strong> PRs are easier to review when the structure is predictable</li>
       </ul>
 
-      <h3>Standard layout (10 min)</h3>
+      <h3>Standard layout</h3>
       <div class="dir-block">
         <span class="dir">my-repo/</span><br>
         ├── <span class="dir">README.md</span>          # Project description, usage, owners<br>
@@ -161,7 +135,7 @@ footer .f-copy{font-size:.8rem}
         └── <span class="dir">src/</span> (if applicable)     # Source code (PowerShell modules, etc.)
       </div>
 
-      <h3>README, LICENSE, CODEOWNERS (5 min)</h3>
+      <h3>README, LICENSE, CODEOWNERS</h3>
       <p><strong>README.md:</strong> Every repo needs one. Include: project title, one-line description, how to use it, who owns it, where to get help.</p>
       <p><strong>LICENSE:</strong> Always include one. Internal repos can use "UNLICENSED" (all rights reserved) or MIT. Never leave it out — without a license, others can't legally use the code.</p>
       <p><strong>CODEOWNERS:</strong> File at <code>.github/CODEOWNERS</code>. Defines who is automatically requested for review when files in certain paths are changed.</p>
@@ -172,7 +146,7 @@ footer .f-copy{font-size:.8rem}
         /scripts/ @eng-team         <span class="comment"># Script changes reviewed by eng</span>
       </div>
 
-      <h3>.gitignore and naming conventions (5 min)</h3>
+      <h3>.gitignore and naming conventions</h3>
       <p><strong>.gitignore</strong> prevents committing files that shouldn't be in version control:</p>
       <ul>
         <li>Secrets and credentials (<code>.env</code>, <code>*.key</code>)</li>
@@ -186,25 +160,18 @@ footer .f-copy{font-size:.8rem}
         <li>Descriptive but short: <code>teams-automation</code>, not <code>microsoft-teams-automation-scripts-and-tools</code></li>
         <li>No spaces, no uppercase, no underscores</li>
       </ul>
+      <p>GitHub allows marking a repo as a template. Set one up with the standard layout, README template, CODEOWNERS, .gitignore, and LICENSE pre-configured — then every new repo starts the same way.</p>
 
-      <div class="tip-box">
-        <div class="tb-label">Template repositories</div>
-        <p>GitHub allows marking a repo as a template. When someone creates a new repo from a template, they get all the files and structure. Set one up for your team with the standard layout, README template, CODEOWNERS, .gitignore, and LICENSE pre-configured.</p>
-      </div>
-
-      <h3>Exercise — Build a Repository (30 min)</h3>
-      <div class="tip-box">
-        <div class="tb-label">Instructions</div>
-        <p>Each person creates a new repository (or uses the team template). Add:</p>
-        <ul>
-          <li><code>README.md</code> with title, description, install steps, and owner</li>
-          <li><code>docs/</code> folder with one documentation page</li>
-          <li><code>.github/CODEOWNERS</code> with themselves as default owner</li>
-          <li><code>.gitignore</code> for PowerShell projects</li>
-          <li><code>LICENSE</code> file (MIT or UNLICENSED)</li>
-        </ul>
-        <p>Commit and push. Show the final repository structure on GitHub.</p>
-      </div>
+      <h3>Exercise — Build a Repository</h3>
+      <p>Create a new repository on GitHub (or use a template if your team has one). Add the following files and structure:</p>
+      <ul>
+        <li><code>README.md</code> with title, description, install steps, and owner</li>
+        <li><code>docs/</code> folder with one documentation page</li>
+        <li><code>.github/CODEOWNERS</code> with yourself as default owner</li>
+        <li><code>.gitignore</code> for PowerShell projects</li>
+        <li><code>LICENSE</code> file (MIT or UNLICENSED)</li>
+      </ul>
+      <p>Commit and push each file. When you're done, look at your repository on GitHub — it should follow the standard layout above.</p>
     </div>
 
     <div class="content-card">
@@ -231,7 +198,7 @@ footer .f-copy{font-size:.8rem}
 
 <footer>
   <div class="f-brand">Foundry</div>
-  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+  <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
 </footer>
 
 </body>

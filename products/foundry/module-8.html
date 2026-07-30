@@ -103,8 +103,7 @@ footer .f-copy{font-size:.8rem}
     <h1>Module 8: <strong>Engineering Standards</strong></h1>
     <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">Repository naming, PR rules, branch protection, Issues, Projects, documentation. How your team works.</p>
     <div class="ph-meta">
-      <span><strong>30 min</strong> — discussion and agreement</span>
-      <span><strong>Morning</strong> Day 2 · 11:15–11:45</span>
+      <span><strong>Self-paced · ~25 min</strong></span>
     </div>
   </div>
 </div>
@@ -113,49 +112,22 @@ footer .f-copy{font-size:.8rem}
   <div class="section-inner">
 
     <div class="content-card">
-      <h2>Facilitator preparation</h2>
-      <ul>
-        <li>Prepare a whiteboard or shared document to capture team decisions</li>
-        <li>Have example naming conventions ready to propose</li>
-        <li>Know GitHub's branch protection settings (Settings → Branches)</li>
-        <li>Have Issue templates and label suggestions ready</li>
-        <li>Prepare an <code>engineering-standards.md</code> template for the team to populate</li>
-      </ul>
-    </div>
+      <h2>Read</h2>
 
-    <div class="content-card">
-      <h2>Timing breakdown</h2>
-      <table class="timeline-table">
-        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
-        <tbody>
-          <tr class="active"><td>5 min</td><td>Why standards matter — consistency across the team</td></tr>
-          <tr class="active"><td>5 min</td><td>Repository naming conventions — agree as a group</td></tr>
-          <tr class="active"><td>5 min</td><td>PR requirements — minimum bar for every pull request</td></tr>
-          <tr class="active"><td>5 min</td><td>Branch protection — configure main branch rules</td></tr>
-          <tr class="active"><td>5 min</td><td>Issues and Projects — tracking work consistently</td></tr>
-          <tr class="active"><td>5 min</td><td>Documentation policy — where docs live and how they're maintained</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="content-card">
-      <h2>Script & talking points</h2>
-
-      <h3>Why standards matter (5 min)</h3>
+      <h3>Why standards matter</h3>
       <p>Standards are not bureaucracy. They're what makes a team efficient. When every repo looks the same, every PR follows the same rules, and every engineer knows where to find things, you spend less time figuring out "how we do things here" and more time doing the actual work.</p>
-      <p>Today we decide how <em>this team</em> works. Write it down in an <code>engineering-standards.md</code> file that lives in the team's repository.</p>
+      <p>Your team should document its decisions in an <code>engineering-standards.md</code> file that lives in the team's repository. The sections below cover what you need to decide.</p>
 
-      <h3>Repository naming conventions (5 min)</h3>
-      <p>Propose and agree as a group:</p>
+      <h3>Repository naming conventions</h3>
+      <p>Follow these conventions for consistency:</p>
       <ul>
         <li>Lowercase with hyphens: <code>intune-packaging</code>, <code>azure-lz-docs</code></li>
         <li>Prefix for related groups: <code>entra-id-scripts</code>, <code>entra-id-policies</code></li>
         <li>No spaces, no uppercase, no underscores</li>
       </ul>
-      <p>Discuss: do you want prefixes for departments? Suffixes for language? Decide as a team and document it.</p>
 
-      <h3>PR requirements (5 min)</h3>
-      <p>Agree on the minimum bar for every Pull Request:</p>
+      <h3>PR requirements</h3>
+      <p>Set a minimum bar for every Pull Request:</p>
       <div class="std-box">
         <h4>PR checklist</h4>
         <ul>
@@ -167,7 +139,7 @@ footer .f-copy{font-size:.8rem}
         </ul>
       </div>
 
-      <h3>Branch protection (5 min)</h3>
+      <h3>Branch protection</h3>
       <p>Enable branch protection on <code>main</code> in Settings → Branches → Add rule:</p>
       <ul>
         <li>Require a pull request before merging</li>
@@ -177,13 +149,8 @@ footer .f-copy{font-size:.8rem}
         <li>Do not allow bypassing the above settings</li>
       </ul>
 
-      <div class="tip-box">
-        <div class="tb-label">Live demo</div>
-        <p>Open Settings → Branches for the training repo. Walk through each checkbox. Explain what it does and why it matters. Let the team decide what settings to apply.</p>
-      </div>
-
-      <h3>Issues and Projects (5 min)</h3>
-      <p><strong>Issues:</strong> Use for tasks, bugs, and enhancements. Agree on labels:</p>
+      <h3>Issues and Projects</h3>
+      <p><strong>Issues:</strong> Use for tasks, bugs, and enhancements. Common labels:</p>
       <ul>
         <li><code>bug</code> — something broken</li>
         <li><code>enhancement</code> — new feature or improvement</li>
@@ -191,10 +158,9 @@ footer .f-copy{font-size:.8rem}
         <li><code>question</code> — needs discussion</li>
         <li><code>good first issue</code> — for new team members</li>
       </ul>
-      <p><strong>Projects:</strong> Kanban boards. Columns: To Do, In Progress, In Review, Done. Link Issues and PRs to cards. This gives your team a real-time view of work in flight.</p>
+      <p><strong>Projects:</strong> Kanban boards with columns: To Do, In Progress, In Review, Done. Link Issues and PRs to cards for a real-time view of work in flight.</p>
 
-      <h3>Documentation policy (5 min)</h3>
-      <p>Decide as a team:</p>
+      <h3>Documentation policy</h3>
       <ul>
         <li>Engineering documentation lives in <strong>Markdown in the repository</strong>, not SharePoint</li>
         <li>Every repository has a <code>README.md</code> and a <code>docs/</code> folder</li>
@@ -202,10 +168,16 @@ footer .f-copy{font-size:.8rem}
         <li>Repository templates ensure every new repo starts with the standard structure</li>
       </ul>
 
-      <div class="std-box">
-        <div class="tb-label">Team agreement</div>
-        <p>As a group, agree on naming, PR rules, branch protection, Issue labels, and Project columns. The facilitator documents all decisions in <code>engineering-standards.md</code> and commits it to the team's standards repository.</p>
-      </div>
+      <h3>Exercise — Write Your Team Standards</h3>
+      <p>Create an <code>engineering-standards.md</code> file in your practice repository. Based on what you've read, write down your decisions for:</p>
+      <ul>
+        <li>Repository naming conventions</li>
+        <li>PR requirements (checklist)</li>
+        <li>Branch protection rules</li>
+        <li>Issue labels</li>
+        <li>Documentation policy</li>
+      </ul>
+      <p>Commit the file and open a PR. Ask a teammate to review it. This becomes your team's living standards document.</p>
     </div>
 
     <div class="content-card">
@@ -232,7 +204,7 @@ footer .f-copy{font-size:.8rem}
 
 <footer>
   <div class="f-brand">Foundry</div>
-  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+  <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
 </footer>
 
 </body>

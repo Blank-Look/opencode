@@ -105,8 +105,7 @@ footer .f-copy{font-size:.8rem}
     <h1>Module 7: <strong>AI</strong></h1>
     <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">ChatGPT, Copilot, OpenCode, Claude Code — generating docs, writing PowerShell, reviewing PRs, building workflows.</p>
     <div class="ph-meta">
-      <span><strong>1 h</strong> — 20 min demo + 40 min hands-on stations</span>
-      <span><strong>Morning</strong> Day 2 · 10:00–11:00</span>
+      <span><strong>Self-paced · ~45 min</strong></span>
     </div>
   </div>
 </div>
@@ -115,78 +114,62 @@ footer .f-copy{font-size:.8rem}
   <div class="section-inner">
 
     <div class="content-card">
-      <h2>Facilitator preparation</h2>
-      <ul>
-        <li>Ensure ChatGPT (or equivalent) is accessible from training machines</li>
-        <li>Have VS Code with Copilot installed and activated</li>
-        <li>Install OpenCode or Claude Code on at least one demo machine</li>
-        <li>Prepare 4 station cards with specific tasks (laminated or on screen)</li>
-        <li>Have the training repo open with a PR ready for AI review</li>
-      </ul>
-    </div>
+      <h2>Read</h2>
 
-    <div class="content-card">
-      <h2>Timing breakdown</h2>
-      <table class="timeline-table">
-        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
-        <tbody>
-          <tr class="active"><td>5 min</td><td>AI tools overview — what each tool does best</td></tr>
-          <tr class="active"><td>5 min</td><td>ChatGPT demo — generate README, PowerShell script</td></tr>
-          <tr class="active"><td>5 min</td><td>Copilot demo — inline completions in VS Code</td></tr>
-          <tr class="active"><td>5 min</td><td>AI agent demo — OpenCode/Claude Code building a workflow</td></tr>
-          <tr><td>40 min</td><td>Rotating hands-on stations (4 stations × 10 min each)</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="content-card">
-      <h2>Script & talking points</h2>
-
-      <h3>AI tools overview (5 min)</h3>
+      <h3>AI tools overview</h3>
       <p>AI tools are part of the engineering workflow now. They generate, suggest, and automate. The skill is knowing how to prompt them and when to trust the output.</p>
       <ul>
         <li><strong>ChatGPT:</strong> Best for generating Markdown, PowerShell scripts, and explaining code. Prompt in natural language, review the output, commit.</li>
         <li><strong>Copilot:</strong> Best for inline completions while typing in VS Code. Start typing a comment or function name, Copilot suggests the rest.</li>
         <li><strong>OpenCode / Claude Code:</strong> Terminal-based agents. Describe what you want, they build files, run commands, commit changes.</li>
       </ul>
+      <p><strong>Golden rule:</strong> AI generates. Humans approve. Never commit AI output without reading it first. AI can hallucinate commands, flags, and APIs. You are responsible for every line that goes into the repository.</p>
 
-      <div class="tip-box">
-        <div class="tb-label">Golden rule</div>
-        <p><strong>AI generates. Humans approve.</strong> Never commit AI output without reading it first. AI can hallucinate commands, flags, and APIs. You are responsible for every line that goes into the repository.</p>
+      <h3>Try ChatGPT</h3>
+      <p>Open ChatGPT (or your preferred chat AI) and try these prompts:</p>
+      <ul>
+        <li>"Write a README.md for an Intune application packaging repository. Include a table of supported applications with App Name, Version, Platform, and Status columns. Include instructions for requesting a new package."</li>
+        <li>"Write a PowerShell script that exports all Intune compliance policies to CSV."</li>
+        <li>Paste a complex script from your repo and ask it to explain what it does.</li>
+      </ul>
+      <p>Copy the output, review it for correctness, adjust as needed, and commit it to a practice repo.</p>
+
+      <h3>Try Copilot</h3>
+      <p>Open VS Code with Copilot installed. In a new PowerShell file, type:</p>
+      <div class="cmd-block">
+        <span class="comment"># Function to get all Intune devices and export to CSV</span>
       </div>
+      <p>Copilot will suggest the function body. Press Tab to accept. Try writing comments describing a function and watch Copilot complete it. Then try refactoring a function by describing what you want in a comment.</p>
 
-      <h3>ChatGPT demo (5 min)</h3>
-      <p>Prompt: "Write a README.md for an Intune application packaging repository. Include a table of supported applications with App Name, Version, Platform, and Status columns. Include instructions for requesting a new package."</p>
-      <p>Copy the output, review it, adjust, and commit. Then ask: "Write a PowerShell script that exports all Intune compliance policies to CSV." Review for correctness before saving.</p>
+      <h3>Try an AI coding agent</h3>
+      <p>If you have OpenCode or Claude Code installed, try this prompt in your terminal:</p>
+      <ul>
+        <li>"Create a GitHub Actions workflow that runs on push to main, builds MkDocs documentation, and deploys to GitHub Pages."</li>
+        <li>"Create a .github/workflows/ci.yml that runs PowerShell linting on push."</li>
+      </ul>
+      <p>Let the agent create the file, then review every line before you commit. Never approve changes you don't fully understand.</p>
 
-      <h3>Copilot demo (5 min)</h3>
-      <p>Open VS Code. In a new PowerShell file, type:</p>
-      <div class="tip-box">
-        <div class="tb-label">Copilot example</div>
-        <p><code># Function to get all Intune devices and export to CSV</code></p>
-        <p>Copilot will suggest the function body. Tab to accept. Show how Copilot adapts to the code you're writing and the comments you leave.</p>
-      </div>
+      <h3>Try AI-assisted PR review</h3>
+      <p>Open a pull request in one of your repositories. Copy the diff and paste it into ChatGPT with this prompt: "Review this PR for errors, style issues, and security problems." Compare the AI's feedback with your own analysis. Does it catch everything you see? Does it flag anything you missed?</p>
 
-      <h3>AI agent demo (5 min)</h3>
-      <p>Run OpenCode or Claude Code with a prompt: "Create a GitHub Actions workflow that runs on push to main, builds MkDocs documentation, and deploys to GitHub Pages." Watch the agent create the file, explain what it did, and optionally commit it. Emphasise that you review before approving.</p>
-
-      <h3>Hands-on stations (40 min — 4 stations × 10 min each)</h3>
+      <h3>Self-paced practice</h3>
+      <p>Work through each of these four exercises on your own:</p>
       <div class="station-grid">
         <div class="station-card">
-          <h4>Station 1: ChatGPT</h4>
-          <p>Generate a README. Improve existing Markdown. Write a PowerShell script. Ask it to explain a complex script from the repo.</p>
+          <h4>Exercise 1: ChatGPT</h4>
+          <p>Generate a README. Improve existing Markdown. Write a PowerShell script. Ask it to explain a complex script from your repo.</p>
         </div>
         <div class="station-card">
-          <h4>Station 2: Copilot</h4>
+          <h4>Exercise 2: Copilot</h4>
           <p>Open VS Code with a PowerShell file. Write comments describing a function. Accept completions. Try refactoring a function.</p>
         </div>
         <div class="station-card">
-          <h4>Station 3: AI Agent</h4>
+          <h4>Exercise 3: AI Agent</h4>
           <p>Run OpenCode or Claude Code. Prompt: "Create a .github/workflows/ci.yml that runs PowerShell linting on push." Review the output before accepting.</p>
         </div>
         <div class="station-card">
-          <h4>Station 4: PR Review</h4>
-          <p>Open a PR in the training repo. Paste the diff into ChatGPT. Ask: "Review this PR for errors, style issues, and security problems."</p>
+          <h4>Exercise 4: PR Review</h4>
+          <p>Open a PR in your repo. Paste the diff into ChatGPT. Ask: "Review this PR for errors, style issues, and security problems."</p>
         </div>
       </div>
     </div>
@@ -194,7 +177,7 @@ footer .f-copy{font-size:.8rem}
     <div class="content-card">
       <h2>Common pitfalls</h2>
       <ul>
-        <li><strong>Blind acceptance:</strong> AI generates plausible-sounding but wrong code. Always test or review.</li>
+        <li><strong>Blind acceptance:</strong> AI generates plausible-sounding but wrong code. Always test or review before committing.</li>
         <li><strong>Hallucinated commands:</strong> AI invents PowerShell flags and API endpoints that don't exist. Verify against documentation.</li>
         <li><strong>Secrets in prompts:</strong> Never paste API keys, passwords, or sensitive data into ChatGPT or any AI tool.</li>
         <li><strong>Over-reliance:</strong> AI is a productivity tool, not a replacement for understanding. Know enough to judge the output.</li>
@@ -225,7 +208,7 @@ footer .f-copy{font-size:.8rem}
 
 <footer>
   <div class="f-brand">Foundry</div>
-  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+  <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
 </footer>
 
 </body>
