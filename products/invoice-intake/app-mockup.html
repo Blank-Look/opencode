@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice Intake — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #0D6D5E;
+  --teal-dark: #0A5A4D;
+  --teal-light: #0F7F6E;
+  --navy: #1A2E4A;
+  --gray-50: #F0FDF8;
+  --gray-100: #CCFBF1;
+  --gray-200: #99F6E0;
+  --gray-300: #5EEAD4;
+  --gray-400: #A39E99;
+  --gray-500: #847E78;
+  --gray-600: #66605A;
+  --gray-700: #4D4843;
+  --gray-800: #34302C;
+  --gray-900: #1C1A18;
+  --white: #FFFFFF;
+  --green: #16A34A;
+  --blue: #2563EB;
+  --red: #DC2626;
+  --amber: #D97706;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --sidebar-w: 240px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--gray-50);
+  color: var(--gray-900);
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+.mockup-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.375rem 1rem;
+  letter-spacing: 0.05em;
+}
+.mockup-banner a { color: #93C5FD; text-decoration: none; }
+.mockup-banner a:hover { text-decoration: underline; }
+.sidebar {
+  position: fixed;
+  top: 1.75rem; left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--white);
+  border-right: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+.sidebar-brand {
+  padding: 1.25rem 1rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--teal);
+  border-bottom: 1px solid var(--gray-100);
+  letter-spacing: -0.01em;
+}
+.sidebar-brand small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.65rem;
+  color: var(--gray-500);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.125rem;
+}
+.sidebar-nav { flex: 1; padding: 0.75rem 0; overflow-y: auto; }
+.sidebar-section {
+  padding: 0.5rem 0.75rem 0.25rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-400);
+}
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-size: 0.8125rem;
+  color: var(--gray-700);
+  text-decoration: none;
+  cursor: default;
+  border-left: 3px solid transparent;
+  transition: all 0.12s;
+}
+.sidebar-item:hover { background: var(--gray-50); }
+.sidebar-item.active {
+  color: var(--teal);
+  font-weight: 600;
+  background: rgba(13,109,94,0.06);
+  border-left-color: var(--teal);
+}
+.sidebar-item .icon { font-size: 1rem; width: 1.25rem; text-align: center; }
+.sidebar-item .badge {
+  margin-left: auto;
+  background: var(--teal);
+  color: var(--white);
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.125rem 0.375rem;
+  border-radius: 999px;
+}
+.sidebar-item .badge.red { background: var(--red); }
+.sidebar-item .badge.gray { background: var(--gray-400); }
+.sidebar-item .badge.green { background: var(--green); }
+.main {
+  margin-left: var(--sidebar-w);
+  margin-top: 1.75rem;
+  flex: 1;
+  padding: 1.5rem 2rem 3rem;
+  max-width: 1200px;
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+.topbar h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+}
+.topbar-right .avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 1.5rem;
+}
+.tab {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: default;
+  border-bottom: 2px solid transparent;
+  transition: all 0.12s;
+}
+.tab:hover { color: var(--gray-800); }
+.tab.active {
+  color: var(--teal);
+  font-weight: 600;
+  border-bottom-color: var(--teal);
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1rem;
+}
+.stat-label { font-size: 0.7rem; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.25rem; }
+.stat-value { font-size: 1.75rem; font-weight: 700; color: var(--teal); line-height: 1.1; }
+.stat-value.high { color: var(--amber); }
+.stat-value.critical { color: var(--red); }
+.stat-sub { font-size: 0.75rem; color: var(--gray-500); margin-top: 0.125rem; }
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.chart-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.chart-card h3 { font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; color: var(--gray-700); }
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  height: 120px;
+}
+.bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+  transition: height 0.3s;
+}
+.bar-count { font-size: 0.7rem; font-weight: 600; color: var(--gray-700); }
+.bar-label { font-size: 0.65rem; color: var(--gray-500); text-align: center; }
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.card h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+.more-link {
+  float: right;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--teal);
+  cursor: default;
+}
+.table-wrap {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+.table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+.table-wrap th {
+  text-align: left;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+.table-wrap td {
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: middle;
+}
+.table-wrap tr:hover td { background: var(--gray-50); }
+.severity-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+.severity-badge.critical { background: #FEF2F2; color: #DC2626; }
+.severity-badge.warning { background: #FFF7ED; color: #C2410C; }
+.severity-badge.advisory { background: #EFF6FF; color: #2563EB; }
+.severity-badge.safe { background: #F0FDF4; color: #16A34A; }
+.severity-badge.info { background: var(--gray-100); color: var(--gray-600); }
+.status-dot {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+}
+.status-dot::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gray-400);
+  flex-shrink: 0;
+}
+.status-dot.active::before { background: var(--green); }
+.status-dot.inactive::before { background: var(--gray-400); }
+.status-dot.warning::before { background: var(--amber); }
+.status-dot.critical-s::before { background: var(--red); }
+.src-badge {
+  display: inline-block;
+  padding: 0.125rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.chip {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  background: var(--gray-100);
+  cursor: default;
+}
+.footer-note {
+  border-top: 1px solid var(--gray-200);
+  margin-top: 3rem;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+.footer-note a { color: var(--teal); text-decoration: none; }
+.footer-note a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; margin-top: 1.75rem; padding: 1rem; }
+  .charts, .two-col { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">
+  <strong>Design Mockup</strong> — Invoice Intake · <a href="index.html">Back to product page →</a>
+</div>
+
+<div class="sidebar">
+  <div class="sidebar-brand">
+    Invoice Intake
+    <small>Accounts Payable Automation</small>
+  </div>
+  <div class="sidebar-nav">
+    <div class="sidebar-section">Queue</div>
+    <a class="sidebar-item active" onclick="showPage('dashboard')"><span class="icon">📊</span> Dashboard</a>
+    <a class="sidebar-item" onclick="showPage('queue')"><span class="icon">📋</span> Invoice Queue <span class="badge red">12</span></a>
+    <a class="sidebar-item" onclick="showPage('approval')"><span class="icon">✅</span> Pending Approval <span class="badge red">5</span></a>
+
+    <div class="sidebar-section">Management</div>
+    <a class="sidebar-item" onclick="showPage('suppliers')"><span class="icon">🏢</span> Suppliers</a>
+    <a class="sidebar-item" onclick="showPage('reports')"><span class="icon">📈</span> Reports &amp; BI</a>
+
+    <div class="sidebar-section">Configuration</div>
+    <a class="sidebar-item" onclick="showPage('rules')"><span class="icon">⚙️</span> Detection Rules</a>
+    <a class="sidebar-item" onclick="showPage('audit')"><span class="icon">🔍</span> Audit Trail</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="topbar">
+    <h1 id="page-title">Dashboard</h1>
+    <div class="topbar-right">
+      <span>Last processed: 2 min ago</span>
+      <span class="avatar">FK</span>
+    </div>
+  </div>
+
+  <!-- ==================== DASHBOARD ==================== -->
+  <div id="page-dashboard" class="page-section active">
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">In Queue</div>
+        <div class="stat-value">12</div>
+        <div class="stat-sub">awaiting review</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pending Approval</div>
+        <div class="stat-value high">5</div>
+        <div class="stat-sub">overdue 3</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Approved (Today)</div>
+        <div class="stat-value">8</div>
+        <div class="stat-sub">$24,500 total</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Outstanding</div>
+        <div class="stat-value critical">$87,200</div>
+        <div class="stat-sub">17 invoices</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg Processing</div>
+        <div class="stat-value">2.4d</div>
+        <div class="stat-sub">target: 1.5d</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Auto-Extracted</div>
+        <div class="stat-value">94%</div>
+        <div class="stat-sub">AI success rate</div>
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="chart-card">
+        <h3>Invoices by Status</h3>
+        <div class="bar-chart">
+          <div class="bar-group"><div class="bar" style="height:32px;background:var(--teal)"></div><div class="bar-count">12</div><div class="bar-label">New</div></div>
+          <div class="bar-group"><div class="bar" style="height:20px;background:var(--amber)"></div><div class="bar-count">5</div><div class="bar-label">Review</div></div>
+          <div class="bar-group"><div class="bar" style="height:14px;background:#0EA5E9"></div><div class="bar-count">3</div><div class="bar-label">Approved</div></div>
+          <div class="bar-group"><div class="bar" style="height:8px;background:var(--green)"></div><div class="bar-count">2</div><div class="bar-label">Paid</div></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Supplier Volume (This Month)</h3>
+        <div class="bar-chart">
+          <div class="bar-group"><div class="bar" style="height:28px;background:var(--teal)"></div><div class="bar-count">8</div><div class="bar-label">Microsoft</div></div>
+          <div class="bar-group"><div class="bar" style="height:22px;background:var(--teal)"></div><div class="bar-count">5</div><div class="bar-label">Cisco</div></div>
+          <div class="bar-group"><div class="bar" style="height:16px;background:var(--teal)"></div><div class="bar-count">4</div><div class="bar-label">SoftwareOne</div></div>
+          <div class="bar-group"><div class="bar" style="height:10px;background:var(--teal)"></div><div class="bar-count">3</div><div class="bar-label">Telstra</div></div>
+          <div class="bar-group"><div class="bar" style="height:6px;background:var(--teal)"></div><div class="bar-count">2</div><div class="bar-label">AWS</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Recent Queue Activity <span class="more-link">View all →</span></h3>
+        <div style="font-size:0.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>Microsoft</strong> INV-4321</span>
+            <span style="color:var(--teal);font-weight:600;">$12,400 · New</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>Cisco</strong> INV-8876</span>
+            <span style="color:var(--amber);font-weight:600;">$8,900 · Review</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>SoftwareOne</strong> INV-5543</span>
+            <span class="status-dot active">Approved</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;">
+            <span><strong>Telstra</strong> INV-2210</span>
+            <span style="color:var(--red);font-weight:600;">$3,400 · Overdue</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>AI Extraction Alerts <span class="more-link">Details →</span></h3>
+        <div style="font-size:0.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>Microsoft</strong> INV-4321</span>
+            <span style="color:var(--amber);font-weight:600;">⚠ PO mismatch</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>DataCom</strong> INV-9981</span>
+            <span style="color:var(--red);font-weight:600;">🔴 Duplicate detected</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;">
+            <span><strong>GlobalTech</strong> INV-6650</span>
+            <span style="color:var(--red);font-weight:600;">🔴 Amount exceeds threshold</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Invoice</th><th>Supplier</th><th>Amount</th><th>Due</th><th>Status</th><th>Owner</th></tr></thead>
+        <tbody>
+          <tr><td>INV-4321</td><td>Microsoft</td><td>$12,400</td><td>2026-08-15</td><td><span class="severity-badge info">New</span></td><td>—</td></tr>
+          <tr><td>INV-8876</td><td>Cisco</td><td>$8,900</td><td>2026-08-20</td><td><span class="severity-badge warning">Review</span></td><td>J. Chen</td></tr>
+          <tr><td>INV-5543</td><td>SoftwareOne</td><td>$3,200</td><td>2026-08-21</td><td><span class="severity-badge safe">Approved</span></td><td>L. Patel</td></tr>
+          <tr><td>INV-2210</td><td>Telstra</td><td>$3,400</td><td>2026-07-25</td><td><span class="severity-badge critical">Overdue</span></td><td>J. Chen</td></tr>
+          <tr><td>INV-9981</td><td>DataCom</td><td>$1,200</td><td>2026-08-28</td><td><span class="severity-badge critical">Flagged</span></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== INVOICE QUEUE ==================== -->
+  <div id="page-queue" class="page-section" style="display:none;">
+    <div class="tabs">
+      <span class="tab active">All Invoices <span style="color:var(--gray-400);font-weight:400;">(17)</span></span>
+      <span class="tab">New <span style="color:var(--gray-400);font-weight:400;">(12)</span></span>
+      <span class="tab">Review <span style="color:var(--gray-400);font-weight:400;">(5)</span></span>
+      <span class="tab">Overdue <span style="color:var(--red);font-weight:400;">(3)</span></span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Invoice</th><th>Supplier</th><th>Amount</th><th>GST</th><th>Due Date</th><th>PO</th><th>Received</th><th>Status</th><th>Owner</th></tr></thead>
+        <tbody>
+          <tr><td>INV-4321</td><td>Microsoft</td><td>$12,400</td><td>$1,240</td><td>2026-08-15</td><td>PO-2026-042</td><td>2026-07-28</td><td><span class="severity-badge info">New</span></td><td>—</td></tr>
+          <tr><td>INV-8876</td><td>Cisco</td><td>$8,900</td><td>$890</td><td>2026-08-20</td><td>PO-2026-038</td><td>2026-07-27</td><td><span class="severity-badge warning">Review</span></td><td>J. Chen</td></tr>
+          <tr><td>INV-5543</td><td>SoftwareOne</td><td>$3,200</td><td>$320</td><td>2026-08-21</td><td>PO-2026-044</td><td>2026-07-26</td><td><span class="severity-badge safe">Approved</span></td><td>L. Patel</td></tr>
+          <tr><td>INV-2210</td><td>Telstra</td><td>$3,400</td><td>$340</td><td>2026-07-25</td><td>PO-2026-030</td><td>2026-07-20</td><td><span class="severity-badge critical">Overdue</span></td><td>J. Chen</td></tr>
+          <tr><td>INV-9981</td><td>DataCom</td><td>$1,200</td><td>$120</td><td>2026-08-28</td><td>—</td><td>2026-07-29</td><td><span class="severity-badge critical">Flagged</span></td><td>—</td></tr>
+          <tr><td>INV-6650</td><td>GlobalTech</td><td>$52,000</td><td>$5,200</td><td>2026-08-10</td><td>PO-2026-045</td><td>2026-07-25</td><td><span class="severity-badge critical">Flagged</span></td><td>L. Patel</td></tr>
+          <tr><td>INV-1122</td><td>AWS</td><td>$4,800</td><td>$480</td><td>2026-08-18</td><td>PO-2026-041</td><td>2026-07-24</td><td><span class="severity-badge info">New</span></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== PENDING APPROVAL ==================== -->
+  <div id="page-approval" class="page-section" style="display:none;">
+    <div class="card" style="margin-bottom:1rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-size:1.5rem;">✅</span>
+        <div>
+          <strong style="font-size:0.9rem;">5 invoices awaiting your approval</strong>
+          <p style="font-size:0.8rem;color:var(--gray-500);margin-top:0.125rem;">2 are overdue — action required today</p>
+        </div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Invoice</th><th>Supplier</th><th>Amount</th><th>Due</th><th>PO Match</th><th>Days in Queue</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>INV-4321</td><td>Microsoft</td><td>$12,400</td><td>2026-08-15</td><td><span style="color:var(--green)">✓ Match</span></td><td>3</td><td><span class="chip" style="background:var(--teal);color:var(--white);">Approve</span></td></tr>
+          <tr><td>INV-8876</td><td>Cisco</td><td>$8,900</td><td>2026-08-20</td><td><span style="color:var(--green)">✓ Match</span></td><td>4</td><td><span class="chip" style="background:var(--teal);color:var(--white);">Approve</span></td></tr>
+          <tr><td style="background:#FFF7ED;">INV-2210</td><td style="background:#FFF7ED;">Telstra</td><td style="background:#FFF7ED;">$3,400</td><td style="background:#FFF7ED;color:var(--red);font-weight:600;">2026-07-25</td><td style="background:#FFF7ED;"><span style="color:var(--green)">✓ Match</span></td><td style="background:#FFF7ED;color:var(--red);font-weight:600;">10</td><td style="background:#FFF7ED;"><span class="chip" style="background:var(--red);color:var(--white);">Urgent</span></td></tr>
+          <tr><td>INV-5543</td><td>SoftwareOne</td><td>$3,200</td><td>2026-08-21</td><td><span style="color:var(--green)">✓ Match</span></td><td>5</td><td><span class="chip" style="background:var(--teal);color:var(--white);">Approve</span></td></tr>
+          <tr><td style="background:#FFF7ED;">INV-1122</td><td style="background:#FFF7ED;">AWS</td><td style="background:#FFF7ED;">$4,800</td><td style="background:#FFF7ED;color:var(--red);font-weight:600;">2026-08-18</td><td style="background:#FFF7ED;"><span style="color:var(--amber)">⚠ Partial</span></td><td style="background:#FFF7ED;color:var(--red);font-weight:600;">7</td><td style="background:#FFF7ED;"><span class="chip" style="background:var(--red);color:var(--white);">Urgent</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== SUPPLIERS ==================== -->
+  <div id="page-suppliers" class="page-section" style="display:none;">
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">Active Suppliers</div>
+        <div class="stat-value">24</div>
+        <div class="stat-sub">invoiced this month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Spend (MTD)</div>
+        <div class="stat-value">$142K</div>
+        <div class="stat-sub">across 86 invoices</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Top Supplier</div>
+        <div class="stat-value">Microsoft</div>
+        <div class="stat-sub">$38,200 this month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg Payment Terms</div>
+        <div class="stat-value">28d</div>
+        <div class="stat-sub">Net 30 standard</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Supplier</th><th>Invoices (MTD)</th><th>Total (MTD)</th><th>Outstanding</th><th>Avg Days to Pay</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Microsoft</strong></td><td>8</td><td>$38,200</td><td>$12,400</td><td>3.2</td><td><span class="severity-badge safe">Active</span></td></tr>
+          <tr><td><strong>Cisco</strong></td><td>5</td><td>$22,500</td><td>$8,900</td><td>4.1</td><td><span class="severity-badge safe">Active</span></td></tr>
+          <tr><td><strong>SoftwareOne</strong></td><td>4</td><td>$14,800</td><td>$3,200</td><td>2.8</td><td><span class="severity-badge safe">Active</span></td></tr>
+          <tr><td><strong>Telstra</strong></td><td>3</td><td>$11,200</td><td>$3,400</td><td>7.5</td><td><span class="severity-badge warning">Watch</span></td></tr>
+          <tr><td><strong>AWS</strong></td><td>2</td><td>$9,600</td><td>$4,800</td><td>1.5</td><td><span class="severity-badge safe">Active</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== REPORTS ==================== -->
+  <div id="page-reports" class="page-section" style="display:none;">
+    <div class="two-col">
+      <div class="card">
+        <h3>Outstanding by Due Period</h3>
+        <div style="font-size:0.8rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Due this week</span>
+            <span style="font-weight:600;color:var(--red);">$18,400</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Due next week</span>
+            <span style="font-weight:600;color:var(--amber);">$24,100</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Due this month</span>
+            <span style="font-weight:600;">$44,700</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;">
+            <span>Overdue</span>
+            <span style="font-weight:600;color:var(--red);">$3,400</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Processing Performance</h3>
+        <div style="font-size:0.8rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>AI extraction rate</span>
+            <span style="font-weight:600;color:var(--green);">94%</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Manual review needed</span>
+            <span style="font-weight:600;color:var(--amber);">6%</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Avg processing time</span>
+            <span style="font-weight:600;">2.4 days</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;">
+            <span>Target</span>
+            <span style="font-weight:600;color:var(--amber);">1.5 days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Supplier Spend (MTD) <span class="more-link">Export →</span></h3>
+      <div class="bar-chart" style="height:100px;margin-top:1rem;">
+        <div class="bar-group"><div class="bar" style="height:38px;background:var(--teal)"></div><div class="bar-count">$38.2K</div><div class="bar-label">Microsoft</div></div>
+        <div class="bar-group"><div class="bar" style="height:28px;background:var(--teal)"></div><div class="bar-count">$22.5K</div><div class="bar-label">Cisco</div></div>
+        <div class="bar-group"><div class="bar" style="height:20px;background:var(--teal)"></div><div class="bar-count">$14.8K</div><div class="bar-label">SoftwareOne</div></div>
+        <div class="bar-group"><div class="bar" style="height:14px;background:var(--teal)"></div><div class="bar-count">$11.2K</div><div class="bar-label">Telstra</div></div>
+        <div class="bar-group"><div class="bar" style="height:10px;background:var(--teal)"></div><div class="bar-count">$9.6K</div><div class="bar-label">AWS</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== DETECTION RULES ==================== -->
+  <div id="page-rules" class="page-section" style="display:none;">
+    <div class="card" style="margin-bottom:1rem;">
+      <h3>Detection Configuration</h3>
+      <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:0;">Rules control which emails are captured and how invoices are extracted. Changes apply to new emails only.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Rule</th><th>Type</th><th>Condition</th><th>Action</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>PDF Attachment</td><td>File</td><td>Email has PDF attachment</td><td>Process invoice</td><td><span class="severity-badge safe">Active</span></td></tr>
+          <tr><td>Subject Match</td><td>Keyword</td><td>Subject contains "Invoice", "Tax Invoice", "Bill"</td><td>Process invoice</td><td><span class="severity-badge safe">Active</span></td></tr>
+          <tr><td>Known Supplier</td><td>Domain</td><td>Sender domain in allow list</td><td>Auto-process</td><td><span class="severity-badge safe">Active</span></td></tr>
+          <tr><td>Unknown Supplier</td><td>Domain</td><td>Sender domain not in allow list</td><td>Flag for review</td><td><span class="severity-badge safe">Active</span></td></tr>
+          <tr><td>Amount Threshold</td><td>Value</td><td>Invoice amount > $50,000</td><td>Flag for review</td><td><span class="severity-badge safe">Active</span></td></tr>
+          <tr><td>Duplicate Detection</td><td>Match</td><td>Invoice number + supplier already exists</td><td>Quarantine</td><td><span class="severity-badge safe">Active</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== AUDIT TRAIL ==================== -->
+  <div id="page-audit" class="page-section" style="display:none;">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Timestamp</th><th>Event</th><th>Invoice</th><th>User / System</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td>2026-07-30 09:22</td><td>Email received</td><td>INV-4321</td><td>Power Automate</td><td>Microsoft → invoices@mbs.edu.au</td></tr>
+          <tr><td>2026-07-30 09:22</td><td>AI extraction</td><td>INV-4321</td><td>AI Builder</td><td>12 fields extracted, 1 warning (PO mismatch)</td></tr>
+          <tr><td>2026-07-30 09:23</td><td>Queue created</td><td>INV-4321</td><td>System</td><td>Status: New</td></tr>
+          <tr><td>2026-07-30 09:15</td><td>Review started</td><td>INV-8876</td><td>J. Chen</td><td>Manual review initiated</td></tr>
+          <tr><td>2026-07-29 14:30</td><td>Approved</td><td>INV-5543</td><td>L. Patel</td><td>PO matched, forwarded to finance</td></tr>
+          <tr><td>2026-07-29 10:00</td><td>Duplicate flagged</td><td>INV-9981</td><td>System</td><td>Match found: INV-9981 / DataCom</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span><strong>Design Mockup</strong> — Invoice Intake</span>
+    <span><span class="severity-badge safe">Status: Prototype</span> · 2026-07-30</span>
+    <span>Updates tracked in <a href="https://github.com/Blank-Look/opencode">GitHub</a></span>
+  </div>
+
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page-section').forEach(p => p.style.display = 'none');
+  document.getElementById('page-' + id).style.display = 'block';
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  const titles = {
+    dashboard: 'Dashboard',
+    queue: 'Invoice Queue',
+    approval: 'Pending Approval',
+    suppliers: 'Suppliers',
+    reports: 'Reports & BI',
+    rules: 'Detection Rules',
+    audit: 'Audit Trail',
+  };
+  document.getElementById('page-title').textContent = titles[id] || 'Dashboard';
+}
+</script>
+
+</body>
+</html>
