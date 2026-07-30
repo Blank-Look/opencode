@@ -11,6 +11,7 @@ ICT tooling, documentation, and automation by [Blank-Look](https://github.com/Bl
 | [AI-Assisted Delivery Lifecycle](sdlc/) | Methodology for governed AI-assisted software delivery — 7-phase lifecycle with stage gates |
 | [ICT Knowledge Base](knowledgebase/) | Governance, runbooks, processes, configuration, and standards for ICT operations |
 | [Asset Manager](asset-manager/) | Express + SQLite application with Microsoft Graph API connectors for asset lifecycle governance |
+| [Innovation Playground](innovation-playground/) | Governed, short-lived, anonymised sandbox environment for pre-lifecycle ideation |
 
 ## How It Works
 
