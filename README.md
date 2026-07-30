@@ -4,12 +4,18 @@
 
 ICT tooling, documentation, and automation by [Blank-Look](https://github.com/Blank-Look).
 
-## Projects
+## Products
 
-| Project | Description |
+| Product | Description |
 |---|---|
-| [AI-Assisted Delivery Lifecycle](sdlc/) | Methodology for governed AI-assisted software delivery — 7-phase lifecycle with stage gates |
+| [Innovation Governance](products/knowledgebase/docs/policy-and-governance/innovation-governance.html) | Governance built into the delivery platform — freedom to innovate, outcomes automatically aligned |
+| [Cadence](products/cadence/) | The human side of high-performance coding — rest, recovery, and creative sustainability |
+| [Foundry](products/foundry/) | Internal ICT Engineering Bootcamp — two-day GitHub Foundations for M365 infrastructure engineers |
+| [Prism Academy](products/prism/) | Modern school website — innovation-first, inquiry-driven, project-based learning |
 | [ICT Knowledge Base](products/knowledgebase/) | Governance, runbooks, processes, configuration, and standards for ICT operations |
+| [Travel Itineraries](products/travel-itineraries/) | Staff location tracking, regional hazard monitoring, and automated emergency response |
+| [Invoice Intake](products/invoice-intake/) | Automated accounts payable — Power Automate, AI extraction, SharePoint queue, and approval workflow |
+| [AI-Assisted Delivery Lifecycle](sdlc/) | Methodology for governed AI-assisted software delivery — 7-phase lifecycle with stage gates |
 | [Asset Manager](asset-manager/) | Express + SQLite application with Microsoft Graph API connectors for asset lifecycle governance |
 | [Innovation Playground](innovation-playground/) | Governed, short-lived, anonymised sandbox environment for pre-lifecycle ideation |
 
