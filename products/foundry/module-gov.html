@@ -46,10 +46,27 @@ section{padding:4rem 2rem}
 .content-card .ex-box{background:var(--cream);border:1px solid var(--stone-200);border-radius:10px;padding:1.25rem;margin:1rem 0}
 .content-card .ex-box .ex-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ember);margin-bottom:.375rem}
 .content-card .ex-box p{font-size:.85rem;color:var(--stone-600);line-height:1.6;margin-bottom:0}
+.quiz-q{margin-bottom:1rem}
+.quiz-option{display:block;padding:.5rem .75rem;margin-bottom:.25rem;border-radius:8px;border:1px solid var(--stone-200);cursor:pointer;transition:all .15s;font-size:.875rem;color:var(--stone-600);line-height:1.6}
+.quiz-option:hover{border-color:var(--ember);background:rgba(201,106,61,0.04)}
+.quiz-option input{display:none}
+.quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534;font-weight:600}
+.quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B;font-weight:600}
+.quiz-option.disabled{pointer-events:none;opacity:.7}
+.quiz-feedback{font-size:.8rem;padding:.375rem .75rem;margin-top:.25rem;border-radius:6px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.correct{background:#F0FDF4;color:#166534}
+.quiz-feedback.wrong{background:#FEF2F2;color:#991B1B}
+.mod-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.mod-nav a{padding:.75rem 1.5rem;border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .2s}
+.mod-nav .prev{background:transparent;color:var(--stone-600);border:1px solid var(--stone-300)}
+.mod-nav .prev:hover{border-color:var(--ember);color:var(--ember)}
+.mod-nav .next{background:var(--forge);color:var(--white)}
+.mod-nav .next:hover{background:var(--forge-dark);transform:translateY(-1px)}
 footer{background:var(--stone-900);color:var(--stone-400);padding:3rem 2rem;text-align:center;font-size:.875rem}
 footer .f-brand{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
 footer .f-copy{font-size:.8rem}
-@media(max-width:768px){nav{padding:0 1rem}.nav-links{display:none}.page-header h1{font-size:2rem}.content-card{padding:1.5rem}section{padding:2.5rem 1rem}}
+@media(max-width:768px){nav{padding:0 1rem}.nav-links{display:none}.page-header h1{font-size:2rem}.content-card{padding:1.5rem}section{padding:2.5rem 1rem}.mod-nav{flex-direction:column}.mod-nav a{text-align:center}}
 </style>
 </head>
 <body>
@@ -172,7 +189,63 @@ footer .f-copy{font-size:.8rem}
         <li><strong>Source systems</strong> stay authoritative — AI is an aggregation layer</li>
         <li><strong>Delivery phases</strong> — build in vertical slices, each with a clear definition of done</li>
         <li><strong>AI generates, humans approve</strong> — every change goes through review</li>
-      </ul>
+    <div class="content-card">
+      <h2>Quiz</h2>
+      <div class="quiz-q" data-correct="A">
+        <div><strong>1.</strong> What is the purpose of AGENTS.md in a repository?</div>
+        <div class="quiz-options">
+          <label class="quiz-option" data-value="A"><input type="radio" name="q1" value="A"> A. It tells AI tools about project context, conventions, and constraints</label>
+          <label class="quiz-option" data-value="B"><input type="radio" name="q1" value="B"> B. It replaces the README for human readers</label>
+          <label class="quiz-option" data-value="C"><input type="radio" name="q1" value="C"> C. It lists all installed dependencies</label>
+          <label class="quiz-option" data-value="D"><input type="radio" name="q1" value="D"> D. It generates documentation automatically</label>
+        </div>
+        <div class="quiz-feedback"></div>
+      </div>
+      <div class="quiz-q" data-correct="C">
+        <div><strong>2.</strong> Why is governance based on roles rather than named individuals?</div>
+        <div class="quiz-options">
+          <label class="quiz-option" data-value="A"><input type="radio" name="q2" value="A"> A. Roles are easier to type in code</label>
+          <label class="quiz-option" data-value="B"><input type="radio" name="q2" value="B"> B. Named individuals are never available</label>
+          <label class="quiz-option" data-value="C"><input type="radio" name="q2" value="C"> C. Roles persist when people leave; authority follows the role, not the person</label>
+          <label class="quiz-option" data-value="D"><input type="radio" name="q2" value="D"> D. GitHub requires role-based permissions</label>
+        </div>
+        <div class="quiz-feedback"></div>
+      </div>
+      <div class="quiz-q" data-correct="D">
+        <div><strong>3.</strong> Which of these is an example of a deterministic risk rule?</div>
+        <div class="quiz-options">
+          <label class="quiz-option" data-value="A"><input type="radio" name="q3" value="A"> A. "AI should behave responsibly"</label>
+          <label class="quiz-option" data-value="B"><input type="radio" name="q3" value="B"> B. "Ask a senior developer before making changes"</label>
+          <label class="quiz-option" data-value="C"><input type="radio" name="q3" value="C"> C. "Changes should be reviewed periodically"</label>
+          <label class="quiz-option" data-value="D"><input type="radio" name="q3" value="D"> D. No auto-commit — AI generates, human approves</label>
+        </div>
+        <div class="quiz-feedback"></div>
+      </div>
+      <div class="quiz-q" data-correct="B">
+        <div><strong>4.</strong> According to the governance framework, what cannot AI tools do?</div>
+        <div class="quiz-options">
+          <label class="quiz-option" data-value="A"><input type="radio" name="q4" value="A"> A. Generate documentation</label>
+          <label class="quiz-option" data-value="B"><input type="radio" name="q4" value="B"> B. Act as a final approver</label>
+          <label class="quiz-option" data-value="C"><input type="radio" name="q4" value="C"> C. Read repository files</label>
+          <label class="quiz-option" data-value="D"><input type="radio" name="q4" value="D"> D. Suggest code changes</label>
+        </div>
+        <div class="quiz-feedback"></div>
+      </div>
+      <div class="quiz-q" data-correct="C">
+        <div><strong>5.</strong> What is the first phase of the Delivery Prompt Template lifecycle?</div>
+        <div class="quiz-options">
+          <label class="quiz-option" data-value="A"><input type="radio" name="q5" value="A"> A. Foundation — create directory structure</label>
+          <label class="quiz-option" data-value="B"><input type="radio" name="q5" value="B"> B. MVP — build core features</label>
+          <label class="quiz-option" data-value="C"><input type="radio" name="q5" value="C"> C. Phase 0 — inspect repo, produce architecture docs and plan</label>
+          <label class="quiz-option" data-value="D"><input type="radio" name="q5" value="D"> D. Onboarding — docs and handover</label>
+        </div>
+        <div class="quiz-feedback"></div>
+      </div>
+    </div>
+
+    <div class="mod-nav">
+      <a href="module-env.html" class="prev">← Prev: AI-Assisted Dev Env</a>
+      <a href="module-prompt.html" class="next">Next: AI Prompt Engineering →</a>
     </div>
 
   </div>
@@ -183,5 +256,26 @@ footer .f-copy{font-size:.8rem}
   <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
 </footer>
 
+<script>
+document.querySelectorAll('.quiz-q').forEach(q => {
+  const correct = q.dataset.correct;
+  const options = q.querySelectorAll('.quiz-option');
+  const feedback = q.querySelector('.quiz-feedback');
+  options.forEach(opt => {
+    opt.addEventListener('click', () => {
+      if (opt.classList.contains('disabled')) return;
+      options.forEach(o => o.classList.add('disabled'));
+      const isCorrect = opt.dataset.value === correct;
+      opt.classList.add(isCorrect ? 'correct' : 'wrong');
+      if (!isCorrect) {
+        const correctOpt = q.querySelector(`[data-value="${correct}"]`);
+        correctOpt.classList.add('correct');
+      }
+      feedback.textContent = isCorrect ? '✓ Correct!' : `✗ Not quite. The answer is ${correct}.`;
+      feedback.className = 'quiz-feedback show ' + (isCorrect ? 'correct' : 'wrong');
+    });
+  });
+});
+</script>
 </body>
 </html>
