@@ -115,3 +115,17 @@ All new app mockups (`app-mockup.html`) should follow this established pattern:
 - Inter font via Google Fonts
 
 **New app template:** Copy `asset-manager/app-mockup.html` as starting point, swap accent colour variables, update sidebar sections, page sections, and mock data.
+
+## Delivery Prompt Template
+
+When asked to create a new product or application, follow the [Delivery Prompt Template](https://blank-look.github.io/opencode/sdlc/docs/lifecycle/delivery-prompt.html). This template enforces structured delivery:
+
+- **Phase 0 first**: inspect the existing repo, produce architecture docs, assumptions, risks, and implementation plan before writing code
+- **Modular monolith** over microservices unless there's a proven reason
+- **Deterministic risk rules** over opaque AI
+- **Role-based governance** over named individuals
+- **Source systems remain authoritative** — the new app is an aggregation layer
+- **Phase-based delivery** in vertical slices (Foundation → Core MVP → Integrations → Workflows → Onboarding)
+- **Definition of done**: acceptance criteria, auth, validation, audit, tests, failure paths, safe logs, docs, migration, provenance, no secrets, no unrelated changes
+
+Use the ICT Asset Governance Manager prompt as the structural template — adapt the architecture and technology choices to the specific product being built.
