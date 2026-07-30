@@ -37,6 +37,47 @@ npm run sync       # node src/manual-sync.js "<job-name>"
 - Connectors: `src/connectors/` — each implements `sync(jobId)` with `upsertAsset()`/`logSync()` from base class
 - Frontend: vanilla JS SPA in `public/` — calls REST API directly
 
+## Nav Bar Template
+
+All pages must have a **SchoolCode** brand link in the nav/header that links back to the root `index.html`:
+
+- **Light-theme pages** (Travel Itineraries, Products, Cadence, etc.): SchoolCode link (uppercase, muted) + divider + page title
+- **Dark-theme mockups** (Prism Academy): SchoolCode link (uppercase, subdued) + divider + product logo
+- **Sidebar mockups** (Innovation Playground): SchoolCode link above the product name in the sidebar-brand
+
+```html
+<!-- Light nav bar pattern -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-left">
+      <a href="../index.html" class="navbar-schoolcode">SchoolCode</a>
+      <a href="index.html" class="navbar-brand">Product Name</a>
+    </div>
+    <div class="navbar-links">
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+```
+
+```css
+.navbar-schoolcode {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--gray-300);
+  transition: color 0.15s;
+}
+.navbar-schoolcode:hover { color: var(--primary); }
+```
+
+Path to root is `../index.html` from top-level dirs, `../../index.html` from `products/` subdirs.
+
 ## App Mockup Style (Default)
 
 All new app mockups (`app-mockup.html`) should follow this established pattern:

@@ -46,6 +46,24 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.navbar-schoolcode {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--gray-300);
+  transition: color 0.15s;
+}
+.navbar-schoolcode:hover { color: var(--primary); }
 .navbar-brand {
   font-weight: 700;
   font-size: 1rem;
@@ -160,7 +178,10 @@ body {
 
 <nav class="navbar">
   <div class="navbar-inner">
-    <a href="index.html" class="navbar-brand">Travel Itineraries</a>
+    <div class="navbar-left">
+      <a href="../index.html" class="navbar-schoolcode">SchoolCode</a>
+      <a href="index.html" class="navbar-brand">Travel Itineraries</a>
+    </div>
     <div class="navbar-links">
       <a href="https://github.com/Blank-Look/opencode/tree/master/travel-itineraries">GitHub</a>
     </div>
