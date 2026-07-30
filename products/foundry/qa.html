@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q&A Bank — Foundry Bootcamp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forge: #5B4B3A;
+  --forge-dark: #3D3228;
+  --forge-light: #8A735C;
+  --ember: #C96A3D;
+  --ember-light: #E8925A;
+  --cream: #F8F4EF;
+  --stone-100: #F0ECE6;
+  --stone-200: #E0D9D0;
+  --stone-300: #C5BBB0;
+  --stone-400: #A8998C;
+  --stone-500: #8C7E72;
+  --stone-600: #6E6257;
+  --stone-700: #524840;
+  --stone-800: #362F2A;
+  --stone-900: #1C1815;
+  --white: #FFFFFF;
+  --green: #16A34A;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  color: var(--stone-700);
+  background: var(--cream);
+  line-height: 1.6;
+}
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(248,244,239,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--stone-200);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-left { display: flex; align-items: center; gap: 0; }
+.nav-schoolcode {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--stone-400);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--stone-300);
+  transition: color 0.15s;
+}
+.nav-schoolcode:hover { color: var(--ember); }
+.nav-brand {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--forge);
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 0.25rem; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--stone-500);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.15s;
+}
+.nav-links a:hover { color: var(--ember); background: rgba(201,106,61,0.06); }
+.nav-cta { background: var(--forge); color: var(--white) !important; font-weight: 600; }
+.nav-cta:hover { background: var(--forge-dark) !important; }
+
+.page-header {
+  padding: 7rem 2rem 3rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--cream), #EDE6DE 50%, #E6DDD3 100%);
+  border-bottom: 1px solid var(--stone-200);
+}
+.page-header h1 {
+  font-size: 2.75rem;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  color: var(--stone-800);
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+.page-header h1 strong { font-weight: 700; color: var(--forge); }
+.page-header p { color: var(--stone-500); max-width: 560px; margin: 0 auto; font-size: 1rem; }
+.page-header .back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--stone-400);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.page-header .back-link:hover { color: var(--ember); }
+
+section { padding: 4rem 2rem; }
+.section-inner { max-width: 920px; margin: 0 auto; }
+
+.module-section { margin-bottom: 3rem; }
+.module-section h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--stone-800);
+  margin-bottom: 0.25rem;
+}
+.module-section .ms-meta { font-size: 0.85rem; color: var(--stone-400); margin-bottom: 1.5rem; }
+
+.qa-card {
+  background: var(--white);
+  border: 1px solid var(--stone-200);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.15s;
+}
+.qa-card:hover { border-color: var(--ember); }
+.qa-card .q-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--stone-300);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+.qa-card .q-text {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--stone-700);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.qa-card .q-options { font-size: 0.875rem; color: var(--stone-500); line-height: 1.8; }
+.qa-card .q-options .correct-answer {
+  color: var(--forge);
+  font-weight: 600;
+}
+.qa-card .q-options .correct-answer::after { content: ' ✓'; color: var(--green); font-weight: 700; }
+.qa-card .q-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--ember);
+  background: rgba(201,106,61,0.06);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+footer {
+  background: var(--stone-900);
+  color: var(--stone-400);
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+footer .f-brand { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+footer .f-copy { font-size: 0.8rem; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+  .page-header h1 { font-size: 2rem; }
+  .qa-card { padding: 1rem 1.25rem; }
+  section { padding: 2.5rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../../index.html" class="nav-schoolcode">SchoolCode</a>
+      <a href="index.html" class="nav-brand">Foundry</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="qa.html" class="nav-cta">Q&A</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Question &amp; Answer <strong>Bank</strong></h1>
+  <p>60+ questions across all eight modules. Multiple choice. Randomised per attempt. 80% to pass.</p>
+  <a href="index.html" class="back-link">← Back to Foundry</a>
+</div>
+
+<section>
+  <div class="section-inner">
+
+    <!-- Module 1 -->
+    <div class="module-section">
+      <h2>Module 1 — Why GitHub?</h2>
+      <div class="ms-meta">8 questions · Concepts, Git vs GitHub, core features</div>
+
+      <div class="qa-card">
+        <div class="q-num">Q1</div>
+        <div class="q-text">What is the difference between Git and GitHub?</div>
+        <div class="q-options">A. They are the same thing<br>B. Git is the version control system, GitHub is the hosting platform <span class="correct-answer">Correct</span><br>C. GitHub is the command-line tool<br>D. Git only works with Microsoft products</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q2</div>
+        <div class="q-text">Which tool should you use to store engineering documentation?</div>
+        <div class="q-options">A. SharePoint<br>B. Word documents on a network drive<br>C. Markdown in a GitHub repository <span class="correct-answer">Correct</span><br>D. Email</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q3</div>
+        <div class="q-text">What feature lets you propose changes and request review before merging?</div>
+        <div class="q-options">A. Issue<br>B. Commit<br>C. Pull Request <span class="correct-answer">Correct</span><br>D. Wiki</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q4</div>
+        <div class="q-text">Which of the following can GitHub Actions do?</div>
+        <div class="q-options">A. Run automated workflows when code is pushed<br>B. Deploy documentation<br>C. Run tests<br>D. All of the above <span class="correct-answer">Correct</span></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q5</div>
+        <div class="q-text">Why is Markdown used in GitHub?</div>
+        <div class="q-options">A. It's the only format GitHub supports<br>B. It's plain text, human-readable, and renders as formatted HTML <span class="correct-answer">Correct</span><br>C. It requires special software<br>D. It only works for code files</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q6</div>
+        <div class="q-text">What is a GitHub repository?</div>
+        <div class="q-options">A. A folder on a shared drive<br>B. A storage location for project files with version history <span class="correct-answer">Correct</span><br>C. A database of issues<br>D. A code editor</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q7</div>
+        <div class="q-text">What is a key limitation of SharePoint for storing code or scripts?</div>
+        <div class="q-options">A. It cannot store files<br>B. It has no version control or branching <span class="correct-answer">Correct</span><br>C. It is not web-based<br>D. It only works with Office documents</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q8</div>
+        <div class="q-text">How does AI (Copilot, ChatGPT) typically interact with GitHub?</div>
+        <div class="q-options">A. By replacing GitHub entirely<br>B. By generating code and documents that are committed to GitHub repositories <span class="correct-answer">Correct</span><br>C. AI cannot interact with GitHub<br>D. By deleting repositories</div>
+      </div>
+    </div>
+
+    <!-- Module 2 -->
+    <div class="module-section">
+      <h2>Module 2 — Markdown</h2>
+      <div class="ms-meta">10 questions · Headings, formatting, tables, code blocks, Mermaid</div>
+
+      <div class="qa-card">
+        <div class="q-num">Q9</div>
+        <div class="q-text">How do you create a level-2 heading in Markdown?</div>
+        <div class="q-options">A. <code>## Heading</code> <span class="correct-answer">Correct</span><br>B. <code>**Heading**</code><br>C. <code>-- Heading</code><br>D. <code>=== Heading</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q10</div>
+        <div class="q-text">Which Markdown syntax creates a code block with PowerShell highlighting?</div>
+        <div class="q-options">A. <code>```powershell</code> <span class="correct-answer">Correct</span><br>B. <code>```ps</code><br>C. <code>'''powershell</code><br>D. <code>---powershell</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q11</div>
+        <div class="q-text">What does <code>![Screenshot](img/screen.png)</code> do?</div>
+        <div class="q-options">A. Creates a link to the file<br>B. Embeds an image with alt text <span class="correct-answer">Correct</span><br>C. Downloads the image<br>D. Nothing — the syntax is wrong</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q12</div>
+        <div class="q-text">How do you create a table column aligned to the right?</div>
+        <div class="q-options">A. <code>:---</code><br>B. <code>---:</code> <span class="correct-answer">Correct</span><br>C. <code>:---:</code><br>D. <code>----</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q13</div>
+        <div class="q-text">Which tool renders diagram code into visual diagrams in GitHub Markdown?</div>
+        <div class="q-options">A. Graphviz<br>B. Mermaid <span class="correct-answer">Correct</span><br>C. PlantUML<br>D. Draw.io</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q14</div>
+        <div class="q-text">How do you create bold text in Markdown?</div>
+        <div class="q-options">A. <code>**text**</code> <span class="correct-answer">Correct</span><br>B. <code>*text*</code><br>C. <code>__text__</code><br>D. Both A and C</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q15</div>
+        <div class="q-text">How do you create an unordered list in Markdown?</div>
+        <div class="q-options">A. <code>1. item</code><br>B. <code>- item</code> <span class="correct-answer">Correct</span><br>C. <code>* item</code><br>D. Both B and C</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q16</div>
+        <div class="q-text">How do you create a link in Markdown?</div>
+        <div class="q-options">A. <code>&lt;a href="url"&gt;text&lt;/a&gt;</code><br>B. <code>[text](url)</code> <span class="correct-answer">Correct</span><br>C. <code>(text)[url]</code><br>D. <code>{text}(url)</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q17</div>
+        <div class="q-text">What is the correct way to write inline code in Markdown?</div>
+        <div class="q-options">A. <code>`code`</code> <span class="correct-answer">Correct</span><br>B. <code>'''code'''</code><br>C. <code>@@code@@</code><br>D. <code>$$code$$</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q18</div>
+        <div class="q-text">What does Markdown <code>&gt;</code> at the start of a line do?</div>
+        <div class="q-options">A. Creates a bullet point<br>B. Creates a blockquote <span class="correct-answer">Correct</span><br>C. Creates a heading<br>D. Creates a horizontal rule</div>
+      </div>
+    </div>
+
+    <!-- Module 3 -->
+    <div class="module-section">
+      <h2>Module 3 — Git Basics</h2>
+      <div class="ms-meta">12 questions · Clone, add, commit, push, pull, status, log</div>
+
+      <div class="qa-card">
+        <div class="q-num">Q19</div>
+        <div class="q-text">Which command downloads a repository for the first time?</div>
+        <div class="q-options">A. <code>git pull</code><br>B. <code>git clone</code> <span class="correct-answer">Correct</span><br>C. <code>git init</code><br>D. <code>git fetch</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q20</div>
+        <div class="q-text">What does <code>git status</code> show?</div>
+        <div class="q-options">A. The commit history<br>B. The current state of the working directory <span class="correct-answer">Correct</span><br>C. The remote URL<br>D. The difference between two commits</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q21</div>
+        <div class="q-text">What is the correct sequence to save a change to GitHub?</div>
+        <div class="q-options">A. Commit → Add → Push<br>B. Add → Commit → Push <span class="correct-answer">Correct</span><br>C. Push → Add → Commit<br>D. Clone → Push → Commit</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q22</div>
+        <div class="q-text">Which command gets the latest changes from GitHub?</div>
+        <div class="q-options">A. <code>git push</code><br>B. <code>git commit</code><br>C. <code>git pull</code> <span class="correct-answer">Correct</span><br>D. <code>git clone</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q23</div>
+        <div class="q-text">A good commit message looks like:</div>
+        <div class="q-options">A. "Update file"<br>B. "Add Intune packaging documentation and PowerShell script" <span class="correct-answer">Correct</span><br>C. "changes"<br>D. "fix"</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q24</div>
+        <div class="q-text">What does <code>git add .</code> do?</div>
+        <div class="q-options">A. Adds all changed files to the staging area <span class="correct-answer">Correct</span><br>B. Adds a new remote<br>C. Deletes all files<br>D. Commits all changes</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q25</div>
+        <div class="q-text">What is the staging area in Git?</div>
+        <div class="q-options">A. Where files are permanently stored<br>B. A temporary area where changes are prepared before committing <span class="correct-answer">Correct</span><br>C. The remote repository<br>D. The trash bin for deleted files</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q26</div>
+        <div class="q-text">How do you see the commit history in compact form?</div>
+        <div class="q-options">A. <code>git history</code><br>B. <code>git log --oneline</code> <span class="correct-answer">Correct</span><br>C. <code>git commits</code><br>D. <code>git show</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q27</div>
+        <div class="q-text">What is a commit in Git?</div>
+        <div class="q-options">A. A suggestion for a change<br>B. A snapshot of changes with a message and ID <span class="correct-answer">Correct</span><br>C. The current state of a file<br>D. A branch</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q28</div>
+        <div class="q-text">What does <code>git push</code> do?</div>
+        <div class="q-options">A. Downloads changes from GitHub<br>B. Uploads local commits to GitHub <span class="correct-answer">Correct</span><br>C. Creates a new repository<br>D. Deletes the remote branch</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q29</div>
+        <div class="q-text">What is the difference between <code>git pull</code> and <code>git fetch</code>?</div>
+        <div class="q-options">A. They are the same thing<br>B. <code>git pull</code> downloads and merges; <code>git fetch</code> only downloads <span class="correct-answer">Correct</span><br>C. <code>git fetch</code> downloads and merges<br>D. Neither affects the local repository</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q30</div>
+        <div class="q-text">What should you do if <code>git push</code> is rejected because the remote has newer changes?</div>
+        <div class="q-options">A. Force push with <code>--force</code><br>B. Run <code>git pull</code> first to get the latest changes <span class="correct-answer">Correct</span><br>C. Delete the repository and clone again<br>D. Ignore the error</div>
+      </div>
+    </div>
+
+    <!-- Module 4 -->
+    <div class="module-section">
+      <h2>Module 4 — Branches & Pull Requests</h2>
+      <div class="ms-meta">10 questions · Branching, PR workflow, merge conflicts, reviews</div>
+
+      <div class="qa-card">
+        <div class="q-num">Q31</div>
+        <div class="q-text">What is a branch in Git?</div>
+        <div class="q-options">A. A copy of the entire repository<br>B. A parallel version of the code <span class="correct-answer">Correct</span><br>C. A type of commit<br>D. A remote repository</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q32</div>
+        <div class="q-text">What is a Pull Request used for?</div>
+        <div class="q-options">A. Deleting a branch<br>B. Proposing changes and requesting review <span class="correct-answer">Correct</span><br>C. Downloading files<br>D. Creating a new repository</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q33</div>
+        <div class="q-text">Which merge type creates a single commit from all branch commits?</div>
+        <div class="q-options">A. Merge commit<br>B. Squash merge <span class="correct-answer">Correct</span><br>C. Rebase merge<br>D. Fast-forward</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q34</div>
+        <div class="q-text">A merge conflict happens when:</div>
+        <div class="q-options">A. Two people push at the same time<br>B. The same line is edited differently in two branches <span class="correct-answer">Correct</span><br>C. A file is deleted<br>D. The internet disconnects</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q35</div>
+        <div class="q-text">How do you switch to an existing branch named <code>add-docs</code>?</div>
+        <div class="q-options">A. <code>git branch add-docs</code><br>B. <code>git switch add-docs</code> <span class="correct-answer">Correct</span><br>C. <code>git checkout -b add-docs</code><br>D. <code>git start add-docs</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q36</div>
+        <div class="q-text">How do you create a new branch and switch to it?</div>
+        <div class="q-options">A. <code>git branch new-feature</code><br>B. <code>git switch -c new-feature</code> <span class="correct-answer">Correct</span><br>C. <code>git create new-feature</code><br>D. <code>git new new-feature</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q37</div>
+        <div class="q-text">What information should a good PR description include?</div>
+        <div class="q-options">A. What changed, why, and how to test <span class="correct-answer">Correct</span><br>B. Only the branch name<br>C. Just "fix" or "update"<br>D. The name of the author</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q38</div>
+        <div class="q-text">What is the purpose of code review in a Pull Request?</div>
+        <div class="q-options">A. To slow down development<br>B. To catch issues, share knowledge, and ensure quality <span class="correct-answer">Correct</span><br>C. To assign blame<br>D. To automatically merge changes</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q39</div>
+        <div class="q-text">When should you create a branch?</div>
+        <div class="q-options">A. For every new feature, bug fix, or documentation change <span class="correct-answer">Correct</span><br>B. Only for major releases<br>C. Never — always commit directly to <code>main</code><br>D. Only when someone asks</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q40</div>
+        <div class="q-text">What does the <code>#</code> symbol in a PR description do?</div>
+        <div class="q-options">A. Creates a heading<br>B. References an Issue number <span class="correct-answer">Correct</span><br>C. Creates a comment<br>D. Adds a tag</div>
+      </div>
+    </div>
+
+    <!-- Module 5 -->
+    <div class="module-section">
+      <h2>Module 5 — Repository Standards</h2>
+      <div class="ms-meta">9 questions · Structure, README, LICENSE, CODEOWNERS, naming</div>
+
+      <div class="qa-card">
+        <div class="q-num">Q41</div>
+        <div class="q-text">What is the recommended way to name a GitHub repository?</div>
+        <div class="q-options">A. <code>Intune Packaging V2 Final</code><br>B. <code>intune-packaging</code> <span class="correct-answer">Correct</span><br>C. <code>intune_packaging</code><br>D. <code>intune-packaging-v2-final-2026</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q42</div>
+        <div class="q-text">What is the purpose of a README.md in a repository?</div>
+        <div class="q-options">A. It's required and has no practical purpose<br>B. It explains the project's purpose, usage, and ownership <span class="correct-answer">Correct</span><br>C. It's only for open-source projects<br>D. It contains the source code</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q43</div>
+        <div class="q-text">What does CODEOWNERS do?</div>
+        <div class="q-options">A. Lists the people who own the repository<br>B. Automatically assigns reviewers based on file paths <span class="correct-answer">Correct</span><br>C. Sets repository permissions<br>D. Creates a license</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q44</div>
+        <div class="q-text">Where should engineering documentation for a project live?</div>
+        <div class="q-options">A. In a SharePoint site<br>B. In the GitHub repository as Markdown files <span class="correct-answer">Correct</span><br>C. In a Word document on a shared drive<br>D. In an email thread</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q45</div>
+        <div class="q-text">What is a <code>.gitignore</code> file used for?</div>
+        <div class="q-options">A. To ignore pull requests<br>B. To prevent certain files from being tracked by Git <span class="correct-answer">Correct</span><br>C. To list important files<br>D. To configure Git settings</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q46</div>
+        <div class="q-text">Why should you include a LICENSE file in every repository?</div>
+        <div class="q-options">A. It's optional and not important<br>B. It defines how the project can be used by others <span class="correct-answer">Correct</span><br>C. It's only needed for public repos<br>D. GitHub requires it to create a repo</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q47</div>
+        <div class="q-text">What directory contains GitHub-specific configuration files?</div>
+        <div class="q-options">A. <code>docs/</code><br>B. <code>.github/</code> <span class="correct-answer">Correct</span><br>C. <code>config/</code><br>D. <code>scripts/</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q48</div>
+        <div class="q-text">What is the benefit of a standardised repository structure across a team?</div>
+        <div class="q-options">A. Everyone can find files and understand any repo quickly <span class="correct-answer">Correct</span><br>B. It looks professional<br>C. GitHub requires it<br>D. It prevents merge conflicts</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q49</div>
+        <div class="q-text">What should you do before committing AI-generated code?</div>
+        <div class="q-options">A. Commit it immediately<br>B. Review, test, and verify it first <span class="correct-answer">Correct</span><br>C. Only commit if it compiles<br>D. Ask someone else to commit it</div>
+      </div>
+    </div>
+
+    <!-- Module 6 -->
+    <div class="module-section">
+      <h2>Module 6 — GitHub Actions</h2>
+      <div class="ms-meta">7 questions · Workflows, triggers, jobs, YAML basics</div>
+
+      <div class="qa-card">
+        <div class="q-num">Q50</div>
+        <div class="q-text">What is GitHub Actions?</div>
+        <div class="q-options">A. A code editor<br>B. An automation platform for workflows triggered by GitHub events <span class="correct-answer">Correct</span><br>C. A chat application<br>D. A database service</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q51</div>
+        <div class="q-text">Where are workflow files stored in a repository?</div>
+        <div class="q-options">A. <code>workflows/</code><br>B. <code>.github/workflows/</code> <span class="correct-answer">Correct</span><br>C. <code>actions/</code><br>D. <code>root directory</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q52</div>
+        <div class="q-text">What file format is used for GitHub Actions workflows?</div>
+        <div class="q-options">A. JSON<br>B. YAML <span class="correct-answer">Correct</span><br>C. XML<br>D. TOML</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q53</div>
+        <div class="q-text">Which keyword in a workflow specifies when it should run?</div>
+        <div class="q-options">A. <code>trigger:</code><br>B. <code>on:</code> <span class="correct-answer">Correct</span><br>C. <code>when:</code><br>D. <code>run:</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q54</div>
+        <div class="q-text">What event triggers a workflow when someone creates a Pull Request?</div>
+        <div class="q-options">A. <code>pull_request</code> <span class="correct-answer">Correct</span><br>B. <code>push</code><br>C. <code>issue</code><br>D. <code>review</code></div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q55</div>
+        <div class="q-text">What does the <code>jobs</code> section of a workflow define?</div>
+        <div class="q-options">A. The files to be committed<br>B. The tasks that will run on a runner <span class="correct-answer">Correct</span><br>C. The branch to deploy<br>D. The reviewers for a PR</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q56</div>
+        <div class="q-text">Where can you see the results of a workflow run?</div>
+        <div class="q-options">A. In the Issues tab<br>B. In the Actions tab of the repository <span class="correct-answer">Correct</span><br>C. In a separate application<br>D. Via email only</div>
+      </div>
+    </div>
+
+    <!-- Module 7 -->
+    <div class="module-section">
+      <h2>Module 7 — AI</h2>
+      <div class="ms-meta">8 questions · AI tools, prompts, review, best practices</div>
+
+      <div class="qa-card">
+        <div class="q-num">Q57</div>
+        <div class="q-text">What is the golden rule when using AI to generate code?</div>
+        <div class="q-options">A. Always commit AI output without changes<br>B. Review, test, and approve AI output before committing <span class="correct-answer">Correct</span><br>C. Never use AI for production code<br>D. AI doesn't need review</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q58</div>
+        <div class="q-text">How can ChatGPT help with documentation?</div>
+        <div class="q-options">A. It can't — documentation must be written manually<br>B. Generate README drafts, improve existing docs, and write how-to guides <span class="correct-answer">Correct</span><br>C. It only writes code<br>D. It deletes outdated docs</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q59</div>
+        <div class="q-text">What does GitHub Copilot do?</div>
+        <div class="q-options">A. Review pull requests automatically<br>B. Suggest code completions inline in the editor <span class="correct-answer">Correct</span><br>C. Deploy applications<br>D. Manage repository permissions</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q60</div>
+        <div class="q-text">What should you include in an AI prompt for best results?</div>
+        <div class="q-options">A. Just a one-word command<br>B. Clear context, expected output format, and examples <span class="correct-answer">Correct</span><br>C. Random keywords<br>D. Nothing — AI reads your mind</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q61</div>
+        <div class="q-text">How can AI be used in a Pull Request workflow?</div>
+        <div class="q-options">A. AI cannot interact with PRs<br>B. AI can review the diff, suggest improvements, and catch issues <span class="correct-answer">Correct</span><br>C. AI automatically merges PRs<br>D. AI deletes PRs that have bugs</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q62</div>
+        <div class="q-text">What is the best way to use an AI coding agent like OpenCode or Claude Code?</div>
+        <div class="q-options">A. Give it a detailed prompt and review the output <span class="correct-answer">Correct</span><br>B. Let it run without supervision<br>C. Only use it for small edits<br>D. Never use terminal-based AI tools</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q63</div>
+        <div class="q-text">What is a risk of using AI without review?</div>
+        <div class="q-options">A. It might take too long<br>B. It might introduce security vulnerabilities or incorrect logic <span class="correct-answer">Correct</span><br>C. It costs too much<br>D. It slows down the computer</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q64</div>
+        <div class="q-text">Which is a good prompt for generating a PowerShell script?</div>
+        <div class="q-options">A. "Write a script"<br>B. "Write a PowerShell script that exports all Intune compliance policies to CSV, including policy name, platform, and last modified date" <span class="correct-answer">Correct</span><br>C. "PowerShell"<br>D. "Fix my code"</div>
+      </div>
+    </div>
+
+    <!-- Module 8 -->
+    <div class="module-section">
+      <h2>Module 8 — Engineering Standards</h2>
+      <div class="ms-meta">6 questions · Naming, PR rules, branch protection, Issues, Projects</div>
+
+      <div class="qa-card">
+        <div class="q-num">Q65</div>
+        <div class="q-text">What does branch protection do?</div>
+        <div class="q-options">A. Encrypts the branch<br>B. Enforces rules like requiring PRs and approvals before merging <span class="correct-answer">Correct</span><br>C. Prevents all changes<br>D. Hides the branch from other users</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q66</div>
+        <div class="q-text">What should be the minimum requirement for merging to <code>main</code>?</div>
+        <div class="q-options">A. No requirements — anyone can merge anything<br>B. PR approval from at least one reviewer and passing checks <span class="correct-answer">Correct</span><br>C. The author must approve their own PR<br>D. Only the team lead can merge</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q67</div>
+        <div class="q-text">What is a GitHub Project board used for?</div>
+        <div class="q-options">A. Editing code<br>B. Tracking work with a Kanban-style board <span class="correct-answer">Correct</span><br>C. Running automated tests<br>D. Managing user permissions</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q68</div>
+        <div class="q-text">What is the purpose of Issue labels?</div>
+        <div class="q-options">A. They are decorative<br>B. They categorise and filter issues (e.g., bug, enhancement, docs) <span class="correct-answer">Correct</span><br>C. They assign issues to people<br>D. They close issues automatically</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q69</div>
+        <div class="q-text">How should repository names be structured across a team?</div>
+        <div class="q-options">A. Any name is fine as long as it's unique<br>B. Consistent naming with lowercase and hyphens <span class="correct-answer">Correct</span><br>C. All repositories should use the same name<br>D. Names should include dates</div>
+      </div>
+      <div class="qa-card">
+        <div class="q-num">Q70</div>
+        <div class="q-text">Who can merge a Pull Request into <code>main</code> with branch protection enabled?</div>
+        <div class="q-options">A. Anyone with write access<br>B. Only users who are not the PR author, after approval <span class="correct-answer">Correct</span><br>C. The repository owner only<br>D. Anyone, even without an account</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand">Foundry</div>
+  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+</footer>
+
+</body>
+</html>
