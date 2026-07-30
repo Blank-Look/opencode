@@ -1,17 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#52121E"/>
-      <stop offset="50%" stop-color="#7A1B2C"/>
-      <stop offset="100%" stop-color="#A3243B"/>
-    </linearGradient>
     <linearGradient id="card1" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="rgba(255,255,255,0.12)"/>
-      <stop offset="100%" stop-color="rgba(255,255,255,0.06)"/>
+      <stop offset="0%" stop-color="rgba(0,0,0,0.35)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.25)"/>
     </linearGradient>
     <linearGradient id="card2" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="rgba(255,255,255,0.10)"/>
-      <stop offset="100%" stop-color="rgba(255,255,255,0.04)"/>
+      <stop offset="0%" stop-color="rgba(0,0,0,0.45)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.30)"/>
     </linearGradient>
     <linearGradient id="arrow" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#63B3ED"/>
@@ -22,8 +17,7 @@
     </filter>
   </defs>
 
-  <!-- Background -->
-  <rect width="900" height="520" rx="16" fill="url(#bg)"/>
+  <!-- Background (transparent — page hero gradient shows through) -->
 
   <!-- Subtle pattern overlay -->
   <g opacity="0.04">
@@ -40,8 +34,7 @@
   <text x="450" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="13" fill="rgba(255,255,255,0.7)" letter-spacing="0.5">AI-Assisted Delivery — Governed. Aligned. Fast.</text>
 
   <!-- ===== TOP LAYER: Vibe AI Coding ===== -->
-  <rect x="50" y="88" width="800" height="90" rx="10" fill="url(#card1)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-  <rect x="50" y="88" width="800" height="90" rx="10" fill="rgba(255,255,255,0.04)"/>
+  <rect x="50" y="88" width="800" height="90" rx="10" fill="url(#card1)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
 
   <text x="80" y="120" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="white">🚀  Vibe AI Coding</text>
   <text x="80" y="144" font-family="Inter, sans-serif" font-weight="400" font-size="12" fill="rgba(255,255,255,0.7)">Fast, iterative, creative development — unconstrained speed where it counts.</text>
@@ -60,7 +53,7 @@
   <text x="460" y="196" font-family="Inter, sans-serif" font-weight="500" font-size="10" fill="#90CDF4">channeled through</text>
 
   <!-- ===== MIDDLE LAYER: OpenCode + SDLC ===== -->
-  <rect x="50" y="215" width="800" height="110" rx="10" fill="url(#card2)" stroke="rgba(255,255,255,0.12)" stroke-width="1" filter="url(#shadow)"/>
+  <rect x="50" y="215" width="800" height="110" rx="10" fill="url(#card2)" stroke="rgba(255,255,255,0.2)" stroke-width="1" filter="url(#shadow)"/>
 
   <text x="80" y="247" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="white">⚙️  AI-Assisted Delivery Cycle</text>
   <text x="80" y="267" font-family="Inter, sans-serif" font-weight="400" font-size="12" fill="rgba(255,255,255,0.7)">Structured 7-phase delivery with built-in guardrails, gates, and audit trail.</text>

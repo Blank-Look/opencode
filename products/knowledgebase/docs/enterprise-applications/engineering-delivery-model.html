@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineering Delivery Model — ICT Knowledge Base</title>
+<meta name="description" content="How the ICT engineering team builds, hosts, and governs internal tools — using SharePoint for authoring, GitHub for version control, Azure Static Web Apps for d">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-left">
+      <a href="../../../../index.html" class="navbar-schoolcode">SchoolCode</a>
+      <a href="../../index.html" class="navbar-brand">
+        <img src="../../img/logo.svg" alt="ICT Logo" width="28" height="28">
+        ICT Knowledge Base
+      </a>
+    </div>
+    <div class="navbar-links">
+      <a href="../policy-and-governance/overview.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Policy & Governance</div><a class="sidebar-item" href="../policy-and-governance/overview.html">Overview</a><a class="sidebar-item" href="../policy-and-governance/compliance.html">Compliance</a><a class="sidebar-item" href="../policy-and-governance/data-classification.html">Data Classification</a><a class="sidebar-item" href="../policy-and-governance/data-governance.html">Data Governance</a><a class="sidebar-item" href="../policy-and-governance/it-governance.html">IT Governance</a><a class="sidebar-item" href="../policy-and-governance/policies.html">Policies</a><a class="sidebar-item" href="../policy-and-governance/risk-management.html">Risk Management</a><a class="sidebar-item" href="../policy-and-governance/technology-roadmap.html">Technology Roadmap</a></div><div class="sidebar-section"><div class="sidebar-section-title">Service Operations</div><a class="sidebar-item" href="../service-operations/overview.html">Overview</a><a class="sidebar-item" href="../service-operations/change-management.html">Change Management</a><a class="sidebar-item" href="../service-operations/incident-management.html">Incident Management</a><a class="sidebar-item" href="../service-operations/problem-management.html">Problem Management</a><a class="sidebar-item" href="../service-operations/request-fulfillment.html">Request Fulfillment</a><a class="sidebar-item" href="../service-operations/user-management.html">User Management</a></div><div class="sidebar-section"><div class="sidebar-section-title">Enterprise Applications</div><a class="sidebar-item" href="../enterprise-applications/overview.html">Overview</a><a class="sidebar-item" href="../enterprise-applications/governance-framework.html">Governance Framework</a><a class="sidebar-item active" href="../enterprise-applications/engineering-delivery-model.html">Engineering Delivery Model</a></div><div class="sidebar-section"><div class="sidebar-section-title">Systems & Infrastructure</div><a class="sidebar-item" href="../systems-and-infrastructure/overview.html">Overview</a><a class="sidebar-item" href="../systems-and-infrastructure/network-config.html">Network Config</a><a class="sidebar-item" href="../systems-and-infrastructure/security-config.html">Security Config</a><a class="sidebar-item" href="../systems-and-infrastructure/server-config.html">Server Config</a><a class="sidebar-item" href="../systems-and-infrastructure/server-provisioning.html">Server Provisioning</a><a class="sidebar-item" href="../systems-and-infrastructure/software-config.html">Software Config</a></div><div class="sidebar-section"><div class="sidebar-section-title">Data & Protection</div><a class="sidebar-item" href="../data-and-protection/overview.html">Overview</a><a class="sidebar-item" href="../data-and-protection/access-control.html">Access Control</a><a class="sidebar-item" href="../data-and-protection/asset-lifecycle-policy.html">Asset Lifecycle Policy</a><a class="sidebar-item" href="../data-and-protection/backup-and-restore.html">Backup & Restore</a><a class="sidebar-item" href="../data-and-protection/deployment.html">Deployment</a><a class="sidebar-item" href="../data-and-protection/disposal.html">Disposal</a><a class="sidebar-item" href="../data-and-protection/maintenance.html">Maintenance</a><a class="sidebar-item" href="../data-and-protection/monitoring-setup.html">Monitoring Setup</a><a class="sidebar-item" href="../data-and-protection/procurement.html">Procurement</a><a class="sidebar-item" href="../data-and-protection/security-awareness.html">Security Awareness</a></div><div class="sidebar-section"><div class="sidebar-section-title">Security</div><a class="sidebar-item" href="../security/overview.html">Overview</a><a class="sidebar-item" href="../security/incident-response.html">Incident Response</a><a class="sidebar-item" href="../security/security-assessment.html">Security Assessment</a><a class="sidebar-item" href="../security/sensitivity-control-model.html">Sensitivity Control Model</a><a class="sidebar-item" href="../security/threat-management.html">Threat Management</a><a class="sidebar-item" href="../security/vulnerability-management.html">Vulnerability Management</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <h1>Engineering Delivery Model</h1>
+<p>How the ICT engineering team builds, hosts, and governs internal tools — using SharePoint for authoring, GitHub for version control, Azure Static Web Apps for delivery, and OpenCode as the AI engineering agent.</p>
+<h2>Problem</h2>
+<p>The team&#39;s tools (Knowledge Base, Foundry bootcamp, Innovation Playground mockup, Asset Manager) were built on GitHub Pages — <strong>public by default</strong>. Internal engineering products need:</p>
+<ul>
+<li><strong>Authentication</strong> — only internal staff should access these tools</li>
+<li><strong>Familiar authoring</strong> — docs live in SharePoint, edited by non-technical team members</li>
+<li><strong>Version control</strong> — Git history for everything, PR workflows for review</li>
+<li><strong>AI-native tooling</strong> — OpenCode builds and maintains the applications</li>
+</ul>
+<h2>Architecture</h2>
+<pre><code>SPO Doc Library (.md files)
+       │
+       │ Graph API (sync via GitHub Action or Azure Function)
+       ▼
+GitHub Repo (mirrored .md + OpenCode-built tools)
+       │
+       │ push → Azure Static Web Apps build + deploy
+       ▼
+Azure Static Web App
+  ┌──────────────────────────────────────────┐
+  │  Rendered docs    │  OpenCode-built      │
+  │  (.md → .html)    │  tools (Foundry,     │
+  │                   │  Innovation Playgr.) │
+  └────────┬─────────────────────────────────┘
+           │ Entra ID authentication
+           ▼
+      Internal users (SSO)
+</code></pre>
+<h2>Components</h2>
+<h3>SharePoint Online — Authoring</h3>
+<p>Doc Libraries are the source of truth for documentation. Team members edit <code>.md</code> files directly in SharePoint (or create <code>.docx</code> files that convert to Markdown via Pandoc). No knowledge of Git required for content authors.</p>
+<ul>
+<li><strong>Format:</strong> Markdown (<code>.md</code>) for structured docs; <code>.docx</code> supported via conversion</li>
+<li><strong>Permissions:</strong> Existing SPO access controls apply</li>
+<li><strong>Workflow:</strong> Author creates/edits → sync picks up changes → site rebuilds</li>
+</ul>
+<h3>Sync Layer — Bridge</h3>
+<p>A script (GitHub Action or Azure Function) runs on a schedule or SPO webhook trigger:</p>
+<pre><code>GET /drives/{id}/root:/path:/children  →  download .md files  →  commit to GitHub
+</code></pre>
+<ul>
+<li><strong>Frequency:</strong> Every 15 minutes (schedule) or near-real-time (webhook)</li>
+<li><strong>Conversion:</strong> Pandoc for <code>.docx → .md</code>; direct copy for <code>.md</code></li>
+<li><strong>Conflict resolution:</strong> GitHub is authoritative — SPO changes always overwrite repo copies</li>
+</ul>
+<h3>GitHub — Source of Truth</h3>
+<p>Everything is version-controlled. The repository stores:</p>
+<ul>
+<li>Documentation (synchronised from SPO)</li>
+<li>Application code (Foundry, Innovation Playground, Asset Manager)</li>
+<li>Configuration (workflows, deployment manifests)</li>
+<li>Architecture Decision Records (ADRs)</li>
+</ul>
+<p>OpenCode interacts with this repository directly — reading, writing, and refactoring code and content under human supervision.</p>
+<h3>Azure Static Web Apps — Hosting</h3>
+<p>SWA builds from the GitHub repository and deploys to a global static site. Key features:</p>
+<ul>
+<li><strong>Entra ID authentication</strong> — built-in, toggle in portal, no code changes</li>
+<li><strong>Custom domains</strong> — <code>tools.contoso.com</code> or similar</li>
+<li><strong>Staging environments</strong> — PRs get auto-generated preview URLs</li>
+<li><strong>Free tier</strong> — 3 apps, 1 GB bandwidth, 100 GB storage</li>
+</ul>
+<h3>Entra ID — Access Control</h3>
+<p>Azure Static Web Apps supports Entra ID as an authentication provider out of the box. When a user visits the site:</p>
+<ol>
+<li>Unauthenticated request is redirected to Entra ID login</li>
+<li>User authenticates with their corporate credentials</li>
+<li>SWA validates the token and serves the content</li>
+<li>Optional: role-based access for different tools</li>
+</ol>
+<h3>OpenCode — AI Engineering Agent</h3>
+<p>OpenCode is the primary tool for building and maintaining the applications. It works directly with the GitHub repository:</p>
+<ul>
+<li><strong>Build tools:</strong> Create Foundry pages, Innovation Playground mockups, Knowledge Base content</li>
+<li><strong>Refactor:</strong> Rename, restructure, update across multiple files</li>
+<li><strong>Review:</strong> Analyse code quality, suggest improvements, catch issues</li>
+<li><strong>Automate:</strong> Generate workflows, deployment configs, documentation</li>
+</ul>
+<p>The workflow is: prompt → OpenCode builds/edits → human reviews → commit → auto-deploys.</p>
+<h2>Decision Log</h2>
+<table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SPO Doc Library over SPO Pages</td>
+<td>Doc Libraries support Markdown natively, are Git-syncable, and don&#39;t require SPFx</td>
+</tr>
+<tr>
+<td>Azure SWA over Azure App Service</td>
+<td>Static sites are simpler, cheaper, and sufficient for docs and mockups</td>
+</tr>
+<tr>
+<td>Entra ID auth over custom auth</td>
+<td>Zero code, zero maintenance, corporate credentials</td>
+</tr>
+<tr>
+<td>GitHub as source of truth</td>
+<td>Enables Git workflows, PR reviews, and OpenCode integration</td>
+</tr>
+<tr>
+<td>SPO → GitHub sync (not GitHub → SPO)</td>
+<td>Content authors don&#39;t need to learn Git; sync is invisible to them</td>
+</tr>
+</tbody></table>
+<h2>Future Considerations</h2>
+<ul>
+<li><strong>Asset Manager</strong> requires a runtime (Express + SQLite). Deploy to Azure Container Apps with the same Entra ID auth pattern.</li>
+<li><strong>Innovation Playground</strong> live TUI (real shell) would need a WebSocket-capable runtime. Possible with Azure Container Apps or a separate WebSocket server behind the same auth.</li>
+<li><strong>Multi-environment</strong> setup (dev/staging/prod) using SWA deployment environments.</li>
+</ul>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 ICT Team. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

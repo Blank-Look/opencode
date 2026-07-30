@@ -1,0 +1,17 @@
+{
+  "name": "innovation-playground",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Innovation Playground — governed sandbox environment with live TUI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "ws": "^8.18.0",
+    "uuid": "^11.1.0",
+    "cors": "^2.8.5"
+  }
+}

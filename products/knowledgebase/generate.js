@@ -31,6 +31,7 @@ const sidebar = [
   { label: 'Enterprise Applications', dir: 'enterprise-applications', pages: [
     { label: 'Overview', file: 'overview' },
     { label: 'Governance Framework', file: 'governance-framework' },
+    { label: 'Engineering Delivery Model', file: 'engineering-delivery-model' },
   ]},
   { label: 'Systems & Infrastructure', dir: 'systems-and-infrastructure', pages: [
     { label: 'Overview', file: 'overview' },
