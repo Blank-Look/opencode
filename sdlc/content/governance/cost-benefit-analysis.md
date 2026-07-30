@@ -16,7 +16,7 @@ This changes the conversation from ideology to economics.
 
 ## Investment Strategy
 
-Your organisation is probably spending around $2.5M in annual ICT operational expenditure — infrastructure, business applications, corporate IT. Yet engineering capability is often limited. That suggests your organisation is primarily a systems integrator, not a software organisation. AI changes the leverage.
+Your organisation is probably spending around $xxM in annual ICT operational expenditure — infrastructure, business applications, corporate IT. Yet engineering capability is often limited. That suggests your organisation is primarily a systems integrator, not a software organisation. AI changes the leverage.
 
 **Where to invest:** Not in new developers. In making your infrastructure team into automation engineers.
 
@@ -72,7 +72,7 @@ Evaluate every proposed internal tool using this framework:
 
 | Question | Buy | Build |
 |---|---|---|
-| Annual licence | $35,000 | $0 |
+| Annual licence | $xx,xxx | $0 |
 | Initial build | $0 | 80 hours |
 | Maintenance | Vendor | 10 hours/year |
 | Vendor roadmap | Yes | No |
@@ -103,7 +103,7 @@ PowerShell, Python, GitHub Actions, Azure Functions.
 
 ## Total Cost of Ownership
 
-Don't compare a $20k licence vs a $20k developer. Compare over five years:
+Don't compare a $xxk licence vs a $xxk developer. Compare over five years:
 
 **Buy:** Licence × 5 years + Implementation + Training + Support + Vendor increases + Consultants + Change requests
 
@@ -117,14 +117,14 @@ Instead of treating AI as discretionary spend, make it a real budget item:
 
 | Item | Annual |
 |---|---|
-| ChatGPT Enterprise / Business | $15k–25k |
-| GitHub Copilot | $10k–20k |
+| ChatGPT Enterprise / Business | $xxk–xxk |
+| GitHub Copilot | $xxk–xxk |
 | GitHub Enterprise | as required |
-| Training | $10k |
+| Training | $xxk |
 
 ## Where New Money Goes
 
-If given an additional $100k:
+If given an additional $xxk:
 
 - **40%** on GitHub Enterprise, Copilot, and ChatGPT
 - **30%** on targeted consulting to establish a modern engineering platform (GitHub, CI/CD, IaC, identity, security, reusable templates)
