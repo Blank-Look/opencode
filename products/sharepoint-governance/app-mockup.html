@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SharePoint Governance Manager — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --indigo: #4338CA;
+  --indigo-dark: #3730A3;
+  --indigo-light: #4F46E5;
+  --navy: #1A2E4A;
+  --gray-50: #F5F3FF;
+  --gray-100: #EDE9FE;
+  --gray-200: #DDD6FE;
+  --gray-300: #C4B5FD;
+  --gray-400: #A39E99;
+  --gray-500: #847E78;
+  --gray-600: #66605A;
+  --gray-700: #4D4843;
+  --gray-800: #34302C;
+  --gray-900: #1C1A18;
+  --white: #FFFFFF;
+  --green: #16A34A;
+  --blue: #2563EB;
+  --red: #DC2626;
+  --amber: #D97706;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --sidebar-w: 240px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--gray-50);
+  color: var(--gray-900);
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+.mockup-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.375rem 1rem;
+  letter-spacing: 0.05em;
+}
+.mockup-banner a { color: #A5B4FC; text-decoration: none; }
+.mockup-banner a:hover { text-decoration: underline; }
+.sidebar {
+  position: fixed;
+  top: 1.75rem; left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--white);
+  border-right: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+.sidebar-brand {
+  padding: 1.25rem 1rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--indigo);
+  border-bottom: 1px solid var(--gray-100);
+  letter-spacing: -0.01em;
+}
+.sidebar-brand small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.65rem;
+  color: var(--gray-500);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.125rem;
+}
+.sidebar-nav { flex: 1; padding: 0.75rem 0; overflow-y: auto; }
+.sidebar-section {
+  padding: 0.5rem 0.75rem 0.25rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-400);
+}
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-size: 0.8125rem;
+  color: var(--gray-700);
+  text-decoration: none;
+  cursor: default;
+  border-left: 3px solid transparent;
+  transition: all 0.12s;
+}
+.sidebar-item:hover { background: var(--gray-50); }
+.sidebar-item.active {
+  color: var(--indigo);
+  font-weight: 600;
+  background: rgba(67,56,202,0.06);
+  border-left-color: var(--indigo);
+}
+.sidebar-item .icon { font-size: 1rem; width: 1.25rem; text-align: center; }
+.sidebar-item .badge {
+  margin-left: auto;
+  background: var(--indigo);
+  color: var(--white);
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.125rem 0.375rem;
+  border-radius: 999px;
+}
+.sidebar-item .badge.red { background: var(--red); }
+.sidebar-item .badge.gray { background: var(--gray-400); }
+.sidebar-item .badge.green { background: var(--green); }
+.main {
+  margin-left: var(--sidebar-w);
+  margin-top: 1.75rem;
+  flex: 1;
+  padding: 1.5rem 2rem 3rem;
+  max-width: 1200px;
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+.topbar h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+}
+.topbar-right .avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 1.5rem;
+}
+.tab {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: default;
+  border-bottom: 2px solid transparent;
+  transition: all 0.12s;
+}
+.tab:hover { color: var(--gray-800); }
+.tab.active {
+  color: var(--indigo);
+  font-weight: 600;
+  border-bottom-color: var(--indigo);
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1rem;
+}
+.stat-label { font-size: 0.7rem; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.25rem; }
+.stat-value { font-size: 1.75rem; font-weight: 700; color: var(--indigo); line-height: 1.1; }
+.stat-value.high { color: var(--amber); }
+.stat-value.critical { color: var(--red); }
+.stat-sub { font-size: 0.75rem; color: var(--gray-500); margin-top: 0.125rem; }
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.chart-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.chart-card h3 { font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; color: var(--gray-700); }
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  height: 120px;
+}
+.bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.bar { width: 100%; border-radius: 4px 4px 0 0; min-height: 4px; }
+.bar-count { font-size: 0.7rem; font-weight: 600; color: var(--gray-700); }
+.bar-label { font-size: 0.65rem; color: var(--gray-500); text-align: center; }
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.card h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+.more-link { float: right; font-size: 0.7rem; font-weight: 500; color: var(--indigo); cursor: default; }
+.table-wrap { overflow-x: auto; margin-bottom: 1.5rem; }
+.table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
+.table-wrap th {
+  text-align: left;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+.table-wrap td { padding: 0.625rem 0.75rem; border-bottom: 1px solid var(--gray-100); vertical-align: middle; }
+.table-wrap tr:hover td { background: var(--indigo-50); }
+.table-wrap tr:hover td { background: var(--gray-50); }
+.severity-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+.severity-badge.critical { background: #FEF2F2; color: #DC2626; }
+.severity-badge.warning { background: #FFF7ED; color: #C2410C; }
+.severity-badge.advisory { background: #EFF6FF; color: #2563EB; }
+.severity-badge.safe { background: #F0FDF4; color: #16A34A; }
+.severity-badge.info { background: #F5F3FF; color: #4338CA; }
+.chip {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  background: var(--gray-100);
+  cursor: default;
+}
+.footer-note {
+  border-top: 1px solid var(--gray-200);
+  margin-top: 3rem;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+.footer-note a { color: var(--indigo); text-decoration: none; }
+.footer-note a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; margin-top: 1.75rem; padding: 1rem; }
+  .charts, .two-col { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">
+  <strong>Design Mockup</strong> — SharePoint Governance Manager · <a href="index.html">Back to product page →</a>
+</div>
+
+<div class="sidebar">
+  <div class="sidebar-brand">
+    SP Governance
+    <small>SharePoint Online Governance</small>
+  </div>
+  <div class="sidebar-nav">
+    <div class="sidebar-section">Overview</div>
+    <a class="sidebar-item active" onclick="showPage('dashboard')"><span class="icon">📊</span> Dashboard</a>
+    <a class="sidebar-item" onclick="showPage('sites')"><span class="icon">🌐</span> Site Inventory <span class="badge">342</span></a>
+
+    <div class="sidebar-section">Findings</div>
+    <a class="sidebar-item" onclick="showPage('sharing')"><span class="icon">🔗</span> External Sharing <span class="badge red">28</span></a>
+    <a class="sidebar-item" onclick="showPage('owners')"><span class="icon">👤</span> Missing Owners <span class="badge red">15</span></a>
+    <a class="sidebar-item" onclick="showPage('inactive')"><span class="icon">💤</span> Inactive Sites <span class="badge red">22</span></a>
+
+    <div class="sidebar-section">Lifecycle</div>
+    <a class="sidebar-item" onclick="showPage('queue')"><span class="icon">📋</span> Governance Queue <span class="badge red">42</span></a>
+    <a class="sidebar-item" onclick="showPage('reports')"><span class="icon">📈</span> Reports</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="topbar">
+    <h1 id="page-title">Dashboard</h1>
+    <div class="topbar-right">
+      <span>Last scan: 2 hours ago</span>
+      <span class="avatar">SP</span>
+    </div>
+  </div>
+
+  <!-- ==================== DASHBOARD ==================== -->
+  <div id="page-dashboard" class="page-section active">
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">Total Sites</div>
+        <div class="stat-value">342</div>
+        <div class="stat-sub">Team sites · Communication · Hub</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">With External Sharing</div>
+        <div class="stat-value high">28</div>
+        <div class="stat-sub">8.2% of all sites</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Missing Owners</div>
+        <div class="stat-value critical">15</div>
+        <div class="stat-sub">requires immediate action</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Inactive 90d+</div>
+        <div class="stat-value critical">22</div>
+        <div class="stat-sub">candidates for archive</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Broken Inheritance</div>
+        <div class="stat-value high">47</div>
+        <div class="stat-sub">unique permissions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Governance Score</div>
+        <div class="stat-value">76%</div>
+        <div class="stat-sub">target: 90%</div>
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="chart-card">
+        <h3>Sites by Type</h3>
+        <div class="bar-chart">
+          <div class="bar-group"><div class="bar" style="height:38px;background:var(--indigo)"></div><div class="bar-count">198</div><div class="bar-label">Team Sites</div></div>
+          <div class="bar-group"><div class="bar" style="height:22px;background:var(--indigo)"></div><div class="bar-count">89</div><div class="bar-label">Comm Sites</div></div>
+          <div class="bar-group"><div class="bar" style="height:10px;background:var(--indigo)"></div><div class="bar-count">34</div><div class="bar-label">Hub Sites</div></div>
+          <div class="bar-group"><div class="bar" style="height:6px;background:var(--indigo)"></div><div class="bar-count">21</div><div class="bar-label">Orphaned</div></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Governance Findings by Severity</h3>
+        <div class="bar-chart">
+          <div class="bar-group"><div class="bar" style="height:28px;background:var(--red)"></div><div class="bar-count">18</div><div class="bar-label">Critical</div></div>
+          <div class="bar-group"><div class="bar" style="height:22px;background:var(--amber)"></div><div class="bar-count">24</div><div class="bar-label">High</div></div>
+          <div class="bar-group"><div class="bar" style="height:14px;background:#2563EB"></div><div class="bar-count">47</div><div class="bar-label">Warning</div></div>
+          <div class="bar-group"><div class="bar" style="height:10px;background:var(--indigo)"></div><div class="bar-count">52</div><div class="bar-label">Info</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Recent Findings <span class="more-link">View all →</span></h3>
+        <div style="font-size:0.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>IT Strategy</strong> Team</span>
+            <span class="severity-badge critical">Anyone links</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>Finance Reports</strong> Comm</span>
+            <span class="severity-badge critical">No owner</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>Project Phoenix</strong> Team</span>
+            <span style="color:var(--amber);font-weight:600;">Inactive 180d</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;">
+            <span><strong>HR Policies</strong> Comm</span>
+            <span style="color:var(--green);font-weight:600;">✓ Owner validated</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Top Sharing Domains <span class="more-link">All →</span></h3>
+        <div style="font-size:0.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>gmail.com</span>
+            <span style="font-weight:600;color:var(--red);">12 sites</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>partner.org.au</span>
+            <span style="font-weight:600;color:var(--amber);">6 sites</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>consultant.com</span>
+            <span style="font-weight:600;">4 sites</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;">
+            <span>university.edu.au</span>
+            <span style="font-weight:600;color:var(--green);">3 sites</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Site</th><th>Type</th><th>External Sharing</th><th>Owner</th><th>Last Activity</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>IT Strategy</td><td>Team</td><td><span class="severity-badge critical">Anyone</span></td><td>J. Smith</td><td>2026-07-28</td><td><span class="severity-badge critical">Critical</span></td></tr>
+          <tr><td>Finance Reports</td><td>Comm</td><td><span class="severity-badge warning">Guests</span></td><td>—</td><td>2026-07-25</td><td><span class="severity-badge critical">No Owner</span></td></tr>
+          <tr><td>Project Phoenix</td><td>Team</td><td><span class="severity-badge info">Org</span></td><td>L. Patel</td><td>2026-01-15</td><td><span class="severity-badge warning">Inactive</span></td></tr>
+          <tr><td>HR Policies</td><td>Comm</td><td><span class="severity-badge safe">None</span></td><td>M. Chen</td><td>2026-07-29</td><td><span class="severity-badge safe">OK</span></td></tr>
+          <tr><td>Research Lab</td><td>Team</td><td><span class="severity-badge critical">Anyone</span></td><td>K. Brown</td><td>2026-07-20</td><td><span class="severity-badge critical">Over Shared</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== SITE INVENTORY ==================== -->
+  <div id="page-sites" class="page-section" style="display:none;">
+    <div class="tabs">
+      <span class="tab active">All Sites <span style="color:var(--gray-400);font-weight:400;">(342)</span></span>
+      <span class="tab">Team Sites <span style="color:var(--gray-400);font-weight:400;">(198)</span></span>
+      <span class="tab">Communication <span style="color:var(--gray-400);font-weight:400;">(89)</span></span>
+      <span class="tab">Hub Sites <span style="color:var(--gray-400);font-weight:400;">(34)</span></span>
+      <span class="tab">Orphaned <span style="color:var(--red);font-weight:400;">(21)</span></span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Site</th><th>URL</th><th>Type</th><th>Owner</th><th>Storage</th><th>Last Activity</th><th>External Sharing</th></tr></thead>
+        <tbody>
+          <tr><td>IT Strategy</td><td>it-strategy</td><td>Team</td><td>J. Smith</td><td>2.4 GB</td><td>2026-07-28</td><td><span class="severity-badge critical">Anyone</span></td></tr>
+          <tr><td>Finance Reports</td><td>finance-reports</td><td>Comm</td><td>—</td><td>8.1 GB</td><td>2026-07-25</td><td><span class="severity-badge warning">Guests</span></td></tr>
+          <tr><td>HR Policies</td><td>hr-policies</td><td>Comm</td><td>M. Chen</td><td>1.2 GB</td><td>2026-07-29</td><td><span class="severity-badge safe">None</span></td></tr>
+          <tr><td>Project Phoenix</td><td>phoenix-project</td><td>Team</td><td>L. Patel</td><td>4.7 GB</td><td>2026-01-15</td><td><span class="severity-badge info">Org</span></td></tr>
+          <tr><td>Research Lab</td><td>research-lab</td><td>Team</td><td>K. Brown</td><td>12.3 GB</td><td>2026-07-20</td><td><span class="severity-badge critical">Anyone</span></td></tr>
+          <tr><td>Facilities</td><td>facilities</td><td>Team</td><td>T. Nguyen</td><td>0.8 GB</td><td>2026-07-22</td><td><span class="severity-badge safe">None</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== EXTERNAL SHARING ==================== -->
+  <div id="page-sharing" class="page-section" style="display:none;">
+    <div class="card" style="margin-bottom:1rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-size:1.5rem;">🔗</span>
+        <div>
+          <strong style="font-size:0.9rem;">28 sites with external sharing enabled</strong>
+          <p style="font-size:0.8rem;color:var(--gray-500);margin-top:0.125rem;">12 allow anyone, 16 allow guests — 6 with sensitive content</p>
+        </div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Site</th><th>Sharing Type</th><th>External Domains</th><th>Sensitive Content</th><th>Owner</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>IT Strategy</td><td><span class="severity-badge critical">Anyone</span></td><td>gmail.com, outlook.com</td><td><span class="severity-badge critical">Yes</span></td><td>J. Smith</td><td><span class="chip" style="background:var(--indigo);color:var(--white);">Notify</span></td></tr>
+          <tr><td>Research Lab</td><td><span class="severity-badge critical">Anyone</span></td><td>gmail.com, partner.org</td><td><span class="severity-badge critical">Yes</span></td><td>K. Brown</td><td><span class="chip" style="background:var(--indigo);color:var(--white);">Notify</span></td></tr>
+          <tr><td>Finance Reports</td><td><span class="severity-badge warning">Guests</span></td><td>partner.org.au</td><td><span class="severity-badge warning">Unknown</span></td><td>—</td><td><span class="chip" style="background:var(--red);color:var(--white);">Escalate</span></td></tr>
+          <tr><td>Marketing</td><td><span class="severity-badge info">Org</span></td><td>—</td><td><span class="severity-badge safe">No</span></td><td>S. Lee</td><td><span class="chip">Review</span></td></tr>
+          <tr><td>Project Phoenix</td><td><span class="severity-badge info">Org</span></td><td>—</td><td><span class="severity-badge safe">No</span></td><td>L. Patel</td><td><span class="chip">Review</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== MISSING OWNERS ==================== -->
+  <div id="page-owners" class="page-section" style="display:none;">
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">No Owners</div>
+        <div class="stat-value critical">15</div>
+        <div class="stat-sub">no owners assigned</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Inactive Owners</div>
+        <div class="stat-value high">8</div>
+        <div class="stat-sub">owner account disabled</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Single Owner</div>
+        <div class="stat-value high">34</div>
+        <div class="stat-sub">only 1 owner (policy: 2+)</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Site</th><th>Issue</th><th>Current Owner</th><th>Owner Status</th><th>Department</th></tr></thead>
+        <tbody>
+          <tr><td>Finance Reports</td><td><span class="severity-badge critical">No owner</span></td><td>—</td><td>—</td><td>Finance</td></tr>
+          <tr><td>Old Intranet</td><td><span class="severity-badge critical">No owner</span></td><td>—</td><td>—</td><td>Corporate</td></tr>
+          <tr><td>Training Archive</td><td><span class="severity-badge warning">Inactive owner</span></td><td>A. Former (disabled)</td><td><span class="severity-badge critical">Disabled</span></td><td>HR</td></tr>
+          <tr><td>Design Library</td><td><span class="severity-badge warning">Single owner</span></td><td>P. Designer</td><td><span class="severity-badge safe">Active</span></td><td>Marketing</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== INACTIVE SITES ==================== -->
+  <div id="page-inactive" class="page-section" style="display:none;">
+    <div class="card" style="margin-bottom:1rem;">
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-size:1.5rem;">💤</span>
+        <div>
+          <strong style="font-size:0.9rem;">22 sites inactive for 90+ days</strong>
+          <p style="font-size:0.8rem;color:var(--gray-500);margin-top:0.125rem;">12 candidates for archive, 3 recommended for deletion, 7 pending review</p>
+        </div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Site</th><th>Type</th><th>Owner</th><th>Last Activity</th><th>Days Inactive</th><th>Recommended</th></tr></thead>
+        <tbody>
+          <tr><td>Project Phoenix</td><td>Team</td><td>L. Patel</td><td>2026-01-15</td><td>196</td><td><span class="severity-badge warning">Review</span></td></tr>
+          <tr><td>Old Intranet</td><td>Comm</td><td>—</td><td>2025-11-02</td><td>270</td><td><span class="severity-badge critical">Delete</span></td></tr>
+          <tr><td>Training Archive</td><td>Team</td><td>A. Former</td><td>2026-02-10</td><td>170</td><td><span class="severity-badge warning">Archive</span></td></tr>
+          <tr><td>Event 2025</td><td>Comm</td><td>M. Chen</td><td>2025-12-01</td><td>241</td><td><span class="severity-badge critical">Delete</span></td></tr>
+          <tr><td>Design Library</td><td>Team</td><td>P. Designer</td><td>2026-03-15</td><td>137</td><td><span class="severity-badge advisory">Notify</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== GOVERNANCE QUEUE ==================== -->
+  <div id="page-queue" class="page-section" style="display:none;">
+    <div class="tabs">
+      <span class="tab active">All <span style="color:var(--gray-400);font-weight:400;">(42)</span></span>
+      <span class="tab">External Sharing <span style="color:var(--gray-400);font-weight:400;">(28)</span></span>
+      <span class="tab">Owner <span style="color:var(--gray-400);font-weight:400;">(15)</span></span>
+      <span class="tab">Inactive <span style="color:var(--gray-400);font-weight:400;">(22)</span></span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Site</th><th>Finding</th><th>Severity</th><th>Detected</th><th>Status</th><th>Assigned</th></tr></thead>
+        <tbody>
+          <tr><td>IT Strategy</td><td>External sharing — anyone</td><td><span class="severity-badge critical">Critical</span></td><td>2026-07-28</td><td><span class="severity-badge info">Open</span></td><td>J. Smith</td></tr>
+          <tr><td>Finance Reports</td><td>No site owner</td><td><span class="severity-badge critical">Critical</span></td><td>2026-07-20</td><td><span class="severity-badge warning">Overdue</span></td><td>—</td></tr>
+          <tr><td>Project Phoenix</td><td>Inactive 180+ days</td><td><span class="severity-badge warning">High</span></td><td>2026-07-15</td><td><span class="severity-badge info">Open</span></td><td>L. Patel</td></tr>
+          <tr><td>Research Lab</td><td>External sharing + sensitive</td><td><span class="severity-badge critical">Critical</span></td><td>2026-07-28</td><td><span class="severity-badge info">Open</span></td><td>K. Brown</td></tr>
+          <tr><td>Training Archive</td><td>Inactive + no owner</td><td><span class="severity-badge warning">High</span></td><td>2026-07-10</td><td><span class="severity-badge info">Open</span></td><td>—</td></tr>
+          <tr><td>Old Intranet</td><td>Inactive 270d, no owner</td><td><span class="severity-badge critical">Critical</span></td><td>2026-07-01</td><td><span class="severity-badge warning">Overdue</span></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== REPORTS ==================== -->
+  <div id="page-reports" class="page-section" style="display:none;">
+    <div class="two-col">
+      <div class="card">
+        <h3>Governance Score Trend</h3>
+        <div style="font-size:0.8rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>This month</span><span style="font-weight:600;color:var(--indigo);">76%</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Last month</span><span style="font-weight:600;">72%</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Quarter start</span><span style="font-weight:600;">68%</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;">
+            <span>Target</span><span style="font-weight:600;color:var(--green);">90%</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Storage Overview</h3>
+        <div style="font-size:0.8rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Total used</span><span style="font-weight:600;">1.4 TB</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Average per site</span><span style="font-weight:600;">4.2 GB</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Largest site</span><span style="font-weight:600;">42 GB</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;">
+            <span>Archive candidates</span><span style="font-weight:600;color:var(--amber);">22 sites</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span><strong>Design Mockup</strong> — SharePoint Governance Manager</span>
+    <span><span class="severity-badge safe">Status: Prototype</span> · 2026-07-30</span>
+    <span>Updates tracked in <a href="https://github.com/Blank-Look/opencode">GitHub</a></span>
+  </div>
+
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page-section').forEach(p => p.style.display = 'none');
+  document.getElementById('page-' + id).style.display = 'block';
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  const titles = {
+    dashboard: 'Dashboard',
+    sites: 'Site Inventory',
+    sharing: 'External Sharing',
+    owners: 'Missing Owners',
+    inactive: 'Inactive Sites',
+    queue: 'Governance Queue',
+    reports: 'Reports',
+  };
+  document.getElementById('page-title').textContent = titles[id] || 'Dashboard';
+}
+</script>
+
+</body>
+</html>

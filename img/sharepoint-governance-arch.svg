@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" width="900" height="280">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="rgba(0,0,0,0.08)"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="280" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="30" y="30" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="#64748B" letter-spacing="0.06em">SHAREPOINT GOVERNANCE MANAGER — ARCHITECTURE</text>
+
+  <!-- SPO -->
+  <g transform="translate(30, 60)">
+    <rect x="0" y="0" width="170" height="70" rx="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="85" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="12" fill="#1D4ED8">🟦 SharePoint Online</text>
+    <text x="85" y="46" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#64748B">All sites · Teams sites</text>
+    <text x="85" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#64748B">Communication sites</text>
+  </g>
+
+  <line x1="205" y1="95" x2="245" y2="95" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="250,95 242,91 242,99" fill="#94A3B8"/>
+
+  <!-- Graph API -->
+  <g transform="translate(255, 60)">
+    <rect x="0" y="0" width="150" height="70" rx="8" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1" filter="url(#shadow)"/>
+    <text x="75" y="28" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11" fill="#1D4ED8">🔗 Microsoft Graph</text>
+    <text x="75" y="46" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#64748B">Sites · Permissions</text>
+    <text x="75" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#64748B">Analytics · Activity</text>
+  </g>
+
+  <line x1="410" y1="95" x2="450" y2="95" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="455,95 447,91 447,99" fill="#94A3B8"/>
+
+  <!-- Governance Scanner Engine -->
+  <g transform="translate(460, 50)">
+    <rect x="0" y="0" width="180" height="90" rx="8" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1" filter="url(#shadow)"/>
+    <text x="90" y="24" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11" fill="#6D28D9">🔍 Governance Scanner</text>
+    <text x="90" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#64748B">External sharing audit</text>
+    <text x="90" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#64748B">Owner validation</text>
+    <text x="90" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#64748B">Activity · Inheritance</text>
+  </g>
+
+  <!-- Down arrows from scanner -->
+  <line x1="505" y1="145" x2="505" y2="175" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="505,180 501,172 509,172" fill="#94A3B8"/>
+  <line x1="595" y1="145" x2="595" y2="175" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="595,180 591,172 599,172" fill="#94A3B8"/>
+
+  <!-- Row 2: Two outputs -->
+  <g transform="translate(435, 185)">
+    <rect x="0" y="0" width="140" height="50" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1" filter="url(#shadow)"/>
+    <text x="70" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#334155">📋 SharePoint List</text>
+    <text x="70" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8" fill="#94A3B8">Governance queue</text>
+  </g>
+
+  <line x1="580" y1="210" x2="610" y2="210" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="615,210 607,206 607,214" fill="#94A3B8"/>
+
+  <g transform="translate(620, 185)">
+    <rect x="0" y="0" width="140" height="50" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1" filter="url(#shadow)"/>
+    <text x="70" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#334155">📊 Power BI</text>
+    <text x="70" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8" fill="#94A3B8">Governance dashboard</text>
+  </g>
+
+  <!-- Detection rules box left -->
+  <g transform="translate(30, 170)">
+    <rect x="0" y="0" width="220" height="80" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <text x="110" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#7A1B2C">⚡ Governance Detection Rules</text>
+    <text x="110" y="38" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#991B1B">External sharing · No owners</text>
+    <text x="110" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#991B1B">Inactive 90d+ · Broken inheritance</text>
+    <text x="110" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#991B1B">Sensitive content overshared</text>
+  </g>
+</svg>

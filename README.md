@@ -16,7 +16,7 @@ ICT tooling, documentation, and automation by [Blank-Look](https://github.com/Bl
 | [Travel Itineraries](products/travel-itineraries/) | Staff location tracking, regional hazard monitoring, and automated emergency response |
 | [Invoice Intake](products/invoice-intake/) | Automated accounts payable — Power Automate, AI extraction, SharePoint queue, and approval workflow |
 | [AI-Assisted Delivery Lifecycle](sdlc/) | Methodology for governed AI-assisted software delivery — 7-phase lifecycle with stage gates |
-| [Asset Manager](asset-manager/) | Express + SQLite application with Microsoft Graph API connectors for asset lifecycle governance |
+| [SharePoint Governance Manager](products/sharepoint-governance/) | Automated governance scanning for SharePoint Online — external sharing audit, owner validation, inactivity detection |
 | [Innovation Playground](innovation-playground/) | Governed, short-lived, anonymised sandbox environment for pre-lifecycle ideation |
 
 ## How It Works
