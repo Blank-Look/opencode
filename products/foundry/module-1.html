@@ -75,6 +75,18 @@ footer{background:var(--stone-900);color:var(--stone-400);padding:3rem 2rem;text
 footer .f-brand{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
 footer .f-copy{font-size:.8rem}
 
+.quiz-q{margin-bottom:1rem}
+.quiz-option{display:block;padding:.5rem .75rem;margin-bottom:.25rem;border-radius:8px;border:1px solid var(--stone-200);cursor:pointer;transition:all .15s;font-size:.875rem;color:var(--stone-600);line-height:1.6}
+.quiz-option:hover{border-color:var(--ember);background:rgba(201,106,61,0.04)}
+.quiz-option input{display:none}
+.quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534;font-weight:600}
+.quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B;font-weight:600}
+.quiz-option.disabled{pointer-events:none;opacity:.7}
+.quiz-feedback{font-size:.8rem;padding:.375rem .75rem;margin-top:.25rem;border-radius:6px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.correct{background:#F0FDF4;color:#166534}
+.quiz-feedback.wrong{background:#FEF2F2;color:#991B1B}
+
 @media(max-width:768px){
   nav{padding:0 1rem}.nav-links{display:none}
   .page-header h1{font-size:2rem}
@@ -177,16 +189,56 @@ footer .f-copy{font-size:.8rem}
 
     <div class="content-card">
       <h2>Quiz</h2>
-      <div class="quiz-q"><strong>1.</strong> What is the difference between Git and GitHub?</div>
-      <div class="quiz-a">A. They are the same thing · B. Git is the version control system, GitHub is the hosting platform <span class="correct">✓</span> · C. GitHub is the command-line tool · D. Git only works with Microsoft</div>
-      <div class="quiz-q"><strong>2.</strong> Which tool should you use to store engineering documentation?</div>
-      <div class="quiz-a">A. SharePoint · B. Word documents on a network drive · C. Markdown in a GitHub repository <span class="correct">✓</span> · D. Email</div>
-      <div class="quiz-q"><strong>3.</strong> What feature lets you propose changes and request review before merging?</div>
-      <div class="quiz-a">A. Issue · B. Commit · C. Pull Request <span class="correct">✓</span> · D. Wiki</div>
-      <div class="quiz-q"><strong>4.</strong> Which of the following can GitHub Actions do?</div>
-      <div class="quiz-a">A. Run automated workflows when code is pushed · B. Deploy documentation · C. Run tests · D. All of the above <span class="correct">✓</span></div>
-      <div class="quiz-q"><strong>5.</strong> Why is Markdown used in GitHub?</div>
-      <div class="quiz-a">A. It's the only format GitHub supports · B. It's plain text, human-readable, and renders as formatted HTML <span class="correct">✓</span> · C. It requires special software · D. It only works for code files</div>
+      <div class="quiz-q" data-correct="B">
+        <div><strong>1.</strong> What is the difference between Git and GitHub?</div>
+        <div class="quiz-options">
+          <label class="quiz-option" data-value="A"><input type="radio" name="q1" value="A"> A. They are the same thing</label>
+          <label class="quiz-option" data-value="B"><input type="radio" name="q1" value="B"> B. Git is the version control system, GitHub is the hosting platform</label>
+          <label class="quiz-option" data-value="C"><input type="radio" name="q1" value="C"> C. GitHub is the command-line tool</label>
+          <label class="quiz-option" data-value="D"><input type="radio" name="q1" value="D"> D. Git only works with Microsoft</label>
+        </div>
+        <div class="quiz-feedback"></div>
+      </div>
+      <div class="quiz-q" data-correct="C">
+        <div><strong>2.</strong> Which tool should you use to store engineering documentation?</div>
+        <div class="quiz-options">
+          <label class="quiz-option" data-value="A"><input type="radio" name="q2" value="A"> A. SharePoint</label>
+          <label class="quiz-option" data-value="B"><input type="radio" name="q2" value="B"> B. Word documents on a network drive</label>
+          <label class="quiz-option" data-value="C"><input type="radio" name="q2" value="C"> C. Markdown in a GitHub repository</label>
+          <label class="quiz-option" data-value="D"><input type="radio" name="q2" value="D"> D. Email</label>
+        </div>
+        <div class="quiz-feedback"></div>
+      </div>
+      <div class="quiz-q" data-correct="C">
+        <div><strong>3.</strong> What feature lets you propose changes and request review before merging?</div>
+        <div class="quiz-options">
+          <label class="quiz-option" data-value="A"><input type="radio" name="q3" value="A"> A. Issue</label>
+          <label class="quiz-option" data-value="B"><input type="radio" name="q3" value="B"> B. Commit</label>
+          <label class="quiz-option" data-value="C"><input type="radio" name="q3" value="C"> C. Pull Request</label>
+          <label class="quiz-option" data-value="D"><input type="radio" name="q3" value="D"> D. Wiki</label>
+        </div>
+        <div class="quiz-feedback"></div>
+      </div>
+      <div class="quiz-q" data-correct="D">
+        <div><strong>4.</strong> Which of the following can GitHub Actions do?</div>
+        <div class="quiz-options">
+          <label class="quiz-option" data-value="A"><input type="radio" name="q4" value="A"> A. Run automated workflows when code is pushed</label>
+          <label class="quiz-option" data-value="B"><input type="radio" name="q4" value="B"> B. Deploy documentation</label>
+          <label class="quiz-option" data-value="C"><input type="radio" name="q4" value="C"> C. Run tests</label>
+          <label class="quiz-option" data-value="D"><input type="radio" name="q4" value="D"> D. All of the above</label>
+        </div>
+        <div class="quiz-feedback"></div>
+      </div>
+      <div class="quiz-q" data-correct="B">
+        <div><strong>5.</strong> Why is Markdown used in GitHub?</div>
+        <div class="quiz-options">
+          <label class="quiz-option" data-value="A"><input type="radio" name="q5" value="A"> A. It's the only format GitHub supports</label>
+          <label class="quiz-option" data-value="B"><input type="radio" name="q5" value="B"> B. It's plain text, human-readable, and renders as formatted HTML</label>
+          <label class="quiz-option" data-value="C"><input type="radio" name="q5" value="C"> C. It requires special software</label>
+          <label class="quiz-option" data-value="D"><input type="radio" name="q5" value="D"> D. It only works for code files</label>
+        </div>
+        <div class="quiz-feedback"></div>
+      </div>
     </div>
 
     <div class="content-card">
@@ -214,5 +266,26 @@ footer .f-copy{font-size:.8rem}
   <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
 </footer>
 
+<script>
+document.querySelectorAll('.quiz-q').forEach(q => {
+  const correct = q.dataset.correct;
+  const options = q.querySelectorAll('.quiz-option');
+  const feedback = q.querySelector('.quiz-feedback');
+  options.forEach(opt => {
+    opt.addEventListener('click', () => {
+      if (opt.classList.contains('disabled')) return;
+      options.forEach(o => o.classList.add('disabled'));
+      const isCorrect = opt.dataset.value === correct;
+      opt.classList.add(isCorrect ? 'correct' : 'wrong');
+      if (!isCorrect) {
+        const correctOpt = q.querySelector(`[data-value="${correct}"]`);
+        correctOpt.classList.add('correct');
+      }
+      feedback.textContent = isCorrect ? '✓ Correct!' : `✗ Not quite. The answer is ${correct}.`;
+      feedback.className = 'quiz-feedback show ' + (isCorrect ? 'correct' : 'wrong');
+    });
+  });
+});
+</script>
 </body>
 </html>
