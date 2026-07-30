@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300">
+  <defs>
+    <linearGradient id="boxIn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0FDF8"/>
+      <stop offset="100%" stop-color="#E6FCF5"/>
+    </linearGradient>
+    <linearGradient id="boxP" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAFAFA"/>
+    </linearGradient>
+    <linearGradient id="boxAI" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF7ED"/>
+      <stop offset="100%" stop-color="#FFEDD5"/>
+    </linearGradient>
+    <linearGradient id="boxQ" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
+    </linearGradient>
+    <linearGradient id="boxFin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0FDF4"/>
+      <stop offset="100%" stop-color="#DCFCE7"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="rgba(0,0,0,0.08)"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="300" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+
+  <text x="30" y="30" font-family="Inter, sans-serif" font-weight="700" font-size="13" fill="#64748B" letter-spacing="0.06em">INVOICE INTAKE ARCHITECTURE</text>
+
+  <!-- Row 1: Email to Mailbox -->
+  <g transform="translate(30, 50)">
+    <rect x="0" y="0" width="160" height="60" rx="8" fill="url(#boxIn)" stroke="#0D6D5E" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="80" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="12" fill="#0D6D5E">📧 Supplier Email</text>
+    <text x="80" y="44" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="9" fill="#64748B">PDF attachment + invoice keywords</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="195" y1="80" x2="235" y2="80" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="240,80 232,76 232,84" fill="#94A3B8"/>
+
+  <!-- Shared Mailbox -->
+  <g transform="translate(245, 50)">
+    <rect x="0" y="0" width="160" height="60" rx="8" fill="url(#boxP)" stroke="#CBD5E1" stroke-width="1" filter="url(#shadow)"/>
+    <text x="80" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11" fill="#334155">📬 Shared Mailbox</text>
+    <text x="80" y="44" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="9" fill="#94A3B8">invoices@mbs.edu.au</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="410" y1="80" x2="450" y2="80" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="455,80 447,76 447,84" fill="#94A3B8"/>
+
+  <!-- Power Automate -->
+  <g transform="translate(460, 40)">
+    <rect x="0" y="0" width="160" height="80" rx="8" fill="url(#boxAI)" stroke="#C2410C" stroke-width="1" filter="url(#shadow)"/>
+    <text x="80" y="24" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11" fill="#C2410C">⚡ Power Automate</text>
+    <text x="80" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#9A3412">Detect invoice email</text>
+    <text x="80" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#9A3412">Extract PDF attachment</text>
+    <text x="80" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#9A3412">Trigger AI processing</text>
+  </g>
+
+  <!-- Arrow down to AI -->
+  <line x1="540" y1="125" x2="540" y2="155" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="540,160 536,152 544,152" fill="#94A3B8"/>
+
+  <!-- AI Builder -->
+  <g transform="translate(460, 165)">
+    <rect x="0" y="0" width="160" height="70" rx="8" fill="url(#boxP)" stroke="#CBD5E1" stroke-width="1" filter="url(#shadow)"/>
+    <text x="80" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11" fill="#334155">🤖 AI Builder</text>
+    <text x="80" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#94A3B8">Extract: Supplier, Invoice #,</text>
+    <text x="80" y="54" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#94A3B8">Amount, GST, Due Date, PO</text>
+  </g>
+
+  <!-- Arrow right from Power Automate / AI to Queue -->
+  <line x1="625" y1="80" x2="655" y2="80" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="660,80 652,76 652,84" fill="#94A3B8"/>
+  <line x1="625" y1="200" x2="655" y2="200" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="660,200 652,196 652,204" fill="#94A3B8"/>
+
+  <!-- SharePoint Queue -->
+  <g transform="translate(665, 50)">
+    <rect x="0" y="0" width="200" height="60" rx="8" fill="url(#boxQ)" stroke="#2563EB" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="100" y="26" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11" fill="#1D4ED8">📋 SharePoint Invoice Queue</text>
+    <text x="100" y="44" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="9" fill="#64748B">Status: New → Review → Approved → Paid</text>
+  </g>
+
+  <!-- Queue down to row 2 -->
+  <line x1="765" y1="115" x2="765" y2="145" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="765,150 761,142 769,142" fill="#94A3B8"/>
+
+  <!-- Row 2: Review & Approval + Finance -->
+  <g transform="translate(665, 155)">
+    <rect x="0" y="0" width="200" height="40" rx="8" fill="url(#boxP)" stroke="#CBD5E1" stroke-width="1" filter="url(#shadow)"/>
+    <text x="100" y="25" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="#334155">✅ Review &amp; Approval</text>
+  </g>
+
+  <line x1="670" y1="195" x2="645" y2="195" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="640,195 648,191 648,199" fill="#94A3B8"/>
+
+  <g transform="translate(555, 245)">
+    <rect x="0" y="0" width="160" height="40" rx="8" fill="url(#boxFin)" stroke="#16A34A" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="80" y="25" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11" fill="#15803D">💰 Finance Processing</text>
+  </g>
+
+  <!-- Anomaly detection badge bottom left -->
+  <g transform="translate(30, 155)">
+    <rect x="0" y="0" width="220" height="90" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <text x="110" y="22" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="10" fill="#7A1B2C">🛡 Security &amp; Fraud Controls</text>
+    <text x="110" y="40" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#991B1B">Supplier allow list</text>
+    <text x="110" y="54" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#991B1B">Malware scan · Duplicate detection</text>
+    <text x="110" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="8.5" fill="#991B1B">SPF/DKIM · Bank alert · Large amount alert</text>
+  </g>
+
+  <!-- Dashed line from Security to Power Automate -->
+  <line x1="255" y1="200" x2="455" y2="160" stroke="#FCA5A5" stroke-width="1.5" stroke-dasharray="4,3" stroke-linecap="round"/>
+  <text x="300" y="178" font-family="Inter, sans-serif" font-weight="400" font-size="7.5" fill="#F87171">applied at intake</text>
+</svg>
