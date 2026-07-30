@@ -6,7 +6,7 @@ title: Innovation Governance
 
 Governance built in, not bolted on. The SchoolCode platform embeds architecture guardrails, security controls, and PII policy directly into the delivery pipeline — giving teams maximum creative freedom with automatically aligned outcomes.
 
-![Innovation Governance Model](../../../img/innovation-governance.svg)
+![Innovation Governance Model](../../../../img/innovation-governance.svg)
 
 ## How It Works
 
