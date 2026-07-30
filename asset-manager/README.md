@@ -2,6 +2,8 @@
 
 Internal ICT governance tool for consolidated asset lifecycle, ownership, risk, and compliance management. ASP.NET Core modular monolith hosted in Azure Container Apps with PostgreSQL, Entra ID authentication, and read-only integrations.
 
+> **Product landing pages:** [Asset Governance Manager](https://blank-look.github.io/opencode/asset-manager/) · [Interactive Mockup](https://blank-look.github.io/opencode/asset-manager/app-mockup.html) · [Architecture](docs/architecture.md) · [Product Requirements](docs/product-requirements.md)
+
 ## Design Mockup
 
 [App Mockup →](https://blank-look.github.io/opencode/asset-manager/app-mockup.html)

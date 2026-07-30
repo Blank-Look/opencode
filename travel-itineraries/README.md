@@ -2,7 +2,7 @@
 
 Staff location tracking, regional hazard monitoring, and automated emergency response activation.
 
-> **Product landing pages:** [Travel Itineraries](https://blank-look.github.io/opencode/travel-itineraries/) · [Interactive Mockup](https://blank-look.github.io/opencode/travel-itineraries/app-mockup.html)
+> **Product landing pages:** [Travel Itineraries](https://blank-look.github.io/opencode/travel-itineraries/) · [Interactive Mockup](https://blank-look.github.io/opencode/travel-itineraries/app-mockup.html) · [Response Plan](docs/response-plan.md) · [Safety Plan](docs/safety-plan.md)
 
 ## Purpose
 
