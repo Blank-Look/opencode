@@ -306,15 +306,14 @@ footer .f-copy { font-size: 0.8rem; }
 
 <div class="page-header">
   <h1>Full <strong>Curriculum</strong></h1>
-  <p>Eight self-paced modules. Every exercise, quiz question, and learning objective.</p>
+  <p>Three curriculum tracks — GitHub Foundations, AI-Assisted Development, and AI Development Governance. Every exercise, quiz, and learning objective.</p>
   <a href="index.html" class="back-link">← Back to Foundry</a>
 </div>
 
 <div class="overview-bar">
-  <div class="ob-item"><div class="ob-val">8</div><div class="ob-label">Modules</div></div>
-  <div class="ob-item"><div class="ob-val">~8h</div><div class="ob-label">Total content</div></div>
-  <div class="ob-item"><div class="ob-val">4h</div><div class="ob-label">Exercises</div></div>
-  <div class="ob-item"><div class="ob-val">5</div><div class="ob-label">Quizzes</div></div>
+  <div class="ob-item"><div class="ob-val">3</div><div class="ob-label">Tracks</div></div>
+  <div class="ob-item"><div class="ob-val">10</div><div class="ob-label">Modules</div></div>
+  <div class="ob-item"><div class="ob-val">~9h</div><div class="ob-label">Total content</div></div>
   <div class="ob-item"><div class="ob-val">80%</div><div class="ob-label">Pass mark</div></div>
 </div>
 
@@ -322,7 +321,7 @@ footer .f-copy { font-size: 0.8rem; }
   <div class="section-inner">
 
     <div class="toc-card">
-      <h3>Jump to module</h3>
+      <h3>Track 1 — GitHub Foundations</h3>
       <div class="toc-grid">
         <a href="#m1"><span class="toc-num">01</span> Why GitHub?</a>
         <a href="#m2"><span class="toc-num">02</span> Markdown</a>
@@ -336,8 +335,22 @@ footer .f-copy { font-size: 0.8rem; }
     </div>
 
     <div class="toc-card">
+      <h3>Track 2 — AI-Assisted Development</h3>
+      <div class="toc-grid">
+        <a href="#m-env"><span class="toc-num">09</span> AI-Assisted Development Environment</a>
+      </div>
+    </div>
+
+    <div class="toc-card">
+      <h3>Track 3 — AI Development Governance</h3>
+      <div class="toc-grid">
+        <a href="#m-gov"><span class="toc-num">10</span> AI Development Governance</a>
+      </div>
+    </div>
+
+    <div class="toc-card">
       <h3>Suggested order</h3>
-      <p style="font-size:0.9rem;color:var(--stone-500);line-height:1.7;">Work through modules in order — each builds on the last. Take breaks when you need them. The practical assessment at the end ties everything together.</p>
+      <p style="font-size:0.9rem;color:var(--stone-500);line-height:1.7;">Start with Track 1 (GitHub Foundations) — each module builds on the last. Then choose Track 2 (AI-Assisted Development) to set up your toolchain, or Track 3 (AI Development Governance) to understand the guardrails. All tracks are self-paced.</p>
     </div>
 
     <!-- Module 1 -->
@@ -649,6 +662,83 @@ footer .f-copy { font-size: 0.8rem; }
       <div class="mc-box">
         <div class="mc-label">Team agreement</div>
         <p>Define your team's conventions: naming rules, PR workflow, branch protection, Issue labels, and Project board columns. Document the decisions in an <code>engineering-standards.md</code> file and commit it to your team's standards repository.</p>
+      </div>
+    </div>
+
+    <!-- Track 2 header -->
+    <div style="margin:3rem 0 1.5rem;padding-top:1rem;border-top:2px dashed var(--stone-300);">
+      <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone-400);margin-bottom:0.25rem;">Track 2</div>
+      <h2 style="font-size:1.5rem;font-weight:700;color:var(--stone-800);">AI-Assisted Development</h2>
+      <p style="font-size:0.9rem;color:var(--stone-500);margin-top:0.25rem;">Set up OpenCode, configure VS Code for AI pair programming, and connect to Git.</p>
+    </div>
+
+    <!-- Module 9 -->
+    <div id="m-env" class="module-card-full">
+      <div class="mc-header">
+        <span class="mc-num">Module 9</span>
+        <span class="mc-time"><strong>~45 min</strong> — self-paced</span>
+      </div>
+      <h2>AI-Assisted Development Environment</h2>
+      <p class="mc-sub">OpenCode, VS Code, and Git setup. How AGENTS.md guides AI behaviour. Your first AI-assisted task.</p>
+
+      <div class="obj-grid">
+        <div class="obj-item"><span class="check">✓</span> Set up OpenCode and connect it to a repository</div>
+        <div class="obj-item"><span class="check">✓</span> Configure VS Code with Copilot for AI pair programming</div>
+        <div class="obj-item"><span class="check">✓</span> Understand how AGENTS.md guides AI behaviour</div>
+        <div class="obj-item"><span class="check">✓</span> Run an AI-assisted task and review the output</div>
+      </div>
+
+      <h3>Content</h3>
+      <ul>
+        <li><strong>OpenCode:</strong> CLI agent that reads AGENTS.md, operates in your repo, generates and commits code. Key commands: <code>opencode</code>, <code>opencode "task"</code>.</li>
+        <li><strong>VS Code + Copilot:</strong> Inline completions, chat-based AI, integrated terminal. Extensions: Copilot, Markdown All in One, YAML, Mermaid Preview.</li>
+        <li><strong>AGENTS.md:</strong> Project structure, workflow commands, conventions, constraints. AI reads this before anything else.</li>
+        <li><strong>Git connection:</strong> Clone, configure user, verify. AI tools work with what Git tracks.</li>
+        <li><strong>First task:</strong> Ask OpenCode to summarise a directory, generate a table, or create documentation — always review before committing.</li>
+      </ul>
+
+      <div class="mc-box">
+        <div class="mc-label">Exercise — Explore AGENTS.md</div>
+        <p>Open the AGENTS.md file at the repository root. Read each section. Then run OpenCode with: "What is the purpose of this repository according to AGENTS.md?" — notice how it uses the file to answer. Then ask it to list and table the Foundry modules.</p>
+      </div>
+    </div>
+
+    <!-- Track 3 header -->
+    <div style="margin:3rem 0 1.5rem;padding-top:1rem;border-top:2px dashed var(--stone-300);">
+      <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone-400);margin-bottom:0.25rem;">Track 3</div>
+      <h2 style="font-size:1.5rem;font-weight:700;color:var(--stone-800);">AI Development Governance</h2>
+      <p style="font-size:0.9rem;color:var(--stone-500);margin-top:0.25rem;">How AI tools operate inside your governance framework — guardrails, roles, and delivery lifecycle.</p>
+    </div>
+
+    <!-- Module 10 -->
+    <div id="m-gov" class="module-card-full">
+      <div class="mc-header">
+        <span class="mc-num">Module 10</span>
+        <span class="mc-time"><strong>~45 min</strong> — self-paced</span>
+      </div>
+      <h2>AI Development Governance</h2>
+      <p class="mc-sub">AGENTS.md as guardrails, role-based governance, deterministic risk rules, source system authority, Delivery Prompt lifecycle.</p>
+
+      <div class="obj-grid">
+        <div class="obj-item"><span class="check">✓</span> Explain how AGENTS.md acts as guardrails for AI</div>
+        <div class="obj-item"><span class="check">✓</span> Distinguish role-based governance from individual-based</div>
+        <div class="obj-item"><span class="check">✓</span> Apply deterministic risk rules to AI-assisted tasks</div>
+        <div class="obj-item"><span class="check">✓</span> Map the Delivery Prompt Template phases to a product build</div>
+      </div>
+
+      <h3>Content</h3>
+      <ul>
+        <li><strong>AGENTS.md as guardrails:</strong> Read by every AI tool before starting work. Defines context, commands, conventions, and constraints. The contract between team and AI.</li>
+        <li><strong>Role-based governance:</strong> Roles (owner, maintainer, contributor) in CODEOWNERS and AGENTS.md. Persists beyond individuals. AI never acts as final approver.</li>
+        <li><strong>Deterministic risk rules:</strong> Clear, binary boundaries — no auto-commit, no secrets, no unrelated changes, no prod deploy without PR. Encoded in AGENTS.md and branch protection.</li>
+        <li><strong>Source systems authoritative:</strong> AI reads and generates, never replaces source system data. Authoritative systems (AD, SharePoint, Intune) remain unchanged.</li>
+        <li><strong>Delivery Prompt Template:</strong> Phase 0 (discovery) → Phase 1 (foundation) → Phase 2 (MVP) → Phase 3 (integrations) → Phase 4 (workflows) → Phase 5 (onboarding). Each phase has a definition of done.</li>
+        <li><strong>AI dev workflow:</strong> Read AGENTS.md → describe task → AI generates → human reviews → commit via PR → role-authorised approval → audit trail.</li>
+      </ul>
+
+      <div class="mc-box">
+        <div class="mc-label">Exercise — Map the Governance</div>
+        <p>Open the SchoolApp product directory (products/schoolapp/). Read its README.md and ADR-001. Ask OpenCode: "What governance rules apply to the SchoolApp product based on its AGENTS.md and ADRs?" — review the answer and discuss how the rules protect the development process.</p>
       </div>
     </div>
 

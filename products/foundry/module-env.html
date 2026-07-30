@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Assisted Development Environment | Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--forge:#5B4B3A;--forge-dark:#3D3228;--forge-light:#8A735C;--ember:#C96A3D;--ember-light:#E8925A;--cream:#F8F4EF;--stone-100:#F0ECE6;--stone-200:#E0D9D0;--stone-300:#C5BBB0;--stone-400:#A8998C;--stone-500:#8C7E72;--stone-600:#6E6257;--stone-700:#524840;--stone-800:#362F2A;--stone-900:#1C1815;--white:#FFFFFF;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--stone-700);background:var(--cream);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,244,239,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--stone-200);padding:0 2rem;height:64px;display:flex;align-items:center}
+.nav-inner{max-width:1040px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-left{display:flex;align-items:center;gap:0}
+.nav-schoolcode{font-weight:600;font-size:0.85rem;color:var(--stone-400);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;padding-right:0.75rem;margin-right:0.75rem;border-right:1px solid var(--stone-300);transition:color .15s}
+.nav-schoolcode:hover{color:var(--ember)}
+.nav-brand{font-weight:700;font-size:1rem;color:var(--forge);text-decoration:none}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{text-decoration:none;color:var(--stone-500);font-size:.875rem;font-weight:500;padding:.5rem 1rem;border-radius:8px;transition:all .15s}
+.nav-links a:hover{color:var(--ember);background:rgba(201,106,61,0.06)}
+.nav-cta{background:var(--forge);color:#fff!important;font-weight:600}
+.nav-cta:hover{background:var(--forge-dark)!important}
+.page-header{padding:7rem 2rem 3rem;background:linear-gradient(135deg,var(--cream),#EDE6DE 50%,#E6DDD3 100%);border-bottom:1px solid var(--stone-200)}
+.page-header .ph-inner{max-width:920px;margin:0 auto}
+.page-header .ph-nav{margin-bottom:1.5rem}
+.page-header .ph-nav a{font-size:.8rem;color:var(--stone-400);text-decoration:none;transition:color .15s}
+.page-header .ph-nav a:hover{color:var(--ember)}
+.page-header h1{font-size:2.75rem;font-weight:300;letter-spacing:-.03em;color:var(--stone-800);line-height:1.1;margin-bottom:.75rem}
+.page-header h1 strong{font-weight:700;color:var(--forge)}
+.page-header .ph-meta{font-size:.85rem;color:var(--stone-400)}
+.page-header .ph-meta strong{color:var(--stone-600);font-weight:600}
+section{padding:4rem 2rem}
+.section-inner{max-width:920px;margin:0 auto}
+.content-card{background:var(--white);border:1px solid var(--stone-200);border-radius:16px;padding:2.5rem;margin-bottom:2rem}
+.content-card h2{font-size:1.35rem;font-weight:700;color:var(--stone-800);margin-bottom:1rem}
+.content-card h3{font-size:1rem;font-weight:700;color:var(--stone-700);margin:1.5rem 0 .5rem}
+.content-card h3:first-of-type{margin-top:0}
+.content-card p{font-size:.9rem;color:var(--stone-600);line-height:1.7;margin-bottom:.75rem}
+.content-card ul{padding-left:1.25rem;margin-bottom:.75rem}
+.content-card ul li{font-size:.9rem;color:var(--stone-600);line-height:1.7;margin-bottom:.25rem}
+.content-card code{background:var(--stone-200);padding:.125rem .375rem;border-radius:4px;font-size:.8rem;color:var(--stone-700)}
+.content-card pre{background:var(--stone-100);border:1px solid var(--stone-200);border-radius:8px;padding:1rem;overflow-x:auto;font-size:.8rem;line-height:1.5;margin:.75rem 0;color:var(--stone-700)}
+.content-card .ex-box{background:var(--cream);border:1px solid var(--stone-200);border-radius:10px;padding:1.25rem;margin:1rem 0}
+.content-card .ex-box .ex-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ember);margin-bottom:.375rem}
+.content-card .ex-box p{font-size:.85rem;color:var(--stone-600);line-height:1.6;margin-bottom:0}
+footer{background:var(--stone-900);color:var(--stone-400);padding:3rem 2rem;text-align:center;font-size:.875rem}
+footer .f-brand{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+footer .f-copy{font-size:.8rem}
+@media(max-width:768px){nav{padding:0 1rem}.nav-links{display:none}.page-header h1{font-size:2rem}.content-card{padding:1.5rem}section{padding:2.5rem 1rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../../index.html" class="nav-schoolcode">SchoolCode</a>
+      <a href="index.html" class="nav-brand">Foundry</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="qa.html">Q&A</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="ph-inner">
+    <div class="ph-nav"><a href="curriculum.html">← Back to curriculum</a></div>
+    <h1>AI-Assisted<br><strong>Development Environment</strong></h1>
+    <div class="ph-meta">Curriculum 2 · <strong>~45 min</strong> — self-paced</div>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+
+    <div class="content-card">
+      <h2>Your AI Development Toolchain</h2>
+
+      <p>This module walks through the tools you'll use day-to-day when building with AI assistance: OpenCode, VS Code, Git, and the configuration files that connect them. By the end you'll have a working environment and understand how each piece fits together.</p>
+
+      <h3>What you'll learn</h3>
+      <ul>
+        <li>Set up OpenCode and connect it to your repository</li>
+        <li>Configure VS Code for AI-assisted development</li>
+        <li>Understand how <code>AGENTS.md</code> guides AI behaviour</li>
+        <li>Clone a repo, configure your editor, and run your first AI-assisted task</li>
+      </ul>
+
+      <h3>OpenCode — the AI agent in your terminal</h3>
+      <p>OpenCode is a CLI tool that sits in your terminal and works with your Git repository. You give it a task, it reads your files, writes code, runs commands, and commits changes. It reads <code>AGENTS.md</code> at the root of your repo to understand conventions, constraints, and preferred workflows.</p>
+      <p>Key commands:</p>
+      <pre>opencode          # Start interactive session
+opencode "task"   # Run a specific task
+opencode --help   # See all options</pre>
+
+      <h3>VS Code — your editor with AI superpowers</h3>
+      <p>VS Code with the Copilot extension gives you inline code completion, chat-based AI assistance, and integrated terminal access. OpenCode works alongside it — you write in VS Code, run OpenCode in the terminal below.</p>
+      <p>Recommended extensions for AI-assisted development:</p>
+      <ul>
+        <li><strong>GitHub Copilot</strong> — inline completions and chat</li>
+        <li><strong>Markdown All in One</strong> — table of contents, formatting, preview</li>
+        <li><strong>YAML</strong> — validation and syntax highlighting for workflows</li>
+        <li><strong>Mermaid Preview</strong> — diagram rendering in the editor</li>
+      </ul>
+
+      <h3>AGENTS.md — the instruction file AI reads first</h3>
+      <p>Every SchoolCode product includes an <code>AGENTS.md</code> file at the repository root. This file tells AI tools — OpenCode, Claude Code, Copilot — about the project: its structure, conventions, commands, and constraints. When you run OpenCode in a repo with <code>AGENTS.md</code>, it reads that file automatically and adapts its behaviour.</p>
+      <p>A typical <code>AGENTS.md</code> covers:</p>
+      <ul>
+        <li>Project structure — which directories contain what</li>
+        <li>Workflow commands — how to run tests, build, lint</li>
+        <li>Conventions — naming patterns, coding style, comment styles</li>
+        <li>Constraints — what the AI should avoid doing</li>
+      </ul>
+
+      <div class="ex-box">
+        <div class="ex-label">Exercise — Explore AGENTS.md</div>
+        <p>Open the <code>AGENTS.md</code> file at the root of this repository. Read through each section. Then ask OpenCode: "What is the purpose of this repository according to AGENTS.md?" — notice how it uses the file to answer.</p>
+      </div>
+
+      <h3>Connecting your editor to Git</h3>
+      <p>Before AI tools can work, your editor needs to be connected to the repository. The setup is straightforward:</p>
+      <pre># Clone the repository
+git clone https://github.com/Blank-Look/opencode.git
+
+# Open in VS Code
+code opencode
+
+# Verify Git is configured
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"</pre>
+
+      <h3>Running your first AI-assisted task</h3>
+      <p>Once OpenCode is installed and the repo is cloned, start with something small:</p>
+      <pre>opencode "Summarise the contents of products/foundry/ in a few sentences"</pre>
+      <p>This verifies OpenCode can read files, understand context, and respond. From here you can escalate to generation tasks — always with review.</p>
+
+      <div class="ex-box">
+        <div class="ex-label">Exercise — First AI Task</div>
+        <p>Run OpenCode from the repository root. Ask it to: "List all module files in products/foundry/ and create a markdown table showing each module number, title, and estimated time." Review the output, then commit if it looks right.</p>
+      </div>
+
+      <h3>Configuring OpenCode for your project</h3>
+      <p>OpenCode can be configured per-project with an <code>opencode.json</code> or <code>.opencode/</code> directory at the repository root. This file sets custom instructions, API keys, agent behaviour, and permissions. Check your project's <code>AGENTS.md</code> for any OpenCode-specific setup instructions.</p>
+
+      <h3>Key takeaways</h3>
+      <ul>
+        <li><strong>OpenCode</strong> is the CLI agent — reads <code>AGENTS.md</code>, operates in your repo</li>
+        <li><strong>VS Code + Copilot</strong> gives inline AI assistance while you edit</li>
+        <li><strong>AGENTS.md</strong> is the single source of truth for AI behaviour in a repo</li>
+        <li><strong>Git connection</strong> is the foundation — AI tools work with what Git tracks</li>
+        <li><strong>Always review</strong> AI output before committing. AI generates, you approve.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand">Foundry</div>
+  <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
+</footer>
+
+</body>
+</html>
