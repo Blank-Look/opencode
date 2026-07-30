@@ -1,6 +1,6 @@
-# opencode
+# SchoolCode
 
-![opencode hero](img/hero.svg)
+![SchoolCode hero](img/hero.svg)
 
 ICT tooling, documentation, and automation by [Blank-Look](https://github.com/Blank-Look).
 
@@ -15,7 +15,7 @@ ICT tooling, documentation, and automation by [Blank-Look](https://github.com/Bl
 
 ## How It Works
 
-Vibe AI Coding → OpenCode + AI-Assisted Delivery Lifecycle → School Governance / Architecture / Asset Lifecycle
+Vibe AI Coding → AI-Assisted Delivery Cycle → School Governance / Architecture / Asset Lifecycle
 
 Every deliverable is automatically aligned with institutional standards. When the SDLC evolves, all existing apps and ongoing work are instantly realigned globally.
 

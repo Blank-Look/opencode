@@ -36,7 +36,7 @@
   </g>
 
   <!-- Title -->
-  <text x="450" y="44" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="22" fill="white" letter-spacing="-0.3">opencode</text>
+  <text x="450" y="44" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="22" fill="white" letter-spacing="-0.3">SchoolCode</text>
   <text x="450" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="13" fill="rgba(255,255,255,0.7)" letter-spacing="0.5">AI-Assisted Delivery — Governed. Aligned. Fast.</text>
 
   <!-- ===== TOP LAYER: Vibe AI Coding ===== -->
@@ -62,7 +62,7 @@
   <!-- ===== MIDDLE LAYER: OpenCode + SDLC ===== -->
   <rect x="50" y="215" width="800" height="110" rx="10" fill="url(#card2)" stroke="rgba(255,255,255,0.12)" stroke-width="1" filter="url(#shadow)"/>
 
-  <text x="80" y="247" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="white">⚙️  OpenCode + AI-Assisted Delivery Lifecycle</text>
+  <text x="80" y="247" font-family="Inter, sans-serif" font-weight="700" font-size="16" fill="white">⚙️  AI-Assisted Delivery Cycle</text>
   <text x="80" y="267" font-family="Inter, sans-serif" font-weight="400" font-size="12" fill="rgba(255,255,255,0.7)">Structured 7-phase delivery with built-in guardrails, gates, and audit trail.</text>
 
   <!-- SDLC Phase bubbles -->
