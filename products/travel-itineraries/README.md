@@ -30,6 +30,15 @@ When staff travel internationally, the organisation needs to know where they are
 - **Emergency Response Activation** — notification cascade via email/SMS/Teams, traveller check-in request, escalation to duty officer
 - **Safety Dashboard** — real-time view of all active travellers, regional alert status, outstanding check-ins
 
+### Architecture Decision Records
+
+| ADR | Decision |
+|---|---|
+| [001](docs/adr/001-event-source-architecture.md) | Multi-source event monitoring over single provider for incident detection |
+| [002](docs/adr/002-itinerary-registry.md) | Internal registry over Entra ID location data for staff tracking |
+| [003](docs/adr/003-notification-cascade.md) | Email/SMS/Teams cascade over single-channel notification |
+| [004](docs/adr/004-region-risk-classification.md) | Deterministic risk rules over external risk scoring API |
+
 ## Status
 
 **Phase 0: Discovery** — in progress. Architecture and requirements being defined.

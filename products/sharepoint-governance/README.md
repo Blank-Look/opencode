@@ -14,6 +14,24 @@ Interactive HTML mockup covering dashboard, site inventory, external sharing aud
 [Architecture docs →](https://github.com/Blank-Look/opencode/tree/master/products/sharepoint-governance) *(in progress)*
 Microsoft Graph API, Governance Scanner, SharePoint List queue, and Power BI dashboard. Read-only scanning, no write-back, no agents.
 
+## Documentation
+
+| Doc | Description |
+|---|---|
+| [Product Requirements](docs/product-requirements.md) | Functional and non-functional requirements, user personas, MVP scope |
+| [Architecture](docs/architecture.md) | Component architecture, scanner design, data model |
+| [Governance Rules](index.html#governance-detection-rules) | External sharing, owner validation, inactivity, permission inheritance |
+| [Lifecycle Management](index.html#lifecycle-management) | Active, Review, Archive, Delete stages |
+
+### Architecture Decision Records
+
+| ADR | Decision |
+|---|---|
+| [001](docs/adr/001-read-only-scanner.md) | Read-only scanning over write-back agent for governance detection |
+| [002](docs/adr/002-graph-api-scanning.md) | Microsoft Graph API over SharePoint CSOM for site enumeration |
+| [003](docs/adr/003-sharepoint-list-queue.md) | SharePoint List queue over custom database for governance findings |
+| [004](docs/adr/004-power-bi-reporting.md) | Power BI over built-in reporting for governance dashboards |
+
 ## Governance Detection Rules
 
 | Rule | Detection | Severity |

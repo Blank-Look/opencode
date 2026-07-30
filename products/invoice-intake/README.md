@@ -14,21 +14,23 @@ Interactive HTML mockup covering invoice queue, processing dashboard, supplier v
 [Architecture docs →](https://github.com/Blank-Look/opencode/tree/master/products/invoice-intake) *(in progress)*
 Supplier email → Shared Mailbox → Power Automate → AI Builder extraction → SharePoint queue → approval workflow → finance system.
 
-## Detection Methods
+## Documentation
 
-| Method | Description |
+| Doc | Description |
 |---|---|
-| Simple | Outlook rule detects PDF + keywords, moves to folder |
-| Recommended | Power Automate + AI Builder extracts all fields |
-| Enterprise | Full AP automation with Dataverse, ERP, PO matching |
+| [Product Requirements](docs/product-requirements.md) | Functional and non-functional requirements, user personas, MVP scope |
+| [Architecture](docs/architecture.md) | Component architecture, flow diagram, integration points |
+| [Detection Methods](index.html#detection-methods) | Simple, Recommended, and Enterprise AP automation approaches |
+| [Security Controls](index.html#security-controls) | Supplier allow list, malware scan, duplicate detection, fraud controls |
 
-## Queue Fields
+### Architecture Decision Records
 
-Invoice Number, Supplier, Amount, GST, Due Date, PO Number, Received Date, Status (New → Review → Approved → Paid), Owner
-
-## Security Controls
-
-Supplier allow list, malware scan, duplicate detection, SPF/DKIM verification, bank account change alerts, large amount alerts.
+| ADR | Decision |
+|---|---|
+| [001](docs/adr/001-shared-mailbox-ingest.md) | Shared mailbox over direct supplier portal for invoice capture |
+| [002](docs/adr/002-ai-builder-extraction.md) | AI Builder over custom ML for document extraction |
+| [003](docs/adr/003-sharepoint-queue.md) | SharePoint List over Dataverse for MVP queue storage |
+| [004](docs/adr/004-approval-workflow.md) | Power Automate approval over custom workflow engine |
 
 ## Status
 
