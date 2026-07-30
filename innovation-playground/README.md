@@ -1,12 +1,20 @@
 # Innovation Playground
 
-A governed, short-lived sandbox environment where teams can ideate, build, and validate ideas before they enter the formal Asset Lifecycle. The Playground opens the funnel of innovation — increasing capacity and volume while maintaining the SDLC guardrails the COO expects.
+A governed, short-lived, anonymised sandbox environment where teams ideate, build, and validate ideas before they enter the formal Asset Lifecycle.
 
-## Why
+> **Product landing pages:** [Innovation Playground](https://blank-look.github.io/opencode/innovation-playground/) · [Interactive Mockup](https://blank-look.github.io/opencode/innovation-playground/app-mockup.html) · [Product Requirements](docs/product-requirements.md)
 
-The COO values the SDLC's standardised repo and block-model governance — it applies consistently to infra, documentation, code, apps, almost everything. But that same rigour can throttle early-stage ideation. The Playground solves this by providing a **heavily governed, always anonymised, short-lived space** where staff can explore freely, then move validated ideas into the asset lifecycle with minimal friction.
+## Design Mockup
 
-## Key Principles
+[App Mockup →](https://blank-look.github.io/opencode/innovation-playground/app-mockup.html)
+Interactive HTML mockup covering the playground dashboard, sandbox management, idea submission, governed IDE workspace, pipeline kanban, guardrail policies, and activity audit log.
+
+## Architecture
+
+[Architecture docs →](docs/) *(in progress)*
+The Playground sits **before** the standard SDLC. Once an idea passes validation, it graduates into the formal Asset Lifecycle with all governance metadata preserved. The output is a validated, documented, policy-compliant starting point — not throwaway code.
+
+### Key Principles
 
 | Principle | Description |
 |---|---|
@@ -16,37 +24,18 @@ The COO values the SDLC's standardised repo and block-model governance — it ap
 | **Disposable by design** | Everything is infrastructure-as-code. Tear down and rebuild in minutes. |
 | **Funnel-forward** | Ideas flow through a standard pipeline: Ideate → Validate → Move to Asset Lifecycle. |
 
-## The Funnel
+### The Funnel
 
 ```
-                  ┌─────────────┐
-                  │   Ideate    │  ← Anyone can submit
-                  └──────┬──────┘
-                         │
-                  ┌──────▼──────┐
-                  │  Validate   │  ← Automated guardrails + peer review
-                  └──────┬──────┘
-                         │
-                  ┌──────▼──────┐
-                  │  Move to    │  ← Creates asset record, links to source,
-                  │  Lifecycle  │    triggers onboarding workflow
-                  └─────────────┘
+Ideate → Validate → Peer Review → Security Scan → Ready for Lifecycle
 ```
 
-## How It Fits In
+## Documentation
 
-The Playground sits **before** the standard SDLC. Once an idea passes validation, it graduates into the formal Asset Lifecycle (procurement → build → operate → retire) with all governance metadata preserved. The output of the Playground is a validated, documented, policy-compliant starting point — not throwaway code.
-
-## Directory Structure
-
-```
-innovation-playground/
-├── README.md                 ← This file
-├── app-mockup.html           ← Interactive design mockup
-└── docs/
-    └── product-requirements.md
-```
+| Doc | Description |
+|---|---|
+| [Product Requirements](docs/product-requirements.md) | Functional and non-functional requirements, user personas, sandbox lifecycle, validation pipeline, API surface |
 
 ## Status
 
-Phase 0: Discovery & Foundation — in progress.
+**Phase 0: Discovery & Foundation** — in progress.

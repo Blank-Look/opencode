@@ -2,41 +2,33 @@
 
 Staff location tracking, regional hazard monitoring, and automated emergency response activation.
 
-> **Product landing pages:** [Travel Itineraries](https://blank-look.github.io/opencode/travel-itineraries/) · [Interactive Mockup](https://blank-look.github.io/opencode/travel-itineraries/app-mockup.html) · [Response Plan](docs/response-plan.md) · [Safety Plan](docs/safety-plan.md)
+> **Product landing pages:** [Travel Itineraries](https://blank-look.github.io/opencode/travel-itineraries/) · [Interactive Mockup](https://blank-look.github.io/opencode/travel-itineraries/app-mockup.html) · [Response Plan](docs/response-plan.md) · [Safety Plan](docs/safety-plan.md) · [Product Requirements](docs/product-requirements.md)
 
-## Purpose
+## Design Mockup
 
-When staff travel internationally, the organisation needs to know where they are. If an emergency occurs — earthquake, tsunami, political unrest, natural disaster — the system monitors live news sources in key regions and automatically triggers the response plan.
+[App Mockup →](https://blank-look.github.io/opencode/travel-itineraries/app-mockup.html)
+Interactive HTML mockup covering traveller dashboard, active alerts, itinerary management, region monitoring, emergency response, and news source integrations.
 
-## Core Capabilities
+## Architecture
 
-- **Staff Itinerary Registry** — record traveller, destination, dates, contact details, accommodation
-- **Regional News Monitoring** — live RSS/API feeds from region-specific sources (e.g. JMA for Japan earthquakes, GDACS for global disasters, FCO travel advisories)
-- **Automated Incident Detection** — keyword matching against configured alerts per region
-- **Emergency Response Activation** — notification cascade via email/SMS/Teams, traveller check-in request, escalation to duty officer
-- **Safety Dashboard** — real-time view of all active travellers, regional alert status, outstanding check-ins
-
-## Alignment to AI-Assisted Delivery Lifecycle
-
-This project follows the [AI-Assisted Delivery Lifecycle](https://blank-look.github.io/opencode/sdlc/) governance framework:
-
-| Phase | Artefact |
-|---|---|
-| Capture | Product requirements, user personas |
-| Govern | Data classification (staff PII), risk assessment, privacy impact |
-| Generate | Architecture decision records, data model |
-| Build | ASP.NET Core / Node.js modular monolith |
-| Assure | Threat model, security controls |
-| Release | Deployment runbook, Bicep infrastructure |
-| Operate | Incident response runbook, monitoring dashboard |
+[Architecture docs →](docs/) *(in progress)*
+When staff travel internationally, the organisation needs to know where they are. If an emergency occurs — earthquake, tsunami, political unrest, natural disaster — the system monitors live news sources in key regions and automatically triggers the response plan. ASP.NET Core / Node.js modular monolith with multi-source event monitoring.
 
 ## Documentation
 
-| Doc | Link |
+| Doc | Description |
 |---|---|
-| Response Plan | [docs/response-plan.md](docs/response-plan.md) |
-| Safety Plan | [docs/safety-plan.md](docs/safety-plan.md) |
-| Product Requirements | [docs/product-requirements.md](docs/product-requirements.md) |
+| [Product Requirements](docs/product-requirements.md) | Functional and non-functional requirements, user personas, MVP scope |
+| [Response Plan](docs/response-plan.md) | Automated notification cascade, escalation matrix, traveller check-in workflow |
+| [Safety Plan](docs/safety-plan.md) | Regional risk classification, duty of care obligations, privacy controls |
+
+### Capabilities
+
+- **Staff Itinerary Registry** — record traveller, destination, dates, contact details, accommodation
+- **Regional News Monitoring** — live RSS/API feeds from region-specific sources (JMA, GDACS, FCO, WHO, USGS)
+- **Automated Incident Detection** — keyword matching against configured alerts per region
+- **Emergency Response Activation** — notification cascade via email/SMS/Teams, traveller check-in request, escalation to duty officer
+- **Safety Dashboard** — real-time view of all active travellers, regional alert status, outstanding check-ins
 
 ## Status
 
