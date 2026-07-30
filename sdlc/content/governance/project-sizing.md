@@ -16,7 +16,7 @@ Existing financial thresholds can be retained while adding risk-based criteria.
 | AI prompt review | Technical peer | Technical owner and security | Architecture, security and project governance |
 | Environment path | Sandbox → Test → Production | Sandbox → Development → Test → Production | Sandbox → Development → Test → Pilot → Production |
 
-See [IT Governance](https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/it-governance.html) for council membership and terms of reference. See [Stage Gates](../governance/stage-gates.html) for the full gate-to-body mapping.
+See [IT Governance](https://blank-look.github.io/opencode/products/knowledgebase/docs/policy-and-governance/it-governance.html) for council membership and terms of reference. See [Stage Gates](../governance/stage-gates.html) for the full gate-to-body mapping.
 
 ## Size Escalation Factors
 

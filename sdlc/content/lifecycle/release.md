@@ -46,7 +46,7 @@ Verification and Monitoring
 
 ## CI/CD and Change Management
 
-CI/CD automation does not bypass the [ICT Change Management process](https://blank-look.github.io/opencode/knowledgebase/docs/service-operations/change-management.html). All production deployments must be recorded as change requests in the service management tool:
+CI/CD automation does not bypass the [ICT Change Management process](https://blank-look.github.io/opencode/products/knowledgebase/docs/service-operations/change-management.html). All production deployments must be recorded as change requests in the service management tool:
 
 | Deployment Type | Change Type | Approval | Notes |
 |---|---|---|---|
@@ -54,4 +54,4 @@ CI/CD automation does not bypass the [ICT Change Management process](https://bla
 | Major feature or architectural | Normal Change | CAB approval | Requires rollback plan and test evidence |
 | Security hotfix | Emergency Change | Emergency CAB | Post-deployment review within 72 hours |
 
-See [Change Management](https://blank-look.github.io/opencode/knowledgebase/docs/service-operations/change-management.html) for full definitions of Standard, Normal, and Emergency changes, blackout periods, and CAB membership.
+See [Change Management](https://blank-look.github.io/opencode/products/knowledgebase/docs/service-operations/change-management.html) for full definitions of Standard, Normal, and Emergency changes, blackout periods, and CAB membership.

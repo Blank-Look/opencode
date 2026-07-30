@@ -10,7 +10,7 @@ The lifecycle is based on seven activities:
 
 **Capture, Govern, Generate, Build, Assure, Release and Operate.**
 
-*Note: These are **Delivery Lifecycle Stages** — they describe the process of building and releasing technology. They are distinct from the **Operational Asset Lifecycle** (Procurement → Deployment → Operation → Maintenance → Disposal) defined in the [ICT Knowledge Base](../knowledgebase/docs/data-and-protection/asset-lifecycle-policy.html), which governs assets once in service.*
+*Note: These are **Delivery Lifecycle Stages** — they describe the process of building and releasing technology. They are distinct from the **Operational Asset Lifecycle** (Procurement → Deployment → Operation → Maintenance → Disposal) defined in the [ICT Knowledge Base](../../../products/knowledgebase/docs/data-and-protection/asset-lifecycle-policy.html), which governs assets once in service.*
 
 Requirements and applicable governance references are first captured in a structured format. ChatGPT is then used to generate a controlled implementation prompt for OpenCode. OpenCode develops the code, tests, infrastructure and documentation within an approved GitHub repository. Azure DevOps validates and promotes the resulting artefacts through sandbox, development, test and production environments.
 

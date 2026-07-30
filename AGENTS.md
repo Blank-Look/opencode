@@ -1,18 +1,19 @@
 # Project Context
 
-Two independent projects in one repo: **Knowledge Base** (`knowledgebase/`) and **Asset Manager** (`asset-manager/`). They share no code or dependencies.
+Two independent projects plus a products directory in one repo: **Knowledge Base** (`products/knowledgebase/`), **Asset Manager** (`asset-manager/`), and **Products** (`products/`). Knowledge Base and Asset Manager share no code or dependencies.
 
-## Knowledge Base (`knowledgebase/`)
+## Knowledge Base (`products/knowledgebase/`)
 
 Markdown + `generate.js` → static HTML/CSS, hosted on GitHub Pages.
 
 **Workflow:**
-- Edit `.md` files in `knowledgebase/content/` (frontmatter supports `title:` — `sidebar_position` is ignored by the generator)
-- Sidebar structure is hardcoded in `knowledgebase/generate.js` (not inferred from filesystem)
-- Regenerate with `node knowledgebase/generate.js` — this outputs to `knowledgebase/docs/`
-- `knowledgebase/docs/` is git-tracked (generated HTML committed alongside source)
+- Edit `.md` files in `products/knowledgebase/content/` (frontmatter supports `title:` — `sidebar_position` is ignored by the generator)
+- Sidebar structure is hardcoded in `products/knowledgebase/generate.js` (not inferred from filesystem)
+- Regenerate with `node products/knowledgebase/generate.js` — this outputs to `products/knowledgebase/docs/`
+- `products/knowledgebase/docs/` is git-tracked (generated HTML committed alongside source)
 - Links in markdown use **extensionless relative paths** (e.g. `data-classification`, `it-governance#policies`)
 - Dependency: `marked` (dynamically ESM-imported)
+- Nav bar in generated HTML: SchoolCode link goes up to root via `upToRoot()` in generate.js (works automatically from any depth)
 
 ## Asset Manager (`asset-manager/`)
 

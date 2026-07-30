@@ -37,7 +37,7 @@ The request should explain:
 
 ## Procurement
 
-If the initiative requires vendor procurement (software, SaaS, hardware, or services), start the [ICT Procurement process](https://blank-look.github.io/opencode/knowledgebase/docs/data-and-protection/procurement.html) in parallel with, or before, Gate 1. Procurement lead times often exceed delivery timelines and can block Gate 3 if not initiated early.
+If the initiative requires vendor procurement (software, SaaS, hardware, or services), start the [ICT Procurement process](https://blank-look.github.io/opencode/products/knowledgebase/docs/data-and-protection/procurement.html) in parallel with, or before, Gate 1. Procurement lead times often exceed delivery timelines and can block Gate 3 if not initiated early.
 
 ## Gate 1 — Proceed to Design?
 

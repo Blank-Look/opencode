@@ -673,7 +673,7 @@ Examples:
 - Support Team
 - Retirement Approver
 
-**Alignment with existing ICT role taxonomy:** These roles align to the [ICT Knowledge Base governance model](https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/data-governance.html) (Data Trustees, Data Stewards Council, Data Custodians, Data Owners). The mapping between application governance roles and KB organisational roles must be documented in `docs/security-model.md`.
+**Alignment with existing ICT role taxonomy:** These roles align to the [ICT Knowledge Base governance model](https://blank-look.github.io/opencode/products/knowledgebase/docs/policy-and-governance/data-governance.html) (Data Trustees, Data Stewards Council, Data Custodians, Data Owners). The mapping between application governance roles and KB organisational roles must be documented in `docs/security-model.md`.
 
 ### 5.5 RoleAssignment
 
@@ -704,7 +704,7 @@ Assignments must support:
 
 Support configurable classifications rather than hard-coded labels.
 
-Initial example levels (per the [ICT Knowledge Base classification model](https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/data-classification.html)):
+Initial example levels (per the [ICT Knowledge Base classification model](https://blank-look.github.io/opencode/products/knowledgebase/docs/policy-and-governance/data-classification.html)):
 
 - Public
 - Internal
@@ -1380,7 +1380,7 @@ Prevent spreadsheet formula injection in CSV exports.
 
 ## 14. Security requirements
 
-Align with the [ICT Knowledge Base Security Assessment](https://blank-look.github.io/opencode/knowledgebase/docs/security/security-assessment.html) process (Initiation → Classification → Questionnaire → Review → Verdict → Onboarding). The application itself must meet the same assessment criteria it will enforce for governed assets.
+Align with the [ICT Knowledge Base Security Assessment](https://blank-look.github.io/opencode/products/knowledgebase/docs/security/security-assessment.html) process (Initiation → Classification → Questionnaire → Review → Verdict → Onboarding). The application itself must meet the same assessment criteria it will enforce for governed assets.
 
 Implement:
 

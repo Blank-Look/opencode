@@ -68,9 +68,9 @@ Checks include:
 
 ## Risk Scoring
 
-Risk during delivery uses the [ICT Knowledge Base risk framework](https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/risk-management.html) (ISO 31000-aligned, 5×5 likelihood × impact matrix) as the enterprise standard. The Delivery Prompt Template's deterministic point-based scoring (40/20/8/2 + multipliers) is a **project-level prioritisation tool** that feeds into, but does not replace, the enterprise risk register.
+Risk during delivery uses the [ICT Knowledge Base risk framework](https://blank-look.github.io/opencode/products/knowledgebase/docs/policy-and-governance/risk-management.html) (ISO 31000-aligned, 5×5 likelihood × impact matrix) as the enterprise standard. The Delivery Prompt Template's deterministic point-based scoring (40/20/8/2 + multipliers) is a **project-level prioritisation tool** that feeds into, but does not replace, the enterprise risk register.
 
-Risk findings identified during assurance must be recorded in both the project risk register and the enterprise risk management system per the [Risk Management process](https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/risk-management.html).
+Risk findings identified during assurance must be recorded in both the project risk register and the enterprise risk management system per the [Risk Management process](https://blank-look.github.io/opencode/products/knowledgebase/docs/policy-and-governance/risk-management.html).
 
 ## Gate 4 — Release Approval
 
