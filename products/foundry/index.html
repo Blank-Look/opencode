@@ -200,11 +200,15 @@ section { padding: 5rem 2rem; }
 .modules { background: var(--stone-100); }
 .module-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 .module-card {
+  display: block;
   background: var(--white);
   border-radius: 16px;
   padding: 1.75rem;
   border: 1px solid var(--stone-200);
   transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 .module-card:hover { border-color: var(--ember); }
 .module-card .mc-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
@@ -386,7 +390,7 @@ footer .f-copy { font-size: 0.8rem; }
     <p class="section-sub">Each module includes learning objectives, exercises, and quiz questions. <a href="curriculum.html" style="color:var(--ember);font-weight:600;">View the full curriculum →</a></p>
     <div class="module-grid">
 
-      <div class="module-card">
+      <a href="module-1.html" class="module-card">
         <div class="mc-header">
           <span class="mc-num">Module 1</span>
           <span class="mc-time">30 min</span>
@@ -396,9 +400,9 @@ footer .f-copy { font-size: 0.8rem; }
         <ul>
           <li>Quiz: 5 questions · 80% pass</li>
         </ul>
-      </div>
+      </a>
 
-      <div class="module-card">
+      <a href="module-2.html" class="module-card">
         <div class="mc-header">
           <span class="mc-num">Module 2</span>
           <span class="mc-time">1 hour</span>
@@ -409,9 +413,9 @@ footer .f-copy { font-size: 0.8rem; }
           <li>Exercise: Create a README.md for an Intune application</li>
           <li>Quiz</li>
         </ul>
-      </div>
+      </a>
 
-      <div class="module-card">
+      <a href="module-3.html" class="module-card">
         <div class="mc-header">
           <span class="mc-num">Module 3</span>
           <span class="mc-time">2 hours</span>
@@ -422,9 +426,9 @@ footer .f-copy { font-size: 0.8rem; }
           <li>Exercise: Everyone edits the same repository</li>
           <li>Quiz</li>
         </ul>
-      </div>
+      </a>
 
-      <div class="module-card">
+      <a href="module-4.html" class="module-card">
         <div class="mc-header">
           <span class="mc-num">Module 4</span>
           <span class="mc-time">2 hours</span>
@@ -435,9 +439,9 @@ footer .f-copy { font-size: 0.8rem; }
           <li>Exercise: Cross-team PR with conflict resolution</li>
           <li>Quiz</li>
         </ul>
-      </div>
+      </a>
 
-      <div class="module-card">
+      <a href="module-5.html" class="module-card">
         <div class="mc-header">
           <span class="mc-num">Module 5</span>
           <span class="mc-time">1 hour</span>
@@ -447,9 +451,9 @@ footer .f-copy { font-size: 0.8rem; }
         <ul>
           <li>Exercise: Build a repository from scratch</li>
         </ul>
-      </div>
+      </a>
 
-      <div class="module-card">
+      <a href="module-6.html" class="module-card">
         <div class="mc-header">
           <span class="mc-num">Module 6</span>
           <span class="mc-time">1 hour</span>
@@ -459,25 +463,25 @@ footer .f-copy { font-size: 0.8rem; }
         <ul>
           <li>Exercise: Push markdown, Action builds MkDocs, site updates</li>
         </ul>
-      </div>
+      </a>
 
-      <div class="module-card">
+      <a href="module-7.html" class="module-card">
         <div class="mc-header">
           <span class="mc-num">Module 7</span>
           <span class="mc-time">1 hour</span>
         </div>
         <h3>AI</h3>
         <p>ChatGPT, Copilot, OpenCode, Claude Code — using AI to generate READMEs, improve Markdown, write PowerShell, explain scripts, review PRs, and generate workflows.</p>
-      </div>
+      </a>
 
-      <div class="module-card">
+      <a href="module-8.html" class="module-card">
         <div class="mc-header">
           <span class="mc-num">Module 8</span>
           <span class="mc-time">30 min</span>
         </div>
         <h3>Engineering Standards</h3>
         <p>How your organisation will work. Repository naming, PRs, reviews, Issues, Projects, documentation, branch protection.</p>
-      </div>
+      </a>
 
     </div>
   </div>
