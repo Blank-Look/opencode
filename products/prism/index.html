@@ -40,9 +40,21 @@ body {
   line-height: 1.6;
 }
 
-nav {
+.demo-banner {
   position: fixed;
   top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: var(--accent);
+  color: var(--navy);
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+nav {
+  position: fixed;
+  top: 36px; left: 0; right: 0;
   z-index: 100;
   background: rgba(45,20,20,0.92);
   backdrop-filter: blur(12px);
@@ -93,7 +105,7 @@ nav .nav-cta:hover { background: #B88600 !important; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 8rem 2rem 4rem;
+  padding: 9rem 2rem 4rem;
   position: relative;
   overflow: hidden;
   background: var(--slate-900);
@@ -364,6 +376,8 @@ footer .f-copy { font-size: 0.8rem; }
 </style>
 </head>
 <body>
+
+<div class="demo-banner">Demo site — AI-generated mockup for concept demonstration purposes</div>
 
 <nav>
   <div style="display:flex;align-items:center;gap:0;">

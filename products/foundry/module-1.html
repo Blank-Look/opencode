@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1 — Why GitHub? | Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--forge:#5B4B3A;--forge-dark:#3D3228;--forge-light:#8A735C;--ember:#C96A3D;--ember-light:#E8925A;--cream:#F8F4EF;--stone-100:#F0ECE6;--stone-200:#E0D9D0;--stone-300:#C5BBB0;--stone-400:#A8998C;--stone-500:#8C7E72;--stone-600:#6E6257;--stone-700:#524840;--stone-800:#362F2A;--stone-900:#1C1815;--white:#FFFFFF;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--stone-700);background:var(--cream);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,244,239,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--stone-200);padding:0 2rem;height:64px;display:flex;align-items:center}
+.nav-inner{max-width:1040px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-left{display:flex;align-items:center;gap:0}
+.nav-schoolcode{font-weight:600;font-size:0.85rem;color:var(--stone-400);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;padding-right:0.75rem;margin-right:0.75rem;border-right:1px solid var(--stone-300);transition:color .15s}
+.nav-schoolcode:hover{color:var(--ember)}
+.nav-brand{font-weight:700;font-size:1rem;color:var(--forge);text-decoration:none}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{text-decoration:none;color:var(--stone-500);font-size:.875rem;font-weight:500;padding:.5rem 1rem;border-radius:8px;transition:all .15s}
+.nav-links a:hover{color:var(--ember);background:rgba(201,106,61,0.06)}
+.nav-cta{background:var(--forge);color:#fff!important;font-weight:600}
+.nav-cta:hover{background:var(--forge-dark)!important}
+
+.page-header{padding:7rem 2rem 3rem;background:linear-gradient(135deg,var(--cream),#EDE6DE 50%,#E6DDD3 100%);border-bottom:1px solid var(--stone-200)}
+.page-header .ph-inner{max-width:920px;margin:0 auto}
+.page-header .ph-nav{margin-bottom:1.5rem}
+.page-header .ph-nav a{font-size:.8rem;color:var(--stone-400);text-decoration:none;transition:color .15s}
+.page-header .ph-nav a:hover{color:var(--ember)}
+.page-header .ph-nav .sep{color:var(--stone-300);margin:0 .5rem}
+.page-header h1{font-size:2.75rem;font-weight:300;letter-spacing:-.03em;color:var(--stone-800);line-height:1.1;margin-bottom:.5rem}
+.page-header h1 strong{font-weight:700;color:var(--forge)}
+.page-header .ph-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem}
+.page-header .ph-meta span{font-size:.8rem;color:var(--stone-400);font-weight:500}
+.page-header .ph-meta strong{color:var(--forge);font-weight:700}
+
+section{padding:3rem 2rem 4rem}
+.section-inner{max-width:920px;margin:0 auto}
+
+.content-card{background:var(--white);border:1px solid var(--stone-200);border-radius:16px;padding:2.5rem;margin-bottom:1.5rem}
+.content-card:hover{border-color:var(--ember)}
+.content-card h2{font-size:1.1rem;font-weight:700;color:var(--stone-800);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--stone-100)}
+.content-card h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--forge);margin-bottom:.5rem;margin-top:1.25rem}
+.content-card h3:first-of-type{margin-top:0}
+.content-card p,.content-card li{font-size:.9rem;color:var(--stone-600);line-height:1.7}
+.content-card ul{padding-left:1.25rem;margin-bottom:.75rem}
+.content-card ul li{margin-bottom:.25rem}
+
+.tip-box{background:var(--cream);border:1px solid var(--stone-200);border-radius:10px;padding:1.25rem;margin:.75rem 0}
+.tip-box .tb-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ember);margin-bottom:.375rem}
+.tip-box p,.tip-box li{font-size:.85rem;color:var(--stone-600);line-height:1.6}
+.tip-box code{background:var(--stone-200);padding:.125rem .375rem;border-radius:4px;font-size:.8rem;color:var(--stone-700)}
+
+.timeline-table{width:100%;border-collapse:collapse;margin:.75rem 0}
+.timeline-table th{text-align:left;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--stone-400);padding:.5rem .75rem;border-bottom:1px solid var(--stone-200)}
+.timeline-table td{font-size:.85rem;color:var(--stone-600);padding:.5rem .75rem;border-bottom:1px solid var(--stone-100)}
+.timeline-table td:first-child{font-weight:600;color:var(--stone-700);white-space:nowrap}
+.timeline-table .active{background:rgba(201,106,61,0.04)}
+
+.quiz-q{font-size:.875rem;color:var(--stone-600);line-height:1.6;margin-bottom:.25rem}
+.quiz-q strong{color:var(--stone-700)}
+.quiz-a{font-size:.85rem;color:var(--stone-400);margin-left:1rem;margin-bottom:.5rem}
+.quiz-a .correct{color:var(--forge);font-weight:600}
+
+.mod-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.mod-nav a{padding:.75rem 1.5rem;border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .2s}
+.mod-nav .prev{background:transparent;color:var(--stone-600);border:1px solid var(--stone-300)}
+.mod-nav .prev:hover{border-color:var(--ember);color:var(--ember)}
+.mod-nav .next{background:var(--forge);color:var(--white)}
+.mod-nav .next:hover{background:var(--forge-dark);transform:translateY(-1px)}
+
+footer{background:var(--stone-900);color:var(--stone-400);padding:3rem 2rem;text-align:center;font-size:.875rem}
+footer .f-brand{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+footer .f-copy{font-size:.8rem}
+
+@media(max-width:768px){
+  nav{padding:0 1rem}.nav-links{display:none}
+  .page-header h1{font-size:2rem}
+  .content-card{padding:1.5rem}
+  section{padding:2rem 1rem 3rem}
+  .mod-nav{flex-direction:column}
+  .mod-nav a{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../../../index.html" class="nav-schoolcode">SchoolCode</a>
+      <a href="index.html" class="nav-brand">Foundry</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="qa.html">Q&A</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="ph-inner">
+    <div class="ph-nav">
+      <a href="curriculum.html">Curriculum</a><span class="sep">/</span><a href="curriculum.html#m1">Module 1</a>
+    </div>
+    <h1>Module 1: <strong>Why GitHub?</strong></h1>
+    <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">Why SharePoint is the wrong tool. Git vs GitHub. Core features. How AI fits in.</p>
+    <div class="ph-meta">
+      <span><strong>30 min</strong> instruction</span>
+      <span><strong>Morning</strong> Day 1 · 09:00–09:30</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+
+    <div class="content-card">
+      <h2>Facilitator preparation</h2>
+      <ul>
+        <li>Have a GitHub repository ready to demonstrate (a simple one with README, issues, a PR, and an Actions tab)</li>
+        <li>Prepare a slide or whiteboard showing Git vs GitHub side by side</li>
+        <li>Have the comparison table of SharePoint vs GitHub ready</li>
+        <li>Ensure all participants have GitHub accounts created before the session</li>
+      </ul>
+    </div>
+
+    <div class="content-card">
+      <h2>Timing breakdown</h2>
+      <table class="timeline-table">
+        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
+        <tbody>
+          <tr><td>5 min</td><td>Opening — why are we here? Set context for the bootcamp</td></tr>
+          <tr class="active"><td>5 min</td><td>Why not SharePoint? — the fundamental problem</td></tr>
+          <tr class="active"><td>5 min</td><td>Git vs GitHub — what's the difference?</td></tr>
+          <tr class="active"><td>10 min</td><td>Core concepts tour — live demo of a GitHub repository</td></tr>
+          <tr class="active"><td>5 min</td><td>AI and GitHub — how AI tools connect</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card">
+      <h2>Script & talking points</h2>
+
+      <h3>Opening (5 min)</h3>
+      <p>Welcome to Foundry. Over two days we'll build your team's GitHub baseline. By the end, every person will be able to clone a repo, make changes, open a pull request, and get their work reviewed and merged.</p>
+      <p>This isn't a developer bootcamp. You're M365 infrastructure engineers. Everything we do — every example, every exercise — is based on the work you actually do. Intune packaging, Azure landing zone docs, PowerShell scripts, Teams automation. Real work.</p>
+
+      <div class="tip-box">
+        <div class="tb-label">Facilitator note</div>
+        <p>If anyone expresses anxiety about "not being a developer," address it immediately. GitHub is for docs and config, not just code. Emphasise that Markdown is easier than Word once you know 5 syntax rules.</p>
+      </div>
+
+      <h3>Why not SharePoint? (5 min)</h3>
+      <p>Ask the room: "Where do we store our documentation today?" The answer will be SharePoint, network drives, or Teams. Then ask: "What happens when two people edit the same file?"</p>
+      <p>SharePoint's problems for engineering work:</p>
+      <ul>
+        <li><strong>Version history is per-file.</strong> You can't see the state of the whole doc set at a point in time.</li>
+        <li><strong>No branching.</strong> You can't experiment safely. Every edit is live or you're working on a copy.</li>
+        <li><strong>No review workflow.</strong> Someone uploads a file and it's done. No one else sees it before it's published.</li>
+        <li><strong>No automation.</strong> You can't trigger tests, deployment, or validation when a file changes.</li>
+        <li><strong>No integration.</strong> AI tools don't plug into SharePoint docs the way they plug into GitHub.</li>
+      </ul>
+      <p>GitHub treats <em>everything</em> as code — docs, config, scripts, policies. That means you get version control, branching, review, automation, and AI integration. One platform. Consistent workflow.</p>
+      <p><strong>Key message:</strong> GitHub is not "another tool to learn." It's the tool that makes all your other tools work better.</p>
+
+      <h3>Git vs GitHub (5 min)</h3>
+      <p><strong>Git</strong> is the version control engine. It runs on your machine. It tracks changes, creates commits, manages branches. You interact with it through commands like <code>git add</code>, <code>git commit</code>, <code>git push</code>.</p>
+      <p><strong>GitHub</strong> is the hosting platform. It stores repositories online, adds collaboration features (Pull Requests, Issues, Projects), and connects to automation and AI tools.</p>
+      <p>Analogy: Git is the engine. GitHub is the car. You need both to go anywhere.</p>
+
+      <div class="tip-box">
+        <div class="tb-label">Whiteboard exercise</div>
+        <p>Draw two columns. Left: what Git does (local, command-line, version tracking). Right: what GitHub adds (remote hosting, PRs, issues, Actions, AI). Ask participants to suggest items for each column.</p>
+      </div>
+
+      <h3>Core concepts tour (10 min)</h3>
+      <p>Open a GitHub repository live. Walk through each tab:</p>
+      <ul>
+        <li><strong>Code tab:</strong> Files, commit history, branches dropdown. Show the README rendering.</li>
+        <li><strong>Issues tab:</strong> Show an issue. Explain: tasks, bugs, feature requests. Labels, assignees, comments.</li>
+        <li><strong>Pull Requests tab:</strong> Show an open PR. Explain: propose changes, review, discuss, merge.</li>
+        <li><strong>Actions tab:</strong> Show a completed workflow run. Explain: automation triggered by push or PR.</li>
+        <li><strong>Wiki / Projects:</strong> Mention briefly — documentation and Kanban boards.</li>
+      </ul>
+
+      <div class="tip-box">
+        <div class="tb-label">Live demo tips</div>
+        <p>Use the training repository. Have at least one open issue and one open PR ready to show. If you have a workflow that already ran, even better — showing the green checkmark on a PR is a powerful moment.</p>
+      </div>
+
+      <h3>AI and GitHub (5 min)</h3>
+      <p>GitHub is the single source of truth that AI tools connect to:</p>
+      <ul>
+        <li><strong>ChatGPT:</strong> Generate READMEs, PowerShell scripts, documentation. Paste the output directly into your repo.</li>
+        <li><strong>Copilot:</strong> Inline code completions in VS Code. Suggests what to type next based on your comments and code.</li>
+        <li><strong>OpenCode / Claude Code:</strong> Terminal-based agents. Give them a prompt, they build files, run commands, commit changes. Review and approve.</li>
+      </ul>
+      <p><strong>Golden rule:</strong> AI generates. Humans approve. Never commit AI output without reading it first.</p>
+
+      <div class="tip-box">
+        <div class="tb-label">Key takeaway</div>
+        <p>"GitHub is where your engineering work lives. AI, automation, and collaboration all connect through it."</p>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Quiz</h2>
+      <div class="quiz-q"><strong>1.</strong> What is the difference between Git and GitHub?</div>
+      <div class="quiz-a">A. They are the same thing · B. Git is the version control system, GitHub is the hosting platform <span class="correct">✓</span> · C. GitHub is the command-line tool · D. Git only works with Microsoft</div>
+      <div class="quiz-q"><strong>2.</strong> Which tool should you use to store engineering documentation?</div>
+      <div class="quiz-a">A. SharePoint · B. Word documents on a network drive · C. Markdown in a GitHub repository <span class="correct">✓</span> · D. Email</div>
+      <div class="quiz-q"><strong>3.</strong> What feature lets you propose changes and request review before merging?</div>
+      <div class="quiz-a">A. Issue · B. Commit · C. Pull Request <span class="correct">✓</span> · D. Wiki</div>
+      <div class="quiz-q"><strong>4.</strong> Which of the following can GitHub Actions do?</div>
+      <div class="quiz-a">A. Run automated workflows when code is pushed · B. Deploy documentation · C. Run tests · D. All of the above <span class="correct">✓</span></div>
+      <div class="quiz-q"><strong>5.</strong> Why is Markdown used in GitHub?</div>
+      <div class="quiz-a">A. It's the only format GitHub supports · B. It's plain text, human-readable, and renders as formatted HTML <span class="correct">✓</span> · C. It requires special software · D. It only works for code files</div>
+    </div>
+
+    <div class="mod-nav">
+      <span></span>
+      <a href="module-2.html" class="next">Next: Markdown →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand">Foundry</div>
+  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+</footer>
+
+</body>
+</html>

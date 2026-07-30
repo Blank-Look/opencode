@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 — Branches & Pull Requests | Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--forge:#5B4B3A;--forge-dark:#3D3228;--forge-light:#8A735C;--ember:#C96A3D;--ember-light:#E8925A;--cream:#F8F4EF;--stone-100:#F0ECE6;--stone-200:#E0D9D0;--stone-300:#C5BBB0;--stone-400:#A8998C;--stone-500:#8C7E72;--stone-600:#6E6257;--stone-700:#524840;--stone-800:#362F2A;--stone-900:#1C1815;--white:#FFFFFF;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--stone-700);background:var(--cream);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,244,239,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--stone-200);padding:0 2rem;height:64px;display:flex;align-items:center}
+.nav-inner{max-width:1040px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-left{display:flex;align-items:center;gap:0}
+.nav-schoolcode{font-weight:600;font-size:0.85rem;color:var(--stone-400);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;padding-right:0.75rem;margin-right:0.75rem;border-right:1px solid var(--stone-300);transition:color .15s}
+.nav-schoolcode:hover{color:var(--ember)}
+.nav-brand{font-weight:700;font-size:1rem;color:var(--forge);text-decoration:none}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{text-decoration:none;color:var(--stone-500);font-size:.875rem;font-weight:500;padding:.5rem 1rem;border-radius:8px;transition:all .15s}
+.nav-links a:hover{color:var(--ember);background:rgba(201,106,61,0.06)}
+.nav-cta{background:var(--forge);color:#fff!important;font-weight:600}
+.nav-cta:hover{background:var(--forge-dark)!important}
+.page-header{padding:7rem 2rem 3rem;background:linear-gradient(135deg,var(--cream),#EDE6DE 50%,#E6DDD3 100%);border-bottom:1px solid var(--stone-200)}
+.page-header .ph-inner{max-width:920px;margin:0 auto}
+.page-header .ph-nav{margin-bottom:1.5rem}
+.page-header .ph-nav a{font-size:.8rem;color:var(--stone-400);text-decoration:none;transition:color .15s}
+.page-header .ph-nav a:hover{color:var(--ember)}
+.page-header .ph-nav .sep{color:var(--stone-300);margin:0 .5rem}
+.page-header h1{font-size:2.75rem;font-weight:300;letter-spacing:-.03em;color:var(--stone-800);line-height:1.1;margin-bottom:.5rem}
+.page-header h1 strong{font-weight:700;color:var(--forge)}
+.page-header .ph-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem}
+.page-header .ph-meta span{font-size:.8rem;color:var(--stone-400);font-weight:500}
+.page-header .ph-meta strong{color:var(--forge);font-weight:700}
+section{padding:3rem 2rem 4rem}
+.section-inner{max-width:920px;margin:0 auto}
+.content-card{background:var(--white);border:1px solid var(--stone-200);border-radius:16px;padding:2.5rem;margin-bottom:1.5rem}
+.content-card:hover{border-color:var(--ember)}
+.content-card h2{font-size:1.1rem;font-weight:700;color:var(--stone-800);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--stone-100)}
+.content-card h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--forge);margin-bottom:.5rem;margin-top:1.25rem}
+.content-card h3:first-of-type{margin-top:0}
+.content-card p,.content-card li{font-size:.9rem;color:var(--stone-600);line-height:1.7}
+.content-card ul{padding-left:1.25rem;margin-bottom:.75rem}
+.content-card ul li{margin-bottom:.25rem}
+.content-card .cmd-block{background:var(--cream);border:1px solid var(--stone-200);border-radius:8px;padding:1rem;margin:.5rem 0;font-family:monospace;font-size:.85rem;line-height:1.8;overflow-x:auto;color:var(--stone-700)}
+.content-card .cmd-block .prompt{color:var(--stone-400)}
+.content-card .cmd-block .comment{color:var(--stone-400);font-style:italic}
+.tip-box{background:var(--cream);border:1px solid var(--stone-200);border-radius:10px;padding:1.25rem;margin:.75rem 0}
+.tip-box .tb-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ember);margin-bottom:.375rem}
+.tip-box p,.tip-box li{font-size:.85rem;color:var(--stone-600);line-height:1.6}
+.tip-box code{background:var(--stone-200);padding:.125rem .375rem;border-radius:4px;font-size:.8rem;color:var(--stone-700)}
+.timeline-table{width:100%;border-collapse:collapse;margin:.75rem 0}
+.timeline-table th{text-align:left;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--stone-400);padding:.5rem .75rem;border-bottom:1px solid var(--stone-200)}
+.timeline-table td{font-size:.85rem;color:var(--stone-600);padding:.5rem .75rem;border-bottom:1px solid var(--stone-100)}
+.timeline-table td:first-child{font-weight:600;color:var(--stone-700);white-space:nowrap}
+.timeline-table .active{background:rgba(201,106,61,0.04)}
+.quiz-q{font-size:.875rem;color:var(--stone-600);line-height:1.6;margin-bottom:.25rem}
+.quiz-q strong{color:var(--stone-700)}
+.quiz-a{font-size:.85rem;color:var(--stone-400);margin-left:1rem;margin-bottom:.5rem}
+.quiz-a .correct{color:var(--forge);font-weight:600}
+.mod-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.mod-nav a{padding:.75rem 1.5rem;border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .2s}
+.mod-nav .prev{background:transparent;color:var(--stone-600);border:1px solid var(--stone-300)}
+.mod-nav .prev:hover{border-color:var(--ember);color:var(--ember)}
+.mod-nav .next{background:var(--forge);color:var(--white)}
+.mod-nav .next:hover{background:var(--forge-dark);transform:translateY(-1px)}
+footer{background:var(--stone-900);color:var(--stone-400);padding:3rem 2rem;text-align:center;font-size:.875rem}
+footer .f-brand{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+footer .f-copy{font-size:.8rem}
+@media(max-width:768px){
+  nav{padding:0 1rem}.nav-links{display:none}
+  .page-header h1{font-size:2rem}
+  .content-card{padding:1.5rem}
+  section{padding:2rem 1rem 3rem}
+  .mod-nav{flex-direction:column}
+  .mod-nav a{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../../../index.html" class="nav-schoolcode">SchoolCode</a>
+      <a href="index.html" class="nav-brand">Foundry</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="qa.html">Q&A</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="ph-inner">
+    <div class="ph-nav">
+      <a href="curriculum.html">Curriculum</a><span class="sep">/</span><a href="curriculum.html#m4">Module 4</a>
+    </div>
+    <h1>Module 4: <strong>Branches & Pull Requests</strong></h1>
+    <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">Create branch → Edit → Commit → Push → PR → Review → Merge. Everyone resolves a merge conflict.</p>
+    <div class="ph-meta">
+      <span><strong>2 h</strong> — 30 min instruction + 1.5 h exercise</span>
+      <span><strong>Afternoon</strong> Day 1 · 13:30–15:30</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+
+    <div class="content-card">
+      <h2>Facilitator preparation</h2>
+      <ul>
+        <li>Ensure the training repo has branch protection disabled (or use a practice repo)</li>
+        <li>Prepare pairs or small groups for the cross-team PR exercise</li>
+        <li>Create a deliberate conflict scenario — a file with the same line editable by two people</li>
+        <li>Have a sample PR open to show the review interface (comment, approve, request changes)</li>
+        <li>Know the three merge types: merge commit, squash merge, rebase merge</li>
+      </ul>
+    </div>
+
+    <div class="content-card">
+      <h2>Timing breakdown</h2>
+      <table class="timeline-table">
+        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
+        <tbody>
+          <tr class="active"><td>5 min</td><td>What is a branch? Why not work directly on main?</td></tr>
+          <tr class="active"><td>5 min</td><td>Creating and switching branches</td></tr>
+          <tr class="active"><td>10 min</td><td>Pull Requests — propose, review, discuss, merge</td></tr>
+          <tr class="active"><td>5 min</td><td>Merge types and merge conflicts</td></tr>
+          <tr class="active"><td>5 min</td><td>Live demo — full cycle with a conflict</td></tr>
+          <tr><td>90 min</td><td>Cross-team PR exercise with deliberate conflict</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card">
+      <h2>Script & talking points</h2>
+
+      <h3>What is a branch? (5 min)</h3>
+      <p>A branch is a parallel version of the repository. Changes on a branch don't affect <code>main</code> until they're merged. This lets you work safely without breaking the stable version.</p>
+      <p><strong>Never commit directly to <code>main</code>.</strong> Always create a branch, make changes, open a PR, get reviewed, and merge.</p>
+
+      <div class="tip-box">
+        <div class="tb-label">Whiteboard</div>
+        <p>Draw <code>main</code> as a straight line. Show a branch diverging, commits happening on it, then a PR merging it back into <code>main</code>. This visual makes everything click.</p>
+      </div>
+
+      <h3>Creating and switching branches (5 min)</h3>
+      <div class="cmd-block">
+        <span class="prompt">$</span> git branch add-docs<br>
+        <span class="comment"># Creates a branch called add-docs</span><br>
+        <span class="prompt">$</span> git switch add-docs<br>
+        <span class="comment"># Switches to the new branch</span>
+      </div>
+      <p>Shortcut — create and switch in one command: <code>git switch -c add-docs</code></p>
+
+      <h3>Pull Requests (10 min)</h3>
+      <p>A Pull Request proposes changes from a branch to <code>main</code>. It's where review happens.</p>
+      <p>Every PR should include:</p>
+      <ul>
+        <li><strong>Description:</strong> What changed, why, and how to test. Reference Issues with <code>#issue-number</code>.</li>
+        <li><strong>Reviewers:</strong> At least one person assigned to review.</li>
+        <li><strong>Checks:</strong> GitHub Actions runs automatically. All checks must pass before merging.</li>
+      </ul>
+      <p>Reviewers can:</p>
+      <ul>
+        <li><strong>Comment</strong> on specific lines — ask questions, suggest improvements</li>
+        <li><strong>Approve</strong> — changes look good, ready to merge</li>
+        <li><strong>Request changes</strong> — something needs fixing before merging</li>
+      </ul>
+
+      <h3>Merge types and conflicts (5 min)</h3>
+      <p><strong>Three merge types:</strong></p>
+      <ul>
+        <li><strong>Merge commit:</strong> Preserves all commits from the branch. History shows the branch existed.</li>
+        <li><strong>Squash merge:</strong> Combines all branch commits into one. Clean history. Use this for feature branches.</li>
+        <li><strong>Rebase merge:</strong> Rewrites commits to appear as if they were made on <code>main</code> sequentially. Advanced.</li>
+      </ul>
+      <p><strong>Merge conflicts:</strong> When two branches edit the same line differently. Git marks the conflict in the file:</p>
+      <div class="cmd-block">
+        &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>
+        This is the version on main<br>
+        =======<br>
+        This is the version on my branch<br>
+        &gt;&gt;&gt;&gt;&gt;&gt;&gt; my-branch
+      </div>
+      <p>You edit the file to keep the correct version, remove the conflict markers, stage, commit, and push.</p>
+
+      <div class="tip-box">
+        <div class="tb-label">Conflict tip</div>
+        <p>Conflicts are normal. They're not a mistake. Every engineer resolves conflicts. The key is to read the markers, talk to the other person if you're unsure, and keep the correct version.</p>
+      </div>
+
+      <h3>Live demo (5 min)</h3>
+      <p>Run through the complete cycle:</p>
+      <ul>
+        <li>Create a branch: <code>git switch -c demo-pr</code></li>
+        <li>Edit a file, stage, commit, push</li>
+        <li>Open a PR on GitHub.com — show the description, diff, and reviewer assignment</li>
+        <li>Merge the PR (squash merge)</li>
+        <li>Switch to <code>main</code>, pull, verify the changes</li>
+        <li>Introduce a conflict: have someone else edit the same line on main, then try to merge your branch</li>
+      </ul>
+
+      <h3>Exercise — Cross-Team PR (90 min)</h3>
+      <div class="tip-box">
+        <div class="tb-label">Instructions</div>
+        <p>Split into pairs. Person A creates a branch, edits the team roster file, commits, pushes, and opens a PR. Person B reviews the PR, leaves a comment, approves. Person A merges. Swap roles.</p>
+        <p>The facilitator introduces a deliberate conflict: both people edit the same line in the same file. Each pair resolves their conflict together.</p>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Common pitfalls</h2>
+      <ul>
+        <li><strong>Working on main:</strong> Remind constantly — never commit to main directly. Always branch.</li>
+        <li><strong>Vague PR descriptions:</strong> "Updated stuff" is not a description. Write what and why.</li>
+        <li><strong>Merging your own PR:</strong> Always get at least one review. No self-merges to main.</li>
+        <li><strong>Fear of conflicts:</strong> Demystify conflict markers. Show that it's just a decision: keep left, keep right, or combine.</li>
+      </ul>
+    </div>
+
+    <div class="content-card">
+      <h2>Quiz</h2>
+      <div class="quiz-q"><strong>1.</strong> What is a branch in Git?</div>
+      <div class="quiz-a">A. A copy of the entire repository · B. A parallel version of the code <span class="correct">✓</span> · C. A type of commit · D. A remote repository</div>
+      <div class="quiz-q"><strong>2.</strong> What is a Pull Request used for?</div>
+      <div class="quiz-a">A. Deleting a branch · B. Proposing changes and requesting review <span class="correct">✓</span> · C. Downloading files · D. Creating a new repository</div>
+      <div class="quiz-q"><strong>3.</strong> Which merge type creates a single commit from all branch commits?</div>
+      <div class="quiz-a">A. Merge commit · B. Squash merge <span class="correct">✓</span> · C. Rebase merge · D. Fast-forward</div>
+      <div class="quiz-q"><strong>4.</strong> A merge conflict happens when:</div>
+      <div class="quiz-a">A. Two people push at the same time · B. The same line is edited differently in two branches <span class="correct">✓</span> · C. A file is deleted · D. The internet disconnects</div>
+      <div class="quiz-q"><strong>5.</strong> How do you switch to an existing branch named <code>add-docs</code>?</div>
+      <div class="quiz-a">A. <code>git branch add-docs</code> · B. <code>git switch add-docs</code> <span class="correct">✓</span> · C. <code>git checkout -b add-docs</code> · D. <code>git start add-docs</code></div>
+    </div>
+
+    <div class="mod-nav">
+      <a href="module-3.html" class="prev">← Previous: Git Basics</a>
+      <a href="module-5.html" class="next">Next: Repository Standards →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand">Foundry</div>
+  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+</footer>
+
+</body>
+</html>

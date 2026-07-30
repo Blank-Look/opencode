@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 5 — Repository Standards | Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--forge:#5B4B3A;--forge-dark:#3D3228;--forge-light:#8A735C;--ember:#C96A3D;--ember-light:#E8925A;--cream:#F8F4EF;--stone-100:#F0ECE6;--stone-200:#E0D9D0;--stone-300:#C5BBB0;--stone-400:#A8998C;--stone-500:#8C7E72;--stone-600:#6E6257;--stone-700:#524840;--stone-800:#362F2A;--stone-900:#1C1815;--white:#FFFFFF;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--stone-700);background:var(--cream);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,244,239,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--stone-200);padding:0 2rem;height:64px;display:flex;align-items:center}
+.nav-inner{max-width:1040px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-left{display:flex;align-items:center;gap:0}
+.nav-schoolcode{font-weight:600;font-size:0.85rem;color:var(--stone-400);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;padding-right:0.75rem;margin-right:0.75rem;border-right:1px solid var(--stone-300);transition:color .15s}
+.nav-schoolcode:hover{color:var(--ember)}
+.nav-brand{font-weight:700;font-size:1rem;color:var(--forge);text-decoration:none}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{text-decoration:none;color:var(--stone-500);font-size:.875rem;font-weight:500;padding:.5rem 1rem;border-radius:8px;transition:all .15s}
+.nav-links a:hover{color:var(--ember);background:rgba(201,106,61,0.06)}
+.nav-cta{background:var(--forge);color:#fff!important;font-weight:600}
+.nav-cta:hover{background:var(--forge-dark)!important}
+.page-header{padding:7rem 2rem 3rem;background:linear-gradient(135deg,var(--cream),#EDE6DE 50%,#E6DDD3 100%);border-bottom:1px solid var(--stone-200)}
+.page-header .ph-inner{max-width:920px;margin:0 auto}
+.page-header .ph-nav{margin-bottom:1.5rem}
+.page-header .ph-nav a{font-size:.8rem;color:var(--stone-400);text-decoration:none;transition:color .15s}
+.page-header .ph-nav a:hover{color:var(--ember)}
+.page-header .ph-nav .sep{color:var(--stone-300);margin:0 .5rem}
+.page-header h1{font-size:2.75rem;font-weight:300;letter-spacing:-.03em;color:var(--stone-800);line-height:1.1;margin-bottom:.5rem}
+.page-header h1 strong{font-weight:700;color:var(--forge)}
+.page-header .ph-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem}
+.page-header .ph-meta span{font-size:.8rem;color:var(--stone-400);font-weight:500}
+.page-header .ph-meta strong{color:var(--forge);font-weight:700}
+section{padding:3rem 2rem 4rem}
+.section-inner{max-width:920px;margin:0 auto}
+.content-card{background:var(--white);border:1px solid var(--stone-200);border-radius:16px;padding:2.5rem;margin-bottom:1.5rem}
+.content-card:hover{border-color:var(--ember)}
+.content-card h2{font-size:1.1rem;font-weight:700;color:var(--stone-800);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--stone-100)}
+.content-card h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--forge);margin-bottom:.5rem;margin-top:1.25rem}
+.content-card h3:first-of-type{margin-top:0}
+.content-card p,.content-card li{font-size:.9rem;color:var(--stone-600);line-height:1.7}
+.content-card ul{padding-left:1.25rem;margin-bottom:.75rem}
+.content-card ul li{margin-bottom:.25rem}
+.content-card .dir-block{background:var(--cream);border:1px solid var(--stone-200);border-radius:8px;padding:1rem;margin:.5rem 0;font-family:monospace;font-size:.85rem;line-height:1.8;overflow-x:auto;color:var(--stone-700)}
+.content-card .dir-block .dir{color:var(--forge);font-weight:600}
+.tip-box{background:var(--cream);border:1px solid var(--stone-200);border-radius:10px;padding:1.25rem;margin:.75rem 0}
+.tip-box .tb-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ember);margin-bottom:.375rem}
+.tip-box p,.tip-box li{font-size:.85rem;color:var(--stone-600);line-height:1.6}
+.tip-box code{background:var(--stone-200);padding:.125rem .375rem;border-radius:4px;font-size:.8rem;color:var(--stone-700)}
+.timeline-table{width:100%;border-collapse:collapse;margin:.75rem 0}
+.timeline-table th{text-align:left;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--stone-400);padding:.5rem .75rem;border-bottom:1px solid var(--stone-200)}
+.timeline-table td{font-size:.85rem;color:var(--stone-600);padding:.5rem .75rem;border-bottom:1px solid var(--stone-100)}
+.timeline-table td:first-child{font-weight:600;color:var(--stone-700);white-space:nowrap}
+.timeline-table .active{background:rgba(201,106,61,0.04)}
+.quiz-q{font-size:.875rem;color:var(--stone-600);line-height:1.6;margin-bottom:.25rem}
+.quiz-q strong{color:var(--stone-700)}
+.quiz-a{font-size:.85rem;color:var(--stone-400);margin-left:1rem;margin-bottom:.5rem}
+.quiz-a .correct{color:var(--forge);font-weight:600}
+.mod-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.mod-nav a{padding:.75rem 1.5rem;border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .2s}
+.mod-nav .prev{background:transparent;color:var(--stone-600);border:1px solid var(--stone-300)}
+.mod-nav .prev:hover{border-color:var(--ember);color:var(--ember)}
+.mod-nav .next{background:var(--forge);color:var(--white)}
+.mod-nav .next:hover{background:var(--forge-dark);transform:translateY(-1px)}
+footer{background:var(--stone-900);color:var(--stone-400);padding:3rem 2rem;text-align:center;font-size:.875rem}
+footer .f-brand{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+footer .f-copy{font-size:.8rem}
+@media(max-width:768px){
+  nav{padding:0 1rem}.nav-links{display:none}
+  .page-header h1{font-size:2rem}
+  .content-card{padding:1.5rem}
+  section{padding:2rem 1rem 3rem}
+  .mod-nav{flex-direction:column}
+  .mod-nav a{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../../../index.html" class="nav-schoolcode">SchoolCode</a>
+      <a href="index.html" class="nav-brand">Foundry</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="qa.html">Q&A</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="ph-inner">
+    <div class="ph-nav">
+      <a href="curriculum.html">Curriculum</a><span class="sep">/</span><a href="curriculum.html#m5">Module 5</a>
+    </div>
+    <h1>Module 5: <strong>Repository Standards</strong></h1>
+    <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">README, docs/, scripts/, .github/, LICENSE, CODEOWNERS, .gitignore. Structure every repo consistently.</p>
+    <div class="ph-meta">
+      <span><strong>1 h</strong> — 30 min instruction + 30 min exercise</span>
+      <span><strong>Afternoon</strong> Day 1 · 15:30–16:30</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+
+    <div class="content-card">
+      <h2>Facilitator preparation</h2>
+      <ul>
+        <li>Have example repositories open showing good structure and bad structure</li>
+        <li>Prepare a repository template with the standard layout</li>
+        <li>Know your team's naming conventions (or be ready to decide them)</li>
+        <li>Have CODEOWNERS, .gitignore, and LICENSE file templates ready</li>
+      </ul>
+    </div>
+
+    <div class="content-card">
+      <h2>Timing breakdown</h2>
+      <table class="timeline-table">
+        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
+        <tbody>
+          <tr class="active"><td>5 min</td><td>Why standards matter — consistency, onboarding, automation</td></tr>
+          <tr class="active"><td>10 min</td><td>Standard layout walkthrough</td></tr>
+          <tr class="active"><td>5 min</td><td>README, LICENSE, CODEOWNERS</td></tr>
+          <tr class="active"><td>5 min</td><td>.gitignore and naming conventions</td></tr>
+          <tr class="active"><td>5 min</td><td>Repository templates — start every repo the same way</td></tr>
+          <tr><td>30 min</td><td>Exercise — build a repository from scratch</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card">
+      <h2>Script & talking points</h2>
+
+      <h3>Why standards matter (5 min)</h3>
+      <p>Every repository should look the same. When a new engineer joins and opens a repo, they should know exactly where to find docs, scripts, and config. Consistency removes cognitive load.</p>
+      <ul>
+        <li><strong>Onboarding:</strong> New team members can navigate any repo immediately</li>
+        <li><strong>Automation:</strong> Tools and workflows can rely on consistent paths</li>
+        <li><strong>Review:</strong> PRs are easier to review when the structure is predictable</li>
+      </ul>
+
+      <h3>Standard layout (10 min)</h3>
+      <div class="dir-block">
+        <span class="dir">my-repo/</span><br>
+        ├── <span class="dir">README.md</span>          # Project description, usage, owners<br>
+        ├── <span class="dir">docs/</span>                # Documentation (Markdown)<br>
+        ├── <span class="dir">scripts/</span>             # PowerShell, bash scripts<br>
+        ├── <span class="dir">.github/</span>              # GitHub config: workflows, templates<br>
+        │   ├── workflows/<br>
+        │   └── CODEOWNERS<br>
+        ├── <span class="dir">.gitignore</span><br>
+        ├── <span class="dir">LICENSE</span><br>
+        └── <span class="dir">src/</span> (if applicable)     # Source code (PowerShell modules, etc.)
+      </div>
+
+      <h3>README, LICENSE, CODEOWNERS (5 min)</h3>
+      <p><strong>README.md:</strong> Every repo needs one. Include: project title, one-line description, how to use it, who owns it, where to get help.</p>
+      <p><strong>LICENSE:</strong> Always include one. Internal repos can use "UNLICENSED" (all rights reserved) or MIT. Never leave it out — without a license, others can't legally use the code.</p>
+      <p><strong>CODEOWNERS:</strong> File at <code>.github/CODEOWNERS</code>. Defines who is automatically requested for review when files in certain paths are changed.</p>
+      <div class="dir-block">
+        <span class="comment"># .github/CODEOWNERS</span><br>
+        *       @team-lead          <span class="comment"># Default owner for all files</span><br>
+        /docs/  @docs-team          <span class="comment"># Docs changes reviewed by docs team</span><br>
+        /scripts/ @eng-team         <span class="comment"># Script changes reviewed by eng</span>
+      </div>
+
+      <h3>.gitignore and naming conventions (5 min)</h3>
+      <p><strong>.gitignore</strong> prevents committing files that shouldn't be in version control:</p>
+      <ul>
+        <li>Secrets and credentials (<code>.env</code>, <code>*.key</code>)</li>
+        <li>Build artifacts (<code>node_modules/</code>, <code>dist/</code>)</li>
+        <li>OS files (<code>.DS_Store</code>, <code>Thumbs.db</code>)</li>
+        <li>IDE config (<code>.vscode/</code>, <code>.idea/</code>)</li>
+      </ul>
+      <p><strong>Naming conventions:</strong></p>
+      <ul>
+        <li>Lowercase with hyphens: <code>intune-packaging</code>, <code>azure-lz-docs</code>, <code>entra-id-scripts</code></li>
+        <li>Descriptive but short: <code>teams-automation</code>, not <code>microsoft-teams-automation-scripts-and-tools</code></li>
+        <li>No spaces, no uppercase, no underscores</li>
+      </ul>
+
+      <div class="tip-box">
+        <div class="tb-label">Template repositories</div>
+        <p>GitHub allows marking a repo as a template. When someone creates a new repo from a template, they get all the files and structure. Set one up for your team with the standard layout, README template, CODEOWNERS, .gitignore, and LICENSE pre-configured.</p>
+      </div>
+
+      <h3>Exercise — Build a Repository (30 min)</h3>
+      <div class="tip-box">
+        <div class="tb-label">Instructions</div>
+        <p>Each person creates a new repository (or uses the team template). Add:</p>
+        <ul>
+          <li><code>README.md</code> with title, description, install steps, and owner</li>
+          <li><code>docs/</code> folder with one documentation page</li>
+          <li><code>.github/CODEOWNERS</code> with themselves as default owner</li>
+          <li><code>.gitignore</code> for PowerShell projects</li>
+          <li><code>LICENSE</code> file (MIT or UNLICENSED)</li>
+        </ul>
+        <p>Commit and push. Show the final repository structure on GitHub.</p>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Quiz</h2>
+      <div class="quiz-q"><strong>1.</strong> Which file defines who is auto-requested for review when specific paths change?</div>
+      <div class="quiz-a">A. <code>.gitignore</code> · B. <code>CODEOWNERS</code> <span class="correct">✓</span> · C. <code>LICENSE</code> · D. <code>README.md</code></div>
+      <div class="quiz-q"><strong>2.</strong> What is the recommended naming convention for repositories?</div>
+      <div class="quiz-a">A. PascalCase · B. snake_case · C. Lowercase with hyphens <span class="correct">✓</span> · D. ALL_CAPS</div>
+      <div class="quiz-q"><strong>3.</strong> Why should every repository include a LICENSE file?</div>
+      <div class="quiz-a">A. It's optional · B. Without one, others can't legally use the code <span class="correct">✓</span> · C. GitHub requires it · D. It improves SEO</div>
+      <div class="quiz-q"><strong>4.</strong> Where should engineering documentation live?</div>
+      <div class="quiz-a">A. In a <code>docs/</code> folder in the repository <span class="correct">✓</span> · B. On SharePoint · C. In a Word document on a network drive · D. In email</div>
+      <div class="quiz-q"><strong>5.</strong> What does <code>.gitignore</code> do?</div>
+      <div class="quiz-a">A. Ignores all files · B. Prevents specific files from being tracked by Git <span class="correct">✓</span> · C. Deletes files automatically · D. Hides files from GitHub</div>
+    </div>
+
+    <div class="mod-nav">
+      <a href="module-4.html" class="prev">← Previous: Branches & PRs</a>
+      <a href="module-6.html" class="next">Next: GitHub Actions →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand">Foundry</div>
+  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+</footer>
+
+</body>
+</html>

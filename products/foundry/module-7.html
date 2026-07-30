@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 7 — AI | Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--forge:#5B4B3A;--forge-dark:#3D3228;--forge-light:#8A735C;--ember:#C96A3D;--ember-light:#E8925A;--cream:#F8F4EF;--stone-100:#F0ECE6;--stone-200:#E0D9D0;--stone-300:#C5BBB0;--stone-400:#A8998C;--stone-500:#8C7E72;--stone-600:#6E6257;--stone-700:#524840;--stone-800:#362F2A;--stone-900:#1C1815;--white:#FFFFFF;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--stone-700);background:var(--cream);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,244,239,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--stone-200);padding:0 2rem;height:64px;display:flex;align-items:center}
+.nav-inner{max-width:1040px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-left{display:flex;align-items:center;gap:0}
+.nav-schoolcode{font-weight:600;font-size:0.85rem;color:var(--stone-400);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;padding-right:0.75rem;margin-right:0.75rem;border-right:1px solid var(--stone-300);transition:color .15s}
+.nav-schoolcode:hover{color:var(--ember)}
+.nav-brand{font-weight:700;font-size:1rem;color:var(--forge);text-decoration:none}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{text-decoration:none;color:var(--stone-500);font-size:.875rem;font-weight:500;padding:.5rem 1rem;border-radius:8px;transition:all .15s}
+.nav-links a:hover{color:var(--ember);background:rgba(201,106,61,0.06)}
+.nav-cta{background:var(--forge);color:#fff!important;font-weight:600}
+.nav-cta:hover{background:var(--forge-dark)!important}
+.page-header{padding:7rem 2rem 3rem;background:linear-gradient(135deg,var(--cream),#EDE6DE 50%,#E6DDD3 100%);border-bottom:1px solid var(--stone-200)}
+.page-header .ph-inner{max-width:920px;margin:0 auto}
+.page-header .ph-nav{margin-bottom:1.5rem}
+.page-header .ph-nav a{font-size:.8rem;color:var(--stone-400);text-decoration:none;transition:color .15s}
+.page-header .ph-nav a:hover{color:var(--ember)}
+.page-header .ph-nav .sep{color:var(--stone-300);margin:0 .5rem}
+.page-header h1{font-size:2.75rem;font-weight:300;letter-spacing:-.03em;color:var(--stone-800);line-height:1.1;margin-bottom:.5rem}
+.page-header h1 strong{font-weight:700;color:var(--forge)}
+.page-header .ph-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem}
+.page-header .ph-meta span{font-size:.8rem;color:var(--stone-400);font-weight:500}
+.page-header .ph-meta strong{color:var(--forge);font-weight:700}
+section{padding:3rem 2rem 4rem}
+.section-inner{max-width:920px;margin:0 auto}
+.content-card{background:var(--white);border:1px solid var(--stone-200);border-radius:16px;padding:2.5rem;margin-bottom:1.5rem}
+.content-card:hover{border-color:var(--ember)}
+.content-card h2{font-size:1.1rem;font-weight:700;color:var(--stone-800);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--stone-100)}
+.content-card h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--forge);margin-bottom:.5rem;margin-top:1.25rem}
+.content-card h3:first-of-type{margin-top:0}
+.content-card p,.content-card li{font-size:.9rem;color:var(--stone-600);line-height:1.7}
+.content-card ul{padding-left:1.25rem;margin-bottom:.75rem}
+.content-card ul li{margin-bottom:.25rem}
+.tip-box{background:var(--cream);border:1px solid var(--stone-200);border-radius:10px;padding:1.25rem;margin:.75rem 0}
+.tip-box .tb-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ember);margin-bottom:.375rem}
+.tip-box p,.tip-box li{font-size:.85rem;color:var(--stone-600);line-height:1.6}
+.tip-box code{background:var(--stone-200);padding:.125rem .375rem;border-radius:4px;font-size:.8rem;color:var(--stone-700)}
+.timeline-table{width:100%;border-collapse:collapse;margin:.75rem 0}
+.timeline-table th{text-align:left;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--stone-400);padding:.5rem .75rem;border-bottom:1px solid var(--stone-200)}
+.timeline-table td{font-size:.85rem;color:var(--stone-600);padding:.5rem .75rem;border-bottom:1px solid var(--stone-100)}
+.timeline-table td:first-child{font-weight:600;color:var(--stone-700);white-space:nowrap}
+.timeline-table .active{background:rgba(201,106,61,0.04)}
+.station-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.75rem 0}
+.station-card{background:var(--cream);border:1px solid var(--stone-200);border-radius:10px;padding:1.25rem}
+.station-card h4{font-size:.85rem;font-weight:700;color:var(--forge);margin-bottom:.375rem}
+.station-card p{font-size:.82rem;color:var(--stone-600);line-height:1.6}
+.quiz-q{font-size:.875rem;color:var(--stone-600);line-height:1.6;margin-bottom:.25rem}
+.quiz-q strong{color:var(--stone-700)}
+.quiz-a{font-size:.85rem;color:var(--stone-400);margin-left:1rem;margin-bottom:.5rem}
+.quiz-a .correct{color:var(--forge);font-weight:600}
+.mod-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.mod-nav a{padding:.75rem 1.5rem;border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .2s}
+.mod-nav .prev{background:transparent;color:var(--stone-600);border:1px solid var(--stone-300)}
+.mod-nav .prev:hover{border-color:var(--ember);color:var(--ember)}
+.mod-nav .next{background:var(--forge);color:var(--white)}
+.mod-nav .next:hover{background:var(--forge-dark);transform:translateY(-1px)}
+footer{background:var(--stone-900);color:var(--stone-400);padding:3rem 2rem;text-align:center;font-size:.875rem}
+footer .f-brand{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+footer .f-copy{font-size:.8rem}
+@media(max-width:768px){
+  nav{padding:0 1rem}.nav-links{display:none}
+  .page-header h1{font-size:2rem}
+  .content-card{padding:1.5rem}
+  section{padding:2rem 1rem 3rem}
+  .mod-nav{flex-direction:column}
+  .mod-nav a{text-align:center}
+  .station-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../../../index.html" class="nav-schoolcode">SchoolCode</a>
+      <a href="index.html" class="nav-brand">Foundry</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="qa.html">Q&A</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="ph-inner">
+    <div class="ph-nav">
+      <a href="curriculum.html">Curriculum</a><span class="sep">/</span><a href="curriculum.html#m7">Module 7</a>
+    </div>
+    <h1>Module 7: <strong>AI</strong></h1>
+    <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">ChatGPT, Copilot, OpenCode, Claude Code — generating docs, writing PowerShell, reviewing PRs, building workflows.</p>
+    <div class="ph-meta">
+      <span><strong>1 h</strong> — 20 min demo + 40 min hands-on stations</span>
+      <span><strong>Morning</strong> Day 2 · 10:00–11:00</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+
+    <div class="content-card">
+      <h2>Facilitator preparation</h2>
+      <ul>
+        <li>Ensure ChatGPT (or equivalent) is accessible from training machines</li>
+        <li>Have VS Code with Copilot installed and activated</li>
+        <li>Install OpenCode or Claude Code on at least one demo machine</li>
+        <li>Prepare 4 station cards with specific tasks (laminated or on screen)</li>
+        <li>Have the training repo open with a PR ready for AI review</li>
+      </ul>
+    </div>
+
+    <div class="content-card">
+      <h2>Timing breakdown</h2>
+      <table class="timeline-table">
+        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
+        <tbody>
+          <tr class="active"><td>5 min</td><td>AI tools overview — what each tool does best</td></tr>
+          <tr class="active"><td>5 min</td><td>ChatGPT demo — generate README, PowerShell script</td></tr>
+          <tr class="active"><td>5 min</td><td>Copilot demo — inline completions in VS Code</td></tr>
+          <tr class="active"><td>5 min</td><td>AI agent demo — OpenCode/Claude Code building a workflow</td></tr>
+          <tr><td>40 min</td><td>Rotating hands-on stations (4 stations × 10 min each)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card">
+      <h2>Script & talking points</h2>
+
+      <h3>AI tools overview (5 min)</h3>
+      <p>AI tools are part of the engineering workflow now. They generate, suggest, and automate. The skill is knowing how to prompt them and when to trust the output.</p>
+      <ul>
+        <li><strong>ChatGPT:</strong> Best for generating Markdown, PowerShell scripts, and explaining code. Prompt in natural language, review the output, commit.</li>
+        <li><strong>Copilot:</strong> Best for inline completions while typing in VS Code. Start typing a comment or function name, Copilot suggests the rest.</li>
+        <li><strong>OpenCode / Claude Code:</strong> Terminal-based agents. Describe what you want, they build files, run commands, commit changes.</li>
+      </ul>
+
+      <div class="tip-box">
+        <div class="tb-label">Golden rule</div>
+        <p><strong>AI generates. Humans approve.</strong> Never commit AI output without reading it first. AI can hallucinate commands, flags, and APIs. You are responsible for every line that goes into the repository.</p>
+      </div>
+
+      <h3>ChatGPT demo (5 min)</h3>
+      <p>Prompt: "Write a README.md for an Intune application packaging repository. Include a table of supported applications with App Name, Version, Platform, and Status columns. Include instructions for requesting a new package."</p>
+      <p>Copy the output, review it, adjust, and commit. Then ask: "Write a PowerShell script that exports all Intune compliance policies to CSV." Review for correctness before saving.</p>
+
+      <h3>Copilot demo (5 min)</h3>
+      <p>Open VS Code. In a new PowerShell file, type:</p>
+      <div class="tip-box">
+        <div class="tb-label">Copilot example</div>
+        <p><code># Function to get all Intune devices and export to CSV</code></p>
+        <p>Copilot will suggest the function body. Tab to accept. Show how Copilot adapts to the code you're writing and the comments you leave.</p>
+      </div>
+
+      <h3>AI agent demo (5 min)</h3>
+      <p>Run OpenCode or Claude Code with a prompt: "Create a GitHub Actions workflow that runs on push to main, builds MkDocs documentation, and deploys to GitHub Pages." Watch the agent create the file, explain what it did, and optionally commit it. Emphasise that you review before approving.</p>
+
+      <h3>Hands-on stations (40 min — 4 stations × 10 min each)</h3>
+      <div class="station-grid">
+        <div class="station-card">
+          <h4>Station 1: ChatGPT</h4>
+          <p>Generate a README. Improve existing Markdown. Write a PowerShell script. Ask it to explain a complex script from the repo.</p>
+        </div>
+        <div class="station-card">
+          <h4>Station 2: Copilot</h4>
+          <p>Open VS Code with a PowerShell file. Write comments describing a function. Accept completions. Try refactoring a function.</p>
+        </div>
+        <div class="station-card">
+          <h4>Station 3: AI Agent</h4>
+          <p>Run OpenCode or Claude Code. Prompt: "Create a .github/workflows/ci.yml that runs PowerShell linting on push." Review the output before accepting.</p>
+        </div>
+        <div class="station-card">
+          <h4>Station 4: PR Review</h4>
+          <p>Open a PR in the training repo. Paste the diff into ChatGPT. Ask: "Review this PR for errors, style issues, and security problems."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Common pitfalls</h2>
+      <ul>
+        <li><strong>Blind acceptance:</strong> AI generates plausible-sounding but wrong code. Always test or review.</li>
+        <li><strong>Hallucinated commands:</strong> AI invents PowerShell flags and API endpoints that don't exist. Verify against documentation.</li>
+        <li><strong>Secrets in prompts:</strong> Never paste API keys, passwords, or sensitive data into ChatGPT or any AI tool.</li>
+        <li><strong>Over-reliance:</strong> AI is a productivity tool, not a replacement for understanding. Know enough to judge the output.</li>
+      </ul>
+    </div>
+
+    <div class="content-card">
+      <h2>Quiz</h2>
+      <div class="quiz-q"><strong>1.</strong> What is the golden rule of using AI-generated code?</div>
+      <div class="quiz-a">A. Always commit directly · B. AI generates, humans approve <span class="correct">✓</span> · C. Never use AI for code · D. Trust everything AI produces</div>
+      <div class="quiz-q"><strong>2.</strong> Which AI tool provides inline code completions in VS Code?</div>
+      <div class="quiz-a">A. ChatGPT · B. Copilot <span class="correct">✓</span> · C. OpenCode · D. Claude Code</div>
+      <div class="quiz-q"><strong>3.</strong> What should you do before committing AI-generated output?</div>
+      <div class="quiz-a">A. Format the code · B. Review it for correctness and security <span class="correct">✓</span> · C. Run it once · D. All of the above</div>
+      <div class="quiz-q"><strong>4.</strong> Which type of AI tool runs in the terminal and can create files and run commands?</div>
+      <div class="quiz-a">A. ChatGPT · B. Copilot · C. AI coding agent (OpenCode/Claude Code) <span class="correct">✓</span> · D. Grammarly</div>
+      <div class="quiz-q"><strong>5.</strong> What is a hallucination in AI output?</div>
+      <div class="quiz-a">A. A correct API call · B. Plausible-sounding but incorrect information <span class="correct">✓</span> · C. A keyboard shortcut · D. An error message from GitHub</div>
+    </div>
+
+    <div class="mod-nav">
+      <a href="module-6.html" class="prev">← Previous: GitHub Actions</a>
+      <a href="module-8.html" class="next">Next: Engineering Standards →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand">Foundry</div>
+  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+</footer>
+
+</body>
+</html>

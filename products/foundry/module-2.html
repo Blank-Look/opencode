@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2 — Markdown | Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--forge:#5B4B3A;--forge-dark:#3D3228;--forge-light:#8A735C;--ember:#C96A3D;--ember-light:#E8925A;--cream:#F8F4EF;--stone-100:#F0ECE6;--stone-200:#E0D9D0;--stone-300:#C5BBB0;--stone-400:#A8998C;--stone-500:#8C7E72;--stone-600:#6E6257;--stone-700:#524840;--stone-800:#362F2A;--stone-900:#1C1815;--white:#FFFFFF;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--stone-700);background:var(--cream);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,244,239,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--stone-200);padding:0 2rem;height:64px;display:flex;align-items:center}
+.nav-inner{max-width:1040px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-left{display:flex;align-items:center;gap:0}
+.nav-schoolcode{font-weight:600;font-size:0.85rem;color:var(--stone-400);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;padding-right:0.75rem;margin-right:0.75rem;border-right:1px solid var(--stone-300);transition:color .15s}
+.nav-schoolcode:hover{color:var(--ember)}
+.nav-brand{font-weight:700;font-size:1rem;color:var(--forge);text-decoration:none}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{text-decoration:none;color:var(--stone-500);font-size:.875rem;font-weight:500;padding:.5rem 1rem;border-radius:8px;transition:all .15s}
+.nav-links a:hover{color:var(--ember);background:rgba(201,106,61,0.06)}
+.nav-cta{background:var(--forge);color:#fff!important;font-weight:600}
+.nav-cta:hover{background:var(--forge-dark)!important}
+
+.page-header{padding:7rem 2rem 3rem;background:linear-gradient(135deg,var(--cream),#EDE6DE 50%,#E6DDD3 100%);border-bottom:1px solid var(--stone-200)}
+.page-header .ph-inner{max-width:920px;margin:0 auto}
+.page-header .ph-nav{margin-bottom:1.5rem}
+.page-header .ph-nav a{font-size:.8rem;color:var(--stone-400);text-decoration:none;transition:color .15s}
+.page-header .ph-nav a:hover{color:var(--ember)}
+.page-header .ph-nav .sep{color:var(--stone-300);margin:0 .5rem}
+.page-header h1{font-size:2.75rem;font-weight:300;letter-spacing:-.03em;color:var(--stone-800);line-height:1.1;margin-bottom:.5rem}
+.page-header h1 strong{font-weight:700;color:var(--forge)}
+.page-header .ph-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem}
+.page-header .ph-meta span{font-size:.8rem;color:var(--stone-400);font-weight:500}
+.page-header .ph-meta strong{color:var(--forge);font-weight:700}
+
+section{padding:3rem 2rem 4rem}
+.section-inner{max-width:920px;margin:0 auto}
+
+.content-card{background:var(--white);border:1px solid var(--stone-200);border-radius:16px;padding:2.5rem;margin-bottom:1.5rem}
+.content-card:hover{border-color:var(--ember)}
+.content-card h2{font-size:1.1rem;font-weight:700;color:var(--stone-800);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--stone-100)}
+.content-card h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--forge);margin-bottom:.5rem;margin-top:1.25rem}
+.content-card h3:first-of-type{margin-top:0}
+.content-card p,.content-card li{font-size:.9rem;color:var(--stone-600);line-height:1.7}
+.content-card ul{padding-left:1.25rem;margin-bottom:.75rem}
+.content-card ul li{margin-bottom:.25rem}
+.content-card .md-demo{background:var(--cream);border:1px solid var(--stone-200);border-radius:8px;padding:1rem;margin:.5rem 0;font-size:.85rem;font-family:monospace;line-height:1.8;overflow-x:auto}
+
+.tip-box{background:var(--cream);border:1px solid var(--stone-200);border-radius:10px;padding:1.25rem;margin:.75rem 0}
+.tip-box .tb-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ember);margin-bottom:.375rem}
+.tip-box p,.tip-box li{font-size:.85rem;color:var(--stone-600);line-height:1.6}
+.tip-box code{background:var(--stone-200);padding:.125rem .375rem;border-radius:4px;font-size:.8rem;color:var(--stone-700)}
+
+.timeline-table{width:100%;border-collapse:collapse;margin:.75rem 0}
+.timeline-table th{text-align:left;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--stone-400);padding:.5rem .75rem;border-bottom:1px solid var(--stone-200)}
+.timeline-table td{font-size:.85rem;color:var(--stone-600);padding:.5rem .75rem;border-bottom:1px solid var(--stone-100)}
+.timeline-table td:first-child{font-weight:600;color:var(--stone-700);white-space:nowrap}
+.timeline-table .active{background:rgba(201,106,61,0.04)}
+
+.quiz-q{font-size:.875rem;color:var(--stone-600);line-height:1.6;margin-bottom:.25rem}
+.quiz-q strong{color:var(--stone-700)}
+.quiz-a{font-size:.85rem;color:var(--stone-400);margin-left:1rem;margin-bottom:.5rem}
+.quiz-a .correct{color:var(--forge);font-weight:600}
+
+.mod-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.mod-nav a{padding:.75rem 1.5rem;border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .2s}
+.mod-nav .prev{background:transparent;color:var(--stone-600);border:1px solid var(--stone-300)}
+.mod-nav .prev:hover{border-color:var(--ember);color:var(--ember)}
+.mod-nav .next{background:var(--forge);color:var(--white)}
+.mod-nav .next:hover{background:var(--forge-dark);transform:translateY(-1px)}
+
+footer{background:var(--stone-900);color:var(--stone-400);padding:3rem 2rem;text-align:center;font-size:.875rem}
+footer .f-brand{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+footer .f-copy{font-size:.8rem}
+
+@media(max-width:768px){
+  nav{padding:0 1rem}.nav-links{display:none}
+  .page-header h1{font-size:2rem}
+  .content-card{padding:1.5rem}
+  section{padding:2rem 1rem 3rem}
+  .mod-nav{flex-direction:column}
+  .mod-nav a{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../../../index.html" class="nav-schoolcode">SchoolCode</a>
+      <a href="index.html" class="nav-brand">Foundry</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="qa.html">Q&A</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="ph-inner">
+    <div class="ph-nav">
+      <a href="curriculum.html">Curriculum</a><span class="sep">/</span><a href="curriculum.html#m2">Module 2</a>
+    </div>
+    <h1>Module 2: <strong>Markdown</strong></h1>
+    <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">Headings, lists, tables, links, images, code blocks, Mermaid diagrams.</p>
+    <div class="ph-meta">
+      <span><strong>1 h</strong> 45 min instruction + 15 min exercise</span>
+      <span><strong>Morning</strong> Day 1 · 09:30–10:30</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+
+    <div class="content-card">
+      <h2>Facilitator preparation</h2>
+      <ul>
+        <li>Open a Markdown reference sheet (or have one printed)</li>
+        <li>Prepare a README.md on screen that participants can see rendering live</li>
+        <li>Have a GitHub repo open showing how Markdown renders in the Code tab</li>
+        <li>Prepare the exercise repo with a blank README.md each person will edit</li>
+      </ul>
+    </div>
+
+    <div class="content-card">
+      <h2>Timing breakdown</h2>
+      <table class="timeline-table">
+        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
+        <tbody>
+          <tr class="active"><td>5 min</td><td>Why Markdown? — plain text, versionable, everywhere</td></tr>
+          <tr class="active"><td>10 min</td><td>Headings, text formatting, lists</td></tr>
+          <tr class="active"><td>10 min</td><td>Links, images, tables</td></tr>
+          <tr class="active"><td>10 min</td><td>Code blocks, Mermaid diagrams</td></tr>
+          <tr class="active"><td>10 min</td><td>Live demo — writing and rendering in real time</td></tr>
+          <tr><td>15 min</td><td>Exercise — write a README.md for an Intune app</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card">
+      <h2>Script & talking points</h2>
+
+      <h3>Why Markdown? (5 min)</h3>
+      <p>Markdown is plain text that renders as formatted HTML. Every GitHub repository uses it. README, Issues, PR descriptions, Wiki pages — all Markdown.</p>
+      <p>Why Markdown instead of Word or Google Docs?</p>
+      <ul>
+        <li><strong>Plain text.</strong> Any editor works. It's versionable — Git can diff every change.</li>
+        <li><strong>Portable.</strong> A Markdown file from 2014 still renders correctly today. No vendor lock-in.</li>
+        <li><strong>Reviewable.</strong> Changes show up in Pull Requests line by line. No "track changes" mess.</li>
+        <li><strong>Everywhere.</strong> GitHub, Teams, VS Code, Obsidian, Notion — all support Markdown.</li>
+      </ul>
+
+      <div class="tip-box">
+        <div class="tb-label">Facilitator note</div>
+        <p>Some participants may never have used Markdown. Reassure them: there are only about 10 syntax rules. They'll know 90% of it within 30 minutes. The rest they'll Google as needed.</p>
+      </div>
+
+      <h3>Headings & text (10 min)</h3>
+      <p>Demonstrate each syntax and show the rendered output side by side:</p>
+      <div class="md-demo">
+# Heading 1 (document title, use once)<br>
+## Heading 2 (section)<br>
+### Heading 3 (subsection)<br><br>
+**Bold text**  — double asterisks<br>
+*Italic text*  — single asterisk<br>
+~~Strikethrough~~  — double tilde<br><br>
+Unordered list:<br>
+- Item one<br>
+- Item two<br>
+&nbsp;&nbsp;- Sub-item<br><br>
+Ordered list:<br>
+1. First<br>
+2. Second
+      </div>
+      <p>Emphasise: one <code># Heading 1</code> per document. Use that as the title. Sections use <code>##</code> and <code>###</code>.</p>
+
+      <h3>Links, images, tables (10 min)</h3>
+      <div class="md-demo">
+[Link text](https://example.com)<br>
+![Alt text](image.png)<br><br>
+| Header 1 | Header 2 | Header 3 |<br>
+|----------|:--------:|--------:|<br>
+| Left     | Center   | Right   |<br>
+| Cell     | Cell     | Cell    |
+      </div>
+      <p>For tables, the colon in the separator row controls alignment: <code>:---</code> left, <code>:---:</code> center, <code>---:</code> right. Without colons, default is left-aligned.</p>
+      <p><strong>Relative links:</strong> Link between docs in the same repository using relative paths: <code>[Policy](docs/policy.md)</code>. These work on GitHub and in cloned repos.</p>
+
+      <h3>Code blocks & Mermaid (10 min)</h3>
+      <p>Code blocks use triple backticks. The language name after the opening backticks enables syntax highlighting:</p>
+      <div class="md-demo">
+```powershell<br>
+Get-IntuneCompliancePolicy | Export-Csv -Path policies.csv<br>
+```<br><br>
+```yaml<br>
+name: Deploy Docs<br>
+on: [push]<br>
+```<br><br>
+```mermaid<br>
+graph LR<br>
+&nbsp;&nbsp;A[Requirement] --> B[Build]<br>
+&nbsp;&nbsp;B --> C[Review]<br>
+&nbsp;&nbsp;C --> D[Deploy]<br>
+```
+      </div>
+      <p><strong>Mermaid</strong> is embedded diagramming. Fenced code blocks with <code>```mermaid</code> render as flowcharts, sequence diagrams, Gantt charts, and more. GitHub renders them automatically.</p>
+
+      <div class="tip-box">
+        <div class="tb-label">Live demo</div>
+        <p>Open a file in GitHub's web editor. Write Markdown on the left, see it render on the right. Edit the repo's README.md live to demonstrate. This is the fastest way for people to "get it."</p>
+      </div>
+
+      <h3>Exercise (15 min)</h3>
+      <div class="tip-box">
+        <div class="tb-label">README.md for Intune App Packaging</div>
+        <p>Each person creates a README.md that includes:</p>
+        <ul>
+          <li>Heading: "Intune Application Packaging Repository"</li>
+          <li>Description paragraph</li>
+          <li>Table with 3+ apps (App Name, Version, Install Command)</li>
+          <li>A PowerShell code block showing a sample install command</li>
+          <li>A Mermaid flowchart showing: Request → Package → Test → Deploy</li>
+          <li>A link to the team's documentation standards</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Common pitfalls</h2>
+      <ul>
+        <li><strong>Space after <code>#</code>:</strong> <code>#Heading</code> doesn't work. Must be <code># Heading</code>.</li>
+        <li><strong>Blank lines before headings:</strong> Not always required but improves readability.</li>
+        <li><strong>Table pipes not aligned:</strong> Pipes don't need to be visually aligned in the source, but they're easier to read if they are.</li>
+        <li><strong>Mermaid rendering on GitHub:</strong> Only renders in Markdown files on GitHub.com, not in all contexts. Still write them — they work in PRs and the Code tab.</li>
+      </ul>
+    </div>
+
+    <div class="content-card">
+      <h2>Quiz</h2>
+      <div class="quiz-q"><strong>1.</strong> How do you create a level-2 heading in Markdown?</div>
+      <div class="quiz-a">A. <code>## Heading</code> <span class="correct">✓</span> · B. <code>**Heading**</code> · C. <code>-- Heading</code> · D. <code>=== Heading</code></div>
+      <div class="quiz-q"><strong>2.</strong> Which Markdown syntax creates a code block with PowerShell highlighting?</div>
+      <div class="quiz-a">A. <code>```powershell</code> <span class="correct">✓</span> · B. <code>```ps</code> · C. <code>'''powershell</code> · D. <code>---powershell</code></div>
+      <div class="quiz-q"><strong>3.</strong> What does <code>![Screenshot](img/screen.png)</code> do?</div>
+      <div class="quiz-a">A. Creates a link to the file · B. Embeds an image with alt text <span class="correct">✓</span> · C. Downloads the image · D. Nothing — the syntax is wrong</div>
+      <div class="quiz-q"><strong>4.</strong> How do you create a table column aligned to the right?</div>
+      <div class="quiz-a">A. <code>:---</code> · B. <code>---:</code> <span class="correct">✓</span> · C. <code>:---:</code> · D. <code>----</code></div>
+      <div class="quiz-q"><strong>5.</strong> Which tool renders diagram code into visual diagrams in GitHub Markdown?</div>
+      <div class="quiz-a">A. Graphviz · B. Mermaid <span class="correct">✓</span> · C. PlantUML · D. Draw.io</div>
+    </div>
+
+    <div class="mod-nav">
+      <a href="module-1.html" class="prev">← Previous: Why GitHub?</a>
+      <a href="module-3.html" class="next">Next: Git Basics →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand">Foundry</div>
+  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+</footer>
+
+</body>
+</html>

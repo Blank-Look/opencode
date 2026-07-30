@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 6 — GitHub Actions | Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--forge:#5B4B3A;--forge-dark:#3D3228;--forge-light:#8A735C;--ember:#C96A3D;--ember-light:#E8925A;--cream:#F8F4EF;--stone-100:#F0ECE6;--stone-200:#E0D9D0;--stone-300:#C5BBB0;--stone-400:#A8998C;--stone-500:#8C7E72;--stone-600:#6E6257;--stone-700:#524840;--stone-800:#362F2A;--stone-900:#1C1815;--white:#FFFFFF;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--stone-700);background:var(--cream);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,244,239,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--stone-200);padding:0 2rem;height:64px;display:flex;align-items:center}
+.nav-inner{max-width:1040px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-left{display:flex;align-items:center;gap:0}
+.nav-schoolcode{font-weight:600;font-size:0.85rem;color:var(--stone-400);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;padding-right:0.75rem;margin-right:0.75rem;border-right:1px solid var(--stone-300);transition:color .15s}
+.nav-schoolcode:hover{color:var(--ember)}
+.nav-brand{font-weight:700;font-size:1rem;color:var(--forge);text-decoration:none}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{text-decoration:none;color:var(--stone-500);font-size:.875rem;font-weight:500;padding:.5rem 1rem;border-radius:8px;transition:all .15s}
+.nav-links a:hover{color:var(--ember);background:rgba(201,106,61,0.06)}
+.nav-cta{background:var(--forge);color:#fff!important;font-weight:600}
+.nav-cta:hover{background:var(--forge-dark)!important}
+.page-header{padding:7rem 2rem 3rem;background:linear-gradient(135deg,var(--cream),#EDE6DE 50%,#E6DDD3 100%);border-bottom:1px solid var(--stone-200)}
+.page-header .ph-inner{max-width:920px;margin:0 auto}
+.page-header .ph-nav{margin-bottom:1.5rem}
+.page-header .ph-nav a{font-size:.8rem;color:var(--stone-400);text-decoration:none;transition:color .15s}
+.page-header .ph-nav a:hover{color:var(--ember)}
+.page-header .ph-nav .sep{color:var(--stone-300);margin:0 .5rem}
+.page-header h1{font-size:2.75rem;font-weight:300;letter-spacing:-.03em;color:var(--stone-800);line-height:1.1;margin-bottom:.5rem}
+.page-header h1 strong{font-weight:700;color:var(--forge)}
+.page-header .ph-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem}
+.page-header .ph-meta span{font-size:.8rem;color:var(--stone-400);font-weight:500}
+.page-header .ph-meta strong{color:var(--forge);font-weight:700}
+section{padding:3rem 2rem 4rem}
+.section-inner{max-width:920px;margin:0 auto}
+.content-card{background:var(--white);border:1px solid var(--stone-200);border-radius:16px;padding:2.5rem;margin-bottom:1.5rem}
+.content-card:hover{border-color:var(--ember)}
+.content-card h2{font-size:1.1rem;font-weight:700;color:var(--stone-800);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--stone-100)}
+.content-card h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--forge);margin-bottom:.5rem;margin-top:1.25rem}
+.content-card h3:first-of-type{margin-top:0}
+.content-card p,.content-card li{font-size:.9rem;color:var(--stone-600);line-height:1.7}
+.content-card ul{padding-left:1.25rem;margin-bottom:.75rem}
+.content-card ul li{margin-bottom:.25rem}
+.content-card .yaml-block{background:var(--cream);border:1px solid var(--stone-200);border-radius:8px;padding:1rem;margin:.5rem 0;font-family:monospace;font-size:.82rem;line-height:1.7;overflow-x:auto;color:var(--stone-700)}
+.content-card .yaml-block .comment{color:var(--stone-400);font-style:italic}
+.content-card .yaml-block .key{color:var(--forge)}
+.tip-box{background:var(--cream);border:1px solid var(--stone-200);border-radius:10px;padding:1.25rem;margin:.75rem 0}
+.tip-box .tb-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ember);margin-bottom:.375rem}
+.tip-box p,.tip-box li{font-size:.85rem;color:var(--stone-600);line-height:1.6}
+.tip-box code{background:var(--stone-200);padding:.125rem .375rem;border-radius:4px;font-size:.8rem;color:var(--stone-700)}
+.timeline-table{width:100%;border-collapse:collapse;margin:.75rem 0}
+.timeline-table th{text-align:left;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--stone-400);padding:.5rem .75rem;border-bottom:1px solid var(--stone-200)}
+.timeline-table td{font-size:.85rem;color:var(--stone-600);padding:.5rem .75rem;border-bottom:1px solid var(--stone-100)}
+.timeline-table td:first-child{font-weight:600;color:var(--stone-700);white-space:nowrap}
+.timeline-table .active{background:rgba(201,106,61,0.04)}
+.quiz-q{font-size:.875rem;color:var(--stone-600);line-height:1.6;margin-bottom:.25rem}
+.quiz-q strong{color:var(--stone-700)}
+.quiz-a{font-size:.85rem;color:var(--stone-400);margin-left:1rem;margin-bottom:.5rem}
+.quiz-a .correct{color:var(--forge);font-weight:600}
+.mod-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.mod-nav a{padding:.75rem 1.5rem;border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .2s}
+.mod-nav .prev{background:transparent;color:var(--stone-600);border:1px solid var(--stone-300)}
+.mod-nav .prev:hover{border-color:var(--ember);color:var(--ember)}
+.mod-nav .next{background:var(--forge);color:var(--white)}
+.mod-nav .next:hover{background:var(--forge-dark);transform:translateY(-1px)}
+footer{background:var(--stone-900);color:var(--stone-400);padding:3rem 2rem;text-align:center;font-size:.875rem}
+footer .f-brand{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+footer .f-copy{font-size:.8rem}
+@media(max-width:768px){
+  nav{padding:0 1rem}.nav-links{display:none}
+  .page-header h1{font-size:2rem}
+  .content-card{padding:1.5rem}
+  section{padding:2rem 1rem 3rem}
+  .mod-nav{flex-direction:column}
+  .mod-nav a{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../../../index.html" class="nav-schoolcode">SchoolCode</a>
+      <a href="index.html" class="nav-brand">Foundry</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="qa.html">Q&A</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="ph-inner">
+    <div class="ph-nav">
+      <a href="curriculum.html">Curriculum</a><span class="sep">/</span><a href="curriculum.html#m6">Module 6</a>
+    </div>
+    <h1>Module 6: <strong>GitHub Actions</strong></h1>
+    <p style="color:var(--stone-500);font-size:.95rem;max-width:600px">Push → workflow starts → tests → deploy docs. Automation without deep YAML.</p>
+    <div class="ph-meta">
+      <span><strong>1 h</strong> — 30 min instruction + 30 min exercise</span>
+      <span><strong>Morning</strong> Day 2 · 09:00–10:00</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+
+    <div class="content-card">
+      <h2>Facilitator preparation</h2>
+      <ul>
+        <li>Have a working workflow file in the training repo's <code>.github/workflows/</code> folder</li>
+        <li>Pre-configure a simple MkDocs or Jekyll site that deploys when Markdown is pushed</li>
+        <li>Show the Actions tab with a successful run and a failed run</li>
+        <li>Prepare a broken workflow file for diagnosis exercise</li>
+      </ul>
+    </div>
+
+    <div class="content-card">
+      <h2>Timing breakdown</h2>
+      <table class="timeline-table">
+        <thead><tr><th>Duration</th><th>Activity</th></tr></thead>
+        <tbody>
+          <tr class="active"><td>5 min</td><td>What is GitHub Actions? Events, workflows, jobs, steps</td></tr>
+          <tr class="active"><td>10 min</td><td>Reading a workflow YAML file</td></tr>
+          <tr class="active"><td>10 min</td><td>Use cases: docs deploy, CI checks, scheduled tasks, Teams notifications</td></tr>
+          <tr class="active"><td>5 min</td><td>Marketplace — pre-built actions for common tasks</td></tr>
+          <tr><td>30 min</td><td>Exercise — push markdown, trigger docs deploy, verify</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-card">
+      <h2>Script & talking points</h2>
+
+      <h3>What is GitHub Actions? (5 min)</h3>
+      <p>GitHub Actions is automation triggered by events in your repository. When something happens (push, PR, schedule), a workflow runs. Workflows are defined in YAML files in <code>.github/workflows/</code>.</p>
+      <p><strong>Key concepts:</strong></p>
+      <ul>
+        <li><strong>Event:</strong> What triggers the workflow — <code>push</code>, <code>pull_request</code>, <code>schedule</code>, <code>workflow_dispatch</code></li>
+        <li><strong>Job:</strong> A unit of work that runs on a runner (GitHub-hosted or self-hosted)</li>
+        <li><strong>Step:</strong> Individual action within a job — run a command, use a marketplace action, etc.</li>
+      </ul>
+
+      <h3>Reading a workflow YAML (10 min)</h3>
+      <p>Walk through this example line by line:</p>
+      <div class="yaml-block">
+        <span class="comment"># .github/workflows/deploy-docs.yml</span><br>
+        <span class="key">name</span>: Deploy Documentation<br><br>
+        <span class="key">on</span>:<br>
+        &nbsp;&nbsp;<span class="key">push</span>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">branches</span>: [main]<br><br>
+        <span class="key">jobs</span>:<br>
+        &nbsp;&nbsp;<span class="key">build-and-deploy</span>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">runs-on</span>: ubuntu-latest<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">steps</span>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="key">uses</span>: actions/checkout@v4<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="key">name</span>: Build with MkDocs<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">run</span>: mkdocs build<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="key">name</span>: Deploy to Pages<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">uses</span>: peaceiris/actions-gh-pages@v3
+      </div>
+      <p><strong>Parts to explain:</strong></p>
+      <ul>
+        <li><code>name</code> — appears in the Actions tab</li>
+        <li><code>on: push: branches: [main]</code> — triggers when anything is pushed to main</li>
+        <li><code>runs-on</code> — the OS the job runs on</li>
+        <li><code>uses</code> — reference a marketplace action</li>
+        <li><code>run</code> — execute a shell command</li>
+      </ul>
+
+      <h3>Use cases (10 min)</h3>
+      <ul>
+        <li><strong>Documentation deploy:</strong> Push Markdown → Action runs MkDocs → Site updates. Your docs are always current.</li>
+        <li><strong>CI checks:</strong> Push code → Action runs tests → Pass/fail reported on the PR. Never merge broken code.</li>
+        <li><strong>Linting:</strong> Check Markdown formatting, YAML validity, PowerShell syntax.</li>
+        <li><strong>Scheduled tasks:</strong> Run a script every morning to clean up stale issues.</li>
+        <li><strong>Teams notifications:</strong> Send a message to Teams when a PR is opened or merged.</li>
+        <li><strong>Manual trigger:</strong> <code>workflow_dispatch</code> lets you run workflows on demand from the GitHub UI.</li>
+      </ul>
+
+      <div class="tip-box">
+        <div class="tb-label">Marketplace tip</div>
+        <p>The GitHub Marketplace has thousands of pre-built actions. You rarely need to write one from scratch. Common ones: <code>actions/checkout</code>, <code>actions/setup-node</code>, <code>azure/login</code>, <code>peter-evans/create-pull-request</code>.</p>
+      </div>
+
+      <h3>Exercise — Docs Deploy (30 min)</h3>
+      <div class="tip-box">
+        <div class="tb-label">Instructions</div>
+        <p>A workflow file is already in the training repo. Participants:</p>
+        <ul>
+          <li>Edit a Markdown file in the docs folder</li>
+          <li>Create a branch, commit, push, open a PR</li>
+          <li>Watch the Action run in the PR checks</li>
+          <li>Merge the PR</li>
+          <li>Verify the documentation site updated automatically</li>
+        </ul>
+        <p>If a workflow fails, diagnose from the log output in the Actions tab.</p>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2>Common pitfalls</h2>
+      <ul>
+        <li><strong>YAML indentation:</strong> YAML is whitespace-sensitive. Two spaces per indent level. Tabs will break it.</li>
+        <li><strong>Workflow not triggering:</strong> Check the <code>on:</code> event. Did you push to the right branch?</li>
+        <li><strong>Secrets:</strong> Never hardcode passwords or tokens in the workflow file. Use GitHub Secrets.</li>
+        <li><strong>Logs:</strong> When a workflow fails, click the failed step to see the log output. The error message is usually clear.</li>
+      </ul>
+    </div>
+
+    <div class="content-card">
+      <h2>Quiz</h2>
+      <div class="quiz-q"><strong>1.</strong> Where are GitHub Action workflow files stored?</div>
+      <div class="quiz-a">A. <code>actions/</code> · B. <code>.github/workflows/</code> <span class="correct">✓</span> · C. <code>workflows/</code> · D. Root of the repository</div>
+      <div class="quiz-q"><strong>2.</strong> What format are workflow files written in?</div>
+      <div class="quiz-a">A. JSON · B. XML · C. YAML <span class="correct">✓</span> · D. TOML</div>
+      <div class="quiz-q"><strong>3.</strong> What does <code>on: push: branches: [main]</code> mean?</div>
+      <div class="quiz-a">A. The workflow runs when code is pushed to any branch · B. The workflow runs only when code is pushed to main <span class="correct">✓</span> · C. The workflow runs on a schedule · D. The workflow runs manually</div>
+      <div class="quiz-q"><strong>4.</strong> How do you pass a secret like an API key to a workflow?</div>
+      <div class="quiz-a">A. Hardcode it in the YAML · B. Use GitHub Secrets <span class="correct">✓</span> · C. Put it in a text file · D. Email it to the runner</div>
+      <div class="quiz-q"><strong>5.</strong> Which event lets you run a workflow on demand from the GitHub UI?</div>
+      <div class="quiz-a">A. <code>push</code> · B. <code>schedule</code> · C. <code>workflow_dispatch</code> <span class="correct">✓</span> · D. <code>pull_request</code></div>
+    </div>
+
+    <div class="mod-nav">
+      <a href="module-5.html" class="prev">← Previous: Repository Standards</a>
+      <a href="module-7.html" class="next">Next: AI →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand">Foundry</div>
+  <div class="f-copy">An internal engineering bootcamp. Built on SchoolCode.</div>
+</footer>
+
+</body>
+</html>
