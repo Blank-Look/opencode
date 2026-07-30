@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Prompt Engineering | Foundry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--forge:#5B4B3A;--forge-dark:#3D3228;--forge-light:#8A735C;--ember:#C96A3D;--ember-light:#E8925A;--cream:#F8F4EF;--stone-100:#F0ECE6;--stone-200:#E0D9D0;--stone-300:#C5BBB0;--stone-400:#A8998C;--stone-500:#8C7E72;--stone-600:#6E6257;--stone-700:#524840;--stone-800:#362F2A;--stone-900:#1C1815;--white:#FFFFFF;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--stone-700);background:var(--cream);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,244,239,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--stone-200);padding:0 2rem;height:64px;display:flex;align-items:center}
+.nav-inner{max-width:1040px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-left{display:flex;align-items:center;gap:0}
+.nav-schoolcode{font-weight:600;font-size:0.85rem;color:var(--stone-400);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;padding-right:0.75rem;margin-right:0.75rem;border-right:1px solid var(--stone-300);transition:color .15s}
+.nav-schoolcode:hover{color:var(--ember)}
+.nav-brand{font-weight:700;font-size:1rem;color:var(--forge);text-decoration:none}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{text-decoration:none;color:var(--stone-500);font-size:.875rem;font-weight:500;padding:.5rem 1rem;border-radius:8px;transition:all .15s}
+.nav-links a:hover{color:var(--ember);background:rgba(201,106,61,0.06)}
+.nav-cta{background:var(--forge);color:#fff!important;font-weight:600}
+.nav-cta:hover{background:var(--forge-dark)!important}
+.page-header{padding:7rem 2rem 3rem;background:linear-gradient(135deg,var(--cream),#EDE6DE 50%,#E6DDD3 100%);border-bottom:1px solid var(--stone-200)}
+.page-header .ph-inner{max-width:920px;margin:0 auto}
+.page-header .ph-nav{margin-bottom:1.5rem}
+.page-header .ph-nav a{font-size:.8rem;color:var(--stone-400);text-decoration:none;transition:color .15s}
+.page-header .ph-nav a:hover{color:var(--ember)}
+.page-header h1{font-size:2.75rem;font-weight:300;letter-spacing:-.03em;color:var(--stone-800);line-height:1.1;margin-bottom:.75rem}
+.page-header h1 strong{font-weight:700;color:var(--forge)}
+.page-header .ph-meta{font-size:.85rem;color:var(--stone-400)}
+.page-header .ph-meta strong{color:var(--stone-600);font-weight:600}
+section{padding:4rem 2rem}
+.section-inner{max-width:920px;margin:0 auto}
+.content-card{background:var(--white);border:1px solid var(--stone-200);border-radius:16px;padding:2.5rem;margin-bottom:2rem}
+.content-card h2{font-size:1.35rem;font-weight:700;color:var(--stone-800);margin-bottom:1rem}
+.content-card h3{font-size:1rem;font-weight:700;color:var(--stone-700);margin:1.5rem 0 .5rem}
+.content-card h3:first-of-type{margin-top:0}
+.content-card p{font-size:.9rem;color:var(--stone-600);line-height:1.7;margin-bottom:.75rem}
+.content-card ul{padding-left:1.25rem;margin-bottom:.75rem}
+.content-card ul li{font-size:.9rem;color:var(--stone-600);line-height:1.7;margin-bottom:.25rem}
+.content-card code{background:var(--stone-200);padding:.125rem .375rem;border-radius:4px;font-size:.8rem;color:var(--stone-700)}
+.content-card pre{background:var(--stone-100);border:1px solid var(--stone-200);border-radius:8px;padding:1rem;overflow-x:auto;font-size:.8rem;line-height:1.5;margin:.75rem 0;color:var(--stone-700)}
+.content-card .ex-box{background:var(--cream);border:1px solid var(--stone-200);border-radius:10px;padding:1.25rem;margin:1rem 0}
+.content-card .ex-box .ex-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ember);margin-bottom:.375rem}
+.content-card .ex-box p{font-size:.85rem;color:var(--stone-600);line-height:1.6;margin-bottom:0}
+.content-card table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem}
+.content-card th{background:var(--stone-100);font-weight:600;text-align:left;padding:.5rem .75rem;border:1px solid var(--stone-200)}
+.content-card td{padding:.5rem .75rem;border:1px solid var(--stone-200)}
+.content-card td:first-child{font-weight:600;white-space:nowrap}
+footer{background:var(--stone-900);color:var(--stone-400);padding:3rem 2rem;text-align:center;font-size:.875rem}
+footer .f-brand{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+footer .f-copy{font-size:.8rem}
+@media(max-width:768px){nav{padding:0 1rem}.nav-links{display:none}.page-header h1{font-size:2rem}.content-card{padding:1.5rem}section{padding:2.5rem 1rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="../../index.html" class="nav-schoolcode">SchoolCode</a>
+      <a href="index.html" class="nav-brand">Foundry</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="qa.html">Q&A</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="ph-inner">
+    <div class="ph-nav"><a href="curriculum.html">← Back to curriculum</a></div>
+    <h1>AI Prompt<br><strong>Engineering</strong></h1>
+    <div class="ph-meta">Curriculum 4 · <strong>~60 min</strong> — self-paced</div>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+
+    <div class="content-card">
+      <h2>How to Tell AI What to Do</h2>
+
+      <p>The difference between getting what you want on the first try and spending hours iterating comes down to one skill: prompt engineering. This module teaches you how to structure prompts so AI builds apps and products with minimal rework — the same structured approach used across every SchoolCode product.</p>
+
+      <h3>What you'll learn</h3>
+      <ul>
+        <li>Structure a prompt so AI delivers the right output first time</li>
+        <li>Use context, constraints, and format to reduce rework</li>
+        <li>Break a product into small, promptable pieces</li>
+        <li>Iterate with precision — know what to change and why</li>
+      </ul>
+
+      <h3>The anatomy of an effective prompt</h3>
+      <p>Every prompt should include four elements:</p>
+
+      <table>
+        <thead><tr><th>Element</th><th>Purpose</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Context</td><td>What the AI needs to know before it can answer</td><td>"You are building a student hub for master's students."</td></tr>
+          <tr><td>Task</td><td>What you want it to do</td><td>"Create a timetable page that shows weekly classes."</td></tr>
+          <tr><td>Format</td><td>How the output should look</td><td>"Single HTML file with inline CSS. Mobile-first."</td></tr>
+          <tr><td>Constraints</td><td>What it must not do or must stay within</td><td>"No external dependencies. No JavaScript frameworks."</td></tr>
+        </tbody>
+      </table>
+
+      <p>A weak prompt says: <em>"Build me a student app."</em> A strong prompt says: <em>"Build a student hub dashboard showing today's schedule, quick links to Blackboard and Canvas, and upcoming events. Single HTML file. Mobile-first. No external dependencies."</em> The strong prompt gets you 90% of the way there. The weak prompt starts a conversation that takes ten rounds.</p>
+
+      <div class="ex-box">
+        <div class="ex-label">Exercise — Weak vs Strong</div>
+        <p>Open an AI chat or OpenCode. First, give it: "Create a student dashboard." See what you get. Then try: "Single HTML page showing today's class schedule (09:00-16:00), a row of quick-link icons for Blackboard/Canvas/Portal/M365, and a what's-on section with event cards. Mobile-first, Inter font. No frameworks." Compare the results.</p>
+      </div>
+
+      <h3>Role prompting — tell AI who it is</h3>
+      <p>Before asking AI to build something, tell it what role to play. This dramatically improves output quality because the AI selects relevant patterns and vocabulary:</p>
+      <pre>"You are a senior front-end developer who builds accessible, mobile-first web apps.
+No frameworks, no build tools. Just clean HTML, CSS, and vanilla JS."</pre>
+      <p>Role prompting works for any domain — security reviewer, PowerShell scripter, infrastructure architect, documentation writer. The role tells the AI what standards to apply.</p>
+
+      <h3>Break products into prompt-sized pieces</h3>
+      <p>The biggest cause of rework is asking for too much in one prompt. Instead of "Build me a student app", break it down:</p>
+
+      <table>
+        <thead><tr><th>Piece</th><th>Prompt focus</th><th>Output</th></tr></thead>
+        <tbody>
+          <tr><td>1. Shell</td><td>HTML structure, navigation, empty sections</td><td>App shell with tabs</td></tr>
+          <tr><td>2. Dashboard</td><td>Schedule layout, quick links, event cards</td><td>Dashboard content</td></tr>
+          <tr><td>3. Subjects</td><td>Course grid with progress bars</td><td>Subjects page</td></tr>
+          <tr><td>4. Timetable</td><td>Weekly grid with day headers</td><td>Timetable page</td></tr>
+          <tr><td>5. Links</td><td>App launcher grid with icons</td><td>Links page</td></tr>
+          <tr><td>6. Polish</td><td>Colours, spacing, responsive breakpoints</td><td>Final styling</td></tr>
+        </tbody>
+      </table>
+
+      <p>Each piece is a focused prompt. The AI delivers something complete in under a minute. You review, accept or tweak, and move to the next piece. Total time for a full app shell with content: under an hour.</p>
+
+      <h3>How to iterate without starting over</h3>
+      <p>When the output isn't right, don't start a new conversation. Tell the AI what to change:</p>
+      <ul>
+        <li><strong>Bad:</strong> "That's not what I wanted." (AI has to guess)</li>
+        <li><strong>Good:</strong> "The schedule items should include the room number. Add a subtitle under each event card showing the location and time." (AI knows exactly what to fix)</li>
+        <li><strong>Better:</strong> "Keep everything else, but change the quick links row from 4 columns to 6 columns on desktop." (Precise, no collateral damage)</li>
+      </ul>
+
+      <p>The key insight: AI has no memory of what you <em>meant</em> — only what you <em>said</em>. The more precise your iteration instruction, the less rework you create.</p>
+
+      <div class="ex-box">
+        <div class="ex-label">Exercise — Iterate with Precision</div>
+        <p>Take the output from the previous exercise. Now give the AI this: "Keep everything as is, but change the accent colour from the default blue to a warm amber (#B45309). Update all button colours, link colours, and the selected tab indicator. Do not change anything else." See how precisely it follows the instruction vs a vague "make it amber".</p>
+      </div>
+
+      <h3>The Delivery Prompt pattern</h3>
+      <p>The <a href="https://blank-look.github.io/opencode/sdlc/docs/lifecycle/delivery-prompt.html" style="color:var(--ember);font-weight:600;">Delivery Prompt Template</a> used across SchoolCode products is itself a prompt-engineering pattern. It structures AI interaction by phase:</p>
+      <ul>
+        <li><strong>Phase 0 — Discover:</strong> "Inspect this codebase and produce architecture docs, assumptions, risks, and an implementation plan."</li>
+        <li><strong>Phase 1 — Foundation:</strong> "Create the directory structure, config files, and basic entry point following the patterns in existing products."</li>
+        <li><strong>Phase 2 — MVP:</strong> "Build the core feature set: [list features]. Match the conventions seen in [existing file]."</li>
+        <li><strong>Phase 3+:</strong> Each subsequent phase is its own focused prompt with a clear definition of done.</li>
+      </ul>
+      <p>This is prompt engineering applied at the product level: small, focussed pieces, each with context, task, format, and constraints.</p>
+
+      <h3>Common pitfalls and how to avoid them</h3>
+
+      <table>
+        <thead><tr><th>Pitfall</th><th>Result</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Vague task</td><td>AI writes a novel instead of code</td><td>Be specific about output type</td></tr>
+          <tr><td>Missing constraints</td><td>AI uses React when you said no frameworks</td><td>Add "No frameworks. No build tools. Single file."</td></tr>
+          <tr><td>Too much at once</td><td>AI misses half the requirements</td><td>Break into smaller prompts</td></tr>
+          <tr><td>No format specified</td><td>AI returns markdown when you need HTML</td><td>Say "Single HTML file with inline CSS and JS."</td></tr>
+          <tr><td>Changing topic mid-conversation</td><td>AI confuses old context with new request</td><td>Start a fresh prompt for each new task</td></tr>
+          <tr><td>Not reviewing output</td><td>Bugs, security issues, wrong assumptions</td><td>Read every line before accepting</td></tr>
+          <tr><td>Assuming AI remembers</td><td>AI loses context after long conversations</td><td>Re-state key details every few turns</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Prompt engineering for different AI tools</h3>
+      <p>The same structured approach works across every tool in your workflow:</p>
+      <ul>
+        <li><strong>OpenCode / Claude Code (CLI agents):</strong> State the task and the files to modify. <em>"Add a what's-on events section to products/schoolapp/app-mockup.html after the dashboard. Four event cards with date, title, description, and tag."</em></li>
+        <li><strong>ChatGPT (chat):</strong> Start with context + role. <em>"You are an infrastructure engineer writing PowerShell. Generate a script that exports Intune device compliance policies to CSV."</em></li>
+        <li><strong>Copilot (inline):</strong> Write a clear comment or function name. <em>"// Calculate the number of days until the dissertation deadline"</em> — Copilot completes the rest.</li>
+      </ul>
+
+      <div class="ex-box">
+        <div class="ex-label">Exercise — Build Something Small</div>
+        <p>Choose one: (a) a personal bookmark page, (b) a habit tracker for this week, or (c) a simple HTML page for anything you need. Use the four-element prompt structure (context, task, format, constraints). Start with the shell, then add features one prompt at a time. End with a polished output you'd actually use.</p>
+      </div>
+
+      <h3>Key takeaways</h3>
+      <ul>
+        <li><strong>Four elements</strong> — every prompt needs context, task, format, and constraints</li>
+        <li><strong>Role prompting</strong> — tell AI who it is before asking it to build</li>
+        <li><strong>Small pieces</strong> — break products into prompt-sized chunks to reduce rework</li>
+        <li><strong>Precise iterations</strong> — tell AI exactly what changed, not that something is wrong</li>
+        <li><strong>Delivery Prompt pattern</strong> — phase-based prompting scales from one file to a whole product</li>
+        <li><strong>Always review</strong> — AI gets faster, not more correct. You are the quality gate.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand">Foundry</div>
+  <div class="f-copy">A self-paced engineering foundations program. Built on SchoolCode.</div>
+</footer>
+
+</body>
+</html>

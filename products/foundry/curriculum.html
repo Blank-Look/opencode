@@ -311,9 +311,9 @@ footer .f-copy { font-size: 0.8rem; }
 </div>
 
 <div class="overview-bar">
-  <div class="ob-item"><div class="ob-val">3</div><div class="ob-label">Tracks</div></div>
-  <div class="ob-item"><div class="ob-val">10</div><div class="ob-label">Modules</div></div>
-  <div class="ob-item"><div class="ob-val">~9h</div><div class="ob-label">Total content</div></div>
+  <div class="ob-item"><div class="ob-val">4</div><div class="ob-label">Tracks</div></div>
+  <div class="ob-item"><div class="ob-val">11</div><div class="ob-label">Modules</div></div>
+  <div class="ob-item"><div class="ob-val">~10h</div><div class="ob-label">Total content</div></div>
   <div class="ob-item"><div class="ob-val">80%</div><div class="ob-label">Pass mark</div></div>
 </div>
 
@@ -349,8 +349,15 @@ footer .f-copy { font-size: 0.8rem; }
     </div>
 
     <div class="toc-card">
+      <h3>Track 4 — AI Prompt Engineering</h3>
+      <div class="toc-grid">
+        <a href="#m-prompt"><span class="toc-num">11</span> AI Prompt Engineering</a>
+      </div>
+    </div>
+
+    <div class="toc-card">
       <h3>Suggested order</h3>
-      <p style="font-size:0.9rem;color:var(--stone-500);line-height:1.7;">Start with Track 1 (GitHub Foundations) — each module builds on the last. Then choose Track 2 (AI-Assisted Development) to set up your toolchain, or Track 3 (AI Development Governance) to understand the guardrails. All tracks are self-paced.</p>
+      <p style="font-size:0.9rem;color:var(--stone-500);line-height:1.7;">Start with Track 1 (GitHub Foundations) — each module builds on the last. Then choose Track 2 (AI-Assisted Development) to set up your toolchain, Track 3 (AI Development Governance) to understand the guardrails, or Track 4 (AI Prompt Engineering) to master telling AI what to do. All tracks are self-paced.</p>
     </div>
 
     <!-- Module 1 -->
@@ -739,6 +746,46 @@ footer .f-copy { font-size: 0.8rem; }
       <div class="mc-box">
         <div class="mc-label">Exercise — Map the Governance</div>
         <p>Open the SchoolApp product directory (products/schoolapp/). Read its README.md and ADR-001. Ask OpenCode: "What governance rules apply to the SchoolApp product based on its AGENTS.md and ADRs?" — review the answer and discuss how the rules protect the development process.</p>
+      </div>
+    </div>
+
+    <!-- Track 4 header -->
+    <div style="margin:3rem 0 1.5rem;padding-top:1rem;border-top:2px dashed var(--stone-300);">
+      <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--stone-400);margin-bottom:0.25rem;">Track 4</div>
+      <h2 style="font-size:1.5rem;font-weight:700;color:var(--stone-800);">AI Prompt Engineering</h2>
+      <p style="font-size:0.9rem;color:var(--stone-500);margin-top:0.25rem;">Structure prompts so AI builds apps and products with minimal rework. Context, role, constraints, format.</p>
+    </div>
+
+    <!-- Module 11 -->
+    <div id="m-prompt" class="module-card-full">
+      <div class="mc-header">
+        <span class="mc-num">Module 11</span>
+        <span class="mc-time"><strong>~60 min</strong> — self-paced</span>
+      </div>
+      <h2>AI Prompt Engineering</h2>
+      <p class="mc-sub">How to tell AI what to do effectively — prompt anatomy, role prompting, breaking products into pieces, precise iteration, and the Delivery Prompt pattern.</p>
+
+      <div class="obj-grid">
+        <div class="obj-item"><span class="check">✓</span> Structure prompts with context, task, format, and constraints</div>
+        <div class="obj-item"><span class="check">✓</span> Use role prompting to improve output quality</div>
+        <div class="obj-item"><span class="check">✓</span> Break products into prompt-sized pieces to reduce rework</div>
+        <div class="obj-item"><span class="check">✓</span> Iterate with precision — know what to change and why</div>
+        <div class="obj-item"><span class="check">✓</span> Apply the Delivery Prompt pattern at product scale</div>
+      </div>
+
+      <h3>Content</h3>
+      <ul>
+        <li><strong>Prompt anatomy:</strong> Every prompt needs four elements — context (background the AI needs), task (what to do), format (how the output should look), constraints (boundaries and rules). Weak prompts generate rework; strong prompts ship faster.</li>
+        <li><strong>Role prompting:</strong> Tell AI who it is before asking it to build. "You are a senior front-end developer building accessible mobile-first web apps. No frameworks." — the role sets the standard.</li>
+        <li><strong>Small pieces:</strong> Instead of one giant prompt, break a product into focused prompts: shell → dashboard → subjects → timetable → links → polish. Each piece takes under a minute and produces complete, reviewable output.</li>
+        <li><strong>Precise iteration:</strong> Don't say "that's not right." Say "keep everything but change the accent colour to amber and increase the schedule item padding to 1rem." Precision reduces rework.</li>
+        <li><strong>Delivery Prompt pattern:</strong> The same structured approach scales from one file to a whole product — Phase 0 (discover) → Phase 1 (foundation) → Phase 2 (MVP) → Phase 3+ (integrations and polish).</li>
+        <li><strong>Common pitfalls:</strong> Vague tasks, missing constraints, too much at once, no format specified, changing topic mid-conversation, not reviewing output, assuming AI remembers.</li>
+      </ul>
+
+      <div class="mc-box">
+        <div class="mc-label">Exercise — Weak vs Strong</div>
+        <p>Ask an AI to "Create a student dashboard." Compare the output with a structured prompt: "Single HTML page showing today's class schedule (09:00-16:00), a row of quick-link icons for Blackboard/Canvas/Portal/M365, and a what's-on section with event cards. Mobile-first, Inter font. No frameworks." Then iterate with precision: "Keep everything, but change the accent colour to amber and expand quick links to 6 columns."</p>
       </div>
     </div>
 
