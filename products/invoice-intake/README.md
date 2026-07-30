@@ -2,19 +2,25 @@
 
 Automated accounts payable — from supplier email to finance-ready queue. Powered by Power Automate, AI Builder extraction, and SharePoint.
 
-> **Links:** [Product Page](https://blank-look.github.io/opencode/products/invoice-intake/) · [App Mockup](https://blank-look.github.io/opencode/products/invoice-intake/app-mockup.html)
+> **Product landing pages:** [Invoice Intake](https://blank-look.github.io/opencode/products/invoice-intake/) · [App Mockup](https://blank-look.github.io/opencode/products/invoice-intake/app-mockup.html)
+
+## Design Mockup
+
+[App Mockup →](https://blank-look.github.io/opencode/products/invoice-intake/app-mockup.html)
+Interactive HTML mockup covering invoice queue, processing dashboard, supplier view, approval workflow, and reporting.
 
 ## Architecture
 
-```
-Supplier Email → Shared Mailbox → Power Automate → AI Builder → SharePoint Queue → Approval → Finance
-```
+[Architecture docs →](https://github.com/Blank-Look/opencode/tree/master/products/invoice-intake) *(in progress)*
+Supplier email → Shared Mailbox → Power Automate → AI Builder extraction → SharePoint queue → approval workflow → finance system.
 
 ## Detection Methods
 
-- **Simple** — Outlook rule detects PDF + keywords, moves to folder
-- **Recommended** — Power Automate + AI Builder extracts all fields
-- **Enterprise** — Full AP automation with Dataverse, ERP, PO matching
+| Method | Description |
+|---|---|
+| Simple | Outlook rule detects PDF + keywords, moves to folder |
+| Recommended | Power Automate + AI Builder extracts all fields |
+| Enterprise | Full AP automation with Dataverse, ERP, PO matching |
 
 ## Queue Fields
 
