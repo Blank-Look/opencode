@@ -17,7 +17,8 @@
     </filter>
   </defs>
 
-  <!-- Background (transparent — page hero gradient shows through) -->
+  <!-- Dark slate background — separates the graphic from the page's maroon gradient -->
+  <rect width="900" height="520" fill="#111827" rx="16"/>
 
   <!-- Subtle pattern overlay -->
   <g opacity="0.04">
