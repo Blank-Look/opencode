@@ -49,6 +49,19 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
+nav .nav-brand {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--stone-400);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-right: 1.25rem;
+  padding-right: 1.25rem;
+  border-right: 1px solid var(--stone-200);
+  transition: color 0.15s;
+}
+nav .nav-brand:hover { color: var(--brick); }
 nav .logo {
   font-weight: 700;
   font-size: 1.2rem;
@@ -289,7 +302,10 @@ footer .f-copy { font-size: 0.8rem; }
 <body>
 
 <nav>
-  <div class="logo">cadence</div>
+  <div style="display:flex;align-items:center;gap:0;">
+    <a href="../../index.html" class="nav-brand">SchoolCode</a>
+    <div class="logo">cadence</div>
+  </div>
   <div class="nav-links">
     <a href="#philosophy">Philosophy</a>
     <a href="#practices">Practices</a>
