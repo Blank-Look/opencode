@@ -483,17 +483,34 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
 .ide-terminal {
   grid-column: 1 / -1;
   background: #11111B;
-  color: #A6E3A1;
+  color: #CDD6F4;
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  padding: 0.5rem 1rem;
   border-top: 1px solid var(--gray-200);
   line-height: 1.5;
-  max-height: 100px;
+  max-height: 150px;
   overflow-y: auto;
+  padding: 0.5rem 1rem;
+  outline: none;
+  cursor: text;
 }
+.ide-terminal .term-line { white-space: pre-wrap; word-break: break-all; padding: 0; line-height: 1.6; }
 .ide-terminal .term-prompt { color: #89B4FA; }
+.ide-terminal .term-success { color: #A6E3A1; }
+.ide-terminal .term-info { color: #74C7EC; }
+.ide-terminal .term-warning { color: #F9E2AF; }
 .ide-terminal .term-error { color: #F38BA8; }
+.ide-terminal .term-dim { color: #6C7086; }
+.ide-terminal .term-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: #CDD6F4;
+  margin-left: 0.1em;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
 
 /* Form */
 .form-group { margin-bottom: 1rem; }
@@ -974,15 +991,8 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
 </div>
       </div>
 
-      <div class="ide-terminal">
-        <div>$ <span class="fn">npm run classify -- --input findings.json</span></div>
-        <div>&gt; audit-classifier@1.0.0 classify</div>
-        <div>&gt; node index.js --input findings.json</div>
-        <div><span class="term-prompt">[INF]</span> Processing 47 findings...</div>
-        <div><span class="term-prompt">[INF]</span> Classified 32/47 — 15 pending LLM response</div>
-        <div><span class="term-prompt">[OK]</span> Severity distribution: 4 critical, 11 high, 14 moderate, 3 low</div>
-        <div>$ <span class="fn">npm test</span></div>
-        <div>&gt; 14 passing, 0 failing (1.2s)</div>
+      <div class="ide-terminal" id="term" tabindex="0">
+        <div id="term-output"></div>
       </div>
     </div>
 
@@ -1241,7 +1251,301 @@ function showPage(id) {
   };
   document.getElementById('page-title').textContent = titles[id] || 'Dashboard';
   event && event.preventDefault && event.preventDefault();
+  if (id === 'workspace' && termReady) setTimeout(function() { term.focus(); }, 50);
 }
+
+/* ── Interactive Terminal ── */
+const term = document.getElementById('term');
+const termOut = document.getElementById('term-output');
+let termBuf = [];
+let termInput = '';
+let termHist = [];
+let histIdx = -1;
+let termReady = false;
+
+const TERM_PROMPT = '<span class="term-prompt">opencode@playground:~$</span> ';
+
+function termPrint(html, cls) {
+  termBuf.push('<span class="term-line' + (cls ? ' ' + cls : '') + '">' + html + '</span>');
+}
+
+function termRender() {
+  let html = termBuf.join('\n');
+  html += '<span class="term-line">' + TERM_PROMPT;
+  if (termInput.length) html += escHtml(termInput);
+  html += '<span class="term-cursor"></span></span>';
+  termOut.innerHTML = html;
+  term.scrollTop = term.scrollHeight;
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function termFocus() { term && term.focus(); }
+
+const COMMANDS = {
+  help: {
+    desc: 'Show this help',
+    run: function() {
+      termPrint('<span class="term-info">╔══════════════════════════════════════════════╗</span>');
+      termPrint('<span class="term-info">║</span>  <span class="term-success">Innovation Playground — Sandbox Terminal</span>  <span class="term-info">║</span>');
+      termPrint('<span class="term-info">╚══════════════════════════════════════════════╝</span>');
+      termPrint('');
+      for (const [cmd, h] of Object.entries(COMMANDS)) {
+        termPrint('  <span class="term-success">' + cmd + '</span>' + '&nbsp;'.repeat(Math.max(1, 20 - cmd.length)) + '<span class="term-dim">' + h.desc + '</span>');
+      }
+    }
+  },
+  clear: { desc: 'Clear terminal', run: function() { termBuf = []; } },
+  ls: { desc: 'List workspace files', run: function() {
+    termPrint('<span class="term-dim">total 24</span>');
+    termPrint('drwxr-xr-x  5 user  sandbox  160 Jul 30 14:23 <span class="term-info">.</span>');
+    termPrint('drwxr-xr-x  3 user  sandbox   96 Jul 30 14:23 <span class="term-info">..</span>');
+    termPrint('-rw-r--r--  1 user  sandbox  892 Jul 30 14:23 <span class="term-success">index.js</span>');
+    termPrint('-rw-r--r--  1 user  sandbox 2048 Jul 30 14:23 <span class="term-success">classify.js</span>');
+    termPrint('-rw-r--r--  1 user  sandbox  512 Jul 30 14:23 <span class="term-success">prompt.js</span>');
+    termPrint('-rw-r--r--  1 user  sandbox  340 Jul 30 14:23 <span class="term-success">config.json</span>');
+    termPrint('drwxr-xr-x  2 user  sandbox   64 Jul 30 14:23 <span class="term-info">lib</span>');
+    termPrint('drwxr-xr-x  2 user  sandbox   64 Jul 30 14:23 <span class="term-info">tests</span>');
+    termPrint('-rw-r--r--  1 user  sandbox  210 Jul 30 14:23 <span class="term-success">package.json</span>');
+    termPrint('-rw-r--r--  1 user  sandbox  120 Jul 30 14:23 <span class="term-term-dim">.guardrails.yml</span>');
+  }},
+  pwd: { desc: 'Print working directory', run: function() { termPrint('<span class="term-info">/sandbox/ai-audit-tool-v2</span>'); }},
+  whoami: { desc: 'Show current user', run: function() { termPrint('<span class="term-info">anon-usr-7f3a2e</span>'); }},
+  date: { desc: 'Show current date/time', run: function() { termPrint(new Date().toISOString().replace('T',' ').slice(0,19) + ' UTC'); }},
+  echo: { desc: 'Echo text', run: function(args) { termPrint(args.join(' ') || ''); }},
+  cat: { desc: 'Print file contents', run: function(args) {
+    if (!args.length) { termPrint('<span class="term-error">cat: missing operand</span>'); return; }
+    const files = {
+      'index.js': 'import { classifyFinding } from \'./classify.js\';\nimport { loadPrompt } from \'./prompt.js\';\nimport { mapSeverity } from \'./severity-map.js\';\n\nexport async function classifyAuditFinding(finding, opts = {}) {\n  const prompt = loadPrompt(finding.type);\n  const result = await classifyFinding(prompt, {\n    text: finding.description,\n    domain: finding.domain,\n    model: opts.model ?? \'gpt-4o\',\n  });\n  return {\n    severity: mapSeverity(result.label),\n    domain: result.domain,\n    action: result.recommendedAction,\n    confidence: result.score,\n  };\n}',
+      'package.json': '{\n  "name": "audit-classifier",\n  "version": "1.0.0",\n  "private": true,\n  "type": "module",\n  "scripts": {\n    "classify": "node index.js",\n    "test": "node --test tests/*.test.js"\n  },\n  "dependencies": {\n    "openai": "^4.0.0"\n  }\n}',
+      'config.json': '{\n  "model": "gpt-4o",\n  "temperature": 0.1,\n  "maxFindings": 100,\n  "domains": ["security", "privacy", "compliance", "operational"],\n  "severityMap": {\n    "critical": { "color": "red", "maxDays": 7 },\n    "high": { "color": "amber", "maxDays": 30 },\n    "moderate": { "color": "blue", "maxDays": 90 }\n  }\n}',
+      '.guardrails.yml': '# Guardrail configuration\n# Auto-generated by Innovation Playground\n\nsecrets_detection:\n  enabled: true\n  action: block\n\npii_detection:\n  enabled: true\n  action: block\n\nallowed_registries:\n  - npmjs.com\n  - pypi.org\n\nmax_sandbox_days: 7\nanonymisation: true'
+    };
+    const f = args[0].replace(/^\.\//,'');
+    if (files[f]) { termPrint('<span class="term-dim"># ' + f + '</span>'); termPrint('<span class="term-info">' + escHtml(files[f]) + '</span>'); }
+    else { termPrint('<span class="term-error">cat: ' + escHtml(args[0]) + ': No such file</span>'); }
+  }},
+  'npm': { desc: 'Node package manager', run: function(args) {
+    if (!args.length) { termPrint('<span class="term-error">npm ERR! missing command</span>'); return; }
+    const sub = args[0];
+    if (sub === 'run' && args[1] === 'classify') {
+      termPrint('<span class="term-dim">&gt; audit-classifier@1.0.0 classify</span>');
+      termPrint('<span class="term-dim">&gt; node index.js --input findings.json</span>');
+      termPrint('<span class="term-info">[INF]</span> Processing 47 findings...');
+      termPrint('<span class="term-info">[INF]</span> Classified 32/47 — 15 pending LLM response');
+      termPrint('<span class="term-success">[OK]</span> Severity distribution: 4 critical, 11 high, 14 moderate, 3 low');
+    } else if (sub === 'run' && args[1] === 'test') {
+      termPrint('<span class="term-dim">&gt; audit-classifier@1.0.0 test</span>');
+      termPrint('<span class="term-dim">&gt; node --test tests/*.test.js</span>');
+      termPrint('<span class="term-success">✔ classify.test.js</span> (8 tests, 0 failing)');
+      termPrint('<span class="term-success">✔ prompt.test.js</span> (6 tests, 0 failing)');
+      termPrint('<span class="term-success">✔ severity-map.test.js</span> (4 tests, 0 failing)');
+      termPrint('<span class="term-success">✓ 18 passing</span> <span class="term-dim">(1.4s)</span>');
+    } else if (sub === 'run') {
+      termPrint('<span class="term-error">npm ERR! missing script: ' + escHtml(args[1] || '') + '</span>');
+    } else if (sub === 'install') {
+      termPrint('<span class="term-info">[GUARDRAIL]</span> Checking <span class="term-dim">' + escHtml(args[1] || '') + '</span> against allowed registries...');
+      setTimeout(function(){ termPrint('<span class="term-success">✓ Package approved and installed</span>'); termRender(); termFocus(); }, 400);
+      return true;
+    } else if (sub === 'audit') {
+      termPrint('<span class="term-info">[GUARDRAIL]</span> Running dependency audit...');
+      termPrint('<span class="term-success">✓ 0 vulnerabilities</span> <span class="term-dim">(14 packages audited)</span>');
+    } else {
+      termPrint('<span class="term-dim">npm notice</span> Run \'npm help\' for usage');
+    }
+  }},
+  'node': { desc: 'Run Node.js', run: function(args) {
+    if (args[0] === 'index.js') {
+      termPrint('<span class="term-success">✓ classifyAuditFinding() — 47 findings processed</span>');
+      termPrint('<span class="term-success">✓ Results written to output/findings-classified.json</span>');
+      termPrint('<span class="term-dim">Duration: 2.4s  |  LLM calls: 32  |  Tokens: 14,892</span>');
+    } else {
+      termPrint('<span class="term-error">node: cannot access \'' + escHtml(args[0] || '') + '\'</span>');
+    }
+  }},
+  'git': { desc: 'Git version control', run: function(args) {
+    if (!args.length) { termPrint('usage: git <command>'); return; }
+    if (args[0] === 'status') {
+      termPrint('<span class="term-success">On branch playground/main</span>');
+      termPrint('<span class="term-warning">Changes not staged for commit:</span>');
+      termPrint('  <span class="term-warning">modified:</span>   <span class="term-info">index.js</span>');
+      termPrint('  <span class="term-success">new file:</span>    <span class="term-info">output/findings-classified.json</span>');
+      termPrint('<span class="term-dim">No staged changes. Use \'git add\' to stage.</span>');
+    } else if (args[0] === 'diff') {
+      termPrint('<span class="term-dim">diff --git a/index.js b/index.js</span>');
+      termPrint('<span class="term-info">+  // Added confidence threshold filtering</span>');
+      termPrint('<span class="term-success">+  if (result.score &lt; 0.6) return { severity: \'low\', ... };</span>');
+      termPrint('<span class="term-dim"> 1 file changed, 2 insertions(+)</span>');
+    } else if (args[0] === 'log' || args[0] === 'log --oneline') {
+      termPrint('<span class="term-warning">e3f2a1d</span> Add confidence threshold filtering <span class="term-dim">(2 min ago)</span>');
+      termPrint('<span class="term-warning">b7c9d3f</span> Initial classify pipeline <span class="term-dim">(1 hour ago)</span>');
+      termPrint('<span class="term-warning">a1b2c3d</span> Scaffold sandbox <span class="term-dim">(2 hours ago)</span>');
+    } else {
+      termPrint('<span class="term-error">git: \'' + escHtml(args[0]) + '\' is not a git command</span>');
+    }
+  }},
+  'guardrails': { desc: 'Check guardrail status', run: function(args) {
+    if (args[0] === 'check' || args[0] === 'status' || !args.length) {
+      termPrint('<span class="term-info">╔══════════════════════════════════════╗</span>');
+      termPrint('<span class="term-info">║</span>  <span class="term-success">Guardrail Status — 7/7 passing</span>      <span class="term-info">║</span>');
+      termPrint('<span class="term-info">╚══════════════════════════════════════╝</span>');
+      termPrint('  <span class="term-success">✓</span> Secrets detection        <span class="term-dim">Last check: 2 min ago</span>');
+      termPrint('  <span class="term-success">✓</span> PII / data classification <span class="term-dim">Last check: 2 min ago</span>');
+      termPrint('  <span class="term-success">✓</span> License compliance       <span class="term-dim">Last check: 5 min ago</span>');
+      termPrint('  <span class="term-success">✓</span> Dependency registry      <span class="term-dim">Last check: 5 min ago</span>');
+      termPrint('  <span class="term-success">✓</span> Production data isolation <span class="term-dim">Last check: 2 min ago</span>');
+      termPrint('  <span class="term-success">✓</span> Network egress            <span class="term-dim">Last check: 10 min ago</span>');
+      termPrint('  <span class="term-success">✓</span> TTL enforcement           <span class="term-dim">Expires in 5d 14h</span>');
+      termPrint('<span class="term-dim">---</span>');
+      termPrint('<span class="term-dim">Anonymisation: active  |  Sandbox: locked  |  Compliance: passing</span>');
+    } else {
+      termPrint('<span class="term-error">guardrails: unknown subcommand \'' + escHtml(args[0]) + '\'</span>');
+    }
+  }},
+  'sandbox': { desc: 'Sandbox management', run: function(args) {
+    if (!args.length || args[0] === 'status') {
+      termPrint('<span class="term-info">Sandbox:</span>      <span class="term-success">ai-audit-tool-v2</span>');
+      termPrint('<span class="term-info">Status:</span>      <span class="term-success">Active</span>');
+      termPrint('<span class="term-info">Created:</span>     2026-07-25 14:23 UTC');
+      termPrint('<span class="term-info">Expires:</span>     2026-08-04 14:23 UTC  <span class="term-dim">(5d 14h remaining)</span>');
+      termPrint('<span class="term-info">Anonymised:</span>  <span class="term-success">Yes</span>');
+      termPrint('<span class="term-info">Guardrails:</span>  <span class="term-success">7/7 passing</span>');
+      termPrint('<span class="term-info">Snapshots:</span>   2  <span class="term-dim">(last: 2026-07-30 09:15)</span>');
+    } else if (args[0] === 'extend') {
+      termPrint('<span class="term-info">[REVIEW]</span> Extension request submitted for +3 days');
+      termPrint('<span class="term-warning">⚠ Justification required — 50 word minimum</span>');
+      termPrint('<span class="term-dim">Use \'sandbox extend --reason "..."\' to submit</span>');
+    } else if (args[0] === 'extend' && args[1] === '--reason') {
+      termPrint('<span class="term-success">✓ Extension approved — new expiry: 2026-08-07 14:23 UTC</span>');
+    } else if (args[0] === 'snapshot') {
+      termPrint('<span class="term-info">[SNAPSHOT]</span> Creating workspace snapshot...');
+      setTimeout(function(){ termPrint('<span class="term-success">✓ Snapshot saved — sn-20260730-1423.tar.gz (2.1 MB)</span>'); termRender(); termFocus(); }, 600);
+      return true;
+    } else if (args[0] === 'destroy') {
+      termPrint('<span class="term-warning">⚠ Confirm: type \'sandbox destroy --confirm\' to destroy this sandbox</span>');
+    } else if (args[0] === 'destroy' && args[1] === '--confirm') {
+      termPrint('<span class="term-error">✗ Sandbox destruction blocked by active guardrails</span>');
+      termPrint('<span class="term-error">  Promote idea to Asset Lifecycle first, or expire naturally.</span>');
+    } else {
+      termPrint('<span class="term-error">sandbox: unknown subcommand \'' + escHtml(args[0]) + '\'</span>');
+    }
+  }},
+  'snapshot': { desc: 'Create workspace snapshot (alias for sandbox snapshot)', run: function() {
+    return COMMANDS.sandbox.run.call(this, ['snapshot']);
+  }},
+  'promote': { desc: 'Promote idea to Asset Lifecycle', run: function() {
+    termPrint('<span class="term-info">[PIPELINE]</span> Checking validation gates...');
+    termPrint('  <span class="term-success">✓</span> Automated checks       <span class="term-dim">passing</span>');
+    termPrint('  <span class="term-success">✓</span> Peer review            <span class="term-dim">2/2 approvals</span>');
+    termPrint('  <span class="term-success">✓</span> Security scan          <span class="term-dim">0 vulnerabilities</span>');
+    termPrint('  <span class="term-success">✓</span> Governance compliance  <span class="term-dim">all policies met</span>');
+    termPrint('<span class="term-success">✓ Ready for Asset Lifecycle handoff</span>');
+    termPrint('<span class="term-dim">Use the Pipeline page or click Promote to complete handoff.</span>');
+  }}
+};
+
+function processCommand(cmd) {
+  cmd = cmd.trim();
+  if (!cmd) return;
+
+  termHist.push(cmd);
+  histIdx = termHist.length;
+
+  const parts = cmd.match(/(?:[^\s"']+|"[^"]*"|'[^']*')+/g) || [cmd];
+  const args = parts.map(function(s) { return s.replace(/^["']|["']$/g, ''); });
+  const base = args[0];
+  const rest = args.slice(1);
+
+  termPrint(TERM_PROMPT + '<span class="term-success">' + escHtml(cmd) + '</span>');
+
+  if (base === 'help') { COMMANDS.help.run(); }
+  else if (base === 'clear') { termBuf = []; }
+  else if (base === 'cd') { termPrint(''); }
+  else if (base === 'ls') { COMMANDS.ls.run(); }
+  else if (base === 'pwd') { COMMANDS.pwd.run(); }
+  else if (base === 'whoami') { COMMANDS.whoami.run(); }
+  else if (base === 'date') { COMMANDS.date.run(); }
+  else if (base === 'echo') { COMMANDS.echo.run(rest); }
+  else if (base === 'cat') { COMMANDS.cat.run(rest); }
+  else if (base === 'npm') { return COMMANDS.npm.run(rest); }
+  else if (base === 'node') { COMMANDS.node.run(rest); }
+  else if (base === 'git') { COMMANDS.git.run(rest); }
+  else if (base === 'guardrails') { COMMANDS.guardrails.run(rest); }
+  else if (base === 'sandbox') { COMMANDS.sandbox.run(rest); }
+  else if (base === 'snapshot') { return COMMANDS.snapshot.run(); }
+  else if (base === 'promote') { COMMANDS.promote.run(); }
+  else if (base === 'exit') { termPrint('<span class="term-dim">(sandbox cannot be exited — this is a governed environment)</span>'); }
+  else if (base === 'sudo') { termPrint('<span class="term-error">sudo: command not found in governed sandbox</span>'); }
+  else if (base === 'rm' || base === 'rm -rf') { termPrint('<span class="term-error">[GUARDRAIL] Destructive operation blocked by policy</span>'); }
+  else {
+    termPrint('<span class="term-error">command not found: ' + escHtml(base) + '</span>');
+    termPrint('<span class="term-dim">Type \'help\' for available commands</span>');
+  }
+}
+
+function initTerminal() {
+  termPrint('<span class="term-info">╔══════════════════════════════════════════════╗</span>');
+  termPrint('<span class="term-info">║</span>  <span class="term-success">Innovation Playground — Governed Sandbox</span>    <span class="term-info">║</span>');
+  termPrint('<span class="term-info">║</span>  <span class="term-dim">Anonymised environment · Guardrails active</span>  <span class="term-info">║</span>');
+  termPrint('<span class="term-info">╚══════════════════════════════════════════════╝</span>');
+  termPrint('<span class="term-success">✓</span> Sandbox <span class="term-info">ai-audit-tool-v2</span> provisioned <span class="term-dim">(2h ago)</span>');
+  termPrint('<span class="term-success">✓</span> 7 guardrails active, all passing');
+  termPrint('<span class="term-success">✓</span> Anonymisation layer enabled');
+  termPrint('<span class="term-dim">---</span>');
+  termPrint('<span class="term-dim">Type \'help\' for available commands.</span>');
+  termRender();
+  termReady = true;
+
+  term.addEventListener('keydown', function(e) {
+    if (!termReady) return;
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const cmd = termInput;
+      termInput = '';
+      termRender();
+      const asyncRet = processCommand(cmd);
+      if (asyncRet === true) { return; }
+      termRender();
+      termFocus();
+    } else if (e.key === 'Backspace') {
+      e.preventDefault();
+      termInput = termInput.slice(0, -1);
+      termRender();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (termHist.length) {
+        if (histIdx > 0) histIdx--;
+        termInput = termHist[histIdx] || '';
+        termRender();
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (histIdx < termHist.length - 1) {
+        histIdx++;
+        termInput = termHist[histIdx] || '';
+      } else {
+        histIdx = termHist.length;
+        termInput = '';
+      }
+      termRender();
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const partial = termInput.trim().toLowerCase();
+      const match = Object.keys(COMMANDS).find(function(c) { return c.startsWith(partial) && c !== partial; });
+      if (match) { termInput = match; termRender(); }
+    } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      e.preventDefault();
+      termInput += e.key;
+      termRender();
+    }
+  });
+
+  term.addEventListener('click', function() { term.focus(); });
+}
+
+document.addEventListener('DOMContentLoaded', initTerminal);
 </script>
 </body>
 </html>
