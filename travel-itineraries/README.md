@@ -2,6 +2,8 @@
 
 Staff location tracking, regional hazard monitoring, and automated emergency response activation.
 
+> **Product landing pages:** [Travel Itineraries](https://blank-look.github.io/opencode/travel-itineraries/) · [Interactive Mockup](https://blank-look.github.io/opencode/travel-itineraries/app-mockup.html)
+
 ## Purpose
 
 When staff travel internationally, the organisation needs to know where they are. If an emergency occurs — earthquake, tsunami, political unrest, natural disaster — the system monitors live news sources in key regions and automatically triggers the response plan.
