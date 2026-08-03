@@ -26,6 +26,7 @@ const sidebar = [
   { label: 'Governance', dir: 'governance', pages: [
     { label: 'Stage Gates', file: 'stage-gates' },
     { label: 'Project Sizing', file: 'project-sizing' },
+    { label: 'Application Architecture', file: 'application-architecture' },
     { label: 'Scaled Documentation', file: 'scaled-documentation' },
     { label: 'Build vs Buy — Cost-Benefit Analysis', file: 'cost-benefit-analysis' },
   ]},

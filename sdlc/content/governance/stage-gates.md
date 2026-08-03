@@ -3,7 +3,7 @@ title: Stage Gates
 ---
 
 | Gate | Decision | Minimum Evidence | Approving Body (Small / Medium / Large) |
-|---|---|---|---|---|
+|---|---|---|---|
 | 1. Intake | Is the requirement worth progressing? | Requirement, owner, outcome and initial size | CTO / ITEC / IT BoD |
 | 2. Governance | May AI and the proposed technology be used? | Risk classification, policies, data controls and agent permissions | CTO / ITEC + ISAC / IT BoD + ISAC |
 | 3. Design | Is the generated delivery plan safe and achievable? | Approved OpenCode prompt, architecture and acceptance criteria | Tech peer / Tech owner + Security / Architecture + Security + Governance |

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Architecture — SDLC</title>
+<meta name="description" content="A small set of approved architecture choices, applied by default, keeps internal applications consistent, supportable and low-risk. Deviations are possible but ">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div style="display:flex;align-items:center;gap:0;">
+      <a href="../../../index.html" class="navbar-schoolcode">SchoolCode</a>
+      <a href="../../index.html" class="navbar-brand">
+        <img src="../../img/logo.svg" alt="SDLC Logo" width="28" height="28">
+        AI-Assisted Delivery Lifecycle
+      </a>
+    </div>
+    <div class="navbar-links">
+      <a href="../overview/introduction.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Overview</div><a class="sidebar-item" href="../overview/introduction.html">Introduction</a></div><div class="sidebar-section"><div class="sidebar-section-title">The Lifecycle</div><a class="sidebar-item" href="../lifecycle/capture.html">1. Capture</a><a class="sidebar-item" href="../lifecycle/govern.html">2. Govern</a><a class="sidebar-item" href="../lifecycle/generate.html">3. Generate</a><a class="sidebar-item" href="../lifecycle/build.html">4. Build</a><a class="sidebar-item" href="../lifecycle/assure.html">5. Assure</a><a class="sidebar-item" href="../lifecycle/release.html">6. Release</a><a class="sidebar-item" href="../lifecycle/operate.html">7. Operate</a><a class="sidebar-item" href="../lifecycle/delivery-prompt.html">Delivery Prompt Template</a></div><div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/stage-gates.html">Stage Gates</a><a class="sidebar-item" href="../governance/project-sizing.html">Project Sizing</a><a class="sidebar-item active" href="../governance/application-architecture.html">Application Architecture</a><a class="sidebar-item" href="../governance/scaled-documentation.html">Scaled Documentation</a><a class="sidebar-item" href="../governance/cost-benefit-analysis.html">Build vs Buy — Cost-Benefit Analysis</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <p>A small set of approved architecture choices, applied by default, keeps internal applications consistent, supportable and low-risk. Deviations are possible but must be recorded as an Architecture Decision Record (ADR) and reviewed at <a href="stage-gates">Gate 3</a>.</p>
+<h2>Default Architecture</h2>
+<p><strong>Maxim: Prefer a modular monolith over microservices.</strong> Build one application, deployed together, organised into clear internal modules. Microservices are only justified by a proven operational need, not by team preference.</p>
+<p><strong>Maxim: Prefer server-rendered pages over a separate frontend and backend.</strong> Do not create separate frontend and backend repositories.</p>
+<h2>Reference Stack</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Application</td>
+<td>ASP.NET Core on a supported long-term-support .NET release</td>
+</tr>
+<tr>
+<td>User interface</td>
+<td>Server-rendered Blazor or equivalent ASP.NET Core approach</td>
+</tr>
+<tr>
+<td>Data access</td>
+<td>Entity Framework Core</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>PostgreSQL</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>FluentValidation or equivalent</td>
+</tr>
+<tr>
+<td>Observability</td>
+<td>Structured logging and OpenTelemetry-compatible metrics</td>
+</tr>
+<tr>
+<td>Background work</td>
+<td>Hosted services locally; Azure Container Apps jobs in production</td>
+</tr>
+</tbody></table>
+<p>Use JavaScript only where a server-rendered approach is inadequate.</p>
+<h2>Hosting Target</h2>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Web application</td>
+<td>Azure Container Apps</td>
+</tr>
+<tr>
+<td>Scheduled work</td>
+<td>Azure Container Apps jobs</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>Azure Database for PostgreSQL Flexible Server</td>
+</tr>
+<tr>
+<td>Secrets</td>
+<td>Azure Key Vault</td>
+</tr>
+<tr>
+<td>Containers</td>
+<td>Azure Container Registry</td>
+</tr>
+<tr>
+<td>Observability</td>
+<td>Application Insights with Log Analytics</td>
+</tr>
+<tr>
+<td>Identity</td>
+<td>Microsoft Entra ID; managed identity wherever supported</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>GitHub Actions for build, test, security, IaC and deployment</td>
+</tr>
+</tbody></table>
+<p>Use one Azure resource group per environment. Support development and production initially; design so test or staging can be added without changing the architecture.</p>
+<h2>Infrastructure as Code</h2>
+<p><strong>Maxim: Infrastructure is code.</strong> Define all infrastructure in Bicep, stored in the repository, and deployed through the pipeline — never by manual console changes.</p>
+<h2>Architecture Artefacts</h2>
+<p>The repository is the authoritative record. Each delivery must contain:</p>
+<table>
+<thead>
+<tr>
+<th>Artefact</th>
+<th>Location</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Architecture document</td>
+<td><code>docs/architecture.md</code></td>
+<td>System context, components, data flows, integration approach, environments</td>
+</tr>
+<tr>
+<td>Decision records</td>
+<td><code>docs/adr/</code></td>
+<td>One file per significant decision, with context, options considered and outcome</td>
+</tr>
+<tr>
+<td>Diagram</td>
+<td>In <code>docs/architecture.md</code></td>
+<td>Mermaid or equivalent architecture diagram</td>
+</tr>
+</tbody></table>
+<p>The required depth scales with project size: a diagram or brief for small work, a detailed document for medium, and a detailed document with architecture and security review for large work (see <a href="scaled-documentation">Scaled Documentation</a>).</p>
+<h2>Review</h2>
+<p>Architecture is reviewed at <strong>Gate 3 — Design</strong>. For medium and large work, the architecture document, threat model and data flows must be reviewed by the technical owner and security before implementation begins. The reference template is the <a href="../lifecycle/delivery-prompt">Delivery Prompt Template</a>, which contains the preferred technology architecture in full.</p>
+<h2>Deviations</h2>
+<p>Any proposed deviation from the default architecture must:</p>
+<ul>
+<li>be recorded as an ADR with the rationale and alternatives considered</li>
+<li>be flagged in the Gate 3 review</li>
+<li>be approved by the technical owner (small) or Architecture + Security + Project Governance (medium and large)</li>
+</ul>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 Infrastructure & Security. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

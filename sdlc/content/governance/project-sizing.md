@@ -7,7 +7,7 @@ Existing financial thresholds can be retained while adding risk-based criteria.
 ## Size Categories
 
 | Dimension | Small | Medium | Large |
-|---|---|---|---|---|
+|---|---|---|---|
 | 12-month cost | Under $25,000 | $25,000–$200,000 | Over $200,000 |
 | Internal effort | Under 3 weeks | 3 weeks–6 months | Over 6 months |
 | Typical oversight | CTO or delegate | IT Steering Group | Leadership Team |

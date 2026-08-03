@@ -12,6 +12,8 @@ Rather than maintaining many separate documents, the repository should become th
 | Governance and AI-use record | Required | Required | Required |
 | OpenCode delivery prompt | Required | Required | Required |
 | Architecture | Diagram or brief | Required | Detailed |
+
+See [Application Architecture](application-architecture) for the reference stack, hosting target and artefact requirements.
 | Threat model | Risk-based | Required | Detailed |
 | Decision records | Optional | Required | Required |
 | Test evidence | Required | Required | Required |
