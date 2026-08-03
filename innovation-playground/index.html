@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovation Playground — Sandbox Variants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brick: #7A1B2C;
+  --brick-light: #A3243B;
+  --navy: #1A2E4A;
+  --navy-light: #243E5E;
+  --teal: #0F766E;
+  --teal-light: #14B8A6;
+  --gray-50: #F8F7F6;
+  --gray-100: #EFECEA;
+  --gray-200: #E0DCD9;
+  --gray-300: #C5BFBA;
+  --gray-400: #9E9791;
+  --gray-500: #7D7670;
+  --gray-600: #615B56;
+  --gray-700: #4A4541;
+  --gray-800: #312D2A;
+  --gray-900: #1D1A18;
+  --white: #FFFFFF;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--gray-50);
+  color: var(--gray-900);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+.mockup-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.375rem 1rem;
+  letter-spacing: 0.05em;
+}
+.mockup-banner a { color: #93C5FD; text-decoration: none; }
+.mockup-banner a:hover { text-decoration: underline; }
+.navbar {
+  position: fixed;
+  top: 1.75rem; left: 0; right: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+}
+.navbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.navbar-schoolcode {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--gray-300);
+}
+.navbar-schoolcode:hover { color: var(--brick); }
+.navbar-title { font-weight: 600; font-size: 0.9rem; }
+.navbar-links { margin-left: auto; }
+.navbar-links a { color: var(--gray-500); text-decoration: none; font-size: 0.8rem; }
+.navbar-links a:hover { color: var(--brick); }
+.hero {
+  padding: 7rem 1.5rem 2.5rem;
+  text-align: center;
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--gray-50) 100%);
+}
+.hero h1 { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.02em; color: var(--gray-900); }
+.hero h1 span { color: var(--brick); }
+.hero p { margin-top: 0.75rem; font-size: 1.05rem; color: var(--gray-500); max-width: 640px; margin-left: auto; margin-right: auto; }
+.main { max-width: 1100px; margin: 0 auto; padding: 1rem 1.5rem 4rem; }
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-500);
+  margin: 1.5rem 0 1rem;
+}
+.section-label span { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--gray-400); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+.tile {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.tile:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(26,46,74,0.12); border-color: var(--gray-300); }
+.tile-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.tile-icon.oc { background: linear-gradient(135deg, var(--brick) 0%, var(--navy) 100%); }
+.tile-icon.cp { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%); }
+.tile-icon.gpt { background: #0D0D0D; }
+.tile-title { font-size: 1.15rem; font-weight: 700; }
+.tile-tools { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.25rem; }
+.tile-tools.oc { color: var(--brick); }
+.tile-tools.cp { color: #1D4ED8; }
+.tile-tools.gpt { color: #0E8C6D; }
+.tile-desc { margin-top: 0.75rem; font-size: 0.875rem; color: var(--gray-500); flex: 1; }
+.tile-tags { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
+.tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+.tag.oc { background: rgba(122,27,44,0.08); color: var(--brick); }
+.tag.cp { background: rgba(37,99,235,0.1); color: #1D4ED8; }
+.tag.gpt { background: rgba(16,163,127,0.1); color: #0E8C6D; }
+.tag.mut { background: var(--gray-100); color: var(--gray-600); }
+.tile-launch {
+  margin-top: 1.25rem;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--white);
+}
+.tile-launch.oc { background: var(--brick); }
+.tile-launch.cp { background: linear-gradient(90deg, #2563EB 0%, #7C3AED 100%); }
+.tile-launch.gpt { background: #0D0D0D; }
+.tile:hover .tile-launch.oc { background: var(--brick-light); }
+.footer {
+  text-align: center;
+  padding: 1.5rem 1rem 3rem;
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+.footer a { color: var(--gray-500); }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">
+  <strong>Design Mockup</strong> — Innovation Playground ·
+  <a href="README.md">README</a> ·
+  <a href="docs/product-requirements.md">Product Requirements</a>
+</div>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="../index.html" class="navbar-schoolcode">SchoolCode</a>
+    <span class="navbar-title">🌱 Innovation Playground — Sandbox Variants</span>
+    <div class="navbar-links">
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>One playground, <span>three AI engines</span></h1>
+  <p>The same governed, short-lived, anonymised sandbox — demoed against the agentic coding platforms the team actually uses. Pick a variant to see how each tool drives the identical governance model.</p>
+</header>
+
+<div class="main">
+
+  <div class="section-label">Sandbox Variants <span>— identical guardrails, different AI engines</span></div>
+
+  <div class="grid">
+
+    <a class="tile" href="app-mockup.html">
+      <div class="tile-icon oc">🌱</div>
+      <div class="tile-title">opencode</div>
+      <div class="tile-tools oc">Agentic CLI · big-pickle</div>
+      <div class="tile-desc">The reference implementation. OpenCode's agentic CLI drives the governed workspace — human prompts, AI actions, and full audit trail with opencode-style session markers.</div>
+      <div class="tile-tags">
+        <span class="tag oc">opencode</span>
+        <span class="tag mut">CLI agent</span>
+        <span class="tag mut">Reference</span>
+      </div>
+      <div class="tile-launch oc">Launch opencode version →</div>
+    </a>
+
+    <a class="tile" href="app-mockup-copilot.html">
+      <div class="tile-icon cp">🦾</div>
+      <div class="tile-title">Microsoft Copilot</div>
+      <div class="tile-tools cp">Copilot · Copilot Cowork · Copilot Studio</div>
+      <div class="tile-desc">The same sandbox driven by GitHub Copilot in VS Code, Copilot Cowork for web research, and Copilot Studio for building and publishing the governing agents.</div>
+      <div class="tile-tags">
+        <span class="tag cp">Copilot</span>
+        <span class="tag cp">Copilot Cowork</span>
+        <span class="tag cp">Copilot Studio</span>
+      </div>
+      <div class="tile-launch cp">Launch Copilot version →</div>
+    </a>
+
+    <a class="tile" href="app-mockup-chatgpt-edu.html">
+      <div class="tile-icon gpt">🎓</div>
+      <div class="tile-title">ChatGPT Edu</div>
+      <div class="tile-tools gpt">ChatGPT Edu · Custom GPTs · Canvas</div>
+      <div class="tile-desc">The same sandbox driven by ChatGPT Edu for education use — custom GPTs for governed tasks, Canvas for document work, and chat-first collaboration.</div>
+      <div class="tile-tags">
+        <span class="tag gpt">ChatGPT Edu</span>
+        <span class="tag gpt">Custom GPTs</span>
+        <span class="tag gpt">Canvas</span>
+      </div>
+      <div class="tile-launch gpt">Launch ChatGPT Edu version →</div>
+    </a>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  <span><strong>Design Mockup</strong> — Innovation Playground · Sandbox Variants</span>
+  <span>· Phase 0 · 2026-07-30</span>
+  <span>· Updates tracked in <a href="https://github.com/Blank-Look/opencode">GitHub</a></span>
+</div>
+
+</body>
+</html>

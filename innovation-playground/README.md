@@ -2,12 +2,19 @@
 
 A governed, short-lived, anonymised sandbox environment where teams ideate, build, and validate ideas before they enter the formal Asset Lifecycle.
 
-> **Product landing pages:** [Innovation Playground](https://blank-look.github.io/opencode/innovation-playground/) · [Interactive Mockup](https://blank-look.github.io/opencode/innovation-playground/app-mockup.html) · [Product Requirements](docs/product-requirements.md)
+> **Product landing pages:** [Innovation Playground](https://blank-look.github.io/opencode/innovation-playground/) · [Sandbox Variants](https://blank-look.github.io/opencode/innovation-playground/index.html) · [Product Requirements](docs/product-requirements.md)
 
-## Design Mockup
+## Design Mockups — Sandbox Variants
 
-[App Mockup →](https://blank-look.github.io/opencode/innovation-playground/app-mockup.html)
-Interactive HTML mockup covering the playground dashboard, sandbox management, idea submission, governed IDE workspace, pipeline kanban, guardrail policies, and activity audit log.
+The same governed, anonymised sandbox demoed against three AI engines. Each variant is a full mockup (dashboard, sandbox management, idea submission, governed IDE workspace, pipeline kanban, guardrails, activity log) with identical governance — only the AI engine differs.
+
+| Variant | Tools | Mockup |
+|---|---|---|
+| 🌱 **opencode** | Agentic CLI | [app-mockup.html](app-mockup.html) |
+| 🦾 **Microsoft Copilot** | Copilot · Copilot Cowork · Copilot Studio | [app-mockup-copilot.html](app-mockup-copilot.html) |
+| 🎓 **ChatGPT Edu** | ChatGPT Edu · Custom GPTs · Canvas | [app-mockup-chatgpt-edu.html](app-mockup-chatgpt-edu.html) |
+
+Launch page: [innovation-playground/index.html](index.html)
 
 ## Architecture
 
