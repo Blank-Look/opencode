@@ -66,3 +66,7 @@ Any proposed deviation from the default architecture must:
 - be recorded as an ADR with the rationale and alternatives considered
 - be flagged in the Gate 3 review
 - be approved by the technical owner (small) or Architecture + Security + Project Governance (medium and large)
+
+## Sizing
+
+This page will be linked with [Project Sizing](project-sizing). Small tools and applications that use the approved business-as-usual tool sets will be classified automatically as part of the sizing matrix, inheriting a default size without the need for a manual assessment.

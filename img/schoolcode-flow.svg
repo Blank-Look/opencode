@@ -8,6 +8,10 @@
       <stop offset="0" stop-color="#7A1B2C"/>
       <stop offset="1" stop-color="#A3243B"/>
     </linearGradient>
+    <linearGradient id="pulse" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#14B8A6"/>
+    </linearGradient>
     <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
       <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.12"/>
     </filter>
@@ -16,77 +20,125 @@
   <rect x="0" y="0" width="1200" height="620" fill="#F8F7F6" rx="24"/>
 
   <!-- Title -->
-  <text x="600" y="52" text-anchor="middle" font-size="26" font-weight="800" fill="#1C1A18" letter-spacing="-0.5">SchoolCode → SchoolApps</text>
-  <text x="600" y="80" text-anchor="middle" font-size="14" fill="#847E78">From AI-assisted development to governed delivery</text>
+  <text x="600" y="52" text-anchor="middle" font-size="26" font-weight="800" fill="#1C1A18" letter-spacing="-0.5">SchoolCode → SchoolApps → SchoolPulse</text>
+  <text x="600" y="80" text-anchor="middle" font-size="14" fill="#847E78">From AI-assisted development to governed delivery to managed operations</text>
 
   <!-- ===================== SCHOOLCODE ===================== -->
   <g filter="url(#shadow)">
-    <rect x="60" y="120" width="440" height="440" rx="20" fill="#FFFFFF" stroke="#E2E0DE"/>
+    <rect x="40" y="120" width="300" height="440" rx="20" fill="#FFFFFF" stroke="#E2E0DE"/>
   </g>
-  <rect x="60" y="120" width="440" height="100" rx="20" fill="url(#brick)"/>
-  <rect x="60" y="176" width="440" height="44" fill="url(#brick)"/>
-  <text x="90" y="160" font-size="13" font-weight="700" fill="#F5D76E" letter-spacing="2">SCHOOLCODE</text>
-  <text x="90" y="205" font-size="28" font-weight="800" fill="#FFFFFF">Develop</text>
-  <text x="90" y="235" font-size="15" fill="#F3D9DE">AI-assisted development</text>
+  <rect x="40" y="120" width="300" height="100" rx="20" fill="url(#brick)"/>
+  <rect x="40" y="176" width="300" height="44" fill="url(#brick)"/>
+  <text x="64" y="160" font-size="13" font-weight="700" fill="#F5D76E" letter-spacing="2">SCHOOLCODE</text>
+  <text x="64" y="205" font-size="28" font-weight="800" fill="#FFFFFF">Develop</text>
+  <text x="64" y="235" font-size="15" fill="#F3D9DE">AI-assisted development</text>
 
   <!-- chips -->
   <g font-size="14" font-weight="600" text-anchor="middle">
-    <rect x="90" y="260" width="170" height="44" rx="22" fill="#EFF6FF" stroke="#BFDBFE"/>
-    <text x="175" y="288" fill="#1D4ED8">OpenCode</text>
-    <rect x="280" y="260" width="170" height="44" rx="22" fill="#EFF6FF" stroke="#BFDBFE"/>
-    <text x="365" y="288" fill="#1D4ED8">GitHub Copilot</text>
-    <rect x="90" y="320" width="170" height="44" rx="22" fill="#EFF6FF" stroke="#BFDBFE"/>
-    <text x="175" y="348" fill="#1D4ED8">VS Code</text>
-    <rect x="280" y="320" width="170" height="44" rx="22" fill="#EFF6FF" stroke="#BFDBFE"/>
-    <text x="365" y="348" fill="#1D4ED8">AGENTS.md</text>
+    <rect x="64" y="260" width="120" height="44" rx="22" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <text x="124" y="288" fill="#1D4ED8">OpenCode</text>
+    <rect x="196" y="260" width="120" height="44" rx="22" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <text x="256" y="288" fill="#1D4ED8">GitHub Copilot</text>
+    <rect x="64" y="320" width="120" height="44" rx="22" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <text x="124" y="348" fill="#1D4ED8">VS Code</text>
+    <rect x="196" y="320" width="120" height="44" rx="22" fill="#EFF6FF" stroke="#BFDBFE"/>
+    <text x="256" y="348" fill="#1D4ED8">AGENTS.md</text>
   </g>
 
-  <line x1="90" y1="392" x2="470" y2="392" stroke="#E2E0DE" stroke-width="1.5"/>
-  <text x="90" y="424" font-size="13" font-weight="700" fill="#A39E99" letter-spacing="1.5">OUTPUT</text>
-  <rect x="90" y="440" width="170" height="40" rx="10" fill="#F0FDF4" stroke="#BBF7D0"/>
-  <text x="105" y="466" font-size="14" font-weight="700" fill="#15803D">Code + Pull Requests</text>
+  <line x1="64" y1="392" x2="316" y2="392" stroke="#E2E0DE" stroke-width="1.5"/>
+  <text x="64" y="424" font-size="13" font-weight="700" fill="#A39E99" letter-spacing="1.5">OUTPUT</text>
+  <rect x="64" y="440" width="252" height="40" rx="10" fill="#F0FDF4" stroke="#BBF7D0"/>
+  <text x="80" y="466" font-size="14" font-weight="700" fill="#15803D">Code + Pull Requests</text>
 
-  <!-- ===================== ARROW ===================== -->
+  <!-- ===================== ARROW 1 ===================== -->
   <g>
-    <rect x="522" y="270" width="156" height="56" rx="14" fill="#1C1A18"/>
-    <text x="600" y="294" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Publish</text>
-    <text x="600" y="312" text-anchor="middle" font-size="11" fill="#C5C2BE">via DevOps</text>
-    <path d="M678 298 L710 298 L710 286 L742 298 L710 310 L710 298 Z" fill="#1C1A18"/>
+    <rect x="340" y="270" width="110" height="56" rx="14" fill="#1C1A18"/>
+    <text x="395" y="294" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Publish</text>
+    <text x="395" y="312" text-anchor="middle" font-size="11" fill="#C5C2BE">via DevOps</text>
+    <path d="M450 298 L470 298 L470 286 L486 298 L470 310 L470 298 Z" fill="#1C1A18"/>
   </g>
 
   <!-- ===================== SCHOOLAPPS ===================== -->
   <g filter="url(#shadow)">
-    <rect x="700" y="120" width="440" height="440" rx="20" fill="#FFFFFF" stroke="#E2E0DE"/>
+    <rect x="450" y="120" width="300" height="440" rx="20" fill="#FFFFFF" stroke="#E2E0DE"/>
   </g>
-  <rect x="700" y="120" width="440" height="100" rx="20" fill="url(#navy)"/>
-  <rect x="700" y="176" width="440" height="44" fill="url(#navy)"/>
-  <text x="730" y="160" font-size="13" font-weight="700" fill="#A8B5CA" letter-spacing="2">SCHOOLAPPS</text>
-  <text x="730" y="205" font-size="28" font-weight="800" fill="#FFFFFF">Deliver</text>
-  <text x="730" y="235" font-size="15" fill="#CDD5E3">DevOps toolset for publishing</text>
+  <rect x="450" y="120" width="300" height="100" rx="20" fill="url(#navy)"/>
+  <rect x="450" y="176" width="300" height="44" fill="url(#navy)"/>
+  <text x="474" y="160" font-size="13" font-weight="700" fill="#A8B5CA" letter-spacing="2">SCHOOLAPPS</text>
+  <text x="474" y="205" font-size="28" font-weight="800" fill="#FFFFFF">Deliver</text>
+  <text x="474" y="235" font-size="15" fill="#CDD5E3">DevOps toolset for publishing</text>
 
   <!-- pipeline -->
   <g text-anchor="middle">
-    <rect x="730" y="270" width="120" height="90" rx="14" fill="#FFF7ED" stroke="#FDBA74"/>
-    <text x="790" y="300" font-size="14" font-weight="700" fill="#C2410C">Sandbox</text>
-    <text x="790" y="322" font-size="11" fill="#FDBA74">experiment</text>
-    <path d="M850 315 L878 315 L878 303 L910 315 L878 327 L878 315 Z" fill="#FDBA74"/>
-    <rect x="910" y="270" width="120" height="90" rx="14" fill="#FFF7ED" stroke="#FDBA74"/>
-    <text x="970" y="300" font-size="14" font-weight="700" fill="#C2410C">Dev</text>
-    <text x="970" y="322" font-size="11" fill="#FDBA74">validate</text>
-    <path d="M1030 315 L1058 315 L1058 303 L1090 315 L1058 327 L1058 315 Z" fill="#FDBA74"/>
-    <rect x="1090" y="270" width="120" height="90" rx="14" fill="#F0FDF4" stroke="#86EFAC"/>
-    <text x="1150" y="300" font-size="14" font-weight="700" fill="#15803D">Prod</text>
-    <text x="1150" y="322" font-size="11" fill="#86EFAC">live</text>
+    <rect x="474" y="270" width="74" height="90" rx="14" fill="#FFF7ED" stroke="#FDBA74"/>
+    <text x="511" y="300" font-size="14" font-weight="700" fill="#C2410C">Sandbox</text>
+    <text x="511" y="322" font-size="11" fill="#FDBA74">experiment</text>
+    <path d="M549 315 L557 315 L557 308 L563 315 L557 322 L557 315 Z" fill="#FDBA74"/>
+    <rect x="563" y="270" width="74" height="90" rx="14" fill="#FFF7ED" stroke="#FDBA74"/>
+    <text x="600" y="300" font-size="14" font-weight="700" fill="#C2410C">Dev</text>
+    <text x="600" y="322" font-size="11" fill="#FDBA74">validate</text>
+    <path d="M638 315 L646 315 L646 308 L652 315 L646 322 L646 315 Z" fill="#FDBA74"/>
+    <rect x="652" y="270" width="74" height="90" rx="14" fill="#F0FDF4" stroke="#86EFAC"/>
+    <text x="689" y="300" font-size="14" font-weight="700" fill="#15803D">Prod</text>
+    <text x="689" y="322" font-size="11" fill="#86EFAC">live</text>
   </g>
 
-  <line x1="730" y1="392" x2="1110" y2="392" stroke="#E2E0DE" stroke-width="1.5"/>
-  <text x="730" y="424" font-size="13" font-weight="700" fill="#A39E99" letter-spacing="1.5">HOW</text>
+  <line x1="474" y1="392" x2="726" y2="392" stroke="#E2E0DE" stroke-width="1.5"/>
+  <text x="474" y="424" font-size="13" font-weight="700" fill="#A39E99" letter-spacing="1.5">HOW</text>
   <g font-size="14" font-weight="600" text-anchor="middle">
-    <rect x="730" y="440" width="150" height="40" rx="10" fill="#FFF7ED" stroke="#FDBA74"/>
-    <text x="805" y="466" fill="#C2410C">CI / CD Pipelines</text>
-    <rect x="896" y="440" width="150" height="40" rx="10" fill="#FFF7ED" stroke="#FDBA74"/>
-    <text x="971" y="466" fill="#C2410C">Gate Approvals</text>
-    <rect x="1062" y="440" width="48" height="40" rx="10" fill="#FFF7ED" stroke="#FDBA74"/>
+    <rect x="474" y="440" width="140" height="40" rx="10" fill="#FFF7ED" stroke="#FDBA74"/>
+    <text x="544" y="466" fill="#C2410C">CI/CD + Gates</text>
+    <rect x="626" y="440" width="100" height="40" rx="10" fill="#FFF7ED" stroke="#FDBA74"/>
+    <text x="676" y="466" fill="#C2410C">Audit</text>
   </g>
-  <text x="1086" y="466" text-anchor="middle" font-size="13" font-weight="600" fill="#C2410C">Audit</text>
+
+  <!-- ===================== ARROW 2 ===================== -->
+  <g>
+    <rect x="750" y="270" width="110" height="56" rx="14" fill="#1C1A18"/>
+    <text x="805" y="294" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Promote</text>
+    <text x="805" y="312" text-anchor="middle" font-size="11" fill="#C5C2BE">to Lifecycle</text>
+    <path d="M860 298 L878 298 L878 286 L894 298 L878 310 L878 298 Z" fill="#1C1A18"/>
+  </g>
+
+  <!-- ===================== SCHOOLPULSE ===================== -->
+  <g filter="url(#shadow)">
+    <rect x="860" y="120" width="300" height="440" rx="20" fill="#FFFFFF" stroke="#E2E0DE"/>
+  </g>
+  <rect x="860" y="120" width="300" height="100" rx="20" fill="url(#pulse)"/>
+  <rect x="860" y="176" width="300" height="44" fill="url(#pulse)"/>
+  <text x="884" y="160" font-size="13" font-weight="700" fill="#CCFBF1" letter-spacing="2">SCHOOLPULSE</text>
+  <text x="884" y="205" font-size="28" font-weight="800" fill="#FFFFFF">Manage</text>
+  <text x="884" y="235" font-size="15" fill="#D7F5EF">Operating the asset lifecycle</text>
+
+  <!-- status -->
+  <g text-anchor="middle">
+    <rect x="884" y="270" width="70" height="90" rx="14" fill="#ECFDF5" stroke="#86EFAC"/>
+    <text x="919" y="300" font-size="14" font-weight="700" fill="#047857">Health</text>
+    <text x="919" y="322" font-size="11" fill="#86EFAC">monitored</text>
+    <rect x="964" y="270" width="70" height="90" rx="14" fill="#ECFDF5" stroke="#86EFAC"/>
+    <text x="999" y="300" font-size="14" font-weight="700" fill="#047857">Backups</text>
+    <text x="999" y="322" font-size="11" fill="#86EFAC">verified</text>
+    <rect x="1044" y="270" width="70" height="90" rx="14" fill="#ECFDF5" stroke="#86EFAC"/>
+    <text x="1079" y="300" font-size="14" font-weight="700" fill="#047857">Security</text>
+    <text x="1079" y="322" font-size="11" fill="#86EFAC">scanned</text>
+  </g>
+
+  <line x1="884" y1="392" x2="1136" y2="392" stroke="#E2E0DE" stroke-width="1.5"/>
+  <text x="884" y="424" font-size="13" font-weight="700" fill="#A39E99" letter-spacing="1.5">COVERS</text>
+  <g font-size="13" font-weight="600" text-anchor="middle">
+    <rect x="884" y="428" width="80" height="40" rx="10" fill="#ECFDF5" stroke="#99F6E4"/>
+    <text x="924" y="454" fill="#0F766E">Monitoring</text>
+    <rect x="970" y="428" width="80" height="40" rx="10" fill="#ECFDF5" stroke="#99F6E4"/>
+    <text x="1010" y="454" fill="#0F766E">Reporting</text>
+    <rect x="1056" y="428" width="80" height="40" rx="10" fill="#ECFDF5" stroke="#99F6E4"/>
+    <text x="1096" y="454" fill="#0F766E">Automation</text>
+    <rect x="884" y="472" width="80" height="40" rx="10" fill="#ECFDF5" stroke="#99F6E4"/>
+    <text x="924" y="498" fill="#0F766E">Lifecycle</text>
+    <rect x="970" y="472" width="80" height="40" rx="10" fill="#ECFDF5" stroke="#99F6E4"/>
+    <text x="1010" y="498" fill="#0F766E">Policies</text>
+    <rect x="1056" y="472" width="80" height="40" rx="10" fill="#ECFDF5" stroke="#99F6E4"/>
+    <text x="1096" y="498" fill="#0F766E">Usage</text>
+  </g>
+  <rect x="884" y="520" width="252" height="36" rx="10" fill="#0F766E"/>
+  <text x="1010" y="543" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">Asset Governance Manager (AGM)</text>
 </svg>
