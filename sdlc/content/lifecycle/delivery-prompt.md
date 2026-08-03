@@ -14,7 +14,7 @@ The working product name is:
 
 **ICT Asset Governance Manager**
 
-**Existing asset register:** This repository already contains an [Asset Manager](https://github.com/Blank-Look/opencode/tree/master/asset-manager) application (Express + SQLite + Freshservice/Entra/Defender connectors). Before designing the architecture, inspect this existing application and document in `/docs/assumptions-and-questions.md` whether it should be evolved, replaced, or integrated with the new application. Reference this decision in an Architecture Decision Record under `docs/adr/`.
+**Existing asset register:** This repository already contains an [Asset Governance Manager](https://github.com/Blank-Look/opencode/tree/master/asset-governance-manager) application (Express + SQLite + Freshservice/Entra/Defender connectors). Before designing the architecture, inspect this existing application and document in `/docs/assumptions-and-questions.md` whether it should be evolved, replaced, or integrated with the new application. Reference this decision in an Architecture Decision Record under `docs/adr/`.
 
 Your job is to create a secure, maintainable, production-ready MVP that can be hosted in Microsoft Azure with the fewest reasonable components.
 
@@ -312,7 +312,7 @@ Initial application roles:
 
 - Reader
 - Contributor
-- AssetManager
+- AssetGovernanceManager
 - WorkflowApprover
 - SecurityReviewer
 - DataGovernanceReviewer

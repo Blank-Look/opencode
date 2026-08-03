@@ -38,7 +38,7 @@
       <h1>Engineering Delivery Model</h1>
 <p>How the ICT engineering team builds, hosts, and governs internal tools — using SharePoint for authoring, GitHub for version control, Azure Static Web Apps for delivery, and OpenCode as the AI engineering agent.</p>
 <h2>Problem</h2>
-<p>The team&#39;s tools (Knowledge Base, Foundry bootcamp, Innovation Playground mockup, Asset Manager) were built on GitHub Pages — <strong>public by default</strong>. Internal engineering products need:</p>
+<p>The team&#39;s tools (Knowledge Base, Foundry bootcamp, Innovation Playground mockup, Asset Governance Manager) were built on GitHub Pages — <strong>public by default</strong>. Internal engineering products need:</p>
 <ul>
 <li><strong>Authentication</strong> — only internal staff should access these tools</li>
 <li><strong>Familiar authoring</strong> — docs live in SharePoint, edited by non-technical team members</li>
@@ -85,7 +85,7 @@ Azure Static Web App
 <p>Everything is version-controlled. The repository stores:</p>
 <ul>
 <li>Documentation (synchronised from SPO)</li>
-<li>Application code (Foundry, Innovation Playground, Asset Manager)</li>
+<li>Application code (Foundry, Innovation Playground, Asset Governance Manager)</li>
 <li>Configuration (workflows, deployment manifests)</li>
 <li>Architecture Decision Records (ADRs)</li>
 </ul>
@@ -146,7 +146,7 @@ Azure Static Web App
 </tbody></table>
 <h2>Future Considerations</h2>
 <ul>
-<li><strong>Asset Manager</strong> requires a runtime (Express + SQLite). Deploy to Azure Container Apps with the same Entra ID auth pattern.</li>
+<li><strong>Asset Governance Manager</strong> requires a runtime (Express + SQLite). Deploy to Azure Container Apps with the same Entra ID auth pattern.</li>
 <li><strong>Innovation Playground</strong> live TUI (real shell) would need a WebSocket-capable runtime. Possible with Azure Container Apps or a separate WebSocket server behind the same auth.</li>
 <li><strong>Multi-environment</strong> setup (dev/staging/prod) using SWA deployment environments.</li>
 </ul>

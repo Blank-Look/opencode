@@ -16,7 +16,7 @@ The COO wants to open the innovation funnel while keeping SDLC guardrails intact
 | **Innovator** | Any staff member | A sandbox to try ideas quickly without red tape |
 | **Reviewer** | Domain expert / Tech lead | Validate ideas against policy and architecture |
 | **Governance Admin** | GRC / Platform team | Monitor compliance, enforce guardrails, audit activity |
-| **Asset Manager** | Asset lifecycle owner | Receive validated ideas into the formal lifecycle |
+| **Asset Governance Manager** | Asset lifecycle owner | Receive validated ideas into the formal lifecycle |
 
 ## Functional Requirements
 
@@ -53,7 +53,7 @@ The COO wants to open the innovation funnel while keeping SDLC guardrails intact
 
 ### 4. Handoff to Asset Lifecycle
 
-- "Move to Lifecycle" button creates an asset record in Asset Manager
+- "Move to Lifecycle" button creates an asset record in Asset Governance Manager
 - Links back to the original idea and sandbox (anonymised reference)
 - Triggers onboarding workflow (procurement, security assessment, etc.)
 - Playground resources are destroyed after handoff

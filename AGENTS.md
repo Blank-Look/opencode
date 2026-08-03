@@ -1,6 +1,6 @@
 # Project Context
 
-Two independent projects plus a products directory in one repo: **Knowledge Base** (`products/knowledgebase/`), **Asset Manager** (`asset-manager/`), and **Products** (`products/`). Knowledge Base and Asset Manager share no code or dependencies.
+Two independent projects plus a products directory in one repo: **Knowledge Base** (`products/knowledgebase/`), **Asset Governance Manager** (`asset-governance-manager/`), and **Products** (`products/`). Knowledge Base and Asset Governance Manager share no code or dependencies.
 
 ## Knowledge Base (`products/knowledgebase/`)
 
@@ -15,11 +15,11 @@ Markdown + `generate.js` → static HTML/CSS, hosted on GitHub Pages.
 - Dependency: `marked` (dynamically ESM-imported)
 - Nav bar in generated HTML: SchoolCode link goes up to root via `upToRoot()` in generate.js (works automatically from any depth)
 
-## Asset Manager (`asset-manager/`)
+## Asset Governance Manager (`asset-governance-manager/`)
 
 Express + SQLite + Microsoft Graph API connectors. No tests, linters, or CI.
 
-**Commands** (run from `asset-manager/`):
+**Commands** (run from `asset-governance-manager/`):
 ```
 npm start          # node src/index.js
 npm run dev        # node --watch src/index.js (Node 18+)
@@ -29,7 +29,7 @@ npm run sync       # node src/manual-sync.js "<job-name>"
 
 **Setup:**
 - `cp .env.example .env` — fill in Azure AD app registration (Graph API permissions needed)
-- DB auto-created at `data/asset-manager.db` (WAL mode, foreign keys on)
+- DB auto-created at `data/asset-governance-manager.db` (WAL mode, foreign keys on)
 - 4 pre-configured cron sync jobs (Entra, SharePoint, Defender, Power Automate)
 
 **Architecture:**
@@ -90,7 +90,7 @@ All new app mockups (`app-mockup.html`) should follow this established pattern:
 - Top bar — page title left, avatar right
 
 **Color themes per app:**
-- Asset Manager: maroon (`--maroon: #7A1B2C`), blue-gray accents
+- Asset Governance Manager: maroon (`--maroon: #7A1B2C`), blue-gray accents
 - Travel Itineraries: amber (`--amber: #B45309`), orange-toned grays
 - New apps should pick a distinct accent color
 
@@ -115,7 +115,7 @@ All new app mockups (`app-mockup.html`) should follow this established pattern:
 - All sidebar items are `cursor: default` (non-interactive mockup)
 - Inter font via Google Fonts
 
-**New app template:** Copy `asset-manager/app-mockup.html` as starting point, swap accent colour variables, update sidebar sections, page sections, and mock data.
+**New app template:** Copy `asset-governance-manager/app-mockup.html` as starting point, swap accent colour variables, update sidebar sections, page sections, and mock data.
 
 ## Delivery Prompt Template
 

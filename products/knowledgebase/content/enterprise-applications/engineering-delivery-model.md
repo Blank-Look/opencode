@@ -8,7 +8,7 @@ How the ICT engineering team builds, hosts, and governs internal tools — using
 
 ## Problem
 
-The team's tools (Knowledge Base, Foundry bootcamp, Innovation Playground mockup, Asset Manager) were built on GitHub Pages — **public by default**. Internal engineering products need:
+The team's tools (Knowledge Base, Foundry bootcamp, Innovation Playground mockup, Asset Governance Manager) were built on GitHub Pages — **public by default**. Internal engineering products need:
 
 - **Authentication** — only internal staff should access these tools
 - **Familiar authoring** — docs live in SharePoint, edited by non-technical team members
@@ -64,7 +64,7 @@ GET /drives/{id}/root:/path:/children  →  download .md files  →  commit to G
 Everything is version-controlled. The repository stores:
 
 - Documentation (synchronised from SPO)
-- Application code (Foundry, Innovation Playground, Asset Manager)
+- Application code (Foundry, Innovation Playground, Asset Governance Manager)
 - Configuration (workflows, deployment manifests)
 - Architecture Decision Records (ADRs)
 
@@ -111,6 +111,6 @@ The workflow is: prompt → OpenCode builds/edits → human reviews → commit �
 
 ## Future Considerations
 
-- **Asset Manager** requires a runtime (Express + SQLite). Deploy to Azure Container Apps with the same Entra ID auth pattern.
+- **Asset Governance Manager** requires a runtime (Express + SQLite). Deploy to Azure Container Apps with the same Entra ID auth pattern.
 - **Innovation Playground** live TUI (real shell) would need a WebSocket-capable runtime. Possible with Azure Container Apps or a separate WebSocket server behind the same auth.
 - **Multi-environment** setup (dev/staging/prod) using SWA deployment environments.
