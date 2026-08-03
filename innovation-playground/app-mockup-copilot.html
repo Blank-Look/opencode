@@ -375,120 +375,273 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
 .pipe-card .pc-foot { display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.625rem; color: var(--gray-400); }
 
 /* IDE Workspace */
-.ide-layout {
+/* ── VS Code + Copilot workspace ── */
+.vscode-layout {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 48px 208px minmax(0, 1fr) 330px;
   grid-template-rows: auto 1fr auto;
-  gap: 0;
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: #1E1E1E;
+  border: 1px solid var(--gray-300);
   border-radius: 10px;
   overflow: hidden;
   min-height: 700px;
+  color: #CCCCCC;
+  font-family: var(--font-sans);
 }
-.ide-topbar {
+.vscode-titlebar {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  background: var(--navy);
-  color: var(--white);
-  font-size: 0.75rem;
-  gap: 1rem;
+  gap: 0.75rem;
+  background: #323233;
+  color: #CCCCCC;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.6875rem;
+  border-bottom: 1px solid #1E1E1E;
 }
-.ide-topbar .ide-title { font-weight: 600; font-size: 0.8125rem; }
-.ide-topbar .ide-badges { display: flex; gap: 0.5rem; align-items: center; }
-.ide-topbar .ide-badge {
+.vscode-titlebar .vt-center { flex: 1; text-align: center; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vscode-titlebar .vt-badges { display: flex; gap: 0.375rem; align-items: center; }
+.vscode-badge {
   font-size: 0.625rem;
   padding: 0.125rem 0.5rem;
   border-radius: 999px;
   font-weight: 600;
+  white-space: nowrap;
 }
-.ide-topbar .ide-badge.anon { background: var(--purple); color: var(--white); }
-.ide-topbar .ide-badge.guard { background: var(--green); color: var(--white); }
-.ide-topbar .ide-badge.time { background: var(--amber); color: var(--white); }
-.ide-topbar .ide-badge.lock { background: var(--teal); color: var(--white); }
-.ide-topbar .ide-actions { display: flex; gap: 0.375rem; }
-.ide-topbar .ide-btn {
-  background: rgba(255,255,255,0.1);
-  color: var(--white);
+.vscode-badge.anon { background: rgba(124,58,237,0.35); color: #E9D5FF; }
+.vscode-badge.guard { background: rgba(16,185,129,0.35); color: #D1FAE5; }
+.vscode-badge.time { background: rgba(217,119,6,0.4); color: #FEF3C7; }
+.vscode-badge.lock { background: rgba(37,99,235,0.45); color: #DBEAFE; }
+.vscode-badge.demo {
+  background: #007ACC;
+  color: #fff;
+  cursor: pointer;
   border: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.625rem;
-  cursor: default;
   font-family: var(--font-sans);
 }
-.ide-topbar .ide-btn:hover { background: rgba(255,255,255,0.2); }
-.ide-topbar .ide-btn.danger { background: rgba(220,38,38,0.4); }
-.ide-sidebar {
+.vscode-badge.demo:hover { background: #1a8fd0; }
+.vscode-badge.demo.playing { background: #10A37F; }
+
+.vscode-activitybar {
   grid-row: 2 / 3;
-  background: var(--gray-50);
-  border-right: 1px solid var(--gray-200);
+  background: #333333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0.5rem 0;
+  gap: 0.375rem;
+}
+.vscode-activitybar .ab-icon {
+  width: 48px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: #8A8A8A;
+  border-left: 2px solid transparent;
+  cursor: default;
+}
+.vscode-activitybar .ab-icon.active { color: #FFFFFF; border-left-color: #FFFFFF; }
+.vscode-activitybar .ab-icon.copilot {
+  background: linear-gradient(135deg, rgba(0,122,204,0.4), rgba(124,58,237,0.4));
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  border-left-color: transparent;
+}
+.vscode-activitybar .ab-spacer { flex: 1; }
+.vscode-activitybar .ab-bottom { display: flex; flex-direction: column; align-items: center; gap: 0.375rem; }
+
+.vscode-explorer {
+  grid-row: 2 / 3;
+  background: #252526;
+  border-right: 1px solid #1E1E1E;
   font-size: 0.75rem;
   overflow-y: auto;
+  padding: 0.5rem 0;
 }
-.ide-sidebar .fs-header {
+.vscode-explorer .ex-title {
   padding: 0.25rem 0.75rem;
   font-size: 0.625rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--gray-500);
+  color: #8A8A8A;
 }
-.ide-sidebar .fs-item {
-  padding: 0.25rem 0.75rem 0.25rem 1.5rem;
-  color: var(--gray-700);
+.vscode-explorer .ex-folder {
+  padding: 0.25rem 0.75rem;
+  color: #CCCCCC;
+  font-weight: 600;
   cursor: default;
+  display: flex; align-items: center; gap: 0.375rem;
+}
+.vscode-explorer .ex-file {
+  padding: 0.2rem 0.75rem 0.2rem 1.5rem;
+  color: #BBBBBB;
+  cursor: default;
+  display: flex; align-items: center; gap: 0.375rem;
+}
+.vscode-explorer .ex-file:hover { background: #2A2D2E; }
+.vscode-explorer .ex-file.active { background: #37373D; color: #FFFFFF; }
+.vscode-explorer .ex-file .ex-icon { font-size: 0.8125rem; }
+
+.vscode-editor { grid-row: 2 / 3; display: flex; flex-direction: column; min-width: 0; }
+.vscode-tabs {
+  display: flex;
+  background: #252526;
+  border-bottom: 1px solid #1E1E1E;
+  font-size: 0.75rem;
+  overflow-x: auto;
+}
+.vscode-tabs .tab {
   display: flex;
   align-items: center;
   gap: 0.375rem;
+  padding: 0.4rem 0.75rem;
+  background: #2D2D2D;
+  color: #969696;
+  border-right: 1px solid #1E1E1E;
+  white-space: nowrap;
+  cursor: default;
 }
-.ide-sidebar .fs-item:hover { background: var(--gray-100); }
-.ide-sidebar .fs-item.active { background: rgba(13,148,136,0.08); color: var(--teal); }
-.ide-sidebar .fs-item .fs-icon { font-size: 0.75rem; }
-.ide-editor {
-  grid-row: 2 / 3;
-  background: #1E1E2E;
-  color: #CDD6F4;
+.vscode-tabs .tab.active { background: #1E1E1E; color: #FFFFFF; }
+.vscode-tabs .tab .t-icon { font-size: 0.75rem; }
+.vscode-code {
+  flex: 1;
+  background: #1E1E1E;
+  color: #D4D4D4;
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   line-height: 1.7;
-  padding: 1.25rem 1.5rem 1.25rem 0;
+  padding: 0.75rem 0.75rem 0.75rem 0;
   overflow: auto;
   position: relative;
 }
-.ide-editor .line-numbers {
+.vscode-code .line-numbers {
   position: absolute;
   left: 0; top: 0; bottom: 0;
   width: 2.5rem;
-  background: #181825;
-  color: #6C7086;
+  background: #1E1E1E;
+  color: #858585;
   text-align: right;
-  padding: 1.25rem 0.5rem;
+  padding: 0.75rem 0.5rem;
   font-size: 0.75rem;
   line-height: 1.7;
   user-select: none;
 }
-.ide-editor .code-content { margin-left: 2.5rem; white-space: pre; }
-.ide-editor .code-content .kw { color: #89B4FA; }
-.ide-editor .code-content .fn { color: #A6E3A1; }
-.ide-editor .code-content .str { color: #F9E2AF; }
-.ide-editor .code-content .cm { color: #6C7086; }
-.ide-editor .code-content .num { color: #FAB387; }
-.ide-editor .code-content .tp { color: #F38BA8; }
-.ide-editor .code-content .op { color: #89DCEB; }
+.vscode-code .code-content { margin-left: 2.5rem; white-space: pre; }
+.vscode-code .code-content .kw { color: #569CD6; }
+.vscode-code .code-content .fn { color: #DCDCAA; }
+.vscode-code .code-content .str { color: #CE9178; }
+.vscode-code .code-content .cm { color: #6A9955; }
+.vscode-code .code-content .num { color: #B5CEA8; }
+.vscode-code .code-content .tp { color: #4EC9B0; }
+.vscode-code .code-content .op { color: #D4D4D4; }
+.vscode-inline-hint {
+  display: flex; align-items: center; gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: #222222;
+  color: #9A9A9A;
+  font-size: 0.6875rem;
+  border-top: 1px solid #333333;
+}
+.vscode-inline-hint .cbtn { color: #79C0FF; }
+
+.vscode-copilot {
+  grid-row: 2 / 3;
+  background: #252526;
+  border-left: 1px solid #1E1E1E;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.cp-header { padding: 0.5rem 0.75rem; border-bottom: 1px solid #333333; display: flex; align-items: center; gap: 0.5rem; }
+.cp-header .cp-logo {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: linear-gradient(135deg, #007ACC 0%, #7C3AED 100%);
+  color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.72rem;
+}
+.cp-header .cp-name { font-weight: 600; font-size: 0.8125rem; color: #fff; }
+.cp-header .cp-sub { font-size: 0.625rem; color: #969696; }
+.cp-header .cp-model {
+  margin-left: auto; font-size: 0.6875rem; color: #79C0FF;
+  background: #2A2D2E; border: 1px solid #454545; padding: 0.15rem 0.5rem; border-radius: 999px; white-space: nowrap;
+}
+.cp-chips { display: flex; gap: 0.375rem; padding: 0.5rem 0.75rem; flex-wrap: wrap; border-bottom: 1px solid #2A2D2E; }
+.cp-chip { font-size: 0.6875rem; background: #2A2D2E; color: #79C0FF; padding: 0.125rem 0.5rem; border-radius: 4px; cursor: default; }
+.cp-chat { flex: 1; overflow-y: auto; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.cp-msg { max-width: 100%; }
+.cp-msg .cp-who { font-size: 0.6875rem; font-weight: 600; margin-bottom: 0.2rem; }
+.cp-msg.user .cp-who { color: #79C0FF; }
+.cp-msg.assistant .cp-who { color: #4EC9B0; }
+.cp-msg .cp-body { font-size: 0.75rem; line-height: 1.55; color: #D4D4D4; }
+.cp-msg.assistant .cp-body { background: #2A2D2E; border: 1px solid #37373D; border-radius: 8px; padding: 0.5rem 0.625rem; }
+.cp-msg .cp-body b { color: #fff; }
+.cp-think { font-size: 0.75rem; color: #79C0FF; padding: 0.25rem 0; }
+.cp-think::after { content: '…'; animation: blink 1s step-end infinite; }
+.cp-tool {
+  display: flex; align-items: center; gap: 0.375rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  background: #1E1E1E;
+  border: 1px solid #37373D;
+  border-radius: 6px;
+  padding: 0.375rem 0.5rem;
+  color: #9A9A9A;
+  margin-top: 0.4rem;
+}
+.cp-tool .ct-name { color: #79C0FF; }
+.cp-tool .ct-dir { color: #CCCCCC; }
+.cp-tool .ct-ok { color: #4EC9B0; }
+.cp-tool .ct-web { color: #C586C0; }
+.cp-diff {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  background: #1E1E1E;
+  border: 1px solid #37373D;
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-top: 0.4rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+.cp-diff .add { color: #4EC9B0; }
+.cp-diff .del { color: #F48771; }
+.cp-diff .meta { color: #858585; }
+.cp-actions { display: flex; gap: 0.375rem; margin-top: 0.4rem; flex-wrap: wrap; }
+.cp-actions .cpa {
+  font-size: 0.6875rem; background: #2A2D2E; color: #CCCCCC;
+  border: 1px solid #454545; border-radius: 4px; padding: 0.2rem 0.5rem; cursor: default;
+}
+.cp-actions .cpa.primary { background: #007ACC; color: #fff; border-color: #007ACC; }
+.cp-compose { border-top: 1px solid #333333; padding: 0.625rem 0.75rem; }
+.cp-compose .cp-box {
+  background: #2A2D2E; border: 1px solid #454545; border-radius: 8px;
+  padding: 0.5rem 0.625rem; font-size: 0.75rem; color: #969696;
+}
+.cp-compose .cp-box .cp-at {
+  display: inline-block; background: #007ACC; color: #fff;
+  font-size: 0.6875rem; border-radius: 4px; padding: 0 0.35rem; margin-right: 0.25rem;
+}
+.cp-compose .cp-foot { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+.cp-compose .cp-mode {
+  font-size: 0.6875rem; color: #79C0FF; background: #2A2D2E;
+  border: 1px solid #454545; border-radius: 999px; padding: 0.15rem 0.5rem;
+}
+.cp-compose .cp-send {
+  margin-left: auto; width: 24px; height: 24px; border-radius: 50%;
+  background: #007ACC; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; cursor: default;
+}
+
 .ide-terminal {
   grid-column: 1 / -1;
   background: #11111B;
   color: #CDD6F4;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  border-top: 1px solid var(--gray-200);
+  border-top: 1px solid #333333;
   line-height: 1.6;
-  max-height: 360px;
+  max-height: 280px;
   overflow-y: auto;
   padding: 0.625rem 1rem;
   outline: none;
@@ -511,24 +664,6 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
   animation: blink 1s step-end infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }
-
-/* copilot-style demo markers */
-.ide-terminal .term-user { color: #CBA6F7; }
-.ide-terminal .term-assistant { color: #A6E3A1; }
-.ide-terminal .term-tool { color: #74C7EC; }
-.ide-terminal .term-num { color: #FAB387; }
-.ide-terminal .term-demo {
-  padding-left: 0.5rem;
-  border-left: 3px solid rgba(74, 222, 128, 0.25);
-  margin-bottom: 0.25rem;
-}
-.ide-topbar .ide-btn.demo {
-  background: rgba(16,185,129,0.35);
-  color: var(--white);
-  cursor: pointer;
-}
-.ide-topbar .ide-btn.demo:hover { background: rgba(16,185,129,0.55); }
-.ide-topbar .ide-btn.demo.playing { background: rgba(16,185,129,0.6); }
 
 /* Form */
 .form-group { margin-bottom: 1rem; }
@@ -628,6 +763,12 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
   .ide-sidebar { display: none; }
   .ide-topbar { flex-wrap: wrap; }
   .ide-topbar .ide-actions { flex-wrap: wrap; }
+  .vscode-layout { grid-template-columns: 48px 1fr; grid-template-rows: auto auto 1fr auto; }
+  .vscode-explorer, .vscode-copilot { display: none; }
+  .vscode-titlebar { flex-wrap: wrap; }
+  .vt-center { flex-basis: 100%; order: -1; }
+  .vscode-activitybar { grid-row: 2 / 4; }
+  .vscode-editor { grid-row: 2 / 3; }
 }
 </style>
 </head>
@@ -656,6 +797,11 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
     </a>
     <a class="sidebar-item" onclick="showPage('new-idea')" id="nav-new-idea">
       <span class="icon">💡</span> New Idea
+    </a>
+
+    <div class="sidebar-section">Copilot</div>
+    <a class="sidebar-item" onclick="showPage('toolset')" id="nav-toolset">
+      <span class="icon">✦</span> Copilot Toolset
     </a>
 
     <div class="sidebar-section">Pipeline</div>
@@ -950,47 +1096,210 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
     </div>
   </div>
 
-  <!-- ==================== ACTIVE WORKSPACE (GOVERNED IDE) ==================== -->
+  <!-- ==================== COPILOT TOOLSET ==================== -->
+  <div id="page-toolset" class="page-section">
+
+    <div class="stats" style="grid-template-columns:repeat(4,1fr);">
+      <div class="stat-card">
+        <div class="stat-label">Copilot in VS Code</div>
+        <div class="stat-value">Chat + Edits</div>
+        <div class="stat-sub">inline, in-IDE assistance</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Agent Mode</div>
+        <div class="stat-value">Multi-step</div>
+        <div class="stat-sub">reads code, runs tests, iterates</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Copilot Cowork</div>
+        <div class="stat-value">Web research</div>
+        <div class="stat-sub">browser-native planning agent</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Copilot Studio</div>
+        <div class="stat-value">Custom agents</div>
+        <div class="stat-sub">build &amp; publish in minutes</div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:1.5rem;">
+      <div class="card">
+        <h3>✦ Copilot Chat · @workspace</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">Context engine</span>
+            <span class="detail-value">Indexes the whole workspace, answers from your own codebase first</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Slash commands</span>
+            <span class="detail-value">/explain · /tests · /fix · /review — plain English, zero context switching</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Chat modes</span>
+            <span class="detail-value">Ask · Agent (writes &amp; runs code) · Edits (inline diff in editor)</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Governance hook</span>
+            <span class="detail-value">Every suggestion lands as a reviewable diff; guardrails gate what the agent may touch</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>✨ Copilot Edits</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">Multi-file edits</span>
+            <span class="detail-value">Tracks every change across files in one reviewable session</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Inline + chat apply</span>
+            <span class="detail-value">Ghost-text suggestions in the editor or full diffs from chat</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Suggest mode</span>
+            <span class="detail-value">Diffs proposed, never auto-applied without your OK</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Test-verified</span>
+            <span class="detail-value">Agent Mode runs your test suite before marking an edit done</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:1rem;">
+      <div class="card">
+        <h3>🧭 Copilot Cowork</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">Web-native agent</span>
+            <span class="detail-value">Lives in your browser, plans and executes tasks end-to-end</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Research</span>
+            <span class="detail-value">Fetches live pages, cross-checks sources, cites what it used</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Governance fit</span>
+            <span class="detail-value">Ideal for policy research — sources are logged in the Activity Log</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🤖 Copilot Studio</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">Custom agents</span>
+            <span class="detail-value">Design, test, and publish purpose-built agents without code</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">No-code designer</span>
+            <span class="detail-value">Canvas, topics, actions, and generative answers in a drag-and-drop UI</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Governance fit</span>
+            <span class="detail-value">Publish an <code>audit-classifier-helper</code> agent bound to this sandbox's guardrails</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:1rem;">
+      <div class="card">
+        <h3>⌨️ Copilot CLI</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">Terminal-native</span>
+            <span class="detail-value"><code>copilot suggest</code> in bash/zsh for git workflows and command composition</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Git aware</span>
+            <span class="detail-value">Explains diffs, crafts commit messages, catches risky rebases</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Governance fit</span>
+            <span class="detail-value">Suggestions shown, never piped to <code>git push</code> without review</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🔍 Copilot Code Review</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">PR reviews</span>
+            <span class="detail-value">Pre-review every pull request for bugs, style, and security</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">@mention</span>
+            <span class="detail-value">Ask <code>@copilot</code> for a review straight from a GitHub issue thread</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Governance fit</span>
+            <span class="detail-value">Review comments must be addressed before a finding can be closed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==================== ACTIVE WORKSPACE (VS CODE + COPILOT) ==================== -->
   <div id="page-workspace" class="page-section">
 
-    <div class="ide-layout">
-      <div class="ide-topbar">
-        <div class="ide-title">🦾 ai-audit-tool-v2</div>
-        <div class="ide-badges">
-          <span class="ide-badge anon">🔒 Anonymised</span>
-          <span class="ide-badge guard">✓ Guardrails active</span>
-          <span class="ide-badge time">⏱ 5d 14h remaining</span>
-          <span class="ide-badge lock">🔐 Sandbox locked</span>
-        </div>
-        <div class="ide-actions">
-          <span class="ide-btn demo" id="demoBtn" onclick="playDemo()">▶ AI Demo</span>
-          <span class="ide-btn">💾 Save</span>
-          <span class="ide-btn">📸 Snapshot</span>
-          <span class="ide-btn">⏰ Extend</span>
-          <span class="ide-btn danger">🗑 Destroy</span>
+    <div class="vscode-layout">
+      <div class="vscode-titlebar">
+        <span>≡</span>
+        <span style="font-weight:600;">ai-audit-tool-v2</span>
+        <div class="vt-center">ai-audit-tool-v2 — Copilot · Audit Governance Sandbox</div>
+        <div class="vt-badges">
+          <span class="vscode-badge anon">🔒 Anonymised</span>
+          <span class="vscode-badge guard">✓ Guardrails</span>
+          <span class="vscode-badge time">⏱ 5d 14h</span>
+          <span class="vscode-badge lock">🔐 Locked</span>
+          <span class="vscode-badge demo" id="demoBtn" onclick="playDemo()">▶ Copilot Demo</span>
         </div>
       </div>
 
-      <div class="ide-sidebar">
-        <div class="fs-header">📁 ai-audit-tool-v2</div>
-        <div class="fs-item active"><span class="fs-icon">📄</span> index.js</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> classify.js</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> prompt.js</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> config.json</div>
-        <div class="fs-header" style="margin-top:0.5rem;">📁 lib/</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> llm-client.js</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> severity-map.js</div>
-        <div class="fs-header" style="margin-top:0.5rem;">📁 tests/</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> classify.test.js</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> prompt.test.js</div>
-        <div class="fs-header" style="margin-top:0.5rem;">📦 Dependencies</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> package.json</div>
-        <div class="fs-item"><span class="fs-icon">🔒</span> .guardrails.yml</div>
+      <div class="vscode-activitybar">
+        <div class="ab-icon active">📂</div>
+        <div class="ab-icon">🔍</div>
+        <div class="ab-icon">🧪</div>
+        <div class="ab-icon">🔧</div>
+        <div class="ab-icon">🧩</div>
+        <div class="ab-spacer"></div>
+        <div class="ab-bottom">
+          <div class="ab-icon">⚙️</div>
+          <div class="ab-icon copilot">✦</div>
+        </div>
       </div>
 
-      <div class="ide-editor">
-        <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18</div>
-        <div class="code-content"><span class="kw">import</span> { <span class="fn">classifyFinding</span> } <span class="kw">from</span> <span class="str">'./classify.js'</span>;
+      <div class="vscode-explorer">
+        <div class="ex-title">Explorer</div>
+        <div class="ex-folder">📁 ai-audit-tool-v2</div>
+        <div class="ex-file active"><span class="ex-icon">📄</span> index.js</div>
+        <div class="ex-file"><span class="ex-icon">📄</span> classify.js</div>
+        <div class="ex-file"><span class="ex-icon">📄</span> prompt.js</div>
+        <div class="ex-file"><span class="ex-icon">📄</span> config.json</div>
+        <div class="ex-folder">📁 lib/</div>
+        <div class="ex-file"><span class="ex-icon">📄</span> llm-client.js</div>
+        <div class="ex-file"><span class="ex-icon">📄</span> severity-map.js</div>
+        <div class="ex-folder">📁 tests/</div>
+        <div class="ex-file"><span class="ex-icon">📄</span> classify.test.js</div>
+        <div class="ex-file"><span class="ex-icon">📄</span> prompt.test.js</div>
+        <div class="ex-folder">📦 Dependencies</div>
+        <div class="ex-file"><span class="ex-icon">📄</span> package.json</div>
+        <div class="ex-file"><span class="ex-icon">🔒</span> .guardrails.yml</div>
+      </div>
+
+      <div class="vscode-editor">
+        <div class="vscode-tabs">
+          <div class="tab active"><span class="t-icon">📄</span> index.js</div>
+          <div class="tab"><span class="t-icon">🧪</span> classify.test.js</div>
+          <div class="tab"><span class="t-icon">🔒</span> .guardrails.yml</div>
+        </div>
+        <div class="vscode-code">
+          <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19</div>
+          <div class="code-content"><span class="kw">import</span> { <span class="fn">classifyFinding</span> } <span class="kw">from</span> <span class="str">'./classify.js'</span>;
 <span class="kw">import</span> { <span class="fn">loadPrompt</span> } <span class="kw">from</span> <span class="str">'./prompt.js'</span>;
 <span class="kw">import</span> { <span class="fn">mapSeverity</span> } <span class="kw">from</span> <span class="str">'./severity-map.js'</span>;
 
@@ -1010,7 +1319,61 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
     confidence: result.score,
   };
 }
-</div>
+
+<span class="cm">// If confidence is low, hold the finding for human review</span>
+<span class="kw">export function</span> <span class="fn">needsReview</span>(result) {
+  <span class="kw">return</span> result.confidence &lt; <span class="num">0.6</span>; <span class="cm">// 👈 added by Copilot</span>
+}</div>
+        </div>
+        <div class="vscode-inline-hint">
+          <span>✦</span>
+          <span>Copilot suggestions <b id="copilotSuggestion" style="color:#79C0FF;">offered 1 change</b></span>
+          <span style="flex:1;"></span>
+          <span class="cbtn" id="acceptHintBtn">Accept (⌘⇧⏎)</span>
+        </div>
+      </div>
+
+      <div class="vscode-copilot" id="copilotPanel">
+        <div class="cp-header">
+          <div class="cp-logo">✦</div>
+          <div>
+            <div class="cp-name">Copilot Chat</div>
+            <div class="cp-sub">com.github.copilot.chat</div>
+          </div>
+          <div class="cp-model">opencode-x · 1.0</div>
+        </div>
+        <div class="cp-chips">
+          <span class="cp-chip" id="chipWorkspace">@workspace</span>
+          <span class="cp-chip" id="chipAgent">Agent Mode</span>
+          <span class="cp-chip" id="chipEdits">✨ Edits</span>
+          <span class="cp-chip" id="chipReview">Code Review</span>
+        </div>
+        <div class="cp-chat" id="copilotChat">
+          <div class="cp-msg user">
+            <div class="cp-who">You · @workspace</div>
+            <div class="cp-body">How are low-confidence findings handled today?</div>
+          </div>
+          <div class="cp-msg assistant">
+            <div class="cp-who">Copilot</div>
+            <div class="cp-body">
+              Findings with <b>confidence &lt; 0.6</b> currently pass through the same path as reviewed ones. I recommend holding them for human review.
+              <div class="cp-tool"><span class="ct-name">read</span><span class="ct-dir">src/index.js</span><span class="ct-ok">✓ done</span></div>
+              <div class="cp-tool"><span class="ct-name">grep</span><span class="ct-dir">confidence &lt; 0.6</span><span class="ct-ok">✓ 2 results</span></div>
+              <div class="cp-diff"><span class="meta">index.js</span>
+<span class="add">+  <span class="meta">if (result.confidence &lt; 0.6)</span></span>
+<span class="add">+    <span class="meta">return { …action: 'REVIEW_REQUIRED', … };</span></span></div>
+              <div class="cp-actions"><span class="cpa primary">Accept suggestion</span><span class="cpa">Diff</span><span class="cpa">Undo</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cp-compose">
+          <div class="cp-box"><span class="cp-at">@workspace</span>Fix low-confidence findings to require human review…</div>
+          <div class="cp-foot">
+            <span class="cp-mode">✦ Copilot ·</span>
+            <span style="font-size:0.6875rem;color:#969696;">asks before writing</span>
+            <span class="cp-send">➤</span>
+          </div>
+        </div>
       </div>
 
       <div class="ide-terminal" id="term" tabindex="0">
@@ -1266,6 +1629,7 @@ function showPage(id) {
     dashboard: 'Dashboard',
     sandboxes: 'My Sandboxes',
     'new-idea': 'New Idea',
+    toolset: 'Copilot Toolset',
     workspace: 'Active Workspace — ai-audit-tool-v2',
     pipeline: 'Idea Pipeline',
     guardrails: 'Guardrails',
@@ -1318,6 +1682,72 @@ function demoStep(delay, fn) {
   demoTimer.push(setTimeout(fn, delay));
 }
 
+/* ── Copilot Chat demo ── */
+const cpChat = document.getElementById('copilotChat');
+const cpPanel = document.getElementById('copilotPanel');
+let cpThinkEl = null;
+
+function cpClear() {
+  demoStopThink();
+  if (cpChat) cpChat.innerHTML = '';
+  const hint = document.getElementById('copilotSuggestion');
+  if (hint) hint.textContent = 'offered 1 change';
+}
+
+function cpMsg(who, cls, html) {
+  const m = document.createElement('div');
+  m.className = 'cp-msg ' + cls;
+  m.innerHTML = '<div class="cp-who">' + who + '</div>' +
+    '<div class="cp-body">' + html + '</div>';
+  cpChat.appendChild(m);
+  cpChat.scrollTop = cpChat.scrollHeight;
+  return m;
+}
+
+function cpTool(kind, name, dir, status, web) {
+  const row = document.createElement('div');
+  row.className = 'cp-tool';
+  row.innerHTML =
+    '<span class="' + (web ? 'ct-web' : 'ct-name') + '">' + kind + '</span>' +
+    '<span class="ct-dir">' + name + '</span>' +
+    (dir ? '<span class="ct-dir">' + dir + '</span>' : '') +
+    (status ? '<span class="ct-ok">' + status + '</span>' : '');
+  return row;
+}
+
+function cpDiff(linesHtml) {
+  const d = document.createElement('div');
+  d.className = 'cp-diff';
+  d.innerHTML = linesHtml;
+  return d;
+}
+
+function cpActions(labels) {
+  const a = document.createElement('div');
+  a.className = 'cp-actions';
+  a.innerHTML = labels.map(function(l) {
+    return '<span class="cpa' + (l.indexOf('Accept') === 0 ? ' primary' : '') + '">' + l + '</span>';
+  }).join('');
+  return a;
+}
+
+function cpThinking() {
+  cpThinkEl = document.createElement('div');
+  cpThinkEl.className = 'cp-msg assistant';
+  cpThinkEl.innerHTML = '<div class="cp-who">Copilot</div><div class="cp-body"><span class="cp-think">✦ Copilot is thinking</span></div>';
+  cpChat.appendChild(cpThinkEl);
+  cpChat.scrollTop = cpChat.scrollHeight;
+}
+
+function cpStopThinking() {
+  if (cpThinkEl) { cpThinkEl.remove(); cpThinkEl = null; }
+}
+
+function cpChatbox(text) {
+  const box = cpPanel.querySelector('.cp-box');
+  if (box) box.innerHTML = (text ? '<span class="cp-at">@workspace</span>' : '') + text;
+}
+
 function playDemo() {
   if (demoRunning) return;
   demoRunning = true;
@@ -1326,85 +1756,89 @@ function playDemo() {
   demoClearTimers();
   termBuf = [];
   termInput = '';
+  cpClear();
   termRender();
   termFocus();
 
   demoStep(0, function() {
-    termPrint('<span class="term-dim">┌ copilot ─────────────────────────────────────────────────┐</span>');
-    termPrint('<span class="term-dim">│ ✦ GitHub Copilot · sandbox/ai-audit-tool-v2</span>');
+    termPrint('<span class="term-dim">┌ Copilot Chat @workspace ────────────────────────────────┐</span>');
+    termPrint('<span class="term-dim">│ ✦ GitHub Copilot · VS Code · sandbox/ai-audit-tool-v2</span>');
     termPrint('<span class="term-dim">└────────────────────────────────────────────────────────────────┘</span>');
     termPrint('');
     termRender();
   });
 
-  demoStep(650, function() {
+  demoStep(350, function() {
+    cpChatbox('Add confidence threshold filtering to classifyAuditFinding(). Findings scored below 0.6 should skip the LLM call and be flagged low.');
+    cpMsg('You · @workspace', 'user',
+      'Add confidence threshold filtering to <b>classifyAuditFinding()</b>. Findings scored below <b>0.6</b> should skip the LLM call and be flagged <b>low</b>.');
     termPrint('<span class="term-user">👤 You</span>', 'term-demo');
     termPrint('Add confidence threshold filtering to <span class="term-info">classifyAuditFinding()</span>.');
     termPrint('Findings scored below <span class="term-num">0.6</span> should skip the LLM call and be flagged <span class="term-warning">low</span>.');
     termRender();
   });
 
-  demoStep(1750, function() {
-    let i = 0;
-    const frames = ['✦ Copilot is thinking', '✦ Copilot is thinking.', '✦ Copilot is thinking..', '✦ Copilot is thinking...'];
-    function tick() {
-      termReplaceLast('<span class="term-assistant">' + frames[i % frames.length] + '</span>');
-      termRender();
-      i++;
-    }
-    tick();
-    demoThink = setInterval(tick, 220);
-  });
+  demoStep(1250, function() { cpThinking(); });
 
-  demoStep(2600, function() {
-    demoStopThink();
+  demoStep(1900, function() {
+    cpStopThinking();
+    const msg = cpMsg('Copilot', 'assistant',
+      'I scanned the workspace with <b>@workspace</b>. <b>classifyAuditFinding()</b> at <b>index.js:8</b> always calls the LLM. I will add an early return below <b>0.6</b> that flags the finding <b>low</b>.');
+    msg.querySelector('.cp-body').appendChild(cpTool('read', 'src/index.js', '', '✓ done'));
+    msg.querySelector('.cp-body').appendChild(cpTool('grep', 'confidence', '', '✓ 2 results'));
     termPrint('<span class="term-tool">🛠 Tool</span> <span class="term-dim">· read</span> <span class="term-info">src/index.js</span>');
     termPrint('  <span class="term-dim">Copilot Chat @workspace — found classifyAuditFinding() at src/index.js:8</span>');
     termRender();
   });
 
-  demoStep(3300, function() {
-    termPrint('<span class="term-tool">📄 Edited</span> <span class="term-info">via Copilot Chat · src/index.js</span>');
-    termPrint('  <span class="term-success">+  // Confidence threshold — skip findings scored below 0.6</span>');
+  demoStep(2700, function() {
+    const msgs = cpChat.querySelectorAll('.cp-msg.assistant');
+    const msg = msgs[msgs.length - 1];
+    const d = cpDiff('<span class="meta">index.js · L8–L13</span><br>' +
+      '<span class="add">+  if (result.score &lt; 0.6) {</span><br>' +
+      '<span class="add">+    return { severity: \'low\', filtered: true, confidence: result.score };</span><br>' +
+      '<span class="add">+  }</span>');
+    msg.querySelector('.cp-body').appendChild(d);
+    msg.querySelector('.cp-body').appendChild(cpActions(['Accept suggestion', 'Diff', 'Undo']));
+    cpChat.scrollTop = cpChat.scrollHeight;
+    const hint = document.getElementById('copilotSuggestion');
+    if (hint) hint.textContent = 'offered 1 change · ready to accept';
+    termPrint('<span class="term-tool">✨ Edited</span> <span class="term-info">via Copilot Chat · src/index.js</span>');
     termPrint('  <span class="term-success">+  if (result.score &lt; 0.6) {</span>');
     termPrint('  <span class="term-success">+    return { severity: \'low\', filtered: true, confidence: result.score };</span>');
     termPrint('  <span class="term-success">+  }</span>');
     termRender();
   });
 
-  demoStep(4100, function() {
-    termPrint('<span class="term-tool">🌐 Copilot Cowork</span> <span class="term-dim">· web research</span>');
-    termPrint('  <span class="term-dim">Searching for industry severity thresholds...</span>');
-    termPrint('  <span class="term-info">Cowork notes:</span> below <span class="term-num">0.6</span> confidence aligns with OWASP-style scoring → flag <span class="term-warning">low</span>.');
-    termRender();
-  });
+  demoStep(3450, function() { cpThinking(); });
 
-  demoStep(4800, function() {
+  demoStep(4100, function() {
+    cpStopThinking();
+    const msg = cpMsg('Copilot', 'assistant',
+      'Change is ready in <b>index.js</b>. I verified it with <b>Agent Mode</b> — it ran the test suite and your guardrails stayed <b>7/7</b>.');
+    msg.querySelector('.cp-body').appendChild(cpTool('bash', 'npm run test', '', '✓ passed'));
     termPrint('<span class="term-tool">🛠 Tool</span> <span class="term-dim">· bash</span> · npm run test');
     termPrint('<span class="term-dim">&gt; audit-classifier@1.0.0 test</span>');
-    termPrint('<span class="term-dim">&gt; node --test tests/*.test.js</span>');
-    termRender();
-  });
-
-  demoStep(5450, function() {
     termPrint('<span class="term-success">✔ classify.test.js</span> <span class="term-dim">(8 tests, 0 failing)</span>');
-    termRender();
-  });
-
-  demoStep(5900, function() {
     termPrint('<span class="term-success">✔ prompt.test.js</span> <span class="term-dim">(6 tests, 0 failing)</span>');
-    termPrint('<span class="term-success">✔ severity-map.test.js</span> <span class="term-dim">(4 tests, 0 failing)</span>');
     termPrint('<span class="term-success">✓ 18 passing</span> <span class="term-dim">(1.4s)</span>');
     termRender();
   });
 
-  demoStep(6600, function() {
-    termPrint('<span class="term-tool">✦ Copilot Studio</span> <span class="term-dim">· publish agent</span>');
-    termPrint('  <span class="term-dim">Agent \'audit-classifier\' rebuilt from the sandbox and republished.</span>');
+  demoStep(4900, function() {
+    const msgs = cpChat.querySelectorAll('.cp-msg.assistant');
+    const msg = msgs[msgs.length - 1];
+    msg.querySelector('.cp-body').appendChild(cpActions(['Run tests', 'Accept all', 'Reject']));
+    cpChat.scrollTop = cpChat.scrollHeight;
+    termPrint('<span class="term-success">✓ 18 passing</span> <span class="term-dim">(1.4s)</span> · guardrails <span class="term-success">7/7</span>');
     termRender();
   });
 
-  demoStep(7300, function() {
+  demoStep(5600, function() {
+    cpMsg('Copilot', 'assistant',
+      'Done — low-confidence findings now skip the LLM and are flagged <b>low</b> with a <b>filtered</b> marker. Accept the suggestion or ask me to tweak the threshold.');
+    cpChatbox('Explain how the threshold interacts with severity mapping.');
+    cpChat.scrollTop = cpChat.scrollHeight;
     termPrint('');
     termPrint('<span class="term-assistant">✦ Done</span>', 'term-demo');
     termPrint('  Low-confidence findings now skip the LLM and are flagged <span class="term-warning">low</span> with a <span class="term-info">filtered</span> marker.');
@@ -1412,7 +1846,7 @@ function playDemo() {
     termRender();
   });
 
-  demoStep(8150, function() {
+  demoStep(6450, function() {
     termPrint('');
     termRender();
     demoRunning = false;

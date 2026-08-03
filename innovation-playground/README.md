@@ -11,7 +11,7 @@ The same governed, anonymised sandbox demoed against three AI engines. Each vari
 | Variant | Tools | Mockup |
 |---|---|---|
 | 🌱 **opencode** | Agentic CLI | [app-mockup.html](app-mockup.html) |
-| 🦾 **Microsoft Copilot** | Copilot · Copilot Cowork · Copilot Studio | [app-mockup-copilot.html](app-mockup-copilot.html) |
+| 🦾 **Microsoft Copilot** | VS Code · Copilot Chat · Agent Mode · Edits · Code Review · Copilot Cowork · Copilot Studio · Copilot CLI | [app-mockup-copilot.html](app-mockup-copilot.html) |
 | 🎓 **ChatGPT Edu** | ChatGPT Edu · Custom GPTs · Canvas | [app-mockup-chatgpt-edu.html](app-mockup-chatgpt-edu.html) |
 
 Launch page: [innovation-playground/index.html](index.html)
