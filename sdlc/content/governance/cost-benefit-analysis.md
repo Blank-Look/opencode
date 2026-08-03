@@ -2,23 +2,23 @@
 title: Build vs Buy — Cost-Benefit Analysis
 ---
 
-The economics of building internal tools have changed. Five years ago, "we don't build bespoke applications" was sensible — a small ICT team couldn't afford software engineers, DevOps, UX, testing, hosting, security, and ongoing maintenance. Today, with AI-assisted development, the cost of building small internal tools has dropped dramatically. The limiting factor is no longer coding — it's governance, architecture, and product ownership.
+The economics of building have changed. Five years ago, a small ICT team could not afford software engineers, DevOps, UX, testing, hosting, and maintenance, so "we don't build bespoke applications" was a sound rule. AI has collapsed the cost of building small internal tools. The binding constraint is no longer coding — it is governance, architecture, and product ownership.
 
-The question is no longer "Should we build apps?" It's: **What is the cheapest, safest way to solve internal problems?** Sometimes that's buying software. Sometimes it's Power Platform. Sometimes it's a 500-line Python app.
+**Maxim: Buy what is cheaper and safer. Build what is cheaper and better.** Sometimes the answer is commercial software. Sometimes it is Power Platform. Sometimes it is a 500-line Python app. The best answer is the one that delivers the most value for the least risk.
 
 ## Policy Recommendation
 
-Instead of "We do not develop bespoke applications", adopt a modern framing:
+**Maxim: Commercial products by default; internal development where it demonstrably wins.**
 
 > We adopt Commercial Off-The-Shelf (COTS) solutions by default. Internal applications may be developed where they demonstrably provide lower total cost of ownership, faster delivery, or capabilities unavailable in commercial products.
 
-This changes the conversation from ideology to economics.
+This is a decision about economics, not ideology.
 
 ## Investment Strategy
 
-Your organisation is probably spending around $xxM in annual ICT operational expenditure — infrastructure, business applications, corporate IT. Yet engineering capability is often limited. That suggests your organisation is primarily a systems integrator, not a software organisation. AI changes the leverage.
+Your organisation spends around $xxM each year on ICT — infrastructure, business applications, corporate IT — yet its engineering capacity is thin. That is the signature of a systems integrator, not a software house. AI rewrites the leverage.
 
-**Where to invest:** Not in new developers. In making your infrastructure team into automation engineers.
+**Maxim: Invest in capability, not headcount.** The future is not more developers. It is an infrastructure team that becomes a team of automation engineers.
 
 | Current Model | Future Model |
 |---|---|
@@ -64,13 +64,13 @@ Not enterprise systems. Things like:
 - Firewall request tracker
 - Intune packaging portal
 
-These are fantastic AI-built applications.
+These are excellent AI-built applications.
 
 ## Cost Model
 
-Evaluate every proposed internal tool using this framework:
+**Maxim: Judge every proposed tool on the same dimensions — licence, build, maintenance, roadmap, customisation, and room to improve.**
 
-| Question | Buy | Build |
+| Dimension | Buy | Build |
 |---|---|---|
 | Annual licence | $xx,xxx | $0 |
 | Initial build | $0 | 80 hours |
@@ -79,11 +79,11 @@ Evaluate every proposed internal tool using this framework:
 | Customisation | Low | High |
 | AI-assisted enhancement | No | Yes |
 
-Notice that "build" is no longer "12 months of developers." It might literally be 60 hours + GitHub + Azure App Service + Copilot.
+**Maxim: "Build" is no longer a year of developers.** It can be 60 hours, GitHub, Azure App Service, and Copilot.
 
 ## Tiered Governance Model
 
-Classify software into four tiers:
+**Maxim: Classify before you choose.** Four tiers, each with a standing rule:
 
 ### Tier 1 — Enterprise Systems
 Dynamics, FinanceOne, Canvas, Qualtrics, core ERPs.
@@ -101,19 +101,40 @@ These are ideal for AI. Examples: Intune package tracker, DNS manager, VM report
 PowerShell, Python, GitHub Actions, Azure Functions.
 **Always build.**
 
+## Support and Ownership
+
+**Maxim: Every build has a caretaker. An orphaned tool is a liability.**
+
+Internal development spans two very different commitments, and the tier alone does not tell you who keeps the tool alive:
+
+### ICT-Built Tools — Enterprise-Cared
+- Resourced, funded, and maintained by the ICT team like any other system.
+- Monitored, patched, and backed up as a matter of course.
+- Subject to SLAs and covered by support. Someone is accountable for it.
+- **The team carries the work; the business receives a promise.**
+
+### User-Led Tools — Author-Cared
+- Built by a user or a business team to solve their own problem.
+- The author owns upkeep: fixes, compliance, and currency.
+- Central security data (Defender and similar) watches the tool and pushes compliance and fix requests to the author automatically.
+- If the author does not remediate in the allotted time, the platform takes the tool offline.
+- **The author carries the risk; the platform carries the safety.**
+
+**Maxim: Care is the price of build.** Build it only if someone will care for it. When central data flags a problem, the author fixes it — or the platform retires it.
+
 ## Total Cost of Ownership
 
-Don't compare a $xxk licence vs a $xxk developer. Compare over five years:
+**Maxim: Compare five years, not one price.** A licence and a build only meet on equal terms across the life of the decision.
 
 **Buy:** Licence × 5 years + Implementation + Training + Support + Vendor increases + Consultants + Change requests
 
 **Build:** 80 hours build + 10 hours/year maintenance + GitHub + Azure
 
-That's the real TCO comparison.
+That is the real comparison.
 
 ## Budget for AI
 
-Instead of treating AI as discretionary spend, make it a real budget item:
+**Maxim: Treat AI as infrastructure, not experiment.** AI is a standing cost of doing business, budgeted like any other utility.
 
 | Item | Annual |
 |---|---|
@@ -124,24 +145,26 @@ Instead of treating AI as discretionary spend, make it a real budget item:
 
 ## Where New Money Goes
 
-If given an additional $xxk:
+**Maxim: Spend on leverage, not on staff.**
+
+An additional $xxk goes where it multiplies the team:
 
 - **40%** on GitHub Enterprise, Copilot, and ChatGPT
 - **30%** on targeted consulting to establish a modern engineering platform (GitHub, CI/CD, IaC, identity, security, reusable templates)
 - **20%** on structured training and mentoring (GitHub, automation, AI-assisted development, cloud engineering)
 - **10%** on innovation time to build and validate high-value internal tools
 
-The objective isn't to become a software house. It's to increase the leverage of a small team.
+The objective is not to become a software house. It is to increase the leverage of a small team.
 
 ## Strategic Direction
 
-Your organisation is already heavily invested in Microsoft 365, Azure, Dynamics, Fabric, SharePoint, and other SaaS platforms. Rather than trying to compete with those products, position your team as platform engineers who extend and integrate them.
+Your organisation is already heavily invested in Microsoft 365, Azure, Dynamics, Fabric, SharePoint, and other SaaS platforms. Competing with those products is a waste of the advantage. Position your team as platform engineers who extend and integrate them.
 
-A concise strategy:
+**Maxim: Buy the enterprise. Configure the platform. Automate the routine. Build the gaps.**
 
 - **Buy** enterprise capabilities (ERP, CRM, LMS, collaboration, finance).
 - **Configure** Microsoft 365 and SaaS platforms to meet business needs.
 - **Automate** every repeatable operational task using GitHub, PowerShell, Python, Power Automate, and Azure services.
-- **Build** small, focused internal tools only where there is a clear productivity or capability gap and a positive five-year TCO compared to commercial software.
+- **Build** small, focused internal tools only where there is a clear productivity or capability gap, a positive five-year TCO compared to commercial software, and a named caretaker.
 
-This keeps the long-standing "buy before build" philosophy, while acknowledging that AI has fundamentally changed the economics of creating and maintaining lightweight internal solutions. It's an evolution rather than a reversal, and it's much easier to explain to executives and auditors.
+This keeps the long-standing "buy before build" philosophy while acknowledging that AI has changed the economics of lightweight internal solutions. It is an evolution, not a reversal — and it is easier to explain to executives and auditors.
