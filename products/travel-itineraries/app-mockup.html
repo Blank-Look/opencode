@@ -54,9 +54,54 @@ body {
 }
 .mockup-banner a { color: #93C5FD; text-decoration: none; }
 .mockup-banner a:hover { text-decoration: underline; }
+
+/* SchoolCode top bar */
+.schoolbar {
+  position: fixed;
+  top: 1.75rem; left: 0; right: 0;
+  z-index: 998;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+}
+.schoolbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.schoolbar-schoolcode {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--gray-300);
+  white-space: nowrap;
+}
+.schoolbar-schoolcode:hover { color: var(--gray-900); }
+.schoolbar-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.schoolbar-links { margin-left: auto; display: flex; gap: 0.75rem; white-space: nowrap; }
+.schoolbar-links a { color: var(--gray-500); text-decoration: none; font-size: 0.8rem; }
+.schoolbar-links a:hover { color: var(--gray-900); }
+@media (max-width: 768px) {
+  .schoolbar-inner { padding: 0.5rem 1rem; }
+  .schoolbar-title { display: none; }
+}
 .sidebar {
   position: fixed;
-  top: 1.75rem; left: 0; bottom: 0;
+  top: 4.25rem; left: 0; bottom: 0;
   width: var(--sidebar-w);
   background: var(--white);
   border-right: 1px solid var(--gray-200);
@@ -124,7 +169,7 @@ body {
 .sidebar-item .badge.green { background: var(--green); }
 .main {
   margin-left: var(--sidebar-w);
-  margin-top: 1.75rem;
+  margin-top: 4.25rem;
   flex: 1;
   padding: 1.5rem 2rem 3rem;
   max-width: 1200px;
@@ -387,6 +432,16 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
 </style>
 </head>
 <body>
+
+<nav class="schoolbar">
+  <div class="schoolbar-inner">
+    <a href="../../index.html" class="schoolbar-schoolcode">SchoolCode</a>
+    <span class="schoolbar-title">Travel Itineraries</span>
+    <div class="schoolbar-links">
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
 
 <div class="mockup-banner">Travel Itineraries — Design Mockup · <a href="docs/response-plan.md">Response Plan</a> · <a href="docs/safety-plan.md">Safety Plan</a> · <a href="README.md">Docs</a></div>
 

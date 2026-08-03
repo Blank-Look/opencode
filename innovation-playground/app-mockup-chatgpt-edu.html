@@ -56,9 +56,54 @@ body {
 }
 .mockup-banner a { color: #93C5FD; text-decoration: none; }
 .mockup-banner a:hover { text-decoration: underline; }
+
+/* SchoolCode top bar */
+.schoolbar {
+  position: fixed;
+  top: 1.75rem; left: 0; right: 0;
+  z-index: 998;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+}
+.schoolbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.schoolbar-schoolcode {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--gray-300);
+  white-space: nowrap;
+}
+.schoolbar-schoolcode:hover { color: var(--gray-900); }
+.schoolbar-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.schoolbar-links { margin-left: auto; display: flex; gap: 0.75rem; white-space: nowrap; }
+.schoolbar-links a { color: var(--gray-500); text-decoration: none; font-size: 0.8rem; }
+.schoolbar-links a:hover { color: var(--gray-900); }
+@media (max-width: 768px) {
+  .schoolbar-inner { padding: 0.5rem 1rem; }
+  .schoolbar-title { display: none; }
+}
 .sidebar {
   position: fixed;
-  top: 1.75rem; left: 0; bottom: 0;
+  top: 4.25rem; left: 0; bottom: 0;
   width: var(--sidebar-w);
   background: var(--white);
   border-right: 1px solid var(--gray-200);
@@ -126,7 +171,7 @@ body {
 .sidebar-item .badge.red { background: var(--red); }
 .main {
   margin-left: var(--sidebar-w);
-  margin-top: 1.75rem;
+  margin-top: 4.25rem;
   flex: 1;
   padding: 1.5rem 2rem 3rem;
   max-width: 1200px;
@@ -375,120 +420,160 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
 .pipe-card .pc-foot { display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.625rem; color: var(--gray-400); }
 
 /* IDE Workspace */
-.ide-layout {
+/* ── ChatGPT Edu workspace (chat + canvas) ── */
+.cht-layout {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 220px minmax(0, 1fr) 400px;
   grid-template-rows: auto 1fr auto;
-  gap: 0;
-  background: var(--white);
+  background: #FFFFFF;
   border: 1px solid var(--gray-200);
   border-radius: 10px;
   overflow: hidden;
   min-height: 700px;
+  color: var(--navy);
+  font-family: var(--font-sans);
 }
-.ide-topbar {
+.cht-titlebar {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
+  gap: 0.75rem;
   background: var(--navy);
   color: var(--white);
+  padding: 0.5rem 0.9rem;
   font-size: 0.75rem;
-  gap: 1rem;
+  border-bottom: 1px solid #1E1E1E;
 }
-.ide-topbar .ide-title { font-weight: 600; font-size: 0.8125rem; }
-.ide-topbar .ide-badges { display: flex; gap: 0.5rem; align-items: center; }
-.ide-topbar .ide-badge {
+.cht-titlebar .ct-center { flex: 1; text-align: center; font-weight: 500; color: #B8B8B8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cht-badges { display: flex; gap: 0.375rem; align-items: center; }
+.cht-badge {
   font-size: 0.625rem;
   padding: 0.125rem 0.5rem;
   border-radius: 999px;
   font-weight: 600;
+  white-space: nowrap;
 }
-.ide-topbar .ide-badge.anon { background: var(--purple); color: var(--white); }
-.ide-topbar .ide-badge.guard { background: var(--green); color: var(--white); }
-.ide-topbar .ide-badge.time { background: var(--amber); color: var(--white); }
-.ide-topbar .ide-badge.lock { background: var(--teal); color: var(--white); }
-.ide-topbar .ide-actions { display: flex; gap: 0.375rem; }
-.ide-topbar .ide-btn {
-  background: rgba(255,255,255,0.1);
-  color: var(--white);
+.cht-badge.anon { background: rgba(124,58,237,0.35); color: #E9D5FF; }
+.cht-badge.guard { background: rgba(16,185,129,0.35); color: #D1FAE5; }
+.cht-badge.time { background: rgba(217,119,6,0.4); color: #FEF3C7; }
+.cht-badge.lock { background: rgba(16,163,127,0.4); color: #CCFBF1; }
+.cht-badge.demo {
+  background: var(--teal);
+  color: #fff;
+  cursor: pointer;
   border: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.625rem;
-  cursor: default;
   font-family: var(--font-sans);
 }
-.ide-topbar .ide-btn:hover { background: rgba(255,255,255,0.2); }
-.ide-topbar .ide-btn.danger { background: rgba(220,38,38,0.4); }
-.ide-sidebar {
+.cht-badge.demo:hover { background: var(--teal-dark); }
+.cht-badge.demo.playing { background: #0E8C6D; }
+
+.cht-rail {
   grid-row: 2 / 3;
-  background: var(--gray-50);
-  border-right: 1px solid var(--gray-200);
-  padding: 0.5rem 0;
+  background: #F9F9F9;
+  border-right: 1px solid #E5E5E5;
   font-size: 0.75rem;
   overflow-y: auto;
+  padding: 0.5rem 0;
 }
-.ide-sidebar .fs-header {
-  padding: 0.25rem 0.75rem;
-  font-size: 0.625rem;
+.cht-rail .rail-new {
+  display: flex; align-items: center; gap: 0.5rem;
+  margin: 0 0.75rem 0.75rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  border-radius: 8px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--gray-500);
-}
-.ide-sidebar .fs-item {
-  padding: 0.25rem 0.75rem 0.25rem 1.5rem;
-  color: var(--gray-700);
-  cursor: default;
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-}
-.ide-sidebar .fs-item:hover { background: var(--gray-100); }
-.ide-sidebar .fs-item.active { background: rgba(13,148,136,0.08); color: var(--teal); }
-.ide-sidebar .fs-item .fs-icon { font-size: 0.75rem; }
-.ide-editor {
-  grid-row: 2 / 3;
-  background: #1E1E2E;
-  color: #CDD6F4;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  line-height: 1.7;
-  padding: 1.25rem 1.5rem 1.25rem 0;
-  overflow: auto;
-  position: relative;
-}
-.ide-editor .line-numbers {
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 2.5rem;
-  background: #181825;
-  color: #6C7086;
-  text-align: right;
-  padding: 1.25rem 0.5rem;
   font-size: 0.75rem;
-  line-height: 1.7;
-  user-select: none;
 }
-.ide-editor .code-content { margin-left: 2.5rem; white-space: pre; }
-.ide-editor .code-content .kw { color: #89B4FA; }
-.ide-editor .code-content .fn { color: #A6E3A1; }
-.ide-editor .code-content .str { color: #F9E2AF; }
-.ide-editor .code-content .cm { color: #6C7086; }
-.ide-editor .code-content .num { color: #FAB387; }
-.ide-editor .code-content .tp { color: #F38BA8; }
-.ide-editor .code-content .op { color: #89DCEB; }
+.cht-rail .rail-title { padding: 0.25rem 0.9rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-400); }
+.cht-rail .rail-item {
+  padding: 0.35rem 0.9rem; color: var(--gray-700); cursor: default;
+  display: flex; align-items: center; gap: 0.4rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cht-rail .rail-item.active { background: #EDEDED; color: var(--navy); font-weight: 600; }
+.cht-rail .rail-item .r-icon { font-size: 0.875rem; }
+
+.cht-chat { grid-row: 2 / 3; display: flex; flex-direction: column; min-width: 0; background: #FFFFFF; }
+.cht-chat .chat-head {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 1rem; border-bottom: 1px solid #EFEFEF;
+}
+.cht-chat .chat-head .ch-brand { display: flex; align-items: center; gap: 0.5rem; }
+.cht-chat .chat-head .ch-avatar { width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+.cht-chat .chat-head .ch-name { font-weight: 700; font-size: 0.85rem; color: var(--navy); }
+.cht-chat .chat-head .ch-model { font-size: 0.6875rem; color: var(--teal-dark); background: #E6F4F0; border-radius: 999px; padding: 0.15rem 0.55rem; border: 1px solid #CDEAE1; white-space: nowrap; }
+.cht-chat .chat-head .ch-actions { margin-left: auto; display: flex; gap: 0.375rem; color: var(--gray-400); font-size: 0.8rem; }
+.chat-body { flex: 1; overflow-y: auto; padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+.chat-msg { display: flex; gap: 0.75rem; }
+.chat-msg .cm-avatar { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+.chat-msg.user .cm-avatar { background: var(--teal); color: #fff; }
+.chat-msg.gpt .cm-avatar { background: var(--navy); color: #fff; }
+.chat-msg .cm-main { flex: 1; min-width: 0; }
+.chat-msg .cm-who { font-size: 0.6875rem; font-weight: 600; color: var(--gray-500); margin-bottom: 0.25rem; }
+.chat-msg .cm-body { font-size: 0.8125rem; line-height: 1.6; color: var(--gray-800); }
+.chat-msg .cm-body b { color: var(--navy); }
+.chat-msg.user .cm-body { background: #F0F7F5; border: 1px solid #E0EFEA; border-radius: 14px 14px 14px 4px; padding: 0.6rem 0.8rem; }
+.chat-tool {
+  display: flex; align-items: center; gap: 0.375rem;
+  font-family: var(--font-mono); font-size: 0.6875rem;
+  background: #F7F7F8; border: 1px solid #E7E7E7; border-radius: 8px;
+  padding: 0.375rem 0.5rem; color: var(--gray-600); margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+.chat-tool .ct-icon { font-size: 0.75rem; }
+.chat-tool .ct-name { color: var(--teal-dark); }
+.chat-tool .ct-ok { color: #16A34A; }
+.chat-gpt-chip {
+  margin-top: 0.5rem; display: inline-flex; align-items: center; gap: 0.375rem;
+  font-size: 0.6875rem; background: #FFF; border: 1px solid #E7E7E7;
+  border-radius: 8px; padding: 0.3rem 0.6rem; color: var(--gray-600);
+}
+.chat-think { font-size: 0.8125rem; color: var(--gray-400); }
+.chat-think::after { content: '…'; animation: blink 1s step-end infinite; }
+
+.cht-compose { border-top: 1px solid #EFEFEF; padding: 0.75rem 1rem; }
+.cht-compose .composer {
+  border: 1px solid #D9D9D9; border-radius: 18px;
+  background: #FFFFFF; padding: 0.5rem 0.75rem;
+  font-size: 0.75rem; color: var(--gray-400);
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+}
+.cht-compose .composer .c-tools { display: flex; gap: 0.25rem; font-size: 0.875rem; color: var(--gray-400); }
+.cht-compose .composer .c-send { margin-left: auto; width: 26px; height: 26px; border-radius: 50%; background: var(--teal); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; }
+.cht-compose .composer-note { font-size: 0.625rem; color: var(--gray-400); text-align: center; margin-top: 0.5rem; }
+
+.cht-canvas { grid-row: 2 / 3; background: #F9F9F9; border-left: 1px solid #E5E5E5; display: flex; flex-direction: column; min-width: 0; }
+.canvas-head { padding: 0.5rem 0.75rem; border-bottom: 1px solid #E5E5E5; display: flex; align-items: center; gap: 0.5rem; }
+.canvas-head .cv-logo { width: 24px; height: 24px; border-radius: 6px; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+.canvas-head .cv-name { font-weight: 600; font-size: 0.8125rem; color: var(--navy); }
+.canvas-head .cv-count { margin-left: auto; font-size: 0.625rem; color: var(--gray-400); }
+.canvas-tools { display: flex; gap: 0.375rem; padding: 0.5rem 0.75rem; flex-wrap: wrap; border-bottom: 1px solid #E5E5E5; }
+.canvas-tool { font-size: 0.6875rem; background: #FFFFFF; border: 1px solid #E0E0E0; color: var(--gray-700); padding: 0.2rem 0.5rem; border-radius: 6px; cursor: default; }
+.canvas-doc { flex: 1; overflow-y: auto; padding: 1rem 1.25rem; }
+.canvas-doc .doc {
+  background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  padding: 1.25rem 1.5rem; font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.7; color: #303030;
+}
+.canvas-doc .doc .ln { color: #C8C8C8; user-select: none; }
+.canvas-doc .doc .kw { color: #0E7490; }
+.canvas-doc .doc .fn { color: #B45309; }
+.canvas-doc .doc .str { color: #15803D; }
+.canvas-doc .doc .cm { color: #9CA3AF; }
+.canvas-doc .doc .add { background: #ECFDF5; color: #065F46; display: block; }
+.canvas-foot { border-top: 1px solid #E5E5E5; padding: 0.5rem 0.75rem; display: flex; gap: 0.5rem; align-items: center; font-size: 0.6875rem; color: var(--gray-500); }
+.canvas-foot .cv-model { margin-left: auto; background: #EDEDED; border-radius: 999px; padding: 0.15rem 0.5rem; color: var(--gray-700); }
+
 .ide-terminal {
   grid-column: 1 / -1;
   background: #11111B;
   color: #CDD6F4;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  border-top: 1px solid var(--gray-200);
+  border-top: 1px solid #E5E5E5;
   line-height: 1.6;
-  max-height: 360px;
+  max-height: 280px;
   overflow-y: auto;
   padding: 0.625rem 1rem;
   outline: none;
@@ -512,7 +597,7 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
 }
 @keyframes blink { 50% { opacity: 0; } }
 
-/* chatgpt-edu-style demo markers */
+/* chatgpt-edu demo markers */
 .ide-terminal .term-user { color: #CBA6F7; }
 .ide-terminal .term-assistant { color: #A6E3A1; }
 .ide-terminal .term-tool { color: #74C7EC; }
@@ -522,13 +607,6 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
   border-left: 3px solid rgba(74, 222, 128, 0.25);
   margin-bottom: 0.25rem;
 }
-.ide-topbar .ide-btn.demo {
-  background: rgba(16,185,129,0.35);
-  color: var(--white);
-  cursor: pointer;
-}
-.ide-topbar .ide-btn.demo:hover { background: rgba(16,185,129,0.55); }
-.ide-topbar .ide-btn.demo.playing { background: rgba(16,185,129,0.6); }
 
 /* Form */
 .form-group { margin-bottom: 1rem; }
@@ -620,7 +698,7 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
 
 @media (max-width: 768px) {
   .sidebar { display: none; }
-  .main { margin-left: 0; margin-top: 1.75rem; padding: 1rem; }
+  .main { margin-left: 0; margin-top: 4.25rem; padding: 1rem; }
   .two-col, .charts, .pipeline { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
   .form-row { grid-template-columns: 1fr; }
@@ -628,10 +706,25 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
   .ide-sidebar { display: none; }
   .ide-topbar { flex-wrap: wrap; }
   .ide-topbar .ide-actions { flex-wrap: wrap; }
+  .cht-layout { grid-template-columns: 1fr; grid-template-rows: auto auto 1fr auto; }
+  .cht-rail, .cht-canvas { display: none; }
+  .cht-chat { grid-row: 2 / 3; }
+  .cht-titlebar { flex-wrap: wrap; }
+  .ct-center { flex-basis: 100%; order: -1; }
 }
 </style>
 </head>
 <body>
+
+<nav class="schoolbar">
+  <div class="schoolbar-inner">
+    <a href="../index.html" class="schoolbar-schoolcode">SchoolCode</a>
+    <span class="schoolbar-title">Innovation Playground — ChatGPT Edu</span>
+    <div class="schoolbar-links">
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
 
 <div class="mockup-banner">
   <strong>Design Mockup</strong> — ChatGPT Edu Edition ·
@@ -656,6 +749,11 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
     </a>
     <a class="sidebar-item" onclick="showPage('new-idea')" id="nav-new-idea">
       <span class="icon">💡</span> New Idea
+    </a>
+
+    <div class="sidebar-section">ChatGPT</div>
+    <a class="sidebar-item" onclick="showPage('tools')" id="nav-tools">
+      <span class="icon">✦</span> ChatGPT Tools
     </a>
 
     <div class="sidebar-section">Pipeline</div>
@@ -945,72 +1043,266 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
       </div>
       <div class="form-actions">
         <span class="btn btn-secondary">Save Draft</span>
-        <span class="btn btn-primary" onclick="showPage('workspace')">Create Sandbox &amp; IDE</span>
+        <span class="btn btn-primary" onclick="showPage('workspace')">Create Sandbox &amp; ChatGPT</span>
       </div>
     </div>
   </div>
 
-  <!-- ==================== ACTIVE WORKSPACE (GOVERNED IDE) ==================== -->
+  <!-- ==================== CHATGPT TOOLS ==================== -->
+  <div id="page-tools" class="page-section">
+
+    <div class="stats" style="grid-template-columns:repeat(4,1fr);">
+      <div class="stat-card">
+        <div class="stat-label">ChatGPT Edu</div>
+        <div class="stat-value">Chat + tools</div>
+        <div class="stat-sub">Browse · Data · Images · Voice</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Canvas</div>
+        <div class="stat-value">Docs + code</div>
+        <div class="stat-sub">edit, polish, diff in one window</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Custom GPTs</div>
+        <div class="stat-value">No-code build</div>
+        <div class="stat-sub">publish course agents in minutes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Codex</div>
+        <div class="stat-value">Agentic coding</div>
+        <div class="stat-sub">VS Code + CLI, runs tests itself</div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:1.5rem;">
+      <div class="card">
+        <h3>💬 ChatGPT · Chat &amp; Tools</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">Multimodal chat</span>
+            <span class="detail-value">Text, images, files, and voice in one thread — answers with sources</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">🔍 Browse</span>
+            <span class="detail-value">Live web research with citations, policy-aware and source-logged</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">📊 Data Analysis</span>
+            <span class="detail-value">Runs Python on sandbox data — charts, stats, and reproducible snippets</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Governance hook</span>
+            <span class="detail-value">Every tool call is audit-logged; no PII leaves the anonymised sandbox</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>✏️ Canvas</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">Document + code editor</span>
+            <span class="detail-value">Open any file next to the chat; edit inline with ChatGPT's help</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">One-click tools</span>
+            <span class="detail-value">Add comments, Polish, Fix bugs, Read aloud — no prompts needed</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Suggest mode</span>
+            <span class="detail-value">Changes are proposed in place and applied only when you approve</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Test-verified</span>
+            <span class="detail-value">Codex runs the sandbox test suite before an edit is marked done</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:1rem;">
+      <div class="card">
+        <h3>🤖 Custom GPTs</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">GPT builder</span>
+            <span class="detail-value">Create purpose-built assistants with instructions, knowledge, and tools</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Course agents</span>
+            <span class="detail-value">Publish an <code>audit-classifier-helper</code> GPT for your class workspace</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Governance fit</span>
+            <span class="detail-value">Custom GPTs inherit the sandbox guardrails and anonymisation layer</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>⌨️ Codex</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">Agentic coding</span>
+            <span class="detail-value">Ships as a VS Code extension and a terminal CLI for autonomous tasks</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Runs code</span>
+            <span class="detail-value">Executes tests, reads repos, and iterates until the task passes</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Governance fit</span>
+            <span class="detail-value">All commands run inside the governed sandbox — blocked patterns enforced</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:1rem;">
+      <div class="card">
+        <h3>🖼 DALL·E · 🎤 Voice · ⏰ Tasks</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">Image generation</span>
+            <span class="detail-value">DALL·E produces diagrams and visuals from the sandbox's own data</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Voice conversations</span>
+            <span class="detail-value">Advanced Voice Mode for hands-free review in the lab</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Scheduled tasks</span>
+            <span class="detail-value">Recurring checks (e.g., nightly guardrail scan) without writing code</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🧭 Projects · Memory</h3>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <span class="detail-label">Projects</span>
+            <span class="detail-value">Group chats, files, and custom GPTs per sandbox or module</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Shared memory</span>
+            <span class="detail-value">ChatGPT remembers the sandbox's governance context across sessions</span>
+          </div>
+          <div class="detail-field">
+            <span class="detail-label">Governance fit</span>
+            <span class="detail-value">Project access is role-based; memory excludes any PII</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==================== ACTIVE WORKSPACE (CHATGPT + CANVAS) ==================== -->
   <div id="page-workspace" class="page-section">
 
-    <div class="ide-layout">
-      <div class="ide-topbar">
-        <div class="ide-title">🎓 ai-audit-tool-v2</div>
-        <div class="ide-badges">
-          <span class="ide-badge anon">🔒 Anonymised</span>
-          <span class="ide-badge guard">✓ Guardrails active</span>
-          <span class="ide-badge time">⏱ 5d 14h remaining</span>
-          <span class="ide-badge lock">🔐 Sandbox locked</span>
-        </div>
-        <div class="ide-actions">
-          <span class="ide-btn demo" id="demoBtn" onclick="playDemo()">▶ AI Demo</span>
-          <span class="ide-btn">💾 Save</span>
-          <span class="ide-btn">📸 Snapshot</span>
-          <span class="ide-btn">⏰ Extend</span>
-          <span class="ide-btn danger">🗑 Destroy</span>
+    <div class="cht-layout">
+      <div class="cht-titlebar">
+        <span>≡</span>
+        <span style="font-weight:600;">ChatGPT Edu</span>
+        <div class="ct-center">ai-audit-tool-v2 — ChatGPT Edu · Governed Sandbox</div>
+        <div class="cht-badges">
+          <span class="cht-badge anon">🔒 Anonymised</span>
+          <span class="cht-badge guard">✓ Guardrails</span>
+          <span class="cht-badge time">⏱ 5d 14h</span>
+          <span class="cht-badge lock">🔐 Locked</span>
+          <span class="cht-badge demo" id="demoBtn" onclick="playDemo()">▶ ChatGPT Demo</span>
         </div>
       </div>
 
-      <div class="ide-sidebar">
-        <div class="fs-header">📁 ai-audit-tool-v2</div>
-        <div class="fs-item active"><span class="fs-icon">📄</span> index.js</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> classify.js</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> prompt.js</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> config.json</div>
-        <div class="fs-header" style="margin-top:0.5rem;">📁 lib/</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> llm-client.js</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> severity-map.js</div>
-        <div class="fs-header" style="margin-top:0.5rem;">📁 tests/</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> classify.test.js</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> prompt.test.js</div>
-        <div class="fs-header" style="margin-top:0.5rem;">📦 Dependencies</div>
-        <div class="fs-item"><span class="fs-icon">📄</span> package.json</div>
-        <div class="fs-item"><span class="fs-icon">🔒</span> .guardrails.yml</div>
+      <div class="cht-rail">
+        <div class="rail-new">＋ New chat</div>
+        <div class="rail-title">Sandbox · ai-audit-tool-v2</div>
+        <div class="rail-item active"><span class="r-icon">✦</span> Threshold filtering</div>
+        <div class="rail-item"><span class="r-icon">📊</span> Severity mapping</div>
+        <div class="rail-item"><span class="r-icon">🔍</span> OWASP review</div>
+        <div class="rail-item"><span class="r-icon">🤖</span> audit-classifier-helper</div>
+        <div class="rail-title" style="margin-top:0.75rem;">Recent</div>
+        <div class="rail-item"><span class="r-icon">📄</span> Canvas: index.js</div>
+        <div class="rail-item"><span class="r-icon">🧪</span> Run test suite</div>
       </div>
 
-      <div class="ide-editor">
-        <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18</div>
-        <div class="code-content"><span class="kw">import</span> { <span class="fn">classifyFinding</span> } <span class="kw">from</span> <span class="str">'./classify.js'</span>;
-<span class="kw">import</span> { <span class="fn">loadPrompt</span> } <span class="kw">from</span> <span class="str">'./prompt.js'</span>;
-<span class="kw">import</span> { <span class="fn">mapSeverity</span> } <span class="kw">from</span> <span class="str">'./severity-map.js'</span>;
+      <div class="cht-chat" id="chatPanel">
+        <div class="chat-head">
+          <div class="ch-brand">
+            <div class="ch-avatar">✦</div>
+            <span class="ch-name">ChatGPT Edu</span>
+          </div>
+          <span class="ch-model">gpt-5.2 · EDU</span>
+          <div class="ch-actions">🔊 ⋯</div>
+        </div>
+        <div class="chat-body" id="chatBody">
+          <div class="chat-msg user">
+            <div class="cm-avatar">J</div>
+            <div class="cm-main">
+              <div class="cm-who">You · ChatGPT Edu</div>
+              <div class="cm-body">Add confidence threshold filtering to <b>classifyAuditFinding()</b>. Findings scored below <b>0.6</b> should skip the LLM call and be flagged <b>low</b>.</div>
+            </div>
+          </div>
+          <div class="chat-msg gpt">
+            <div class="cm-avatar">✦</div>
+            <div class="cm-main">
+              <div class="cm-who">ChatGPT Edu</div>
+              <div class="cm-body">
+                I reviewed the sandbox. <b>classifyAuditFinding()</b> in <b>index.js</b> always calls the LLM. I'll add an early return below <b>0.6</b> and show the edit in <b>Canvas</b>.
+                <div class="chat-tool"><span class="ct-icon">🔍</span><span class="ct-name">Browse</span> OWASP severity guidance · <span class="ct-ok">✓ cited</span></div>
+                <div class="chat-tool"><span class="ct-icon">📊</span><span class="ct-name">Data Analysis</span> ran sample findings · <span class="ct-ok">✓ 12 rows</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cht-compose">
+          <div class="composer">
+            <span class="c-tools">🔍 📊 🖼 🎤 ➕</span>
+            <span id="composerText">Message ChatGPT Edu…</span>
+            <span class="c-send">➤</span>
+          </div>
+          <div class="composer-note">ChatGPT can make mistakes. Check important info. · Bound to sandbox guardrails</div>
+        </div>
+      </div>
 
-<span class="cm">// Classify a single audit finding by severity and domain</span>
-<span class="kw">export async function</span> <span class="fn">classifyAuditFinding</span>(finding, opts = {}) {
-  <span class="kw">const</span> prompt = <span class="fn">loadPrompt</span>(finding.type);
-  <span class="kw">const</span> result = <span class="kw">await</span> <span class="fn">classifyFinding</span>(prompt, {
-    text: finding.description,
-    domain: finding.domain,
-    model: opts.model ?? <span class="str">'gpt-4o'</span>,
-  });
-
-  <span class="kw">return</span> {
-    severity: <span class="fn">mapSeverity</span>(result.label),
-    domain: result.domain,
-    action: result.recommendedAction,
-    confidence: result.score,
-  };
-}
-</div>
+      <div class="cht-canvas" id="canvasPanel">
+        <div class="canvas-head">
+          <div class="cv-logo">C</div>
+          <span class="cv-name">Canvas — index.js</span>
+          <span class="cv-count" id="canvasCount">20 lines</span>
+        </div>
+        <div class="canvas-tools">
+          <span class="canvas-tool">✏️ Add comments</span>
+          <span class="canvas-tool">✨ Polish</span>
+          <span class="canvas-tool">🐞 Fix bugs</span>
+          <span class="canvas-tool">🔊 Read aloud</span>
+        </div>
+        <div class="canvas-doc">
+          <div class="doc" id="canvasDoc">
+            <span class="ln">1</span> <span class="kw">import</span> { <span class="fn">classifyFinding</span> } <span class="kw">from</span> <span class="str">'./classify.js'</span>;<br>
+            <span class="ln">2</span> <span class="kw">import</span> { <span class="fn">loadPrompt</span> } <span class="kw">from</span> <span class="str">'./prompt.js'</span>;<br>
+            <span class="ln">3</span> <span class="kw">import</span> { <span class="fn">mapSeverity</span> } <span class="kw">from</span> <span class="str">'./severity-map.js'</span>;<br>
+            <span class="ln">4</span> <br>
+            <span class="ln">5</span> <span class="cm">// Classify a single audit finding by severity and domain</span><br>
+            <span class="ln">6</span> <span class="kw">export async function</span> <span class="fn">classifyAuditFinding</span>(finding, opts = {}) {<br>
+            <span class="ln">7</span> &nbsp;&nbsp;<span class="kw">const</span> prompt = <span class="fn">loadPrompt</span>(finding.type);<br>
+            <span class="ln">8</span> &nbsp;&nbsp;<span class="kw">const</span> result = <span class="kw">await</span> <span class="fn">classifyFinding</span>(prompt, {<br>
+            <span class="ln">9</span> &nbsp;&nbsp;&nbsp;&nbsp;text: finding.description,<br>
+            <span class="ln">10</span> &nbsp;&nbsp;&nbsp;&nbsp;domain: finding.domain,<br>
+            <span class="ln">11</span> &nbsp;&nbsp;&nbsp;&nbsp;model: opts.model ?? <span class="str">'gpt-4o'</span>,<br>
+            <span class="ln">12</span> &nbsp;&nbsp;});<br>
+            <span class="ln">13</span> <br>
+            <span class="ln">14</span> &nbsp;&nbsp;<span class="kw">return</span> {<br>
+            <span class="ln">15</span> &nbsp;&nbsp;&nbsp;&nbsp;severity: <span class="fn">mapSeverity</span>(result.label),<br>
+            <span class="ln">16</span> &nbsp;&nbsp;&nbsp;&nbsp;domain: result.domain,<br>
+            <span class="ln">17</span> &nbsp;&nbsp;&nbsp;&nbsp;action: result.recommendedAction,<br>
+            <span class="ln">18</span> &nbsp;&nbsp;&nbsp;&nbsp;confidence: result.score,<br>
+            <span class="ln">19</span> &nbsp;&nbsp;};<br>
+            <span class="ln">20</span> }<br>
+          </div>
+        </div>
+        <div class="canvas-foot">
+          <span>📄 Markdown · ✏️ Code</span>
+          <span class="cv-model">gpt-5.2 canvas</span>
+        </div>
       </div>
 
       <div class="ide-terminal" id="term" tabindex="0">
@@ -1266,6 +1558,7 @@ function showPage(id) {
     dashboard: 'Dashboard',
     sandboxes: 'My Sandboxes',
     'new-idea': 'New Idea',
+    tools: 'ChatGPT Tools',
     workspace: 'Active Workspace — ai-audit-tool-v2',
     pipeline: 'Idea Pipeline',
     guardrails: 'Guardrails',
@@ -1318,6 +1611,72 @@ function demoStep(delay, fn) {
   demoTimer.push(setTimeout(fn, delay));
 }
 
+/* ── ChatGPT Chat + Canvas demo ── */
+const chatBody = document.getElementById('chatBody');
+const canvasDoc = document.getElementById('canvasDoc');
+const canvasCount = document.getElementById('canvasCount');
+const composerText = document.getElementById('composerText');
+let chatThinkEl = null;
+let canvasLines = 20;
+
+function chtClear() {
+  demoStopThink();
+  if (chatBody) chatBody.innerHTML = '';
+  if (composerText) composerText.textContent = 'Message ChatGPT Edu…';
+}
+
+function chtMsg(avatar, cls, who, html) {
+  const m = document.createElement('div');
+  m.className = 'chat-msg ' + cls;
+  m.innerHTML = '<div class="cm-avatar">' + avatar + '</div>' +
+    '<div class="cm-main"><div class="cm-who">' + who + '</div>' +
+    '<div class="cm-body">' + html + '</div></div>';
+  chatBody.appendChild(m);
+  chatBody.scrollTop = chatBody.scrollHeight;
+  return m;
+}
+
+function chtTool(icon, name, detail, status) {
+  const row = document.createElement('div');
+  row.className = 'chat-tool';
+  row.innerHTML = '<span class="ct-icon">' + icon + '</span>' +
+    '<span class="ct-name">' + name + '</span>' +
+    (detail ? '<span>' + detail + '</span>' : '') +
+    (status ? '<span class="ct-ok">' + status + '</span>' : '');
+  return row;
+}
+
+function chtChip(text) {
+  const c = document.createElement('div');
+  c.className = 'chat-gpt-chip';
+  c.textContent = text;
+  return c;
+}
+
+function chtThinking() {
+  chatThinkEl = document.createElement('div');
+  chatThinkEl.className = 'chat-msg gpt';
+  chatThinkEl.innerHTML = '<div class="cm-avatar">✦</div>' +
+    '<div class="cm-main"><div class="cm-who">ChatGPT Edu</div>' +
+    '<div class="cm-body"><span class="chat-think">ChatGPT is working on it</span></div></div>';
+  chatBody.appendChild(chatThinkEl);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function chtStopThinking() {
+  if (chatThinkEl) { chatThinkEl.remove(); chatThinkEl = null; }
+}
+
+function chtComposer(text) {
+  if (composerText) composerText.textContent = text;
+}
+
+function canvasAdd(html) {
+  canvasDoc.insertAdjacentHTML('beforeend', html);
+  canvasLines += 1;
+  if (canvasCount) canvasCount.textContent = canvasLines + ' lines';
+}
+
 function playDemo() {
   if (demoRunning) return;
   demoRunning = true;
@@ -1326,93 +1685,97 @@ function playDemo() {
   demoClearTimers();
   termBuf = [];
   termInput = '';
+  chtClear();
   termRender();
   termFocus();
 
   demoStep(0, function() {
-    termPrint('<span class="term-dim">┌ chatgpt-edu ─────────────────────────────────────────────┐</span>');
-    termPrint('<span class="term-dim">│ ✦ ChatGPT Edu · sandbox/ai-audit-tool-v2</span>');
+    termPrint('<span class="term-dim">┌ ChatGPT Edu · chat + canvas ──────────────────────────┐</span>');
+    termPrint('<span class="term-dim">│ ✦ ChatGPT · Canvas · sandbox/ai-audit-tool-v2</span>');
     termPrint('<span class="term-dim">└────────────────────────────────────────────────────────────────┘</span>');
     termPrint('');
     termRender();
   });
 
-  demoStep(650, function() {
+  demoStep(350, function() {
+    chtMsg('J', 'user', 'You · ChatGPT Edu',
+      'Add confidence threshold filtering to <b>classifyAuditFinding()</b>. Findings scored below <b>0.6</b> should skip the LLM call and be flagged <b>low</b>.');
     termPrint('<span class="term-user">🧑 You</span>', 'term-demo');
     termPrint('Add confidence threshold filtering to <span class="term-info">classifyAuditFinding()</span>.');
     termPrint('Findings scored below <span class="term-num">0.6</span> should skip the LLM call and be flagged <span class="term-warning">low</span>.');
     termRender();
   });
 
-  demoStep(1750, function() {
-    let i = 0;
-    const frames = ['✦ ChatGPT is working on it', '✦ ChatGPT is working on it.', '✦ ChatGPT is working on it..', '✦ ChatGPT is working on it...'];
-    function tick() {
-      termReplaceLast('<span class="term-assistant">' + frames[i % frames.length] + '</span>');
-      termRender();
-      i++;
-    }
-    tick();
-    demoThink = setInterval(tick, 220);
-  });
+  demoStep(1250, function() { chtThinking(); });
 
-  demoStep(2600, function() {
-    demoStopThink();
-    termPrint('<span class="term-tool">🛠 Tool</span> <span class="term-dim">· read</span> <span class="term-info">src/index.js</span>');
-    termPrint('  <span class="term-dim">ChatGPT reviewed the sandbox — found classifyAuditFinding() at src/index.js:8</span>');
+  demoStep(1900, function() {
+    chtStopThinking();
+    const msg = chtMsg('✦', 'gpt', 'ChatGPT Edu',
+      'I reviewed the sandbox. <b>classifyAuditFinding()</b> in <b>index.js</b> always calls the LLM. I will add an early return below <b>0.6</b> and open the file in <b>Canvas</b>.');
+    msg.querySelector('.cm-body').appendChild(chtTool('🔍', 'Browse', 'OWASP severity guidance', '✓ cited'));
+    msg.querySelector('.cm-body').appendChild(chtTool('📊', 'Data Analysis', 'ran sample findings · 12 rows', '✓ done'));
+    termPrint('<span class="term-tool">🔍 Tool</span> <span class="term-dim">· Browse</span> <span class="term-info">OWASP severity guidance</span> <span class="term-success">cited</span>');
+    termPrint('<span class="term-tool">📊 Tool</span> <span class="term-dim">· Data Analysis</span> <span class="term-info">ran sample findings</span> <span class="term-success">12 rows</span>');
     termRender();
   });
 
-  demoStep(3300, function() {
-    termPrint('<span class="term-tool">📄 Edited</span> <span class="term-info">in Canvas · src/index.js</span>');
-    termPrint('  <span class="term-success">+  // Confidence threshold — skip findings scored below 0.6</span>');
+  demoStep(2700, function() {
+    const msgs = chatBody.querySelectorAll('.chat-msg.gpt');
+    const msg = msgs[msgs.length - 1];
+    msg.querySelector('.cm-body').appendChild(chtTool('✏️', 'Canvas', 'opened index.js', '✓ editing'));
+    canvasAdd('<span class="ln">21</span> <br>' +
+      '<span class="ln">22</span> <span class="cm">// If confidence is low, hold the finding for human review</span><br>' +
+      '<span class="ln">23</span> <span class="add">if (result.score &lt; 0.6) {</span><br>' +
+      '<span class="ln">24</span> <span class="add">&nbsp;&nbsp;return { severity: \'low\', filtered: true, confidence: result.score };</span><br>' +
+      '<span class="ln">25</span> <span class="add">}</span><br>');
+    chatBody.scrollTop = chatBody.scrollHeight;
+    termPrint('<span class="term-tool">✏️ Edited</span> <span class="term-info">in Canvas · src/index.js</span>');
     termPrint('  <span class="term-success">+  if (result.score &lt; 0.6) {</span>');
     termPrint('  <span class="term-success">+    return { severity: \'low\', filtered: true, confidence: result.score };</span>');
     termPrint('  <span class="term-success">+  }</span>');
     termRender();
   });
 
+  demoStep(3450, function() { chtThinking(); });
+
   demoStep(4100, function() {
-    termPrint('<span class="term-tool">✦ Custom GPT</span> <span class="term-dim">· audit-classifier-helper</span>');
+    chtStopThinking();
+    const msg = chtMsg('✦', 'gpt', 'ChatGPT Edu',
+      'The edit is live in <b>Canvas</b>. I re-checked it with your <b>audit-classifier-helper</b> GPT — no PII introduced, guardrails still <b>7/7</b>.');
+    msg.querySelector('.cm-body').appendChild(chtChip('🤖 audit-classifier-helper · reviewed change · ✓ no PII'));
+    termPrint('<span class="term-tool">🤖 Custom GPT</span> <span class="term-dim">· audit-classifier-helper</span>');
     termPrint('  <span class="term-dim">Custom GPT re-checked the change against the sandbox instructions.</span>');
     termPrint('  <span class="term-info">GPT notes:</span> below <span class="term-num">0.6</span> confidence → flag <span class="term-warning">low</span> · no PII introduced.');
     termRender();
   });
 
   demoStep(4800, function() {
+    const msgs = chatBody.querySelectorAll('.chat-msg.gpt');
+    const msg = msgs[msgs.length - 1];
+    msg.querySelector('.cm-body').appendChild(chtTool('⌨️', 'Codex', 'ran npm run test', '✓ passed'));
+    chatBody.scrollTop = chatBody.scrollHeight;
     termPrint('<span class="term-tool">🛠 Tool</span> <span class="term-dim">· bash</span> · npm run test');
     termPrint('<span class="term-dim">&gt; audit-classifier@1.0.0 test</span>');
-    termPrint('<span class="term-dim">&gt; node --test tests/*.test.js</span>');
-    termRender();
-  });
-
-  demoStep(5450, function() {
     termPrint('<span class="term-success">✔ classify.test.js</span> <span class="term-dim">(8 tests, 0 failing)</span>');
-    termRender();
-  });
-
-  demoStep(5900, function() {
     termPrint('<span class="term-success">✔ prompt.test.js</span> <span class="term-dim">(6 tests, 0 failing)</span>');
-    termPrint('<span class="term-success">✔ severity-map.test.js</span> <span class="term-dim">(4 tests, 0 failing)</span>');
     termPrint('<span class="term-success">✓ 18 passing</span> <span class="term-dim">(1.4s)</span>');
     termRender();
   });
 
-  demoStep(6600, function() {
-    termPrint('<span class="term-tool">🎓 ChatGPT Edu</span> <span class="term-dim">· share to course</span>');
-    termPrint('  <span class="term-dim">Change logged and shared as a resource in the IT Governance class workspace.</span>');
-    termRender();
-  });
-
-  demoStep(7300, function() {
+  demoStep(5600, function() {
+    chtMsg('✦', 'gpt', 'ChatGPT Edu',
+      'Done — low-confidence findings now skip the LLM and are flagged <b>low</b> with a <b>filtered</b> marker. I shared this as a resource in the <b>IT Governance</b> class workspace.');
+    chtComposer('Explain how the threshold interacts with severity mapping.');
+    chatBody.scrollTop = chatBody.scrollHeight;
+    termPrint('<span class="term-success">✓ 18 passing</span> <span class="term-dim">(1.4s)</span> · guardrails <span class="term-success">7/7</span>');
     termPrint('');
     termPrint('<span class="term-assistant">✦ Done</span>', 'term-demo');
     termPrint('  Low-confidence findings now skip the LLM and are flagged <span class="term-warning">low</span> with a <span class="term-info">filtered</span> marker.');
-    termPrint('  <span class="term-success">✓</span> 18 tests passing · guardrails still <span class="term-success">7/7</span>');
+    termPrint('  <span class="term-info">🎓</span> Shared as a resource in the IT Governance class workspace.');
     termRender();
   });
 
-  demoStep(8150, function() {
+  demoStep(6450, function() {
     termPrint('');
     termRender();
     demoRunning = false;
