@@ -384,7 +384,7 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
   border: 1px solid var(--gray-200);
   border-radius: 10px;
   overflow: hidden;
-  min-height: 550px;
+  min-height: 700px;
 }
 .ide-topbar {
   grid-column: 1 / -1;
@@ -454,9 +454,9 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
   background: #1E1E2E;
   color: #CDD6F4;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.6;
-  padding: 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  padding: 1.25rem 1.5rem 1.25rem 0;
   overflow: auto;
   position: relative;
 }
@@ -467,9 +467,9 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
   background: #181825;
   color: #6C7086;
   text-align: right;
-  padding: 1rem 0.5rem;
-  font-size: 0.6875rem;
-  line-height: 1.6;
+  padding: 1.25rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.7;
   user-select: none;
 }
 .ide-editor .code-content { margin-left: 2.5rem; white-space: pre; }
@@ -485,12 +485,12 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
   background: #11111B;
   color: #CDD6F4;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   border-top: 1px solid var(--gray-200);
-  line-height: 1.5;
-  max-height: 150px;
+  line-height: 1.6;
+  max-height: 360px;
   overflow-y: auto;
-  padding: 0.5rem 1rem;
+  padding: 0.625rem 1rem;
   outline: none;
   cursor: text;
 }
@@ -511,6 +511,24 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
   animation: blink 1s step-end infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }
+
+/* opencode-style demo markers */
+.ide-terminal .term-user { color: #CBA6F7; }
+.ide-terminal .term-assistant { color: #A6E3A1; }
+.ide-terminal .term-tool { color: #74C7EC; }
+.ide-terminal .term-num { color: #FAB387; }
+.ide-terminal .term-demo {
+  padding-left: 0.5rem;
+  border-left: 3px solid rgba(74, 222, 128, 0.25);
+  margin-bottom: 0.25rem;
+}
+.ide-topbar .ide-btn.demo {
+  background: rgba(16,185,129,0.35);
+  color: var(--white);
+  cursor: pointer;
+}
+.ide-topbar .ide-btn.demo:hover { background: rgba(16,185,129,0.55); }
+.ide-topbar .ide-btn.demo.playing { background: rgba(16,185,129,0.6); }
 
 /* Form */
 .form-group { margin-bottom: 1rem; }
@@ -608,6 +626,8 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
   .form-row { grid-template-columns: 1fr; }
   .ide-layout { grid-template-columns: 1fr; }
   .ide-sidebar { display: none; }
+  .ide-topbar { flex-wrap: wrap; }
+  .ide-topbar .ide-actions { flex-wrap: wrap; }
 }
 </style>
 </head>
@@ -943,6 +963,7 @@ tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
           <span class="ide-badge lock">🔐 Sandbox locked</span>
         </div>
         <div class="ide-actions">
+          <span class="ide-btn demo" id="demoBtn" onclick="playDemo()">▶ AI Demo</span>
           <span class="ide-btn">💾 Save</span>
           <span class="ide-btn">📸 Snapshot</span>
           <span class="ide-btn">⏰ Extend</span>
@@ -1252,7 +1273,13 @@ function showPage(id) {
   };
   document.getElementById('page-title').textContent = titles[id] || 'Dashboard';
   event && event.preventDefault && event.preventDefault();
-  if (id === 'workspace' && termReady) setTimeout(function() { term.focus(); }, 50);
+  if (id === 'workspace' && termReady) {
+    setTimeout(function() { term.focus(); }, 50);
+    if (!demoAutoPlayed) {
+      demoAutoPlayed = true;
+      setTimeout(playDemo, 350);
+    }
+  }
 }
 
 /* ── Interactive Terminal ── */
@@ -1265,6 +1292,121 @@ let histIdx = -1;
 let termReady = false;
 
 const TERM_PROMPT = '<span class="term-prompt">opencode@playground:~$</span> ';
+
+/* ── opencode-style demo ── */
+let demoRunning = false;
+let demoAutoPlayed = false;
+let demoTimer = [];
+let demoThink = null;
+
+function demoClearTimers() {
+  demoStopThink();
+  demoTimer.forEach(clearTimeout);
+  demoTimer = [];
+}
+
+function demoStopThink() {
+  if (demoThink) { clearInterval(demoThink); demoThink = null; }
+}
+
+function termReplaceLast(html) {
+  termBuf.pop();
+  termBuf.push('<span class="term-line">' + html + '</span>');
+}
+
+function demoStep(delay, fn) {
+  demoTimer.push(setTimeout(fn, delay));
+}
+
+function playDemo() {
+  if (demoRunning) return;
+  demoRunning = true;
+  const btn = document.getElementById('demoBtn');
+  if (btn) btn.classList.add('playing');
+  demoClearTimers();
+  termBuf = [];
+  termInput = '';
+  termRender();
+  termFocus();
+
+  demoStep(0, function() {
+    termPrint('<span class="term-dim">┌ opencode ──────────────────────────────────────────────────┐</span>');
+    termPrint('<span class="term-dim">│ ✻ opencode/big-pickle · sandbox/ai-audit-tool-v2</span>');
+    termPrint('<span class="term-dim">└────────────────────────────────────────────────────────────────┘</span>');
+    termPrint('');
+    termRender();
+  });
+
+  demoStep(650, function() {
+    termPrint('<span class="term-user">✻ User</span>', 'term-demo');
+    termPrint('Add confidence threshold filtering to <span class="term-info">classifyAuditFinding()</span>.');
+    termPrint('Findings scored below <span class="term-num">0.6</span> should skip the LLM call and be flagged <span class="term-warning">low</span>.');
+    termRender();
+  });
+
+  demoStep(1750, function() {
+    let i = 0;
+    const frames = ['◆ Thinking', '◆ Thinking.', '◆ Thinking..', '◆ Thinking...'];
+    function tick() {
+      termReplaceLast('<span class="term-assistant">' + frames[i % frames.length] + '</span>');
+      termRender();
+      i++;
+    }
+    tick();
+    demoThink = setInterval(tick, 220);
+  });
+
+  demoStep(2600, function() {
+    demoStopThink();
+    termPrint('<span class="term-tool">⚡ Tool</span> <span class="term-dim">· read</span> <span class="term-info">src/index.js</span>');
+    termPrint('  <span class="term-dim">Found classifyAuditFinding() at src/index.js:8</span>');
+    termRender();
+  });
+
+  demoStep(3300, function() {
+    termPrint('<span class="term-tool">📄 Edited</span> <span class="term-info">src/index.js</span>');
+    termPrint('  <span class="term-success">+  // Confidence threshold — skip findings scored below 0.6</span>');
+    termPrint('  <span class="term-success">+  if (result.score &lt; 0.6) {</span>');
+    termPrint('  <span class="term-success">+    return { severity: \'low\', filtered: true, confidence: result.score };</span>');
+    termPrint('  <span class="term-success">+  }</span>');
+    termRender();
+  });
+
+  demoStep(4200, function() {
+    termPrint('<span class="term-tool">⚡ Tool</span> <span class="term-dim">· bash</span> · npm run test');
+    termPrint('<span class="term-dim">&gt; audit-classifier@1.0.0 test</span>');
+    termPrint('<span class="term-dim">&gt; node --test tests/*.test.js</span>');
+    termRender();
+  });
+
+  demoStep(4800, function() {
+    termPrint('<span class="term-success">✔ classify.test.js</span> <span class="term-dim">(8 tests, 0 failing)</span>');
+    termRender();
+  });
+
+  demoStep(5250, function() {
+    termPrint('<span class="term-success">✔ prompt.test.js</span> <span class="term-dim">(6 tests, 0 failing)</span>');
+    termPrint('<span class="term-success">✔ severity-map.test.js</span> <span class="term-dim">(4 tests, 0 failing)</span>');
+    termPrint('<span class="term-success">✓ 18 passing</span> <span class="term-dim">(1.4s)</span>');
+    termRender();
+  });
+
+  demoStep(6000, function() {
+    termPrint('');
+    termPrint('<span class="term-assistant">◆ Done</span>', 'term-demo');
+    termPrint('  Low-confidence findings now skip the LLM and are flagged <span class="term-warning">low</span> with a <span class="term-info">filtered</span> marker.');
+    termPrint('  <span class="term-success">✓</span> 18 tests passing · guardrails still <span class="term-success">7/7</span>');
+    termRender();
+  });
+
+  demoStep(6850, function() {
+    termPrint('');
+    termRender();
+    demoRunning = false;
+    if (btn) btn.classList.remove('playing');
+    termFocus();
+  });
+}
 
 function termPrint(html, cls) {
   termBuf.push('<span class="term-line' + (cls ? ' ' + cls : '') + '">' + html + '</span>');
@@ -1501,6 +1643,7 @@ function initTerminal() {
 
   term.addEventListener('keydown', function(e) {
     if (!termReady) return;
+    if (demoRunning) { e.preventDefault(); return; }
     if (e.key === 'Enter') {
       e.preventDefault();
       const cmd = termInput;
