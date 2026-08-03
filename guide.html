@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products — SchoolCode</title>
+<title>Guide — SchoolCode</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -55,6 +55,20 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.navbar-left { display: flex; align-items: center; }
+.navbar-schoolcode {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--gray-300);
+  transition: color 0.15s;
+}
+.navbar-schoolcode:hover { color: var(--brick); }
 .navbar-brand { font-weight: 700; font-size: 1rem; color: inherit; text-decoration: none; }
 .navbar-links a {
   text-decoration: none;
@@ -67,7 +81,7 @@ body {
 }
 .navbar-links a:hover { color: var(--brick); background: var(--gray-100); }
 .hero {
-  background: linear-gradient(135deg, var(--brick-dark) 0%, var(--brick) 50%, var(--brick-light) 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--brick) 55%, var(--brick-light) 100%);
   color: var(--white);
   padding: 3rem 2rem;
   text-align: center;
@@ -132,11 +146,6 @@ body {
   margin-bottom: 0;
 }
 .section-label span { color: var(--gray-300); font-weight: 400; }
-.separator {
-  grid-column: 1 / -1;
-  border-top: 2px dashed var(--gray-300);
-  margin: 1.5rem 0 0.5rem;
-}
 .footer {
   border-top: 1px solid var(--gray-200);
   padding: 1.5rem 2rem;
@@ -156,7 +165,10 @@ body {
 
 <nav class="navbar">
   <div class="navbar-inner">
-    <a href="../index.html" class="navbar-brand">SchoolCode</a>
+    <div class="navbar-left">
+      <a href="index.html" class="navbar-schoolcode">SchoolCode</a>
+      <a href="guide.html" class="navbar-brand">Guide</a>
+    </div>
     <div class="navbar-links">
       <a href="https://github.com/Blank-Look/opencode">GitHub</a>
     </div>
@@ -164,78 +176,39 @@ body {
 </nav>
 
 <header class="hero">
-  <h1>Products</h1>
-  <p>What we build — and the practices that shape how we build it.</p>
+  <h1>Guide</h1>
+  <p>Practices that shape how we build and sustain it — for the human behind the AI.</p>
 </header>
 
 <div class="section-grid">
 
-  <div class="section-label">Build &nbsp;<span>— production applications</span></div>
+  <div class="section-label">Guide <span>— keep in mind</span></div>
 
-  <a href="prism/" class="project-card">
-    <div class="project-icon">🔮</div>
-    <div class="project-title">Prism Academy <span class="status-badge live">Live</span></div>
-    <div class="project-desc">Modern school website — innovation-first, inquiry-driven, project-based learning. Built on SchoolCode.</div>
+  <a href="products/cadence/" class="project-card">
+    <div class="project-icon">🌿</div>
+    <div class="project-title">Cadence <span class="status-badge live">Live</span></div>
+    <div class="project-desc">Sustained high performance for the human behind the AI. Brain breaks, stillness, movement, and creative recovery — the counterpart to vibe coding.</div>
     <div class="project-meta">
-      <span class="tag tag-playground">Playground</span>
-      <span class="tag tag-kb">Education</span>
-      <span class="tag tag-doc">Website</span>
+      <span class="tag tag-playground">Wellbeing</span>
+      <span class="tag tag-sdlc">Human</span>
+      <span class="tag tag-doc">Practice</span>
     </div>
   </a>
-  <a href="knowledgebase/" class="project-card">
-    <div class="project-icon">📘</div>
-    <div class="project-title">ICT Knowledge Base <span class="status-badge live">Live</span></div>
-    <div class="project-desc">Governance, runbooks, processes, configuration, and standards for ICT operations. Static documentation portal built with Markdown + generator.</div>
+  <a href="products/foundry/" class="project-card">
+    <div class="project-icon">⚙</div>
+    <div class="project-title">Foundry <span class="status-badge live">Live</span></div>
+    <div class="project-desc">Internal ICT Engineering Bootcamp — two-day GitHub Foundations for M365 infrastructure engineers. AI-assisted, practical, mandatory onboarding.</div>
     <div class="project-meta">
-      <span class="tag tag-kb">Governance</span>
-      <span class="tag tag-doc">Docs</span>
-      <span class="tag tag-sdlc">Standards</span>
+      <span class="tag tag-playground">Training</span>
+      <span class="tag tag-am">GitHub</span>
+      <span class="tag tag-doc">Engineering</span>
     </div>
   </a>
-  <a href="travel-itineraries/" class="project-card">
-    <div class="project-icon">✈</div>
-    <div class="project-title">Travel Itineraries <span class="status-badge live">Live</span></div>
-    <div class="project-desc">Staff location tracking, regional hazard monitoring, and automated emergency response activation for traveller safety.</div>
-    <div class="project-meta">
-      <span class="tag tag-playground">Playground</span>
-      <span class="tag tag-am">Safety</span>
-      <span class="tag tag-doc">Travel</span>
-    </div>
-  </a>
-  <a href="invoice-intake/" class="project-card">
-    <div class="project-icon">📄</div>
-    <div class="project-title">Invoice Intake <span class="status-badge live">Live</span></div>
-    <div class="project-desc">Automated accounts payable — Power Automate, AI extraction, SharePoint queue, and approval workflow from supplier email to finance.</div>
-    <div class="project-meta">
-      <span class="tag tag-playground">Finance</span>
-      <span class="tag tag-am">Automation</span>
-      <span class="tag tag-doc">Power Platform</span>
-    </div>
-  </a>
-  <a href="sharepoint-governance/" class="project-card">
-    <div class="project-icon">🛡</div>
-    <div class="project-title">SharePoint Governance <span class="status-badge live">Live</span></div>
-    <div class="project-desc">Automated governance scanning for SharePoint Online — external sharing audit, owner validation, inactivity detection, and lifecycle management.</div>
-    <div class="project-meta">
-      <span class="tag tag-playground">Governance</span>
-      <span class="tag tag-am">Security</span>
-      <span class="tag tag-doc">SharePoint</span>
-    </div>
-  </a>
-  <a href="schoolapp/" class="project-card">
-    <div class="project-icon">🎓</div>
-    <div class="project-title">SchoolApp <span class="status-badge live">Live</span></div>
-    <div class="project-desc">Mobile-first PWA student hub — subjects, timetable, links to Blackboard/Canvas/Portal/M365, events, and resources for master's students.</div>
-    <div class="project-meta">
-      <span class="tag tag-playground">Education</span>
-      <span class="tag tag-am">PWA</span>
-      <span class="tag tag-doc">Student</span>
-    </div>
-  </a>
+
 </div>
 
 <footer class="footer">
-  <p>SchoolCode — products graduated from the Innovation Playground</p>
+  <p>SchoolCode — guide &amp; training for governed AI-assisted delivery</p>
 </footer>
 
 </body>
