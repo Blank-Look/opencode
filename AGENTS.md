@@ -17,26 +17,20 @@ Markdown + `generate.js` → static HTML/CSS, hosted on GitHub Pages.
 
 ## Asset Governance Manager (`asset-governance-manager/`)
 
-Express + SQLite + Microsoft Graph API connectors. No tests, linters, or CI.
+ASP.NET Core modular monolith (Razor Pages + EF Core + PostgreSQL). Hosted on Azure Container Apps, Entra ID OIDC auth, read-only integrations (Freshservice, Microsoft Graph, Defender XDR).
 
-**Commands** (run from `asset-governance-manager/`):
+**Commands** (run from `asset-governance-manager/`, requires .NET SDK in `~/.dotnet`):
 ```
-npm start          # node src/index.js
-npm run dev        # node --watch src/index.js (Node 18+)
-npm run seed       # node src/seed.js (demo data)
-npm run sync       # node src/manual-sync.js "<job-name>"
+export PATH="$HOME/.dotnet:$PATH"
+dotnet build
+dotnet test
+dotnet run --project src/AssetGovernance.Web
+dotnet format --verify-no-changes
 ```
-
-**Setup:**
-- `cp .env.example .env` — fill in Azure AD app registration (Graph API permissions needed)
-- DB auto-created at `data/asset-governance-manager.db` (WAL mode, foreign keys on)
-- 4 pre-configured cron sync jobs (Entra, SharePoint, Defender, Power Automate)
-
-**Architecture:**
-- Entry: `src/index.js` → starts Express + scheduler
-- Routes: REST CRUD under `/api/` (assets, asset-types, sources, owners, jobs, business-rules, stats)
-- Connectors: `src/connectors/` — each implements `sync(jobId)` with `upsertAsset()`/`logSync()` from base class
-- Frontend: vanilla JS SPA in `public/` — calls REST API directly
+- Solution: `AssetGovernance.sln` — `src/` (Web, Application, Domain, Infrastructure) + `tests/` (Unit, Integration, E2E)
+- Infra: `infra/*.bicep`; CI: `.github/workflows/ci.yml`
+- All committed content is anonymous and de-identified — fictional demo data only, no real identifiers/names
+- The old Express + SQLite prototype is preserved read-only under `prototype/` (see `docs/adr/013-prototype-disposition.md`); run with its own npm scripts from `prototype/`
 
 ## Nav Bar Template
 
