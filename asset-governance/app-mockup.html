@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICT Asset Governance Manager — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --maroon: #7A1B2C;
+  --maroon-dark: #6D1827;
+  --maroon-light: #A3243B;
+  --navy: #1A2E4A;
+  --gray-50: #F8F7F6;
+  --gray-100: #F0EFEE;
+  --gray-200: #E2E0DE;
+  --gray-300: #C5C2BE;
+  --gray-400: #A39E99;
+  --gray-500: #847E78;
+  --gray-600: #66605A;
+  --gray-700: #4D4843;
+  --gray-800: #34302C;
+  --gray-900: #1C1A18;
+  --white: #FFFFFF;
+  --green: #16A34A;
+  --amber: #D97706;
+  --blue: #2563EB;
+  --red: #DC2626;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --sidebar-w: 240px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--gray-50);
+  color: var(--gray-900);
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Banner */
+.mockup-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.375rem 1rem;
+  letter-spacing: 0.05em;
+}
+.mockup-banner a {
+  color: #93C5FD;
+  text-decoration: none;
+}
+.mockup-banner a:hover { text-decoration: underline; }
+
+/* SchoolCode top bar */
+.schoolbar {
+  position: fixed;
+  top: 1.75rem; left: 0; right: 0;
+  z-index: 998;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+}
+.schoolbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.schoolbar-schoolcode {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--gray-300);
+  white-space: nowrap;
+}
+.schoolbar-schoolcode:hover { color: var(--gray-900); }
+.schoolbar-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.schoolbar-links { margin-left: auto; display: flex; gap: 0.75rem; white-space: nowrap; }
+.schoolbar-links a { color: var(--gray-500); text-decoration: none; font-size: 0.8rem; }
+.schoolbar-links a:hover { color: var(--gray-900); }
+@media (max-width: 768px) {
+  .schoolbar-inner { padding: 0.5rem 1rem; }
+  .schoolbar-title { display: none; }
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 4.25rem; left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--white);
+  border-right: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+.sidebar-brand {
+  padding: 1.25rem 1rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--maroon);
+  border-bottom: 1px solid var(--gray-100);
+  letter-spacing: -0.01em;
+}
+.sidebar-brand small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.65rem;
+  color: var(--gray-500);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.125rem;
+}
+.sidebar-nav {
+  flex: 1;
+  padding: 0.75rem 0;
+  overflow-y: auto;
+}
+.sidebar-section {
+  padding: 0.5rem 0.75rem 0.25rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-400);
+}
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-size: 0.8125rem;
+  color: var(--gray-700);
+  text-decoration: none;
+  cursor: default;
+  border-left: 3px solid transparent;
+  transition: all 0.12s;
+}
+.sidebar-item:hover { background: var(--gray-50); }
+.sidebar-item.active {
+  color: var(--maroon);
+  font-weight: 600;
+  background: rgba(122,27,44,0.06);
+  border-left-color: var(--maroon);
+}
+.sidebar-item .icon { font-size: 1rem; width: 1.25rem; text-align: center; }
+.sidebar-item .badge {
+  margin-left: auto;
+  background: var(--maroon);
+  color: var(--white);
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.125rem 0.375rem;
+  border-radius: 999px;
+}
+.sidebar-item .badge.amber { background: var(--amber); }
+.sidebar-item .badge.gray { background: var(--gray-400); }
+
+/* Main */
+.main {
+  margin-left: var(--sidebar-w);
+  margin-top: 4.25rem;
+  flex: 1;
+  padding: 1.5rem 2rem 3rem;
+  max-width: 1200px;
+}
+
+/* Top bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+.topbar h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+}
+.topbar-right .avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 1.5rem;
+}
+.tab {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: default;
+  border-bottom: 2px solid transparent;
+  transition: all 0.12s;
+}
+.tab.active {
+  color: var(--maroon);
+  font-weight: 600;
+  border-bottom-color: var(--maroon);
+}
+.tab:hover { color: var(--gray-800); }
+
+/* Stat cards */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  cursor: default;
+  transition: box-shadow 0.15s;
+}
+.stat-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.stat-card .stat-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
+  margin-bottom: 0.25rem;
+}
+.stat-card .stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.1;
+}
+.stat-card .stat-sub {
+  font-size: 0.6875rem;
+  color: var(--gray-500);
+  margin-top: 0.125rem;
+}
+.stat-card .stat-value.critical { color: var(--red); }
+.stat-card .stat-value.high { color: var(--amber); }
+.stat-card .stat-value.good { color: var(--green); }
+
+/* Charts row */
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.chart-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.chart-card h3 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.75rem;
+}
+.bar-chart { display: flex; gap: 0.5rem; align-items: flex-end; height: 120px; padding-top: 0.5rem; }
+.bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.25rem; }
+.bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+  transition: height 0.3s;
+  position: relative;
+}
+.bar-label { font-size: 0.625rem; color: var(--gray-500); text-align: center; white-space: nowrap; }
+.bar-count { font-size: 0.625rem; font-weight: 600; color: var(--gray-700); }
+.pie-legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-top: 0.75rem; }
+.pie-legend-item { display: flex; align-items: center; gap: 0.375rem; font-size: 0.75rem; color: var(--gray-600); }
+.pie-legend-item .swatch { width: 10px; height: 10px; border-radius: 2px; }
+
+/* Two-col */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.card h3 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card h3 .more-link { font-size: 0.6875rem; font-weight: 500; color: var(--maroon); cursor: default; }
+
+/* Table */
+.table-wrap {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+thead th {
+  text-align: left;
+  padding: 0.625rem 1rem;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+}
+tbody tr {
+  border-bottom: 1px solid var(--gray-100);
+  transition: background 0.15s;
+  cursor: default;
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--gray-50); }
+tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
+
+/* Risk badges */
+.risk-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+.risk-badge.critical { background: #FEF2F2; color: #B91C1C; }
+.risk-badge.high { background: #FFF7ED; color: #C2410C; }
+.risk-badge.moderate { background: #FFFBEB; color: #B45309; }
+.risk-badge.low { background: #F0FDF4; color: #15803D; }
+
+/* Source badges */
+.src-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.625rem;
+  font-weight: 600;
+}
+.src-badge.entra { background: #EFF6FF; color: #1D4ED8; }
+.src-badge.fs { background: #F0FDF4; color: #15803D; }
+.src-badge.defender { background: #FEF2F2; color: #B91C1C; }
+.src-badge.manual { background: var(--gray-100); color: var(--gray-600); }
+
+/* Status */
+.status-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+}
+.status-dot::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+.status-dot.active::before { background: var(--green); }
+.status-dot.inactive::before { background: var(--gray-400); }
+.status-dot.warning::before { background: var(--amber); }
+.status-dot.critical-s::before { background: var(--red); }
+
+/* Owner tags */
+.owner-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.owner-tag .avatar {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.owner-tag .avatar.navy { background: var(--navy); color: var(--white); }
+.owner-tag .avatar.maroon { background: var(--maroon); color: var(--white); }
+.owner-tag .avatar.gray { background: var(--gray-200); color: var(--gray-600); }
+.owner-vacant { color: var(--red); font-weight: 500; font-size: 0.75rem; }
+
+/* Integration health row */
+.health-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.health-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+.health-card .h-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+.health-card .h-status {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.health-card .h-status .dot { width: 8px; height: 8px; border-radius: 50%; }
+.health-card .h-status .dot.green { background: var(--green); }
+.health-card .h-status .dot.red { background: var(--red); }
+.health-card .h-status .dot.amber { background: var(--amber); }
+.health-card .h-meta { font-size: 0.6875rem; color: var(--gray-500); margin-top: 0.375rem; }
+
+/* Search toolbar */
+.toolbar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.search-box {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-family: var(--font-sans);
+  background: var(--white);
+}
+.search-box:focus { outline: none; border-color: var(--maroon); box-shadow: 0 0 0 3px rgba(122,27,44,0.12); }
+.chip {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 999px;
+  background: var(--white);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  cursor: default;
+}
+.chip.active { background: var(--maroon); color: var(--white); border-color: var(--maroon); }
+
+/* Detail sections */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.detail-field { margin-bottom: 0.75rem; }
+.detail-field .df-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
+  margin-bottom: 0.125rem;
+}
+.detail-field .df-value {
+  font-size: 0.875rem;
+  color: var(--gray-900);
+}
+.detail-field .df-source {
+  font-size: 0.625rem;
+  color: var(--gray-400);
+  font-style: italic;
+}
+.detail-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 1.25rem;
+}
+.detail-nav .dtab {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: default;
+  border-bottom: 2px solid transparent;
+}
+.detail-nav .dtab.active { color: var(--maroon); border-bottom-color: var(--maroon); }
+
+/* Tasks */
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+.task-item:last-child { border-bottom: none; }
+.task-priority { width: 3px; border-radius: 2px; flex-shrink: 0; align-self: stretch; }
+.task-priority.high { background: var(--red); }
+.task-priority.med { background: var(--amber); }
+.task-priority.low { background: var(--green); }
+.task-body { flex: 1; }
+.task-title { font-size: 0.8125rem; font-weight: 500; color: var(--gray-800); }
+.task-meta { font-size: 0.6875rem; color: var(--gray-500); margin-top: 0.125rem; display: flex; gap: 0.75rem; }
+
+/* Controls */
+.control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 0.8125rem;
+}
+.control-row:last-child { border-bottom: none; }
+.control-status {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+}
+.control-status.compliant { background: #F0FDF4; color: #15803D; }
+.control-status.noncompliant { background: #FEF2F2; color: #B91C1C; }
+.control-status.partial { background: #FFFBEB; color: #B45309; }
+.control-status.na { background: var(--gray-100); color: var(--gray-500); }
+.control-status.exemption { background: #EFF6FF; color: #1D4ED8; }
+
+/* Findings */
+.finding-item {
+  padding: 0.75rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  background: var(--white);
+}
+.finding-item .fi-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.375rem;
+}
+.finding-item .fi-title { font-size: 0.8125rem; font-weight: 600; }
+.finding-item .fi-meta { font-size: 0.6875rem; color: var(--gray-500); }
+.finding-item .fi-evidence { font-size: 0.6875rem; color: var(--gray-400); font-style: italic; }
+.finding-item .fi-stale { font-size: 0.625rem; color: var(--amber); font-weight: 600; }
+
+/* Footer */
+.footer-note {
+  margin-top: 2rem;
+  padding: 0.75rem 1rem;
+  background: var(--gray-100);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer-note strong { color: var(--gray-800); }
+
+/* Section visibility */
+.page-section { display: none; }
+.page-section.active { display: block; }
+
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; padding: 1rem; }
+  .two-col { grid-template-columns: 1fr; }
+  .charts { grid-template-columns: 1fr; }
+  .health-grid { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav class="schoolbar">
+  <div class="schoolbar-inner">
+    <a href="../index.html" class="schoolbar-schoolcode">SchoolCode</a>
+    <span class="schoolbar-title">ICT Asset Governance Manager</span>
+    <div class="schoolbar-links">
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="mockup-banner">ICT Asset Governance Manager — Design Mockup</div>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    Asset Governance
+    <small>ICT Asset Lifecycle Manager</small>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section">Overview</div>
+    <a class="sidebar-item active" onclick="showPage('dashboard')"><span class="icon">📊</span> Dashboard</a>
+    <a class="sidebar-item" onclick="showPage('register')"><span class="icon">📋</span> Asset Register</a>
+    <a class="sidebar-item" onclick="showPage('detail')"><span class="icon">🔍</span> Asset Detail</a>
+    <a class="sidebar-item" onclick="showPage('governance')"><span class="icon">✅</span> My Governance Work<span class="badge">12</span></a>
+
+    <div class="sidebar-section">Management</div>
+    <a class="sidebar-item" onclick="showPage('reports')"><span class="icon">📄</span> Reports</a>
+    <a class="sidebar-item" onclick="showPage('onboarding')"><span class="icon">🚀</span> Onboarding</a>
+    <a class="sidebar-item" onclick="showPage('workflows')"><span class="icon">⚙️</span> Workflows</a>
+
+    <div class="sidebar-section">Administration</div>
+    <a class="sidebar-item" onclick="showPage('integrations')"><span class="icon">🔌</span> Integrations<span class="badge amber">1</span></a>
+    <a class="sidebar-item"><span class="icon">👥</span> Roles &amp; Permissions</a>
+    <a class="sidebar-item"><span class="icon">📝</span> Audit Log</a>
+    <a class="sidebar-item"><span class="icon">⚙️</span> Settings</a>
+
+    <div class="sidebar-section">Account</div>
+    <a class="sidebar-item"><span class="icon">👤</span> Kate M.<span class="badge gray">Admin</span></a>
+    <a class="sidebar-item"><span class="icon">🚪</span> Sign Out</a>
+  </nav>
+</aside>
+
+<!-- Main -->
+<div class="main">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <h1 id="page-title">Dashboard</h1>
+    <div class="topbar-right">
+      <span>Last refreshed: 2 min ago</span>
+      <span class="avatar">KM</span>
+    </div>
+  </div>
+
+  <!-- ==================== DASHBOARD ==================== -->
+  <div id="page-dashboard" class="page-section active">
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">Governed Assets</div>
+        <div class="stat-value">1,247</div>
+        <div class="stat-sub">+12 this month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Critical Risk</div>
+        <div class="stat-value critical">38</div>
+        <div class="stat-sub">↑ 3 since last week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">High Risk</div>
+        <div class="stat-value high">94</div>
+        <div class="stat-sub">requires action</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Ownerless</div>
+        <div class="stat-value critical">112</div>
+        <div class="stat-sub">no business owner assigned</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Overdue Reviews</div>
+        <div class="stat-value high">67</div>
+        <div class="stat-sub">past due date</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Vacant Roles</div>
+        <div class="stat-value high">23</div>
+        <div class="stat-sub">governance role unfilled</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">End-of-Life Assets</div>
+        <div class="stat-value high">41</div>
+        <div class="stat-sub">support expired</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Expiring Credentials</div>
+        <div class="stat-value high">17</div>
+        <div class="stat-sub">within 90 days</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Expiring Contracts</div>
+        <div class="stat-value">9</div>
+        <div class="stat-sub">within 90 days</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Exceptions</div>
+        <div class="stat-value">14</div>
+        <div class="stat-sub">6 expiring within 30d</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Annual Cost (High Risk)</div>
+        <div class="stat-value">$2.4M</div>
+        <div class="stat-sub">AUD — 132 assets</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Defender Incidents</div>
+        <div class="stat-value high">8</div>
+        <div class="stat-sub">linked to governed assets</div>
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="chart-card">
+        <h3>Assets by Risk Band</h3>
+        <div class="bar-chart">
+          <div class="bar-group"><div class="bar" style="height:6px;background:var(--green)"></div><div class="bar-count">342</div><div class="bar-label">Low</div></div>
+          <div class="bar-group"><div class="bar" style="height:16px;background:var(--amber)"></div><div class="bar-count">454</div><div class="bar-label">Moderate</div></div>
+          <div class="bar-group"><div class="bar" style="height:28px;background:#C2410C"></div><div class="bar-count">413</div><div class="bar-label">High</div></div>
+          <div class="bar-group"><div class="bar" style="height:38px;background:var(--red)"></div><div class="bar-count">38</div><div class="bar-label">Critical</div></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Assets by Lifecycle Stage</h3>
+        <div class="bar-chart">
+          <div class="bar-group"><div class="bar" style="height:8px;background:var(--blue)"></div><div class="bar-count">45</div><div class="bar-label">Onboarding</div></div>
+          <div class="bar-group"><div class="bar" style="height:32px;background:var(--green)"></div><div class="bar-count">871</div><div class="bar-label">Operational</div></div>
+          <div class="bar-group"><div class="bar" style="height:14px;background:var(--amber)"></div><div class="bar-count">203</div><div class="bar-label">Review</div></div>
+          <div class="bar-group"><div class="bar" style="height:10px;background:#C2410C"></div><div class="bar-count">89</div><div class="bar-label">Retiring</div></div>
+          <div class="bar-group"><div class="bar" style="height:6px;background:var(--gray-400)"></div><div class="bar-count">39</div><div class="bar-label">Retired</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Recent Risk Increases <span class="more-link">View all →</span></h3>
+        <div class="finding-item">
+          <div class="fi-header"><span class="risk-badge critical">Critical</span><span class="fi-title">CRM Platform</span></div>
+          <div class="fi-meta">Credential expired · Business Owner role vacant · Score: 74 → 88</div>
+        </div>
+        <div class="finding-item">
+          <div class="fi-header"><span class="risk-badge high">High</span><span class="fi-title">HR Payroll System</span></div>
+          <div class="fi-meta">New Defender incident linked · Unresolved CVE-2024-0001</div>
+        </div>
+        <div class="finding-item">
+          <div class="fi-header"><span class="risk-badge high">High</span><span class="fi-title">VPN Gateway</span></div>
+          <div class="fi-meta">End-of-life passed · No support contract · Score: 44 → 62</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Integration Health <span class="more-link">Details →</span></h3>
+        <div style="margin-bottom:0.75rem;">
+          <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.375rem;">
+            <span><span class="src-badge entra">Entra ID</span></span>
+            <span style="color:var(--green);font-weight:600;">✓ Synced 12 min ago</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.375rem;">
+            <span><span class="src-badge fs">Freshservice</span></span>
+            <span style="color:var(--green);font-weight:600;">✓ Synced 47 min ago</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.375rem;">
+            <span><span class="src-badge defender">Defender</span></span>
+            <span style="color:var(--red);font-weight:600;">✗ Failed 2h ago</span>
+          </div>
+          <div style="font-size:0.6875rem;color:var(--gray-500);margin-top:0.5rem;padding:0.5rem;background:var(--gray-50);border-radius:6px;">
+            ⚠ Defender sync failed at 09:14 — API returned HTTP 429. Retry scheduled in 15 min. Risk findings from Defender are marked <strong>stale</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Ownerless Assets (Top 5) <span class="more-link">View all 112 →</span></h3>
+        <div style="font-size:0.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>🔒 SolarWinds Agent</span><span class="risk-badge high">High</span></div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>🗄️ Legacy CRM (EOL)</span><span class="risk-badge critical">Critical</span></div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>📋 Compliance Tracker</span><span class="risk-badge high">High</span></div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>🔌 API Gateway v2</span><span class="risk-badge moderate">Moderate</span></div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;"><span>📦 Asset DB (Freshservice)</span><span class="risk-badge moderate">Moderate</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Vacant Governance Roles <span class="more-link">View all 23 →</span></h3>
+        <div style="font-size:0.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span><strong>Business Owner</strong> — Payroll</span><span class="owner-vacant">Vacant 63d</span></div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span><strong>Data Owner</strong> — Customer Data</span><span class="owner-vacant">Vacant 31d</span></div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span><strong>Security Reviewer</strong> — Network</span><span class="owner-vacant">Vacant 14d</span></div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span><strong>Technical Owner</strong> — HR Portal</span><span class="owner-vacant">Vacant 7d</span></div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;"><span><strong>Records Reviewer</strong> — Finance</span><span class="owner-vacant">Vacant 2d</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ASSET REGISTER ==================== -->
+  <div id="page-register" class="page-section">
+
+    <div class="tabs">
+      <span class="tab active">All Assets <span style="color:var(--gray-400);font-weight:400;">(1,247)</span></span>
+      <span class="tab">By Type</span>
+      <span class="tab">By Business Unit</span>
+      <span class="tab">By Source</span>
+      <span class="tab">Saved Views</span>
+    </div>
+
+    <div class="toolbar">
+      <input class="search-box" type="text" placeholder="Search by name, owner, tag, or external ID..." value="">
+      <span class="chip active">All</span>
+      <span class="chip">Critical</span>
+      <span class="chip">Ownerless</span>
+      <span class="chip">EOL</span>
+      <span class="chip">Overdue Review</span>
+      <span class="chip" style="margin-left:auto;background:var(--maroon);color:var(--white);border-color:var(--maroon);">+ Add Asset</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">Asset</th>
+            <th style="width:8%">Type</th>
+            <th style="width:6%">Source</th>
+            <th style="width:8%">Risk</th>
+            <th style="width:8%">Stage</th>
+            <th style="width:14%">Owner</th>
+            <th style="width:10%">Business Unit</th>
+            <th style="width:10%">Classification</th>
+            <th style="width:10%">Last Review</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CRM Platform</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">ext: fs-00421</span></td>
+            <td>Application</td>
+            <td><span class="src-badge fs">FS</span></td>
+            <td><span class="risk-badge critical">Critical</span></td>
+            <td><span class="status-dot warning">Review</span></td>
+            <td><span class="owner-tag"><span class="avatar navy">KM</span> Kate M.</span></td>
+            <td>Sales</td>
+            <td>Restricted</td>
+            <td>2025-11-03</td>
+          </tr>
+          <tr>
+            <td><strong>HR Payroll System</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">ext: entra-9f3e2a</span></td>
+            <td>Enterprise App</td>
+            <td><span class="src-badge entra">Entra</span></td>
+            <td><span class="risk-badge high">High</span></td>
+            <td><span class="status-dot active">Operational</span></td>
+            <td><span class="owner-tag"><span class="avatar maroon">JR</span> James R.</span></td>
+            <td>HR</td>
+            <td>Confidential</td>
+            <td>2026-01-15</td>
+          </tr>
+          <tr>
+            <td><strong>Network Firewall</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">ext: fs-00107</span></td>
+            <td>Network Device</td>
+            <td><span class="src-badge fs">FS</span></td>
+            <td><span class="risk-badge high">High</span></td>
+            <td><span class="status-dot active">Operational</span></td>
+            <td><span class="owner-tag"><span class="avatar navy">AL</span> Alex L.</span></td>
+            <td>Infrastructure</td>
+            <td>Internal</td>
+            <td>2026-06-01</td>
+          </tr>
+          <tr>
+            <td><strong>SolarWinds Agent</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">ext: def-7765</span></td>
+            <td>Software</td>
+            <td><span class="src-badge defender">Defender</span></td>
+            <td><span class="risk-badge high">High</span></td>
+            <td><span class="status-dot warning">Review</span></td>
+            <td><span class="owner-tag"><span class="avatar gray">?</span> <em style="color:var(--gray-400)">Unassigned</em></span></td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Employee Portal</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">ext: entra-b4c1f8</span></td>
+            <td>App Registration</td>
+            <td><span class="src-badge entra">Entra</span></td>
+            <td><span class="risk-badge moderate">Moderate</span></td>
+            <td><span class="status-dot active">Operational</span></td>
+            <td><span class="owner-tag"><span class="avatar navy">SC</span> Sarah C.</span></td>
+            <td>HR</td>
+            <td>Confidential</td>
+            <td>2026-03-22</td>
+          </tr>
+          <tr>
+            <td><strong>Azure SQL — Finance</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">ext: manual-003</span></td>
+            <td>Database</td>
+            <td><span class="src-badge manual">Manual</span></td>
+            <td><span class="risk-badge moderate">Moderate</span></td>
+            <td><span class="status-dot active">Operational</span></td>
+            <td><span class="owner-tag"><span class="avatar navy">KM</span> Kate M.</span></td>
+            <td>Finance</td>
+            <td>Restricted</td>
+            <td>2026-02-10</td>
+          </tr>
+          <tr>
+            <td><strong>VPN Gateway</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">ext: fs-00988</span></td>
+            <td>Network Device</td>
+            <td><span class="src-badge fs">FS</span></td>
+            <td><span class="risk-badge high">High</span></td>
+            <td><span class="status-dot critical-s">EOL</span></td>
+            <td><span class="owner-tag"><span class="avatar navy">TW</span> Tom W.</span></td>
+            <td>Infrastructure</td>
+            <td>Internal</td>
+            <td>2025-08-14</td>
+          </tr>
+          <tr>
+            <td><strong>Learning Management Sys</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">ext: entra-7d2b19</span></td>
+            <td>SaaS Service</td>
+            <td><span class="src-badge entra">Entra</span></td>
+            <td><span class="risk-badge moderate">Moderate</span></td>
+            <td><span class="status-dot active">Operational</span></td>
+            <td><span class="owner-tag"><span class="avatar gray">?</span> <em style="color:var(--gray-400)">Unassigned</em></span></td>
+            <td>Education</td>
+            <td>Internal</td>
+            <td>2026-04-05</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="font-size:0.75rem;color:var(--gray-500);display:flex;justify-content:space-between;">
+      <span>Showing 8 of 1,247 assets</span>
+      <span>1–8 of 1,247</span>
+    </div>
+  </div>
+
+  <!-- ==================== ASSET DETAIL ==================== -->
+  <div id="page-detail" class="page-section">
+
+    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+      <span style="font-size:1.25rem;">🗄️</span>
+      <div>
+        <h2 style="font-size:1.25rem;font-weight:700;">CRM Platform <span style="font-size:0.75rem;font-weight:400;color:var(--gray-500);margin-left:0.5rem;">freshservice/00421</span></h2>
+        <div style="font-size:0.75rem;color:var(--gray-500);display:flex;gap:1rem;">
+          <span>Source: <span class="src-badge fs">Freshservice</span></span>
+          <span class="status-dot warning">Review — Annual review overdue by 47 days</span>
+        </div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:0.5rem;">
+        <span class="chip" style="background:var(--maroon);color:var(--white);border-color:var(--maroon);">Edit</span>
+        <span class="chip">Actions</span>
+      </div>
+    </div>
+
+    <div class="detail-nav">
+      <span class="dtab active">Overview</span>
+      <span class="dtab">Ownership</span>
+      <span class="dtab">Data &amp; Classification</span>
+      <span class="dtab">Risk Findings <span style="color:var(--red);font-weight:600;">(9)</span></span>
+      <span class="dtab">Controls</span>
+      <span class="dtab">Workflows</span>
+      <span class="dtab">Relationships</span>
+      <span class="dtab">Cost &amp; Contracts</span>
+      <span class="dtab">Lifecycle</span>
+      <span class="dtab">Audit</span>
+    </div>
+
+    <div class="detail-grid">
+      <div>
+        <div class="detail-field">
+          <div class="df-label">Asset Type</div>
+          <div class="df-value">Business Application</div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Lifecycle Stage</div>
+          <div class="df-value">Review &amp; Assurance</div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Operational Status</div>
+          <div class="df-value"><span class="status-dot active">Active</span></div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Criticality</div>
+          <div class="df-value">High <span style="font-size:0.75rem;color:var(--gray-500);">— Business impact: Significant</span></div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Data Classification</div>
+          <div class="df-value">Restricted <span class="risk-badge high">Personal data</span></div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Business Unit</div>
+          <div class="df-value">Sales &amp; Marketing</div>
+        </div>
+      </div>
+      <div>
+        <div class="detail-field">
+          <div class="df-label">Hosting Model</div>
+          <div class="df-value">SaaS <span class="df-source">source: Freshservice</span></div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Region</div>
+          <div class="df-value">Australia East <span class="df-source">source: Freshservice</span></div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Support Tier</div>
+          <div class="df-value">Tier 2 — Business hours <span class="df-source">locally governed</span></div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Annual Cost</div>
+          <div class="df-value">$84,000 AUD <span class="df-source">source: Freshservice</span></div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">End of Support</div>
+          <div class="df-value" style="color:var(--red);font-weight:600;">2027-03-31 <span style="font-weight:400;font-size:0.75rem;">(247 days)</span></div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Last Review</div>
+          <div class="df-value" style="color:var(--red);">2025-11-03 <span style="font-size:0.75rem;">— overdue by 267 days</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.875rem;font-weight:600;margin-bottom:0.75rem;color:var(--gray-700);">Risk Findings</h3>
+    <div class="finding-item">
+      <div class="fi-header"><span class="risk-badge critical">Critical</span><span class="fi-title">Business Owner role vacant</span></div>
+      <div class="fi-meta">Role "Business Owner — CRM" has no active assignment since 2026-04-12 (92 days). Previous owner: James R. (departed).</div>
+      <div class="fi-evidence">Evidence: RoleAssignment.last_assignment = 2026-04-12 · Rule: OWN-001</div>
+      <div style="margin-top:0.375rem;"><span class="risk-badge high">+25 pts</span><span style="font-size:0.6875rem;color:var(--gray-500);margin-left:0.5rem;">Multiplier: criticality=2.0, personal-data=1.5</span></div>
+    </div>
+    <div class="finding-item">
+      <div class="fi-header"><span class="risk-badge critical">Critical</span><span class="fi-title">Credential expired</span></div>
+      <div class="fi-meta">API credential "crm-prod-svc-acct" expired 2026-05-01. No valid credential for production integration.</div>
+      <div class="fi-evidence">Evidence: Entra keyCredentials[0].endDateTime = 2026-05-01T00:00:00Z · Rule: IAM-003</div>
+      <div style="margin-top:0.375rem;"><span class="risk-badge high">+30 pts</span></div>
+    </div>
+    <div class="finding-item">
+      <div class="fi-header"><span class="risk-badge high">High</span><span class="fi-title">Annual review overdue</span></div>
+      <div class="fi-meta">Last review: 2025-11-03. Review frequency: 365 days. Overdue by 267 days.</div>
+      <div class="fi-evidence">Evidence: Asset.LastReviewDate = 2025-11-03 · Rule: LIF-002</div>
+      <div style="margin-top:0.375rem;"><span class="risk-badge moderate">+12 pts</span></div>
+    </div>
+    <div class="finding-item">
+      <div class="fi-header"><span class="risk-badge high">High</span><span class="fi-title">Defender incident linked (active)</span></div>
+      <div class="fi-meta">Incident #INC-2304: "Suspicious admin activity detected on CRM platform" — Severity: High, Status: Active</div>
+      <div class="fi-evidence">Evidence: Defender incident 2304 · Rule: SEC-001</div>
+      <div style="margin-top:0.375rem;"><span class="risk-badge high">+20 pts</span><span class="fi-stale">⚠ Freshness: stale (Defender sync failed)</span></div>
+    </div>
+
+    <h3 style="font-size:0.875rem;font-weight:600;margin:1.25rem 0 0.75rem;color:var(--gray-700);">Controls</h3>
+    <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:0.5rem 1rem;">
+      <div class="control-row"><span>Named Business Owner</span><span class="control-status noncompliant">Non-Compliant</span></div>
+      <div class="control-row"><span>Named Technical Owner</span><span class="control-status compliant">Compliant</span></div>
+      <div class="control-row"><span>SSO Enabled</span><span class="control-status compliant">Compliant</span></div>
+      <div class="control-row"><span>MFA Enforced</span><span class="control-status compliant">Compliant</span></div>
+      <div class="control-row"><span>Periodic Access Review</span><span class="control-status noncompliant">Non-Compliant</span></div>
+      <div class="control-row"><span>Vendor Security Assessment</span><span class="control-status exemption">Exception Approved</span></div>
+      <div class="control-row"><span>Backup &amp; Recovery Plan</span><span class="control-status partial">Partially Compliant</span></div>
+      <div class="control-row"><span>Exit Plan</span><span class="control-status na">Not Assessed</span></div>
+    </div>
+
+    <h3 style="font-size:0.875rem;font-weight:600;margin:1.25rem 0 0.75rem;color:var(--gray-700);">Score Breakdown</h3>
+    <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:1rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+        <span style="font-size:1rem;font-weight:700;">Total Risk Score</span>
+        <span><span style="font-size:1.75rem;font-weight:800;color:var(--red);">88</span><span style="font-size:0.875rem;color:var(--gray-500);">/100</span> <span class="risk-badge critical">Critical</span></span>
+      </div>
+      <div style="font-size:0.75rem;">
+        <div style="display:flex;justify-content:space-between;padding:0.25rem 0;border-bottom:1px solid var(--gray-100);"><span>Credential expired</span><span>+30 pts</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.25rem 0;border-bottom:1px solid var(--gray-100);"><span>Business owner vacant</span><span>+25 pts</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.25rem 0;border-bottom:1px solid var(--gray-100);"><span>Defender incident</span><span>+20 pts</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.25rem 0;border-bottom:1px solid var(--gray-100);"><span>Annual review overdue</span><span>+12 pts</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.25rem 0;border-bottom:1px solid var(--gray-100);"><span>No access review (6mo)</span><span>+8 pts</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.25rem 0;border-bottom:1px solid var(--gray-100);"><span>No exit plan</span><span>+4 pts</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.25rem 0;"><span>Base score</span><span>+10 pts</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.25rem 0;font-weight:600;border-top:2px solid var(--gray-200);"><span>Multipliers applied (criticality 2.0, personal data 1.5)</span><span>×3.0</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MY GOVERNANCE WORK ==================== -->
+  <div id="page-governance" class="page-section">
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">Due This Week</div>
+        <div class="stat-value high">8</div>
+        <div class="stat-sub">as Business Owner</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Overdue</div>
+        <div class="stat-value critical">12</div>
+        <div class="stat-sub">past due date</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Awaiting Approval</div>
+        <div class="stat-value">4</div>
+        <div class="stat-sub">as Workflow Approver</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Escalated</div>
+        <div class="stat-value high">3</div>
+        <div class="stat-sub">escalation date passed</div>
+      </div>
+    </div>
+
+    <div style="font-size:0.8125rem;font-weight:600;color:var(--gray-700);margin-bottom:0.75rem;">Your effective roles: <span class="src-badge" style="background:var(--navy);color:var(--white);margin-left:0.25rem;">Asset Governance Manager</span> <span class="src-badge" style="background:var(--amber);color:var(--white);">Business Owner — CRM, Finance</span> <span class="src-badge" style="background:var(--green);color:var(--white);">Workflow Approver</span></div>
+
+    <div class="tabs">
+      <span class="tab active">All Tasks</span>
+      <span class="tab">Ownership Reviews</span>
+      <span class="tab">Access Reviews</span>
+      <span class="tab">Exceptions</span>
+      <span class="tab">Retirement</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th style="width:30%">Task</th><th style="width:14%">Asset</th><th style="width:14%">Role</th><th style="width:10%">Due</th><th style="width:8%">Priority</th><th style="width:10%">Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Annual ownership review</strong></td>
+            <td>CRM Platform</td>
+            <td>Business Owner</td>
+            <td style="color:var(--red);font-weight:600;">2026-01-03</td>
+            <td><span class="risk-badge critical">Critical</span></td>
+            <td><span class="status-dot critical-s">Overdue</span></td>
+          </tr>
+          <tr>
+            <td><strong>Business owner re-assignment</strong></td>
+            <td>CRM Platform</td>
+            <td>Asset Governance Manager</td>
+            <td style="color:var(--red);font-weight:600;">2026-04-12</td>
+            <td><span class="risk-badge critical">Critical</span></td>
+            <td><span class="status-dot critical-s">Vacant</span></td>
+          </tr>
+          <tr>
+            <td><strong>Data classification review</strong></td>
+            <td>HR Payroll</td>
+            <td>Data Governance</td>
+            <td style="color:var(--amber);font-weight:600;">2026-08-15</td>
+            <td><span class="risk-badge high">High</span></td>
+            <td><span class="status-dot warning">Due Soon</span></td>
+          </tr>
+          <tr>
+            <td><strong>Access review — quarterly</strong></td>
+            <td>Finance DB</td>
+            <td>Data Owner</td>
+            <td style="color:var(--amber);font-weight:600;">2026-08-01</td>
+            <td><span class="risk-badge high">High</span></td>
+            <td><span class="status-dot warning">Due Soon</span></td>
+          </tr>
+          <tr>
+            <td><strong>Vendor security assessment</strong></td>
+            <td>LMS Vendor</td>
+            <td>Security Reviewer</td>
+            <td>2026-09-20</td>
+            <td><span class="risk-badge moderate">Moderate</span></td>
+            <td><span class="status-dot active">Pending</span></td>
+          </tr>
+          <tr>
+            <td><strong>Retirement approval</strong></td>
+            <td>Legacy VPN</td>
+            <td>Retirement Approver</td>
+            <td>2026-08-30</td>
+            <td><span class="risk-badge high">High</span></td>
+            <td><span class="status-dot active">Awaiting Approval</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== REPORTS ==================== -->
+  <div id="page-reports" class="page-section">
+    <div class="tabs">
+      <span class="tab active">Standard Reports</span>
+      <span class="tab">Saved Reports</span>
+      <span class="tab">Export History</span>
+    </div>
+
+    <div class="two-col">
+      <div class="card" style="cursor:default;">
+        <h3>📋 Asset Register</h3>
+        <p style="font-size:0.75rem;color:var(--gray-600);margin-bottom:0.75rem;">Complete list of all governed assets with current status, risk, and ownership.</p>
+        <span class="chip">CSV</span> <span class="chip">HTML</span>
+      </div>
+      <div class="card" style="cursor:default;">
+        <h3>⚠️ Risk Register</h3>
+        <p style="font-size:0.75rem;color:var(--gray-600);margin-bottom:0.75rem;">All active risk findings grouped by asset, severity, and category.</p>
+        <span class="chip">CSV</span> <span class="chip">HTML</span>
+      </div>
+      <div class="card" style="cursor:default;">
+        <h3>👤 Ownerless Assets</h3>
+        <p style="font-size:0.75rem;color:var(--gray-600);margin-bottom:0.75rem;">Assets missing one or more required governance roles.</p>
+        <span class="chip">CSV</span> <span class="chip">HTML</span>
+      </div>
+      <div class="card" style="cursor:default;">
+        <h3>📅 Overdue Reviews</h3>
+        <p style="font-size:0.75rem;color:var(--gray-600);margin-bottom:0.75rem;">All assets where scheduled review date has passed.</p>
+        <span class="chip">CSV</span> <span class="chip">HTML</span>
+      </div>
+      <div class="card" style="cursor:default;">
+        <h3>🔑 Credentials Expiring</h3>
+        <p style="font-size:0.75rem;color:var(--gray-600);margin-bottom:0.75rem;">Entra credentials expiring within configurable threshold (default: 90 days).</p>
+        <span class="chip">CSV</span> <span class="chip">HTML</span>
+      </div>
+      <div class="card" style="cursor:default;">
+        <h3>📄 Contracts Expiring</h3>
+        <p style="font-size:0.75rem;color:var(--gray-600);margin-bottom:0.75rem;">Vendor contracts approaching renewal or expired.</p>
+        <span class="chip">CSV</span> <span class="chip">HTML</span>
+      </div>
+      <div class="card" style="cursor:default;">
+        <h3>🔌 Integration Health</h3>
+        <p style="font-size:0.75rem;color:var(--gray-600);margin-bottom:0.75rem;">Synchronisation status, freshness, and error summary for all sources.</p>
+        <span class="chip">CSV</span> <span class="chip">HTML</span>
+      </div>
+      <div class="card" style="cursor:default;">
+        <h3>💰 Annual Cost by Type</h3>
+        <p style="font-size:0.75rem;color:var(--gray-600);margin-bottom:0.75rem;">Breakdown of annual licensing, subscription, and support costs.</p>
+        <span class="chip">CSV</span> <span class="chip">HTML</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ONBOARDING ==================== -->
+  <div id="page-onboarding" class="page-section">
+    <div class="stats">
+      <div class="stat-card"><div class="stat-label">In Progress</div><div class="stat-value">7</div></div>
+      <div class="stat-card"><div class="stat-label">Triage</div><div class="stat-value high">3</div></div>
+      <div class="stat-card"><div class="stat-label">Awaiting Approval</div><div class="stat-value">4</div></div>
+      <div class="stat-card"><div class="stat-label">Blocked</div><div class="stat-value critical">2</div></div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Application</th><th>Stage</th><th>Business Owner</th><th>Show-stoppers</th><th>Submitted</th></tr></thead>
+        <tbody>
+          <tr><td>New CRM Platform</td><td><span class="status-dot active">Security Assessment</span></td><td>T. Chen</td><td>—</td><td>2026-07-15</td></tr>
+          <tr><td>AI Analytics Tool</td><td><span class="status-dot warning">Data Privacy Triage</span></td><td>L. Wang</td><td><span class="risk-badge critical">Restricted data in unsupported region</span></td><td>2026-07-10</td></tr>
+          <tr><td>Contract Management</td><td><span class="status-dot critical-s">Blocked</span></td><td>—</td><td><span class="risk-badge high">No business owner identified</span></td><td>2026-06-28</td></tr>
+          <tr><td>BI Dashboard</td><td><span class="status-dot active">Approval</span></td><td>S. Patel</td><td>—</td><td>2026-07-01</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== WORKFLOWS ==================== -->
+  <div id="page-workflows" class="page-section">
+    <div class="tabs">
+      <span class="tab active">Active</span>
+      <span class="tab">Definitions</span>
+      <span class="tab">History</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Workflow</th><th>Asset</th><th>Trigger</th><th>Started</th><th>Tasks</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Annual Review 2026</td><td>CRM Platform</td><td>Review date reached</td><td>2026-07-01</td><td><span class="risk-badge critical">2 overdue</span></td><td><span class="status-dot warning">In Progress</span></td></tr>
+          <tr><td>Retirement — Legacy VPN</td><td>VPN Gateway</td><td>Retirement requested</td><td>2026-07-14</td><td>3 of 5 complete</td><td><span class="status-dot active">In Progress</span></td></tr>
+          <tr><td>Ownership Reassignment</td><td>CRM Platform</td><td>Owner departed</td><td>2026-04-12</td><td><span class="risk-badge critical">Vacant</span></td><td><span class="status-dot critical-s">Stuck</span></td></tr>
+          <tr><td>Contract Renewal</td><td>Office 365</td><td>90d to expiry</td><td>2026-07-20</td><td>0 of 2 complete</td><td><span class="status-dot active">Pending</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== INTEGRATIONS ==================== -->
+  <div id="page-integrations" class="page-section">
+    <div class="health-grid">
+      <div class="health-card">
+        <div class="h-name"><span class="src-badge entra" style="font-size:0.75rem;">Entra ID</span></div>
+        <div class="h-status"><span class="dot green"></span> Connected</div>
+        <div class="h-meta">Last sync: 12 min ago · 1,892 records · 0 errors</div>
+        <div style="font-size:0.6875rem;color:var(--gray-500);margin-top:0.375rem;">Next: auto every 60 min</div>
+      </div>
+      <div class="health-card">
+        <div class="h-name"><span class="src-badge fs" style="font-size:0.75rem;">Freshservice</span></div>
+        <div class="h-status"><span class="dot green"></span> Connected</div>
+        <div class="h-meta">Last sync: 47 min ago · 5,214 records · 0 errors</div>
+        <div style="font-size:0.6875rem;color:var(--gray-500);margin-top:0.375rem;">Next: auto daily at 02:00</div>
+      </div>
+      <div class="health-card">
+        <div class="h-name"><span class="src-badge defender" style="font-size:0.75rem;">Defender XDR</span></div>
+        <div class="h-status"><span class="dot red"></span> Error</div>
+        <div class="h-meta">Last sync: failed at 09:14 · HTTP 429 (rate limited)</div>
+        <div style="font-size:0.6875rem;color:var(--gray-500);margin-top:0.375rem;">Retry: auto in 15 min · <span style="color:var(--red);font-weight:600;">Risk findings stale</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:1rem;">
+      <h3>Sync Log — Last 24 Hours</h3>
+      <div style="font-size:0.75rem;">
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>09:14 <span class="src-badge defender">Defender</span></span><span style="color:var(--red);">✗ Failed — Rate limited (HTTP 429)</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>08:12 <span class="src-badge entra">Entra</span></span><span style="color:var(--green);">✓ Success — 1,892 records (0 new, 3 updated, 1 missing)</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>07:45 <span class="src-badge defender">Defender</span></span><span style="color:var(--green);">✓ Success — 47 incidents, 203 alerts</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>06:00 <span class="src-badge fs">FS</span></span><span style="color:var(--green);">✓ Success — 5,214 records (12 new, 28 updated, 0 missing)</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;"><span>00:00 <span class="src-badge entra">Entra</span></span><span style="color:var(--green);">✓ Success — Full reconciliation complete</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span><strong>Design Mockup</strong> — ICT Asset Governance Manager</span>
+    <span>Phase 0 · 2026-07-29</span>
+    <span>Updates tracked in <a href="https://github.com/Blank-Look/opencode">GitHub</a></span>
+  </div>
+
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  const titles = {
+    dashboard: 'Dashboard',
+    register: 'Asset Register',
+    detail: 'Asset Detail — CRM Platform',
+    governance: 'My Governance Work',
+    reports: 'Reports',
+    onboarding: 'Onboarding Pipeline',
+    workflows: 'Workflows',
+    integrations: 'Integrations'
+  };
+  document.getElementById('page-title').textContent = titles[id] || 'Dashboard';
+  event && event.preventDefault && event.preventDefault();
+}
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # Project Context
 
-Two independent projects plus a products directory in one repo: **Knowledge Base** (`products/knowledgebase/`), **Asset Governance Manager** (`asset-governance-manager/`), and **Products** (`products/`). Knowledge Base and Asset Governance Manager share no code or dependencies.
+Public repository for SchoolCode public pages: **Knowledge Base** (`products/knowledgebase/`), **Products** mockups (`products/`), **Innovation Playground**, and the **Asset Governance** design template (`asset-governance/`). The Asset Governance Manager application itself lives in the separate private repository `Blank-Look/asset-governance-manager`.
 
 ## Knowledge Base (`products/knowledgebase/`)
 
@@ -15,22 +15,9 @@ Markdown + `generate.js` → static HTML/CSS, hosted on GitHub Pages.
 - Dependency: `marked` (dynamically ESM-imported)
 - Nav bar in generated HTML: SchoolCode link goes up to root via `upToRoot()` in generate.js (works automatically from any depth)
 
-## Asset Governance Manager (`asset-governance-manager/`)
+## Asset Governance Manager (`Blank-Look/asset-governance-manager`, private)
 
-ASP.NET Core modular monolith (Razor Pages + EF Core + PostgreSQL). Hosted on Azure Container Apps, Entra ID OIDC auth, read-only integrations (Freshservice, Microsoft Graph, Defender XDR).
-
-**Commands** (run from `asset-governance-manager/`, requires .NET SDK in `~/.dotnet`):
-```
-export PATH="$HOME/.dotnet:$PATH"
-dotnet build
-dotnet test
-dotnet run --project src/AssetGovernance.Web
-dotnet format --verify-no-changes
-```
-- Solution: `AssetGovernance.sln` — `src/` (Web, Application, Domain, Infrastructure) + `tests/` (Unit, Integration, E2E)
-- Infra: `infra/*.bicep`; CI: `.github/workflows/ci.yml`
-- All committed content is anonymous and de-identified — fictional demo data only, no real identifiers/names
-- The old Express + SQLite prototype is preserved read-only under `prototype/` (see `docs/adr/013-prototype-disposition.md`); run with its own npm scripts from `prototype/`
+ASP.NET Core modular monolith (Razor Pages + EF Core + PostgreSQL). Hosted on Azure Container Apps, Entra ID OIDC auth, read-only integrations (Freshservice, Microsoft Graph, Defender XDR). Work happens in that repository, not here. This repo only contains the public `asset-governance/app-mockup.html` design template.
 
 ## Nav Bar Template
 
@@ -109,7 +96,9 @@ All new app mockups (`app-mockup.html`) should follow this established pattern:
 - All sidebar items are `cursor: default` (non-interactive mockup)
 - Inter font via Google Fonts
 
-**New app template:** Copy `asset-governance-manager/app-mockup.html` as starting point, swap accent colour variables, update sidebar sections, page sections, and mock data.
+**New app template:** Copy `asset-governance/app-mockup.html` as starting point, swap accent colour variables, update sidebar sections, page sections, and mock data.
+
+**Anonymity:** All public pages are fictional demo mockups — no real names, identifiers, organisations, or product data. Never commit real data or secrets to this public repository.
 
 ## Delivery Prompt Template
 
