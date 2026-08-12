@@ -22,6 +22,7 @@ content/                        ← Markdown source files (edit these)
 ├── security/                   ← Incident response, threat mgmt, vulnerability mgmt
 ├── service-operations/         ← Incident, problem, change, request fulfillment, user mgmt
 └── systems-and-infrastructure/ ← Network, server, software, security configuration
+security-standards/             ← Hand-authored HTML category (copied into docs/ by generate.js)
 docs/                           ← Generated HTML pages (regenerate after editing content)
 css/style.css                   ← Shared stylesheet
 generate.js                     ← Markdown → HTML generator

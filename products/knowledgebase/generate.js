@@ -9,6 +9,11 @@ async function initMarked() {
 const DOCS_SRC = path.join(__dirname, 'content');
 const DOCS_DST = path.join(__dirname, 'docs');
 
+// Hand-authored HTML category (Security Standards) copied verbatim into docs/.
+const STATIC_DIR = 'security-standards';
+const STATIC_SRC = path.join(__dirname, STATIC_DIR);
+const STATIC_DST = path.join(__dirname, 'docs', STATIC_DIR);
+
 const sidebar = [
   { label: 'Policy & Governance', dir: 'policy-and-governance', pages: [
     { label: 'Overview', file: 'overview' },
@@ -20,6 +25,14 @@ const sidebar = [
     { label: 'Policies', file: 'policies' },
     { label: 'Risk Management', file: 'risk-management' },
     { label: 'Technology Roadmap', file: 'technology-roadmap' },
+  ]},
+  { label: 'Security Standards', dir: 'security-standards', pages: [
+    { label: 'Minimum Security Standards', file: 'index' },
+    { label: 'SaaS & PaaS', file: 'saas-paas' },
+    { label: 'IaaS & Containers', file: 'iaas' },
+    { label: 'IoT Devices', file: 'iot' },
+    { label: 'Cookbooks', file: 'cookbooks' },
+    { label: 'FAQ', file: 'faq' },
   ]},
   { label: 'Service Operations', dir: 'service-operations', pages: [
     { label: 'Overview', file: 'overview' },
@@ -189,15 +202,35 @@ function buildPageMeta() {
   return meta;
 }
 
+function copyStatic() {
+  if (!fs.existsSync(STATIC_DST)) fs.mkdirSync(STATIC_DST, { recursive: true });
+  for (const file of fs.readdirSync(STATIC_SRC)) {
+    if (file.endsWith('.html')) {
+      fs.copyFileSync(path.join(STATIC_SRC, file), path.join(STATIC_DST, file));
+      console.log(`✓ ${STATIC_DIR}/${file} (static)`);
+    }
+  }
+  const cssSrc = path.join(STATIC_SRC, 'css');
+  if (fs.existsSync(cssSrc)) {
+    const cssDst = path.join(STATIC_DST, 'css');
+    if (!fs.existsSync(cssDst)) fs.mkdirSync(cssDst, { recursive: true });
+    for (const file of fs.readdirSync(cssSrc)) {
+      fs.copyFileSync(path.join(cssSrc, file), path.join(cssDst, file));
+    }
+  }
+}
+
 async function generate() {
   if (!marked) await initMarked();
   const pageMeta = buildPageMeta();
+  copyStatic();
 
   for (const cat of sidebar) {
     const sectionDir = path.join(DOCS_DST, cat.dir);
     if (!fs.existsSync(sectionDir)) fs.mkdirSync(sectionDir, { recursive: true });
 
     for (const page of cat.pages) {
+      if (cat.dir === STATIC_DIR) continue;
       const srcFile = path.join(DOCS_SRC, cat.dir, page.file + '.md');
       const dstFile = path.join(sectionDir, page.file + '.html');
 

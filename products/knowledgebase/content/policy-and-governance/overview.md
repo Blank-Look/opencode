@@ -35,6 +35,7 @@ Our governance model follows COBIT 2019 and ITIL 4 principles, adapted for a uni
 - [Data Management Standard](https://policy.school.edu/Data_Management)
 - [Data Classification Decision Tree](data-classification)
 - [IT Policy, Standards & Guidelines](it-governance#policies)
+- [Minimum Security Standards](../security-standards/index.html)
 - [Technology Roadmap](technology-roadmap)
 
 ## Contact

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minimum Security Standards: Cookbooks — ICT Security Standards</title>
+<meta name="description" content="Step-by-step guides to adopt the minimum security standards on Moderate or High Risk servers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-left">
+      <a href="../../../../index.html" class="navbar-schoolcode">SchoolCode</a>
+      <a href="index.html" class="navbar-brand">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z" fill="#7A1B2C"/>
+          <path d="m8.5 11.5 2.5 2.5 4.5-4.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        ICT Security Standards
+      </a>
+    </div>
+    <div class="navbar-links">
+      <a href="../../index.html">Knowledge Base</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Standards</div>
+      <a class="sidebar-item" href="index.html">Minimum Security Standards</a>
+      <a class="sidebar-item" href="saas-paas.html">SaaS &amp; PaaS</a>
+      <a class="sidebar-item" href="iaas.html">IaaS &amp; Containers</a>
+      <a class="sidebar-item" href="iot.html">IoT Devices</a>
+      <a class="sidebar-item active" href="cookbooks.html">Cookbooks</a>
+      <a class="sidebar-item" href="faq.html">FAQ</a>
+    </div>
+    <hr class="sidebar-divider">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Related Guides</div>
+      <a class="sidebar-item external" href="../policy-and-governance/data-classification.html">Data Classification</a>
+      <a class="sidebar-item external" href="../policy-and-governance/risk-management.html">Risk Management</a>
+      <a class="sidebar-item external" href="../security/overview.html">Security Overview</a>
+      <a class="sidebar-item external" href="../security/vulnerability-management.html">Vulnerability Management</a>
+    </div>
+    <hr class="sidebar-divider">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Contact</div>
+      <a class="sidebar-item" href="index.html#questions">Questions &amp; Inquiries</a>
+      <a class="sidebar-item" href="index.html#questions">Report an Incident</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="page-header">
+      <p class="eyebrow">ICT Security</p>
+      <h1>Minimum Security Standards: Cookbooks</h1>
+      <p class="lede">The cookbooks below are step-by-step guides to simplify adoption of the <a href="index.html">Minimum Security Standards</a> on Moderate or High Risk servers.</p>
+    </div>
+
+    <div class="jump-links">
+      <a href="index.html#endpoints">Endpoints</a>
+      <a href="index.html#servers">Servers</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="saas-paas.html">SaaS/PaaS</a>
+      <a href="iaas.html">IaaS</a>
+      <a href="iot.html">IoT</a>
+      <a href="index.html#definitions">Definitions</a>
+      <a href="cookbooks.html">Cookbooks</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#questions">Inquiries</a>
+    </div>
+
+    <div class="cookbook-card">
+      <h3>Windows Servers</h3>
+      <ol>
+        <li>Complete a Data Risk Assessment.</li>
+        <li>Install the endpoint management agent for servers.
+          <ol>
+            <li>Subscribe to the service as an administrator.</li>
+            <li>Install the agent for Windows servers.</li>
+          </ol>
+        </li>
+        <li>Install the centralized logging forwarder.
+          <ol>
+            <li>Request a logging account.</li>
+            <li>Install the logging forwarder for Windows servers.</li>
+          </ol>
+        </li>
+        <li>Request a Privileged Access Workstation (PAW).
+          <ol>
+            <li>PAWs are only required for administering High Risk servers and applications.</li>
+          </ol>
+        </li>
+        <li>Install two-step authentication for servers.
+          <ol>
+            <li>Request your API keys and service hostname.</li>
+            <li>Deploy two-step authentication for remote desktop on your systems.</li>
+          </ol>
+        </li>
+        <li>Install the anti-malware agent.
+          <ol>
+            <li>Request an account.</li>
+          </ol>
+        </li>
+        <li>Configure your host-based firewall.
+          <ol>
+            <li>Configure your firewall in default-deny mode, and permit only the minimum necessary services.</li>
+          </ol>
+        </li>
+        <li>Regularly scan for vulnerabilities with the approved vulnerability scanning service.
+          <ol>
+            <li>Request a scanning account.</li>
+            <li>Sign in to the scanning console to manage custom scans and reports.</li>
+          </ol>
+        </li>
+        <li>Review your compliance with the remaining standards.
+          <ol>
+            <li>Apply high severity security patches within seven days of publish, and all other security patches within 90 days.</li>
+            <li>Review and update your system inventory records quarterly.</li>
+            <li>Enforce password complexity requirements and review your existing admin accounts and their privileges.</li>
+            <li>Physically protect your server.</li>
+            <li>Implement applicable regulatory controls.</li>
+          </ol>
+        </li>
+      </ol>
+    </div>
+
+    <div class="cookbook-card">
+      <h3>Linux Servers</h3>
+      <ol>
+        <li>Complete a Data Risk Assessment.
+          <ol>
+            <li>Begin by submitting the pre-screening form.</li>
+          </ol>
+        </li>
+        <li>Install the endpoint management agent for servers.
+          <ol>
+            <li>Subscribe to the service as an administrator.</li>
+            <li>Install the agent for Linux servers.</li>
+          </ol>
+        </li>
+        <li>Install the centralized logging forwarder.
+          <ol>
+            <li>Request a logging account.</li>
+            <li>Install the logging forwarder for Linux servers.</li>
+          </ol>
+        </li>
+        <li>Request a Privileged Access Workstation (PAW).
+          <ol>
+            <li>PAWs are only required for administering High Risk servers and applications.</li>
+          </ol>
+        </li>
+        <li>Install two-step authentication for servers.
+          <ol>
+            <li>Request your API keys and service hostname.</li>
+            <li>Deploy two-step authentication for SSH on your systems.</li>
+          </ol>
+        </li>
+        <li>Install the file integrity monitoring agent.
+          <ol>
+            <li>Deploy the agent using the endpoint management platform.</li>
+          </ol>
+        </li>
+        <li>Configure your host-based firewall.
+          <ol>
+            <li>Configure your firewall in default-deny mode, and permit only the minimum necessary services.</li>
+          </ol>
+        </li>
+        <li>Regularly scan for vulnerabilities with the approved vulnerability scanning service.
+          <ol>
+            <li>Request a scanning account.</li>
+            <li>Sign in to the scanning console to manage custom scans and reports.</li>
+          </ol>
+        </li>
+        <li>Review your compliance with the remaining standards.
+          <ol>
+            <li>Apply high severity security patches within seven days of publish, and all other security patches within 90 days.</li>
+            <li>Review and update your system inventory records quarterly.</li>
+            <li>Enforce password complexity requirements and review your existing admin accounts and their privileges.</li>
+            <li>Physically protect your server.</li>
+            <li>Implement applicable regulatory controls.</li>
+          </ol>
+        </li>
+      </ol>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 ICT Team. Built with purpose.</p>
+</footer>
+
+</body>
+</html>
