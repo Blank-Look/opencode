@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minimum Security Standards: IaaS &amp; Containers — ICT Security Standards</title>
+<meta name="description" content="Minimum security standards for infrastructure-as-a-service and containerized solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-left">
+      <a href="../../../index.html" class="navbar-schoolcode">ICT Portal</a>
+      <a href="index.html" class="navbar-brand">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z" fill="#7A1B2C"/>
+          <path d="m8.5 11.5 2.5 2.5 4.5-4.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        ICT Security Standards
+      </a>
+    </div>
+    <div class="navbar-links">
+      <a href="../../index.html">Knowledge Base</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Standards</div>
+      <a class="sidebar-item" href="index.html">Minimum Security Standards</a>
+      <a class="sidebar-item" href="saas-paas.html">SaaS &amp; PaaS</a>
+      <a class="sidebar-item active" href="iaas.html">IaaS &amp; Containers</a>
+      <a class="sidebar-item" href="iot.html">IoT Devices</a>
+      <a class="sidebar-item" href="cookbooks.html">Cookbooks</a>
+      <a class="sidebar-item" href="faq.html">FAQ</a>
+    </div>
+    <hr class="sidebar-divider">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Related Guides</div>
+      <a class="sidebar-item external" href="../policy-and-governance/data-classification.html">Data Classification</a>
+      <a class="sidebar-item external" href="../policy-and-governance/risk-management.html">Risk Management</a>
+      <a class="sidebar-item external" href="../security/overview.html">Security Overview</a>
+      <a class="sidebar-item external" href="../security/vulnerability-management.html">Vulnerability Management</a>
+    </div>
+    <hr class="sidebar-divider">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Contact</div>
+      <a class="sidebar-item" href="index.html#questions">Questions &amp; Inquiries</a>
+      <a class="sidebar-item" href="index.html#questions">Report an Incident</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="page-header">
+      <p class="eyebrow">ICT Security</p>
+      <h1>Minimum Security Standards: IaaS and Containerized Solutions</h1>
+      <p class="lede">The Institution is committed to protecting the privacy of its students, alumni, faculty, and staff, as well as protecting the confidentiality, integrity, and availability of information important to the Institution's mission.</p>
+    </div>
+
+    <div class="jump-links">
+      <a href="index.html#endpoints">Endpoints</a>
+      <a href="index.html#servers">Servers</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="saas-paas.html">SaaS/PaaS</a>
+      <a href="iaas.html">IaaS</a>
+      <a href="iot.html">IoT</a>
+      <a href="index.html#definitions">Definitions</a>
+      <a href="cookbooks.html">Cookbooks</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#questions">Inquiries</a>
+    </div>
+
+    <h2>Minimum Security Standards: IaaS and Containerized Solutions</h2>
+    <h3>Applicability</h3>
+    <ol>
+      <li>The minimum security standards found here apply to IaaS managed services — virtual servers that are designed to be ephemeral — and containerized solutions.</li>
+      <li>All other persistent virtual servers, regardless of infrastructure, are to be managed under the <a href="index.html#servers">Minimum Security Standards: Servers</a>.</li>
+    </ol>
+
+    <div class="table-wrap">
+      <table class="minsec-table">
+        <thead>
+          <tr>
+            <th class="col-std">Standard</th>
+            <th class="col-what">What to do</th>
+            <th class="col-risk col-low">Low Risk</th>
+            <th class="col-risk col-mod">Moderate Risk</th>
+            <th class="col-risk col-high">High Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="std-name">Platform Selection</td>
+            <td class="what">Follow the approved cloud solution selection workflow for choosing and purchasing a cloud solution.</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Operational Practices</td>
+            <td class="what">As far as possible, apply the cloud operational principles and practices.</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">System Architecture</td>
+            <td class="what">As far as possible, apply the cloud architecture principles for IaaS.</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Account Management</td>
+            <td class="what">Provision new cloud accounts through ICT.</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Patching and Application Lifecycle</td>
+            <td class="what">
+              <ol>
+                <li>Apply high severity security patches within seven days of release.</li>
+                <li>Apply all other security patches within 90 days.</li>
+                <li>Use a supported operating system and application version.</li>
+                <li>Use machine images only from trusted sources.</li>
+              </ol>
+              <p><strong>Additional elaboration:</strong></p>
+              <ul>
+                <li><strong>Managed services</strong> — For provider-managed database and platform services, define a maintenance window that meets the standard.</li>
+                <li><strong>Ephemeral servers and containers</strong> — If using an automated system to build fully patched machine images, ensure that the patched image, or container base layer, is in use in your environment within the window of time specified in the standard.</li>
+              </ul>
+            </td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Vulnerability Management</td>
+            <td class="what">
+              <p>Based on public vulnerability database ratings, identify and remediate severity 4 and 5 vulnerabilities within seven days of discovery, and severity 3 vulnerabilities within 90 days.</p>
+              <p>The Institution provides and recommends the approved vulnerability scanning service; however, platform-specific native scanning tools may be used instead. If a detection tool other than the approved service is used, the security office may request a review and audit of the tool and practices, as well as periodic verification of efficacy.</p>
+              <p><strong>Additional elaboration:</strong></p>
+              <ul>
+                <li><strong>Managed services</strong> — Scanning may be omitted on provider-managed services; however, if the platform provides a native vulnerability detection capability, it should be implemented.</li>
+                <li><strong>Ephemeral servers</strong> — Build machine images that contain the appropriate agent, or bootstrap the installation and configuration of the agent using the management tools specific to your implementation.</li>
+                <li><strong>Containerized solutions</strong> — Scan images for known vulnerabilities using a container image scanning tool or similar capability.</li>
+              </ul>
+            </td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Inventory and Asset Classification</td>
+            <td class="what">
+              <p>Review and update cloud inventory records quarterly. Must indicate associated risk classification and service ownership.</p>
+              <p><strong>Additional elaboration:</strong></p>
+              <ul>
+                <li><strong>Ephemeral servers</strong> — Systems designed for a lifespan of no greater than seven days (commonly those in autoscaling worker groups) should be inventoried as a single application.</li>
+                <li><strong>Managed services</strong> — Provider-managed database and platform services should be inventoried as applications.</li>
+              </ul>
+            </td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Firewall</td>
+            <td class="what">Use the native tools and design patterns of your platform to ensure that only the minimum necessary network communication is permitted through virtual network devices such as virtual networks, load balancers, and the like. This includes access to managed services such as hosted database platforms.</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Credential and Key Management</td>
+            <td class="what">
+              <ol>
+                <li>Where possible, integrate with the Institution's SSO authentication for all cloud administration consoles.</li>
+                <li>Abide by password complexity rules.</li>
+                <li>Review administrative accounts and privileges quarterly.</li>
+                <li>API keys:
+                  <ul>
+                    <li>Minimize their generation.</li>
+                    <li>Grant minimum necessary privileges.</li>
+                    <li>Rotate at least annually.</li>
+                    <li>Do not hardcode.</li>
+                  </ul>
+                </li>
+                <li>Do not share credentials.</li>
+              </ol>
+            </td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Two-Step Authentication</td>
+            <td class="what">Enforce two-factor authentication for all interactive user and administrator logins. The Institution's two-step authentication service is recommended, but other two-factor options are acceptable.</td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Logging and Alerting</td>
+            <td class="what">
+              <ol>
+                <li>Enable any available application logging that would assist in a forensic investigation in the event of a compromise. Seek vendor or security office guidance as needed.</li>
+                <li>Forward logs to remote logging solutions. The centralized logging service is recommended, but third-party solutions are also acceptable.</li>
+              </ol>
+              <p><strong>Additional elaboration:</strong></p>
+              <ul>
+                <li><strong>Administrative activity logs</strong> — Log user actions and API calls that create or modify the configuration or metadata of a resource, service, or project.</li>
+                <li><strong>Data access logs</strong> — Log user actions and API calls that create, modify, or read High Risk data managed by a service.</li>
+              </ul>
+            </td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Backups</td>
+            <td class="what">
+              <ol>
+                <li>Back up application data at least weekly.</li>
+                <li>Encrypt backup data in transit and at rest.</li>
+                <li>Store backups in independent cloud accounts.</li>
+              </ol>
+            </td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Encryption</td>
+            <td class="what">
+              <ol>
+                <li>Enable transport layer encryption for all communications external to the private cloud environment.</li>
+                <li>Use TLS 1.2 or higher.</li>
+                <li>Use encryption at rest if available.</li>
+              </ol>
+            </td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Data Centers</td>
+            <td class="what">Prefer data center locations in approved jurisdictions.</td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Secure Admin Workstation</td>
+            <td class="what">
+              <p>Cloud administration consoles should only be accessed through a Privileged Access Workstation (PAW) when logging in with an administrative account. A PAW is required for privileged (ring0) access.</p>
+              <p><strong>Administrative accounts are defined as:</strong></p>
+              <ul>
+                <li>Accounts with the ability to make unrestricted, potentially adverse, or system-wide changes.</li>
+                <li>Accounts with the ability to override or change security controls.</li>
+              </ul>
+            </td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Security, Privacy, and Legal Review</td>
+            <td class="what">Follow the Data Risk Assessment process and implement recommendations prior to deployment.</td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Regulated Data Security Controls</td>
+            <td class="what">
+              <ol>
+                <li>Adhere to applicable regulations and contractual obligations.</li>
+                <li>For protected health data, ensure that only cloud services covered under a business associate agreement are used.</li>
+              </ol>
+            </td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 ICT Team. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1E3A5F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>SchoolApp — Master's Student Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --primary-light: #60A5FA;
+  --primary-50: #EFF6FF;
+  --primary-100: #DBEAFE;
+  --primary-200: #BFDBFE;
+  --primary-300: #93C5FD;
+  --navy: #1E3A5F;
+  --navy-dark: #0F1D33;
+  --slate-50: #F8FAFC;
+  --slate-100: #F1F5F9;
+  --slate-200: #E2E8F0;
+  --slate-300: #CBD5E1;
+  --slate-400: #94A3B8;
+  --slate-500: #64748B;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1E293B;
+  --slate-900: #0F172A;
+  --white: #FFFFFF;
+  --green: #16A34A;
+  --green-50: #F0FDF4;
+  --red: #DC2626;
+  --amber: #D97706;
+  --purple: #7C3AED;
+  --rose: #E11D48;
+  --teal: #0D9488;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --tab-h: 64px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: var(--font);
+  color: var(--slate-700);
+  background: var(--slate-50);
+  line-height: 1.5;
+  padding-bottom: var(--tab-h);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* === PWA Status Bar === */
+.pwa-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.375rem 1.25rem;
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.pwa-bar .pwa-time { color: var(--white); font-weight: 600; }
+.pwa-bar .pwa-icons { display: flex; gap: 0.375rem; font-size: 0.625rem; }
+
+/* === Top Header === */
+.app-header {
+  background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+  color: var(--white);
+  padding: 1rem 1.25rem 1.5rem;
+  position: relative;
+}
+.app-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.app-header p {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.65);
+  margin-top: 0.125rem;
+}
+.header-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.header-actions a {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.header-actions a:hover { color: var(--white); }
+
+/* === Main Content === */
+.app-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem 1rem 5rem;
+}
+
+/* === Page Sections === */
+.page-section { display: none; }
+.page-section.active { display: block; }
+
+/* === Section Headers === */
+.sec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 1.5rem 0 0.75rem;
+}
+.sec-header:first-child { margin-top: 0; }
+.sec-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--slate-800);
+}
+.sec-header a {
+  font-size: 0.75rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* === Quick Links Row === */
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.ql-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 0.875rem 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--slate-200);
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.ql-item:active { transform: scale(0.96); }
+.ql-item .ql-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+.ql-item .ql-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--slate-600);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* === Today's Schedule === */
+.schedule-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.sched-item {
+  display: flex;
+  gap: 0.75rem;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--slate-200);
+  align-items: center;
+}
+.sched-time {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--slate-500);
+  min-width: 4rem;
+  text-align: right;
+}
+.sched-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+.sched-dot.blue { background: var(--primary); }
+.sched-dot.green { background: var(--green); }
+.sched-dot.purple { background: var(--purple); }
+.sched-dot.rose { background: var(--rose); }
+.sched-info h3 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--slate-800);
+}
+.sched-info p {
+  font-size: 0.75rem;
+  color: var(--slate-400);
+}
+
+/* === What's On / Events === */
+.event-card {
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--slate-200);
+  padding: 0.875rem 1rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+.event-card:last-child { margin-bottom: 0; }
+.event-date {
+  text-align: center;
+  min-width: 2.5rem;
+}
+.event-date .ed-day {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+.event-date .ed-mon {
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--slate-400);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.event-body h3 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--slate-800);
+}
+.event-body p {
+  font-size: 0.75rem;
+  color: var(--slate-500);
+  line-height: 1.4;
+}
+.event-body .event-tag {
+  display: inline-block;
+  font-size: 0.625rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  margin-top: 0.25rem;
+}
+.event-tag.lecture { background: var(--primary-100); color: var(--primary-dark); }
+.event-tag.social { background: #FEF3C7; color: #92400E; }
+.event-tag.deadline { background: #FEE2E2; color: #991B1B; }
+.event-tag.wellness { background: #D1FAE5; color: #065F46; }
+
+/* === Subject Grid === */
+.subj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+.subj-card {
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--slate-200);
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.subj-card:active { transform: scale(0.96); }
+.subj-card .subj-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.subj-card h3 { font-size: 0.8125rem; font-weight: 700; color: var(--slate-800); margin-bottom: 0.125rem; }
+.subj-card .subj-code { font-size: 0.6875rem; color: var(--slate-400); font-weight: 500; }
+.subj-card .subj-progress { margin-top: 0.5rem; }
+.subj-card .sp-bar {
+  height: 4px;
+  background: var(--slate-200);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.subj-card .sp-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--primary);
+}
+.subj-card .sp-label {
+  font-size: 0.625rem;
+  color: var(--slate-400);
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* === Timetable === */
+.tt-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 0.5rem;
+  border: 1px solid var(--slate-200);
+}
+.tt-nav .tt-arrow {
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: none;
+  background: var(--slate-100);
+  color: var(--slate-500);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tt-nav .tt-arrow:active { background: var(--slate-200); }
+.tt-nav .tt-week {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--slate-700);
+}
+.tt-days { display: flex; gap: 0.375rem; }
+.tt-day {
+  flex: 1;
+  text-align: center;
+  padding: 0.625rem 0.25rem;
+  border-radius: 10px;
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tt-day:active { transform: scale(0.96); }
+.tt-day .tt-dow { font-size: 0.625rem; font-weight: 600; color: var(--slate-400); text-transform: uppercase; }
+.tt-day .tt-dom { font-size: 1rem; font-weight: 700; color: var(--slate-700); margin-top: 0.125rem; }
+.tt-day.today { background: var(--primary); border-color: var(--primary); }
+.tt-day.today .tt-dow, .tt-day.today .tt-dom { color: var(--white); }
+.tt-day.has-event { border-color: var(--primary-300); }
+
+.tt-grid { display: flex; flex-direction: column; gap: 0.375rem; }
+.tt-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+.tt-hour {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--slate-400);
+  min-width: 3rem;
+  text-align: right;
+  padding-top: 0.375rem;
+}
+.tt-block {
+  flex: 1;
+  border-radius: 10px;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--slate-200);
+  background: var(--white);
+}
+.tt-block.has-class {
+  background: var(--primary-50);
+  border-color: var(--primary-200);
+  border-left: 3px solid var(--primary);
+}
+
+/* === Links Grid === */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+.link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.25rem 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--slate-200);
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.link-card:active { transform: scale(0.96); }
+.link-card .lc-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.link-card .lc-name { font-size: 0.8125rem; font-weight: 600; color: var(--slate-700); }
+.link-card .lc-desc { font-size: 0.6875rem; color: var(--slate-400); text-align: center; }
+
+/* === More/Profile === */
+.profile-card {
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid var(--slate-200);
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.pc-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.pc-info h3 { font-size: 1rem; font-weight: 700; color: var(--slate-800); }
+.pc-info p { font-size: 0.75rem; color: var(--slate-500); }
+.more-menu { display: flex; flex-direction: column; gap: 0.25rem; }
+.more-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--slate-200);
+  text-decoration: none;
+  color: var(--slate-700);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.more-item:active { background: var(--slate-50); }
+.more-item .mi-icon { font-size: 1.125rem; width: 1.5rem; text-align: center; }
+.more-item .mi-arrow { margin-left: auto; color: var(--slate-300); }
+
+/* === Bottom Tab Bar === */
+.tab-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: var(--tab-h);
+  background: var(--white);
+  border-top: 1px solid var(--slate-200);
+  display: flex;
+  z-index: 200;
+  padding: 0 0.25rem;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
+}
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.125rem;
+  border: none;
+  background: none;
+  font-family: var(--font);
+  color: var(--slate-400);
+  cursor: pointer;
+  padding: 0.25rem 0;
+  transition: all 0.15s;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+.tab-item .tab-icon { font-size: 1.25rem; line-height: 1; }
+.tab-item .tab-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.tab-item.active { color: var(--primary); }
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 0 0 4px 4px;
+}
+.tab-badge {
+  position: absolute;
+  top: 0.125rem;
+  right: calc(50% - 1.25rem);
+  width: 18px; height: 18px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Footer Note === */
+.footer-note {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--slate-200);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--slate-400);
+}
+.footer-note a { color: var(--primary); text-decoration: none; }
+
+/* === Status Badge === */
+.status-badge {
+  display: inline-block;
+  padding: 0.125rem 0.625rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+.status-badge.discovery { background: var(--primary-100); color: var(--primary-dark); }
+
+/* === Responsive === */
+@media (min-width: 768px) {
+  body { padding-bottom: 0; }
+  .app-content { padding: 1.5rem 2rem 2rem; max-width: 960px; }
+  .app-header {
+    padding: 1.25rem 2rem 2rem;
+    text-align: center;
+  }
+  .app-header h1 { font-size: 2rem; }
+  .tab-bar {
+    position: static;
+    box-shadow: none;
+    border-top: none;
+    border-bottom: 1px solid var(--slate-200);
+    height: auto;
+    background: var(--white);
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .tab-item {
+    flex: 0 1 auto;
+    flex-direction: row;
+    gap: 0.375rem;
+    padding: 0.75rem 1.25rem;
+  }
+  .tab-item .tab-icon { font-size: 1rem; }
+  .tab-item .tab-label { font-size: 0.75rem; }
+  .tab-item.active::after {
+    top: auto;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+  }
+  .tab-badge {
+    position: static;
+    width: 20px; height: 20px;
+    font-size: 0.625rem;
+  }
+  .quick-links { grid-template-columns: repeat(6, 1fr); }
+  .subj-grid { grid-template-columns: repeat(3, 1fr); }
+  .links-grid { grid-template-columns: repeat(4, 1fr); }
+  .pwa-bar { display: none; }
+}
+
+@media (min-width: 1024px) {
+  .subj-grid { grid-template-columns: repeat(4, 1fr); }
+  .links-grid { grid-template-columns: repeat(5, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- PWA Status Bar -->
+<div class="pwa-bar">
+  <span class="pwa-time">11:24</span>
+  <span class="pwa-icons">📶 📶 🔋</span>
+</div>
+
+<!-- App Header -->
+<div class="app-header">
+  <div class="header-actions">
+    <a href="index.html">SchoolCode</a>
+    <a href="https://github.com/Blank-Look/opencode/tree/master/development/products/schoolapp">GitHub</a>
+  </div>
+  <h1>SchoolApp</h1>
+  <p>Master's Student Hub</p>
+</div>
+
+<!-- Tab Bar (desktop: horizontal nav; mobile: bottom bar) -->
+<div class="tab-bar" id="tabBar">
+  <button class="tab-item active" onclick="showTab('dashboard')">
+    <span class="tab-icon">📅</span>
+    <span class="tab-label">Dashboard</span>
+  </button>
+  <button class="tab-item" onclick="showTab('subjects')">
+    <span class="tab-icon">📚</span>
+    <span class="tab-label">Subjects</span>
+  </button>
+  <button class="tab-item" onclick="showTab('timetable')">
+    <span class="tab-icon">📋</span>
+    <span class="tab-label">Timetable</span>
+  </button>
+  <button class="tab-item" onclick="showTab('links')">
+    <span class="tab-icon">🔗</span>
+    <span class="tab-label">Links</span>
+  </button>
+  <button class="tab-item" onclick="showTab('more')">
+    <span class="tab-icon">⚙️</span>
+    <span class="tab-label">More</span>
+  </button>
+</div>
+
+<!-- Main Content -->
+<div class="app-content">
+
+<!-- ===== Dashboard ===== -->
+<div id="page-dashboard" class="page-section active">
+
+  <div class="sec-header">
+    <h2>Quick Links</h2>
+  </div>
+  <div class="quick-links">
+    <a class="ql-item" href="#">
+      <div class="ql-icon" style="background:#EFF6FF;"><span style="font-size:1.25rem;">🎓</span></div>
+      <span class="ql-label">Student Portal</span>
+    </a>
+    <a class="ql-item" href="#">
+      <div class="ql-icon" style="background:#F0FDF4;"><span style="font-size:1.25rem;">📧</span></div>
+      <span class="ql-label">M365 Mail</span>
+    </a>
+    <a class="ql-item" href="#">
+      <div class="ql-icon" style="background:#FEF3C7;"><span style="font-size:1.25rem;">📖</span></div>
+      <span class="ql-label">Blackboard</span>
+    </a>
+    <a class="ql-item" href="#">
+      <div class="ql-icon" style="background:#F3E8FF;"><span style="font-size:1.25rem;">📝</span></div>
+      <span class="ql-label">Canvas</span>
+    </a>
+    <a class="ql-item" href="#">
+      <div class="ql-icon" style="background:#FCE7F3;"><span style="font-size:1.25rem;">📁</span></div>
+      <span class="ql-label">OneDrive</span>
+    </a>
+    <a class="ql-item" href="#">
+      <div class="ql-icon" style="background:#E0F2FE;"><span style="font-size:1.25rem;">📞</span></div>
+      <span class="ql-label">Teams</span>
+    </a>
+  </div>
+
+  <div class="sec-header">
+    <h2>Today's Schedule</h2>
+    <a href="#" onclick="showTab('timetable');return false;">Full timetable →</a>
+  </div>
+  <div class="schedule-list">
+    <div class="sched-item">
+      <span class="sched-time">09:00</span>
+      <span class="sched-dot blue"></span>
+      <div class="sched-info">
+        <h3>CS5010 — Advanced Machine Learning</h3>
+        <p>Lecture Hall A · Dr. K. Patel</p>
+      </div>
+    </div>
+    <div class="sched-item">
+      <span class="sched-time">11:00</span>
+      <span class="sched-dot purple"></span>
+      <div class="sched-info">
+        <h3>CS5020 — Research Methods</h3>
+        <p>Seminar Room 3 · Prof. L. Martinez</p>
+      </div>
+    </div>
+    <div class="sched-item">
+      <span class="sched-time">14:00</span>
+      <span class="sched-dot green"></span>
+      <div class="sched-info">
+        <h3>CS5030 — Dissertation Supervision</h3>
+        <p>Office 2.15 · Dr. A. Thompson</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-header">
+    <h2>What's On</h2>
+  </div>
+  <div class="event-card">
+    <div class="event-date">
+      <div class="ed-day">31</div>
+      <div class="ed-mon">Jul</div>
+    </div>
+    <div class="event-body">
+      <h3>AI Research Seminar</h3>
+      <p>Guest lecture on foundation models · 15:00 · Lecture Hall B</p>
+      <span class="event-tag lecture">Lecture</span>
+    </div>
+  </div>
+  <div class="event-card">
+    <div class="event-date">
+      <div class="ed-day">02</div>
+      <div class="ed-mon">Aug</div>
+    </div>
+    <div class="event-body">
+      <h3>Postgraduate Mixer</h3>
+      <p>Networking event for master's students · 18:00 · Student Hub</p>
+      <span class="event-tag social">Social</span>
+    </div>
+  </div>
+  <div class="event-card">
+    <div class="event-date">
+      <div class="ed-day">05</div>
+      <div class="ed-mon">Aug</div>
+    </div>
+    <div class="event-body">
+      <h3>Dissertation Proposal Due</h3>
+      <p>Submit via Canvas before 23:59</p>
+      <span class="event-tag deadline">Deadline</span>
+    </div>
+  </div>
+  <div class="event-card">
+    <div class="event-date">
+      <div class="ed-day">07</div>
+      <div class="ed-mon">Aug</div>
+    </div>
+    <div class="event-body">
+      <h3>Wellbeing Drop-in</h3>
+      <p>Student support services · 12:00 · Wellness Centre</p>
+      <span class="event-tag wellness">Wellness</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== Subjects ===== -->
+<div id="page-subjects" class="page-section">
+
+  <div class="sec-header">
+    <h2>Your Subjects</h2>
+  </div>
+  <div class="subj-grid">
+    <a class="subj-card" href="#">
+      <div class="subj-emoji">🧠</div>
+      <h3>Advanced Machine Learning</h3>
+      <div class="subj-code">CS5010</div>
+      <div class="subj-progress">
+        <div class="sp-bar"><div class="sp-fill" style="width:72%;"></div></div>
+        <div class="sp-label"><span>Assessed: 72%</span><span>Grade: B+</span></div>
+      </div>
+    </a>
+    <a class="subj-card" href="#">
+      <div class="subj-emoji">🔬</div>
+      <h3>Research Methods</h3>
+      <div class="subj-code">CS5020</div>
+      <div class="subj-progress">
+        <div class="sp-bar"><div class="sp-fill" style="width:68%;"></div></div>
+        <div class="sp-label"><span>Assessed: 68%</span><span>Grade: B</span></div>
+      </div>
+    </a>
+    <a class="subj-card" href="#">
+      <div class="subj-emoji">📄</div>
+      <h3>Dissertation</h3>
+      <div class="subj-code">CS6000</div>
+      <div class="subj-progress">
+        <div class="sp-bar"><div class="sp-fill" style="width:15%;"></div></div>
+        <div class="sp-label"><span>In Progress</span><span>—</span></div>
+      </div>
+    </a>
+    <a class="subj-card" href="#">
+      <div class="subj-emoji">📊</div>
+      <h3>Data Visualisation</h3>
+      <div class="subj-code">CS5040</div>
+      <div class="subj-progress">
+        <div class="sp-bar"><div class="sp-fill" style="width:85%;"></div></div>
+        <div class="sp-label"><span>Assessed: 85%</span><span>Grade: A</span></div>
+      </div>
+    </a>
+    <a class="subj-card" href="#">
+      <div class="subj-emoji">🌐</div>
+      <h3>Cloud Computing</h3>
+      <div class="subj-code">CS5050</div>
+      <div class="subj-progress">
+        <div class="sp-bar"><div class="sp-fill" style="width:45%;"></div></div>
+        <div class="sp-label"><span>In Progress</span><span>—</span></div>
+      </div>
+    </a>
+    <a class="subj-card" href="#">
+      <div class="subj-emoji">🤖</div>
+      <h3>Natural Language Processing</h3>
+      <div class="subj-code">CS5060</div>
+      <div class="subj-progress">
+        <div class="sp-bar"><div class="sp-fill" style="width:90%;"></div></div>
+        <div class="sp-label"><span>Assessed: 90%</span><span>Grade: A</span></div>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+<!-- ===== Timetable ===== -->
+<div id="page-timetable" class="page-section">
+
+  <div class="sec-header">
+    <h2>Timetable</h2>
+  </div>
+
+  <div class="tt-nav">
+    <button class="tt-arrow">‹</button>
+    <span class="tt-week">Week 1 · 28 Jul – 3 Aug</span>
+    <button class="tt-arrow">›</button>
+  </div>
+
+  <div class="tt-days">
+    <div class="tt-day">
+      <div class="tt-dow">Mon</div>
+      <div class="tt-dom">28</div>
+    </div>
+    <div class="tt-day">
+      <div class="tt-dow">Tue</div>
+      <div class="tt-dom">29</div>
+    </div>
+    <div class="tt-day">
+      <div class="tt-dow">Wed</div>
+      <div class="tt-dom">30</div>
+    </div>
+    <div class="tt-day today">
+      <div class="tt-dow">Thu</div>
+      <div class="tt-dom">31</div>
+    </div>
+    <div class="tt-day has-event">
+      <div class="tt-dow">Fri</div>
+      <div class="tt-dom">01</div>
+    </div>
+    <div class="tt-day">
+      <div class="tt-dow">Sat</div>
+      <div class="tt-dom">02</div>
+    </div>
+    <div class="tt-day">
+      <div class="tt-dow">Sun</div>
+      <div class="tt-dom">03</div>
+    </div>
+  </div>
+
+  <div class="sec-header" style="margin-top:1rem;">
+    <h2>Thursday 31 July</h2>
+  </div>
+  <div class="tt-grid">
+    <div class="tt-row">
+      <div class="tt-hour">09:00</div>
+      <div class="tt-block has-class">
+        <strong style="font-size:0.8125rem;">CS5010 — Advanced Machine Learning</strong>
+        <div style="font-size:0.6875rem;color:var(--slate-500);">Dr. K. Patel · Lecture Hall A · 1hr 30min</div>
+      </div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-hour">10:30</div>
+      <div class="tt-block"></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-hour">11:00</div>
+      <div class="tt-block has-class">
+        <strong style="font-size:0.8125rem;">CS5020 — Research Methods</strong>
+        <div style="font-size:0.6875rem;color:var(--slate-500);">Prof. L. Martinez · Seminar Room 3 · 1hr</div>
+      </div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-hour">12:00</div>
+      <div class="tt-block"></div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-hour">13:00</div>
+      <div class="tt-block">
+        <span style="font-size:0.6875rem;color:var(--slate-400);">Lunch</span>
+      </div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-hour">14:00</div>
+      <div class="tt-block has-class" style="border-left-color:var(--green);background:var(--green-50);">
+        <strong style="font-size:0.8125rem;">CS5030 — Dissertation Supervision</strong>
+        <div style="font-size:0.6875rem;color:var(--slate-500);">Dr. A. Thompson · Office 2.15 · 1hr</div>
+      </div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-hour">15:00</div>
+      <div class="tt-block has-class" style="border-left-color:var(--amber);background:#FFFBEB;">
+        <strong style="font-size:0.8125rem;">AI Research Seminar</strong>
+        <div style="font-size:0.6875rem;color:var(--slate-500);">Guest lecture · Lecture Hall B · 1hr</div>
+      </div>
+    </div>
+    <div class="tt-row">
+      <div class="tt-hour">16:00</div>
+      <div class="tt-block"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== Links ===== -->
+<div id="page-links" class="page-section">
+
+  <div class="sec-header">
+    <h2>Essential Apps &amp; Services</h2>
+  </div>
+  <div class="links-grid">
+    <a class="link-card" href="#">
+      <div class="lc-icon" style="background:#EFF6FF;">🎓</div>
+      <span class="lc-name">Student Portal</span>
+      <span class="lc-desc">Enrolment, fees, results</span>
+    </a>
+    <a class="link-card" href="#">
+      <div class="lc-icon" style="background:#F0FDF4;">📖</div>
+      <span class="lc-name">Blackboard</span>
+      <span class="lc-desc">Course materials, announcements</span>
+    </a>
+    <a class="link-card" href="#">
+      <div class="lc-icon" style="background:#FEF3C7;">📝</div>
+      <span class="lc-name">Canvas</span>
+      <span class="lc-desc">Assignments, quizzes, grades</span>
+    </a>
+    <a class="link-card" href="#">
+      <div class="lc-icon" style="background:#F3E8FF;">📧</div>
+      <span class="lc-name">M365 — Mail</span>
+      <span class="lc-desc">Student email &amp; calendar</span>
+    </a>
+    <a class="link-card" href="#">
+      <div class="lc-icon" style="background:#FCE7F3;">👥</div>
+      <span class="lc-name">M365 — Teams</span>
+      <span class="lc-desc">Chat, meetings, groups</span>
+    </a>
+    <a class="link-card" href="#">
+      <div class="lc-icon" style="background:#E0F2FE;">📁</div>
+      <span class="lc-name">M365 — OneDrive</span>
+      <span class="lc-desc">Cloud storage &amp; sharing</span>
+    </a>
+    <a class="link-card" href="#">
+      <div class="lc-icon" style="background:#F0FDF4;">📊</div>
+      <span class="lc-name">Library Portal</span>
+      <span class="lc-desc">Journals, databases, loans</span>
+    </a>
+    <a class="link-card" href="#">
+      <div class="lc-icon" style="background:#FFF7ED;">🏛️</div>
+      <span class="lc-name">Alumni Network</span>
+      <span class="lc-desc">Connect, mentor, events</span>
+    </a>
+    <a class="link-card" href="#">
+      <div class="lc-icon" style="background:#F3E8FF;">💻</div>
+      <span class="lc-name">Virtual Lab</span>
+      <span class="lc-desc">Remote desktop, software</span>
+    </a>
+    <a class="link-card" href="#">
+      <div class="lc-icon" style="background:#F0FDF4;">📄</div>
+      <span class="lc-name">Timetable</span>
+      <span class="lc-desc">Personal schedule</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- ===== More ===== -->
+<div id="page-more" class="page-section">
+
+  <div class="profile-card">
+    <div class="pc-avatar">AK</div>
+    <div class="pc-info">
+      <h3>Alex Kumar</h3>
+      <p>MSc Computer Science · Year 1</p>
+      <p style="font-size:0.6875rem;color:var(--slate-400);margin-top:0.25rem;">Student ID: 20245678</p>
+    </div>
+  </div>
+
+  <div class="more-menu">
+    <div class="more-item">
+      <span class="mi-icon">👤</span>
+      Profile
+      <span class="mi-arrow">›</span>
+    </div>
+    <div class="more-item">
+      <span class="mi-icon">🔔</span>
+      Notifications
+      <span class="mi-arrow">›</span>
+    </div>
+    <div class="more-item">
+      <span class="mi-icon">📱</span>
+      App Settings
+      <span class="mi-arrow">›</span>
+    </div>
+    <div class="more-item">
+      <span class="mi-icon">🔒</span>
+      Privacy &amp; Security
+      <span class="mi-arrow">›</span>
+    </div>
+    <div class="more-item">
+      <span class="mi-icon">❓</span>
+      Help &amp; Support
+      <span class="mi-arrow">›</span>
+    </div>
+    <div class="more-item">
+      <span class="mi-icon">ℹ️</span>
+      About SchoolApp
+      <span class="mi-arrow">›</span>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span><strong>Design Mockup</strong> — SchoolApp</span>
+    <span><span class="status-badge discovery">Phase 0: Discovery</span> · Jul 2026</span>
+    <span><a href="https://github.com/Blank-Look/opencode">GitHub</a></span>
+  </div>
+
+</div>
+
+</div><!-- /app-content -->
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+  document.querySelector('.tab-item[onclick*="' + id + '"]').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>

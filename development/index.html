@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICT Portal</title>
+<title>Development — SchoolCode</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
   --gray-900: #1C1A18;
   --white: #FFFFFF;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; }
@@ -88,6 +89,19 @@ body {
   margin: 0 auto;
   opacity: 0.9;
 }
+.hero-graphic {
+  margin-top: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-graphic img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
 .section-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -142,13 +156,12 @@ body {
   font-weight: 600;
   letter-spacing: 0.02em;
 }
-.tag-gov { background: #EEF2FF; color: #4338CA; }
-.tag-policy { background: #FFF7ED; color: #C2410C; }
-.tag-security { background: #FEF2F2; color: #B91C1C; }
-.tag-dev { background: rgba(122,27,44,0.1); color: var(--maroon); }
-.tag-ops { background: #ECFEFF; color: #0E7490; }
-.tag-data { background: #F0FDF4; color: #15803D; }
-.tag-infra { background: #F5F3FF; color: #6D28D9; }
+.tag-kb { background: #F0FDF4; color: #15803D; }
+.tag-am { background: #EFF6FF; color: #1D4ED8; }
+.tag-shell { background: var(--gray-100); color: var(--gray-600); }
+.tag-doc { background: #FFF7ED; color: #C2410C; }
+.tag-sdlc { background: #EFF6FF; color: #1A365D; }
+.tag-playground { background: rgba(122,27,44,0.1); color: var(--maroon); }
 .section-label {
   grid-column: 1 / -1;
   font-size: 0.75rem;
@@ -176,104 +189,85 @@ body {
 
 <nav class="navbar">
   <div class="navbar-inner">
-    <span class="navbar-brand">ICT Portal</span>
+    <span class="navbar-brand">SchoolCode</span>
     <div class="navbar-links">
-      <a href="knowledgebase/">Knowledge Base</a>
+      <a href="../index.html">ICT Portal</a>
       <a href="https://github.com/Blank-Look/opencode">GitHub</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
-  <h1>ICT Portal</h1>
-  <p>Governance, policy, security, and delivery for the institution&rsquo;s ICT operations.</p>
+  <h1>SchoolCode</h1>
+  <p>Governed AI-assisted delivery — from rules and tooling to training and production. The development and delivery domain of the ICT Portal.</p>
+  <div class="hero-graphic">
+    <img src="../img/hero.svg" alt="SchoolCode — Vibe AI Coding → OpenCode + SDLC → Governance Foundation">
+  </div>
 </header>
 
 <div class="section-grid">
 
-  <div class="section-label">Governance Domains</div>
+  <div class="section-label">Flow &nbsp;<span>— governed AI-assisted delivery</span></div>
 
-  <a href="governance/" class="project-card">
-    <div class="project-icon">🏛️</div>
-    <div class="project-title">Governance Framework</div>
-    <div class="project-desc">Governance bodies, decision rights, compliance and audit, risk management, and the technology roadmap — how ICT is directed and controlled.</div>
+  <a href="sdlc/" class="project-card">
+    <div class="project-icon">🔄</div>
+    <div class="project-title">1. Governance &amp; Delivery</div>
+    <div class="project-desc">Stage gates, project sizing, scaled documentation — the SDLC framework that governs every delivery phase. Know the rules before you build.</div>
     <div class="project-meta">
-      <span class="tag tag-gov">Governance</span>
-      <span class="tag tag-gov">Risk</span>
-      <span class="tag tag-gov">Roadmap</span>
+      <span class="tag tag-sdlc">Governance</span>
+      <span class="tag tag-sdlc">SDLC</span>
+      <span class="tag tag-doc">Standards</span>
     </div>
   </a>
 
-  <a href="policy/" class="project-card">
-    <div class="project-icon">📜</div>
-    <div class="project-title">Policy &amp; Compliance</div>
-    <div class="project-desc">Policies, standards, procedures, and compliance obligations — data classification, data governance, and the rules every service must meet.</div>
+  <a href="toolchain.html" class="project-card">
+    <div class="project-icon">🤖</div>
+    <div class="project-title">2. AI Toolchain</div>
+    <div class="project-desc">OpenCode, GitHub Copilot, VS Code, and AGENTS.md — the tools that read your repo, understand your conventions, and help you ship faster. Plus the Asset Governance Manager (AGM) that governs every tool.</div>
     <div class="project-meta">
-      <span class="tag tag-policy">Policy</span>
-      <span class="tag tag-policy">Standards</span>
-      <span class="tag tag-policy">Compliance</span>
+      <span class="tag tag-sdlc">Tools</span>
+      <span class="tag tag-am">CLI</span>
+      <span class="tag tag-doc">AI</span>
     </div>
   </a>
 
-  <a href="security/" class="project-card">
-    <div class="project-icon">🛡️</div>
-    <div class="project-title">Security</div>
-    <div class="project-desc">Security policy, the Minimum Security Standards, threat and vulnerability management, incident response, and security awareness.</div>
+  <a href="guide.html" class="project-card">
+    <div class="project-icon">⚙</div>
+    <div class="project-title">3. Foundry — Training</div>
+    <div class="project-desc">Self-paced programme: GitHub Foundations, AI toolchain setup, governance guardrails, and prompt engineering. Four tracks, eleven modules — learn how to use the tools.</div>
     <div class="project-meta">
-      <span class="tag tag-security">Security</span>
-      <span class="tag tag-security">Standards</span>
-      <span class="tag tag-security">Incident Response</span>
+      <span class="tag tag-playground">Training</span>
+      <span class="tag tag-am">GitHub</span>
+      <span class="tag tag-doc">AI</span>
     </div>
   </a>
 
-  <a href="development/" class="project-card">
-    <div class="project-icon">🛠️</div>
-    <div class="project-title">Development (SchoolCode)</div>
-    <div class="project-desc">Governed AI-assisted delivery — SDLC framework, AI toolchain, training, the innovation playground, and the product portfolio.</div>
+  <a href="innovation-playground/index.html" class="project-card">
+    <div class="project-icon">🌱</div>
+    <div class="project-title">4. Innovation Playground</div>
+    <div class="project-desc">Governed, short-lived, anonymised sandbox for ideation. Try ideas before they become products — with SDLC guardrails intact. Demoed across three AI engines.</div>
     <div class="project-meta">
-      <span class="tag tag-dev">Development</span>
-      <span class="tag tag-dev">SDLC</span>
-      <span class="tag tag-dev">AI Toolchain</span>
+      <span class="tag tag-sdlc">Playground</span>
+      <span class="tag tag-kb">Ideation</span>
+      <span class="tag tag-doc">Sandbox</span>
     </div>
   </a>
 
-  <a href="operations/" class="project-card">
-    <div class="project-icon">⚙️</div>
-    <div class="project-title">Service Operations</div>
-    <div class="project-desc">Runbooks for the services ICT runs day to day — change, incident, problem, and request fulfillment management.</div>
+  <a href="products/" class="project-card">
+    <div class="project-icon">📦</div>
+    <div class="project-title">5. Products</div>
+    <div class="project-desc">Production applications that graduated from the Playground. Tracked, governed, and aligned to SchoolCode standards.</div>
     <div class="project-meta">
-      <span class="tag tag-ops">Operations</span>
-      <span class="tag tag-ops">Runbooks</span>
-      <span class="tag tag-ops">Change</span>
-    </div>
-  </a>
-
-  <a href="data/" class="project-card">
-    <div class="project-icon">🗄️</div>
-    <div class="project-title">Data &amp; Information</div>
-    <div class="project-desc">Data governance and classification, access control, backup and restore, and the asset lifecycle — how the institution protects its information.</div>
-    <div class="project-meta">
-      <span class="tag tag-data">Data</span>
-      <span class="tag tag-data">Classification</span>
-      <span class="tag tag-data">Asset Lifecycle</span>
-    </div>
-  </a>
-
-  <a href="infrastructure/" class="project-card">
-    <div class="project-icon">🏗️</div>
-    <div class="project-title">Infrastructure &amp; Applications</div>
-    <div class="project-desc">Systems and network configuration, servers, security configuration, and the enterprise application portfolio.</div>
-    <div class="project-meta">
-      <span class="tag tag-infra">Infrastructure</span>
-      <span class="tag tag-infra">Applications</span>
-      <span class="tag tag-infra">Config</span>
+      <span class="tag tag-am">Production</span>
+      <span class="tag tag-doc">Governed</span>
+      <span class="tag tag-doc">Live</span>
     </div>
   </a>
 
 </div>
 
 <footer class="footer">
-  <p>ICT Portal &mdash; governed ICT operations by Blank-Look</p>
+  <p>SchoolCode &mdash; projects by Blank-Look</p>
 </footer>
 
 </body>

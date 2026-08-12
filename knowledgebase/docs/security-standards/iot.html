@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minimum Security Standards: IoT — ICT Security Standards</title>
+<meta name="description" content="Minimum security standards for Internet of Things (IoT) devices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-left">
+      <a href="../../../index.html" class="navbar-schoolcode">ICT Portal</a>
+      <a href="index.html" class="navbar-brand">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z" fill="#7A1B2C"/>
+          <path d="m8.5 11.5 2.5 2.5 4.5-4.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        ICT Security Standards
+      </a>
+    </div>
+    <div class="navbar-links">
+      <a href="../../index.html">Knowledge Base</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Standards</div>
+      <a class="sidebar-item" href="index.html">Minimum Security Standards</a>
+      <a class="sidebar-item" href="saas-paas.html">SaaS &amp; PaaS</a>
+      <a class="sidebar-item" href="iaas.html">IaaS &amp; Containers</a>
+      <a class="sidebar-item active" href="iot.html">IoT Devices</a>
+      <a class="sidebar-item" href="cookbooks.html">Cookbooks</a>
+      <a class="sidebar-item" href="faq.html">FAQ</a>
+    </div>
+    <hr class="sidebar-divider">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Related Guides</div>
+      <a class="sidebar-item external" href="../policy-and-governance/data-classification.html">Data Classification</a>
+      <a class="sidebar-item external" href="../policy-and-governance/risk-management.html">Risk Management</a>
+      <a class="sidebar-item external" href="../security/overview.html">Security Overview</a>
+      <a class="sidebar-item external" href="../security/vulnerability-management.html">Vulnerability Management</a>
+    </div>
+    <hr class="sidebar-divider">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Contact</div>
+      <a class="sidebar-item" href="index.html#questions">Questions &amp; Inquiries</a>
+      <a class="sidebar-item" href="index.html#questions">Report an Incident</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="page-header">
+      <p class="eyebrow">ICT Security</p>
+      <h1>Minimum Security Standards: Internet of Things (IoT) Devices</h1>
+      <p class="lede">An IoT device is defined by having an embedded operating system that does not support the installation of security agents such as antivirus and does not lend itself to frequent software updates.</p>
+    </div>
+
+    <div class="jump-links">
+      <a href="index.html#endpoints">Endpoints</a>
+      <a href="index.html#servers">Servers</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="saas-paas.html">SaaS/PaaS</a>
+      <a href="iaas.html">IaaS</a>
+      <a href="iot.html">IoT</a>
+      <a href="index.html#definitions">Definitions</a>
+      <a href="cookbooks.html">Cookbooks</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#questions">Inquiries</a>
+    </div>
+
+    <p>This includes devices such as printers, security cameras, smart speakers, smart lights, industrial controls, smart TVs, video streaming devices, personal network attached storage devices, voice-over-IP phones, conference room systems, and digital signage. These standards apply to all such devices that are connected to an Institution network or used in support of Institution services.</p>
+
+    <h3>Exclusions</h3>
+    <ol>
+      <li>Network infrastructure components such as switches, routers, and wireless access points.</li>
+      <li>Devices used entirely for personal use on residential networks.</li>
+      <li>Devices being developed for research purposes. Low Risk research systems must follow the research information security policy.</li>
+    </ol>
+
+    <div class="tier-grid">
+      <div class="tier-card low">
+        <h3>Low Risk</h3>
+        <p>Devices or systems that would not have an adverse impact on the mission, safety, finances, or reputation of the Institution should there be a loss of confidentiality, integrity, or availability.</p>
+        <p>Examples might include:</p>
+        <ol>
+          <li>Devices without an IP network-accessible interface</li>
+          <li>Smart devices used solely for personal entertainment purposes</li>
+          <li>Networked washers and dryers</li>
+          <li>Package delivery lockers</li>
+        </ol>
+      </div>
+      <div class="tier-card mod">
+        <h3>Moderate Risk</h3>
+        <p>Systems that could have a mildly adverse impact on the mission, safety, finances, or reputation of the Institution should there be a loss of confidentiality, integrity, or availability.</p>
+        <p>Examples might include:</p>
+        <ol>
+          <li>Security cameras</li>
+          <li>Conference room systems</li>
+          <li>Printers*</li>
+          <li>Building control systems without immediate critical impact</li>
+        </ol>
+      </div>
+      <div class="tier-card high">
+        <h3>High Risk</h3>
+        <p>Systems that could have a significantly adverse impact on the mission, safety, finances, or reputation of the Institution should there be a loss of confidentiality, integrity, or availability.</p>
+        <p>Examples might include:</p>
+        <ol>
+          <li>Systems related to safety and critical infrastructure (power, life safety, fire and gas detection, electronic door locks, medical devices)</li>
+          <li>Devices subject to regulatory obligations (point of sale devices, vending machines)</li>
+        </ol>
+      </div>
+    </div>
+
+    <p class="lede" style="font-size: 0.85rem; color: var(--gray-500);">*Actual printer risk classification may be higher or lower depending on the highest risk classification of output and implementation — location, connection method, and user population.</p>
+
+    <div class="table-wrap">
+      <table class="minsec-table">
+        <thead>
+          <tr>
+            <th class="col-std">Standard</th>
+            <th class="col-task">Recurring Task</th>
+            <th class="col-what">What to do</th>
+            <th class="col-risk col-low">Low Risk</th>
+            <th class="col-risk col-mod">Moderate Risk</th>
+            <th class="col-risk col-high">High Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="std-name">Inventory</td>
+            <td class="task">Recurring</td>
+            <td class="what">Maintain an inventory of devices and associated risk classifications. All devices must be individually registered in the asset registry. Review and update records quarterly.</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Network Isolation</td>
+            <td class="task">&mdash;</td>
+            <td class="what">Under development.</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Credentials and Access Control</td>
+            <td class="task">Recurring</td>
+            <td class="what">Change passwords from the default. Password length should be 15+ characters (if supported).</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Vulnerability Management</td>
+            <td class="task">Recurring</td>
+            <td class="what">Perform a monthly scan of the device. Mitigate any identified severity 4 and 5 vulnerabilities within seven days of discovery and severity 3 vulnerabilities within 90 days.</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Patching</td>
+            <td class="task">Recurring</td>
+            <td class="what">If any of the above are not fully implemented, apply high severity security patches (including firmware updates) within seven days of publish and all other security patches within 90 days.</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Centralized Logging</td>
+            <td class="task">&mdash;</td>
+            <td class="what">Forward logs to a remote log server (if supported). The centralized logging service is recommended.</td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Security, Privacy, and Legal Review</td>
+            <td class="task">&mdash;</td>
+            <td class="what">Request a security, privacy, and legal review and implement recommendations prior to deployment.</td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Regulatory Compliance Obligations</td>
+            <td class="task">&mdash;</td>
+            <td class="what">Implement applicable regulatory compliance requirements as applicable.</td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 ICT Team. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

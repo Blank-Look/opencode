@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Itineraries — Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --amber: #B45309;
+  --amber-dark: #92400E;
+  --amber-light: #D97706;
+  --navy: #1A2E4A;
+  --gray-50: #FFF7F3;
+  --gray-100: #FFEDD5;
+  --gray-200: #FED7AA;
+  --gray-300: #FDBA74;
+  --gray-400: #A39E99;
+  --gray-500: #847E78;
+  --gray-600: #66605A;
+  --gray-700: #4D4843;
+  --gray-800: #34302C;
+  --gray-900: #1C1A18;
+  --white: #FFFFFF;
+  --green: #16A34A;
+  --blue: #2563EB;
+  --red: #DC2626;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --sidebar-w: 240px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--gray-50);
+  color: var(--gray-900);
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+.mockup-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.375rem 1rem;
+  letter-spacing: 0.05em;
+}
+.mockup-banner a { color: #93C5FD; text-decoration: none; }
+.mockup-banner a:hover { text-decoration: underline; }
+
+/* SchoolCode top bar */
+.schoolbar {
+  position: fixed;
+  top: 1.75rem; left: 0; right: 0;
+  z-index: 998;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+}
+.schoolbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.schoolbar-schoolcode {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--gray-300);
+  white-space: nowrap;
+}
+.schoolbar-schoolcode:hover { color: var(--gray-900); }
+.schoolbar-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.schoolbar-links { margin-left: auto; display: flex; gap: 0.75rem; white-space: nowrap; }
+.schoolbar-links a { color: var(--gray-500); text-decoration: none; font-size: 0.8rem; }
+.schoolbar-links a:hover { color: var(--gray-900); }
+@media (max-width: 768px) {
+  .schoolbar-inner { padding: 0.5rem 1rem; }
+  .schoolbar-title { display: none; }
+}
+.sidebar {
+  position: fixed;
+  top: 4.25rem; left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--white);
+  border-right: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+.sidebar-brand {
+  padding: 1.25rem 1rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--amber);
+  border-bottom: 1px solid var(--gray-100);
+  letter-spacing: -0.01em;
+}
+.sidebar-brand small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.65rem;
+  color: var(--gray-500);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.125rem;
+}
+.sidebar-nav { flex: 1; padding: 0.75rem 0; overflow-y: auto; }
+.sidebar-section {
+  padding: 0.5rem 0.75rem 0.25rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-400);
+}
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-size: 0.8125rem;
+  color: var(--gray-700);
+  text-decoration: none;
+  cursor: default;
+  border-left: 3px solid transparent;
+  transition: all 0.12s;
+}
+.sidebar-item:hover { background: var(--gray-50); }
+.sidebar-item.active {
+  color: var(--amber);
+  font-weight: 600;
+  background: rgba(180,83,9,0.06);
+  border-left-color: var(--amber);
+}
+.sidebar-item .icon { font-size: 1rem; width: 1.25rem; text-align: center; }
+.sidebar-item .badge {
+  margin-left: auto;
+  background: var(--amber);
+  color: var(--white);
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.125rem 0.375rem;
+  border-radius: 999px;
+}
+.sidebar-item .badge.red { background: var(--red); }
+.sidebar-item .badge.gray { background: var(--gray-400); }
+.sidebar-item .badge.green { background: var(--green); }
+.main {
+  margin-left: var(--sidebar-w);
+  margin-top: 4.25rem;
+  flex: 1;
+  padding: 1.5rem 2rem 3rem;
+  max-width: 1200px;
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+.topbar h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+}
+.topbar-right .avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 1.5rem;
+}
+.tab {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: default;
+  border-bottom: 2px solid transparent;
+  transition: all 0.12s;
+}
+.tab.active { color: var(--amber); font-weight: 600; border-bottom-color: var(--amber); }
+.tab:hover { color: var(--gray-800); }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  cursor: default;
+  transition: box-shadow 0.15s;
+}
+.stat-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.stat-card .stat-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
+  margin-bottom: 0.25rem;
+}
+.stat-card .stat-value { font-size: 1.75rem; font-weight: 700; color: var(--gray-900); line-height: 1.1; }
+.stat-card .stat-sub { font-size: 0.6875rem; color: var(--gray-500); margin-top: 0.125rem; }
+.stat-card .stat-value.critical { color: var(--red); }
+.stat-card .stat-value.high { color: var(--amber); }
+.stat-card .stat-value.good { color: var(--green); }
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.chart-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.chart-card h3 { font-size: 0.8125rem; font-weight: 600; color: var(--gray-700); margin-bottom: 0.75rem; }
+.bar-chart { display: flex; gap: 0.5rem; align-items: flex-end; height: 120px; padding-top: 0.5rem; }
+.bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.25rem; }
+.bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+  transition: height 0.3s;
+  position: relative;
+}
+.bar-label { font-size: 0.625rem; color: var(--gray-500); text-align: center; white-space: nowrap; }
+.bar-count { font-size: 0.625rem; font-weight: 600; color: var(--gray-700); }
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.card h3 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card h3 .more-link { font-size: 0.6875rem; font-weight: 500; color: var(--amber); cursor: default; }
+.table-wrap {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+thead th {
+  text-align: left;
+  padding: 0.625rem 1rem;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+}
+tbody tr { border-bottom: 1px solid var(--gray-100); transition: background 0.15s; cursor: default; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--gray-50); }
+tbody td { padding: 0.625rem 1rem; vertical-align: middle; }
+.severity-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+.severity-badge.critical { background: #FEF2F2; color: #B91C1C; }
+.severity-badge.warning { background: #FFF7ED; color: #C2410C; }
+.severity-badge.advisory { background: #FFFBEB; color: #B45309; }
+.severity-badge.info { background: #EFF6FF; color: #1D4ED8; }
+.severity-badge.safe { background: #F0FDF4; color: #15803D; }
+.status-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+}
+.status-dot::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+.status-dot.active::before { background: var(--green); }
+.status-dot.inactive::before { background: var(--gray-400); }
+.status-dot.warning::before { background: var(--amber); }
+.status-dot.critical-s::before { background: var(--red); }
+.src-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.625rem;
+  font-weight: 600;
+}
+.src-badge.jma { background: #FEF2F2; color: #B91C1C; }
+.src-badge.gdacs { background: #FFF7ED; color: #C2410C; }
+.src-badge.fco { background: #EFF6FF; color: #1D4ED8; }
+.src-badge.who { background: #F0FDF4; color: #15803D; }
+.src-badge.manual { background: var(--gray-100); color: var(--gray-600); }
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.detail-field { margin-bottom: 0.75rem; }
+.detail-field .df-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
+  margin-bottom: 0.125rem;
+}
+.detail-field .df-value { font-size: 0.875rem; color: var(--gray-900); }
+.detail-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 1.25rem;
+}
+.detail-nav .dtab {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: default;
+  border-bottom: 2px solid transparent;
+}
+.detail-nav .dtab.active { color: var(--amber); border-bottom-color: var(--amber); }
+.alert-item {
+  padding: 0.75rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  background: var(--white);
+}
+.alert-item .ai-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.375rem;
+}
+.alert-item .ai-title { font-size: 0.8125rem; font-weight: 600; }
+.alert-item .ai-meta { font-size: 0.6875rem; color: var(--gray-500); }
+.alert-item .ai-region { font-size: 0.625rem; color: var(--gray-400); font-style: italic; }
+.footer-note {
+  margin-top: 2rem;
+  padding: 0.75rem 1rem;
+  background: var(--gray-100);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer-note strong { color: var(--gray-800); }
+.page-section { display: none; }
+.page-section.active { display: block; }
+.checkin-overdue { color: var(--red); font-weight: 600; font-size: 0.75rem; }
+.checkin-ok { color: var(--green); font-weight: 600; font-size: 0.75rem; }
+.checkin-pending { color: var(--amber); font-weight: 600; font-size: 0.75rem; }
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; padding: 1rem; }
+  .two-col { grid-template-columns: 1fr; }
+  .charts { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav class="schoolbar">
+  <div class="schoolbar-inner">
+    <a href="../../index.html" class="schoolbar-schoolcode">SchoolCode</a>
+    <span class="schoolbar-title">Travel Itineraries</span>
+    <div class="schoolbar-links">
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="mockup-banner">Travel Itineraries — Design Mockup · <a href="docs/response-plan.md">Response Plan</a> · <a href="docs/safety-plan.md">Safety Plan</a> · <a href="README.md">Docs</a></div>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    Travel Itineraries
+    <small>Staff Travel Safety</small>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="sidebar-section">Overview</div>
+    <a class="sidebar-item active" onclick="showPage('dashboard')"><span class="icon">📊</span> Dashboard</a>
+    <a class="sidebar-item" onclick="showPage('travellers')"><span class="icon">✈</span> Active Travellers</a>
+    <a class="sidebar-item" onclick="showPage('detail')"><span class="icon">🔍</span> Traveller Detail</a>
+    <a class="sidebar-item" onclick="showPage('alerts')"><span class="icon">🚨</span> Active Alerts<span class="badge red">3</span></a>
+
+    <div class="sidebar-section">Management</div>
+    <a class="sidebar-item" onclick="showPage('itineraries')"><span class="icon">📋</span> Itineraries</a>
+    <a class="sidebar-item" onclick="showPage('regions')"><span class="icon">🌍</span> Region Monitoring</a>
+    <a class="sidebar-item" onclick="showPage('response')"><span class="icon">🆘</span> Emergency Response</a>
+
+    <div class="sidebar-section">Administration</div>
+    <a class="sidebar-item" onclick="showPage('integrations')"><span class="icon">🔌</span> News Sources<span class="badge green">6</span></a>
+    <a class="sidebar-item"><span class="icon">👥</span> Roles &amp; Permissions</a>
+    <a class="sidebar-item"><span class="icon">📝</span> Audit Log</a>
+    <a class="sidebar-item"><span class="icon">⚙️</span> Settings</a>
+
+    <div class="sidebar-section">Account</div>
+    <a class="sidebar-item"><span class="icon">👤</span> Sam T.<span class="badge gray">Travel Manager</span></a>
+    <a class="sidebar-item"><span class="icon">🚪</span> Sign Out</a>
+  </nav>
+</aside>
+
+<!-- Main -->
+<div class="main">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <h1 id="page-title">Dashboard</h1>
+    <div class="topbar-right">
+      <span>Last refreshed: 2 min ago</span>
+      <span class="avatar">ST</span>
+    </div>
+  </div>
+
+  <!-- ==================== DASHBOARD ==================== -->
+  <div id="page-dashboard" class="page-section active">
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">Active Travellers</div>
+        <div class="stat-value">18</div>
+        <div class="stat-sub">across 9 regions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">In High-Risk Regions</div>
+        <div class="stat-value high">7</div>
+        <div class="stat-sub">requires daily check-in</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Check-Ins Overdue</div>
+        <div class="stat-value critical">4</div>
+        <div class="stat-sub">past expected time</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Alerts</div>
+        <div class="stat-value critical">3</div>
+        <div class="stat-sub">1 critical, 2 warnings</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Upcoming Travel</div>
+        <div class="stat-value">12</div>
+        <div class="stat-sub">next 30 days</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pending Approvals</div>
+        <div class="stat-value high">5</div>
+        <div class="stat-sub">awaiting risk review</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">Japan</div>
+        <div class="stat-value critical">Alert</div>
+        <div class="stat-sub">M7.2 earthquake 08:46 JST</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Thailand</div>
+        <div class="stat-value warning">Watch</div>
+        <div class="stat-sub">Political protest advisory</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">UK</div>
+        <div class="stat-value good">Normal</div>
+        <div class="stat-sub">no incidents</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">USA</div>
+        <div class="stat-value good">Normal</div>
+        <div class="stat-sub">no incidents</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Philippines</div>
+        <div class="stat-value warning">Watch</div>
+        <div class="stat-sub">Typhoon tracker active</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">UAE</div>
+        <div class="stat-value good">Normal</div>
+        <div class="stat-sub">no incidents</div>
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="chart-card">
+        <h3>Travellers by Region Risk Level</h3>
+        <div class="bar-chart">
+          <div class="bar-group"><div class="bar" style="height:32px;background:var(--green)"></div><div class="bar-count">11</div><div class="bar-label">Low</div></div>
+          <div class="bar-group"><div class="bar" style="height:18px;background:var(--amber)"></div><div class="bar-count">6</div><div class="bar-label">Medium</div></div>
+          <div class="bar-group"><div class="bar" style="height:10px;background:#C2410C"></div><div class="bar-count">3</div><div class="bar-label">High</div></div>
+          <div class="bar-group"><div class="bar" style="height:4px;background:var(--red)"></div><div class="bar-count">1</div><div class="bar-label">Critical</div></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Check-In Compliance (Last 7 Days)</h3>
+        <div class="bar-chart">
+          <div class="bar-group"><div class="bar" style="height:38px;background:var(--green)"></div><div class="bar-count">84%</div><div class="bar-label">On Time</div></div>
+          <div class="bar-group"><div class="bar" style="height:10px;background:var(--amber)"></div><div class="bar-count">11%</div><div class="bar-label">Late</div></div>
+          <div class="bar-group"><div class="bar" style="height:5px;background:var(--red)"></div><div class="bar-count">5%</div><div class="bar-label">Missed</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Recent Incidents <span class="more-link">View all →</span></h3>
+        <div class="alert-item">
+          <div class="ai-header"><span class="severity-badge critical">Critical</span><span class="ai-title">Japan Earthquake M7.2</span></div>
+          <div class="ai-meta">2026-07-30 08:46 JST · 2 travellers in region · 1 check-in pending</div>
+          <div class="ai-region">Source: JMA · Region: Japan (Kyushu)</div>
+        </div>
+        <div class="alert-item">
+          <div class="ai-header"><span class="severity-badge warning">Warning</span><span class="ai-title">Bangkok protest escalation</span></div>
+          <div class="ai-meta">2026-07-29 14:30 ICT · 1 traveller in region · check-in confirmed safe</div>
+          <div class="ai-region">Source: FCO · Region: Thailand (Bangkok)</div>
+        </div>
+        <div class="alert-item">
+          <div class="ai-header"><span class="severity-badge advisory">Advisory</span><span class="ai-title">Typhoon approaching Luzon</span></div>
+          <div class="ai-meta">2026-07-28 09:00 PHT · 0 travellers in affected area</div>
+          <div class="ai-region">Source: GDACS · Region: Philippines (Luzon)</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Regional Alert Status <span class="more-link">Details →</span></h3>
+        <div style="margin-bottom:0.75rem;">
+          <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.375rem;">
+            <span><span class="src-badge jma">JMA</span> Japan</span>
+            <span style="color:var(--red);font-weight:600;">🔴 Critical — Earthquake</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.375rem;">
+            <span><span class="src-badge fco">FCO</span> Thailand</span>
+            <span style="color:var(--amber);font-weight:600;">🟡 Watch — Protest</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.375rem;">
+            <span><span class="src-badge gdacs">GDACS</span> Philippines</span>
+            <span style="color:var(--amber);font-weight:600;">🟡 Watch — Typhoon</span>
+          </div>
+          <div style="font-size:0.6875rem;color:var(--gray-500);margin-top:0.5rem;padding:0.5rem;background:var(--gray-50);border-radius:6px;">
+            ⚠ Japan alert triggered automated response at 08:50 JST. Notification cascade sent. Duty Officer notified.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Outstanding Check-Ins <span class="more-link">View all 4 →</span></h3>
+        <div style="font-size:0.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>✈ Alex K. — Japan (Tokyo)</span>
+            <span class="checkin-overdue">Overdue 38 min</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>✈ Maria L. — Japan (Osaka)</span>
+            <span class="checkin-overdue">Overdue 22 min</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>✈ James R. — Thailand (Bangkok)</span>
+            <span class="checkin-pending">Pending — 15 min remaining</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;">
+            <span>✈ Priya S. — Philippines (Manila)</span>
+            <span class="checkin-pending">Pending — 2h remaining</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Upcoming Departures <span class="more-link">Next 7 days →</span></h3>
+        <div style="font-size:0.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>Sarah C.</strong> → Singapore</span>
+            <span>2026-08-01</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>Tom W.</strong> → London</span>
+            <span>2026-08-02</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>Kate M.</strong> → Dubai</span>
+            <span>2026-08-03</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span><strong>Lee W.</strong> → Tokyo</span>
+            <span style="color:var(--amber);font-weight:600;">2026-08-04 ⚠ High Risk</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;">
+            <span><strong>Ana R.</strong> → Auckland</span>
+            <span>2026-08-05</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:1.5rem;padding:0;overflow:hidden;">
+      <div style="position:relative;">
+        <img src="../../../img/osirisint.jpg" alt="OsirisAI live intelligence feed — Europe theatre" style="width:100%;height:auto;display:block;border-radius:12px 12px 0 0;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.85));padding:3rem 1.5rem 1.25rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+          <div>
+            <h3 style="margin:0;padding:0;border:none;font-size:0.95rem;color:var(--white);">🛰 Global Situational Awareness — Europe Theatre</h3>
+            <p style="font-size:0.8rem;color:rgba(255,255,255,0.7);margin-top:0.2rem;">Live intelligence feed — flights, military, maritime, satellites, cyber attacks, and global incidents.</p>
+          </div>
+          <a href="https://osirisai.live/?layers=flights,military,maritime,satellites,sat_comms,sat_military,sat_navigation,sat_earth,sat_science,cctv,live_news,news_intel,earthquakes,weather,infrastructure,global_incidents,gps_jamming,day_night,cables,sdk_sea,sdk_air,sdk_naval,malware,cyber_attacks" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.375rem;padding:0.5rem 1rem;border-radius:8px;background:var(--amber);color:var(--white);font-size:0.8rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:opacity 0.15s;flex-shrink:0;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Open Live Dashboard →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ACTIVE TRAVELLERS ==================== -->
+  <div id="page-travellers" class="page-section">
+
+    <div class="tabs">
+      <span class="tab active">All Travellers <span style="color:var(--gray-400);font-weight:400;">(18)</span></span>
+      <span class="tab">By Region</span>
+      <span class="tab">By Risk Level</span>
+      <span class="tab">Awaiting Check-In <span style="color:var(--red);font-weight:400;">(4)</span></span>
+    </div>
+
+    <div class="toolbar" style="display:flex;gap:0.75rem;align-items:center;margin-bottom:1rem;flex-wrap:wrap;">
+      <input class="search-box" type="text" placeholder="Search by name, destination, or region..." value="" style="flex:1;min-width:180px;padding:0.5rem 0.75rem;border:1px solid var(--gray-300);border-radius:6px;font-size:0.8125rem;font-family:var(--font-sans);background:var(--white);">
+      <span class="chip" style="padding:0.375rem 0.75rem;border:1px solid var(--gray-300);border-radius:999px;background:var(--white);font-size:0.75rem;font-weight:500;color:var(--gray-700);cursor:default;background:var(--amber);color:var(--white);border-color:var(--amber);">All</span>
+      <span class="chip" style="padding:0.375rem 0.75rem;border:1px solid var(--gray-300);border-radius:999px;background:var(--white);font-size:0.75rem;font-weight:500;color:var(--gray-700);cursor:default;">Critical</span>
+      <span class="chip" style="padding:0.375rem 0.75rem;border:1px solid var(--gray-300);border-radius:999px;background:var(--white);font-size:0.75rem;font-weight:500;color:var(--gray-700);cursor:default;">Overdue</span>
+      <span class="chip" style="padding:0.375rem 0.75rem;border:1px solid var(--gray-300);border-radius:999px;background:var(--white);font-size:0.75rem;font-weight:500;color:var(--gray-700);cursor:default;">High Risk</span>
+      <span class="chip" style="margin-left:auto;background:var(--amber);color:var(--white);border-color:var(--amber);padding:0.375rem 0.75rem;border:1px solid var(--gray-300);border-radius:999px;font-size:0.75rem;font-weight:500;cursor:default;">+ New Itinerary</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:16%">Traveller</th>
+            <th style="width:12%">Destination</th>
+            <th style="width:10%">Region Risk</th>
+            <th style="width:10%">Check-In</th>
+            <th style="width:8%">Return</th>
+            <th style="width:14%">Emergency Contact</th>
+            <th style="width:10%">Insurance</th>
+            <th style="width:10%">Briefing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Alex K.</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">Sales</span></td>
+            <td>Tokyo, Japan</td>
+            <td><span class="severity-badge critical">Critical</span></td>
+            <td><span class="checkin-overdue">Overdue 38m</span></td>
+            <td>2026-08-04</td>
+            <td>Yuki K. +81-90-1234-5678</td>
+            <td><span class="severity-badge safe">Verified</span></td>
+            <td><span class="severity-badge safe">Complete</span></td>
+          </tr>
+          <tr>
+            <td><strong>Maria L.</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">Marketing</span></td>
+            <td>Osaka, Japan</td>
+            <td><span class="severity-badge critical">Critical</span></td>
+            <td><span class="checkin-overdue">Overdue 22m</span></td>
+            <td>2026-08-06</td>
+            <td>Carlos L. +81-80-9876-5432</td>
+            <td><span class="severity-badge safe">Verified</span></td>
+            <td><span class="severity-badge safe">Complete</span></td>
+          </tr>
+          <tr>
+            <td><strong>James R.</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">Finance</span></td>
+            <td>Bangkok, Thailand</td>
+            <td><span class="severity-badge warning">Watch</span></td>
+            <td><span class="checkin-pending">15m remaining</span></td>
+            <td>2026-08-10</td>
+            <td>Emma R. +66-81-234-5678</td>
+            <td><span class="severity-badge safe">Verified</span></td>
+            <td><span class="severity-badge safe">Complete</span></td>
+          </tr>
+          <tr>
+            <td><strong>Priya S.</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">Engineering</span></td>
+            <td>Manila, Philippines</td>
+            <td><span class="severity-badge warning">Watch</span></td>
+            <td><span class="checkin-pending">2h remaining</span></td>
+            <td>2026-08-15</td>
+            <td>Raj S. +63-917-555-0123</td>
+            <td><span class="severity-badge safe">Verified</span></td>
+            <td><span class="severity-badge info">Pending</span></td>
+          </tr>
+          <tr>
+            <td><strong>Kate M.</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">IT</span></td>
+            <td>Dubai, UAE</td>
+            <td><span class="severity-badge info">Low</span></td>
+            <td><span class="checkin-ok">✓ On time</span></td>
+            <td>2026-08-03</td>
+            <td>Mark M. +971-50-123-4567</td>
+            <td><span class="severity-badge safe">Verified</span></td>
+            <td><span class="severity-badge safe">Complete</span></td>
+          </tr>
+          <tr>
+            <td><strong>Lee W.</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">Product</span></td>
+            <td>Singapore</td>
+            <td><span class="severity-badge info">Low</span></td>
+            <td><span class="checkin-ok">✓ On time</span></td>
+            <td>2026-08-07</td>
+            <td>Wei C. +65-9123-4567</td>
+            <td><span class="severity-badge safe">Verified</span></td>
+            <td><span class="severity-badge safe">Complete</span></td>
+          </tr>
+          <tr>
+            <td><strong>Ana R.</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">HR</span></td>
+            <td>Auckland, NZ</td>
+            <td><span class="severity-badge info">Low</span></td>
+            <td><span class="checkin-ok">✓ On time</span></td>
+            <td>2026-08-12</td>
+            <td>Ben R. +64-21-555-7890</td>
+            <td><span class="severity-badge safe">Verified</span></td>
+            <td><span class="severity-badge safe">Complete</span></td>
+          </tr>
+          <tr>
+            <td><strong>Tom W.</strong><br><span style="font-size:0.6875rem;color:var(--gray-400);">Infrastructure</span></td>
+            <td>London, UK</td>
+            <td><span class="severity-badge info">Low</span></td>
+            <td><span class="checkin-ok">✓ On time</span></td>
+            <td>2026-08-09</td>
+            <td>Sarah W. +44-7700-900123</td>
+            <td><span class="severity-badge safe">Verified</span></td>
+            <td><span class="severity-badge safe">Complete</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="font-size:0.75rem;color:var(--gray-500);display:flex;justify-content:space-between;">
+      <span>Showing 8 of 18 active travellers</span>
+      <span>1–8 of 18</span>
+    </div>
+  </div>
+
+  <!-- ==================== TRAVELLER DETAIL ==================== -->
+  <div id="page-detail" class="page-section">
+
+    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+      <span style="font-size:1.25rem;">✈</span>
+      <div>
+        <h2 style="font-size:1.25rem;font-weight:700;">Alex K. <span style="font-size:0.75rem;font-weight:400;color:var(--gray-500);margin-left:0.5rem;">Sales · Tokyo, Japan</span></h2>
+        <div style="font-size:0.75rem;color:var(--gray-500);display:flex;gap:1rem;">
+          <span>Region: <span class="severity-badge critical">Critical — Earthquake Alert</span></span>
+          <span class="status-dot critical-s">Check-in overdue — 38 min</span>
+        </div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:0.5rem;">
+        <span class="chip" style="padding:0.375rem 0.75rem;border:1px solid var(--gray-300);border-radius:999px;background:var(--amber);color:var(--white);border-color:var(--amber);cursor:default;">Send Alert</span>
+        <span class="chip" style="padding:0.375rem 0.75rem;border:1px solid var(--gray-300);border-radius:999px;background:var(--white);font-size:0.75rem;font-weight:500;color:var(--gray-700);cursor:default;">Contact EC</span>
+      </div>
+    </div>
+
+    <div class="detail-nav">
+      <span class="dtab active">Overview</span>
+      <span class="dtab">Itinerary</span>
+      <span class="dtab">Safety &amp; Check-Ins</span>
+      <span class="dtab">Emergency Contacts</span>
+      <span class="dtab">Insurance</span>
+      <span class="dtab">Incident History</span>
+    </div>
+
+    <div class="detail-grid">
+      <div>
+        <div class="detail-field">
+          <div class="df-label">Full Name</div>
+          <div class="df-value">Alex K.</div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Department</div>
+          <div class="df-value">Sales</div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Destination</div>
+          <div class="df-value">Tokyo, Japan</div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Accommodation</div>
+          <div class="df-value">Shinjuku Granbell Hotel</div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Travel Dates</div>
+          <div class="df-value">2026-07-28 → 2026-08-04</div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Region Risk</div>
+          <div class="df-value"><span class="severity-badge critical">Critical</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="detail-field">
+          <div class="df-label">Check-In Frequency</div>
+          <div class="df-value">Daily (SMS + Teams)</div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Last Check-In</div>
+          <div class="df-value" style="color:var(--red);font-weight:600;">2026-07-30 08:15 JST <span style="font-weight:400;">(overdue 38m)</span></div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Emergency Contact</div>
+          <div class="df-value">Yuki K. · +81-90-1234-5678</div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Insurance</div>
+          <div class="df-value"><span class="severity-badge safe">Verified</span> · Policy: AXA-TR-2026-4421</div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Travel Briefing</div>
+          <div class="df-value"><span class="severity-badge safe">Complete</span> · 2026-07-25</div>
+        </div>
+        <div class="detail-field">
+          <div class="df-label">Local Embassy</div>
+          <div class="df-value">Australian Embassy Tokyo · +81-3-5232-4111</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.875rem;font-weight:600;margin-bottom:0.75rem;color:var(--gray-700);">Active Incident</h3>
+    <div class="alert-item" style="border-left:4px solid var(--red);">
+      <div class="ai-header"><span class="severity-badge critical">Critical</span><span class="ai-title">Japan Earthquake M7.2 — Kyushu Region</span></div>
+      <div class="ai-meta">Detected: 2026-07-30 08:46 JST · Automated response triggered at 08:50 JST</div>
+      <div style="margin-top:0.5rem;font-size:0.75rem;">
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <span>✅ Check-in sent: 08:50 JST</span>
+          <span style="color:var(--red);font-weight:600;">⏳ Response pending: 38m</span>
+        </div>
+        <div style="margin-top:0.375rem;">
+          <span class="severity-badge warning">⚠ Escalation in 22m to Duty Officer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ACTIVE ALERTS ==================== -->
+  <div id="page-alerts" class="page-section">
+    <div class="stats">
+      <div class="stat-card"><div class="stat-label">Critical</div><div class="stat-value critical">1</div><div class="stat-sub">Japan — Earthquake</div></div>
+      <div class="stat-card"><div class="stat-label">Warning</div><div class="stat-value high">2</div><div class="stat-sub">Thailand, Philippines</div></div>
+      <div class="stat-card"><div class="stat-label">Advisory</div><div class="stat-value">3</div><div class="stat-sub">regional advisories</div></div>
+      <div class="stat-card"><div class="stat-label">Resolved (24h)</div><div class="stat-value good">5</div><div class="stat-sub">all clear issued</div></div>
+    </div>
+
+    <div class="alert-item" style="border-left:4px solid var(--red);">
+      <div class="ai-header"><span class="severity-badge critical">Critical</span><span class="ai-title">Earthquake M7.2 — Kyushu, Japan</span></div>
+      <div class="ai-meta">JMA alert · 2026-07-30 08:46 JST · Depth: 35km · Tsunami advisory issued</div>
+      <div style="margin-top:0.375rem;">
+        <span style="font-size:0.6875rem;color:var(--gray-500);">Affected travellers: 2 · Check-ins received: 0 of 2 · Duty Officer: Notified</span>
+      </div>
+    </div>
+
+    <div class="alert-item" style="border-left:4px solid var(--amber);">
+      <div class="ai-header"><span class="severity-badge warning">Warning</span><span class="ai-title">Political Protest — Bangkok, Thailand</span></div>
+      <div class="ai-meta">FCO advisory · 2026-07-29 14:30 ICT · Protest escalation near government district</div>
+      <div style="margin-top:0.375rem;">
+        <span style="font-size:0.6875rem;color:var(--gray-500);">Affected travellers: 1 · Check-in: Confirmed safe</span>
+      </div>
+    </div>
+
+    <div class="alert-item" style="border-left:4px solid var(--amber);">
+      <div class="ai-header"><span class="severity-badge warning">Warning</span><span class="ai-title">Typhoon — Luzon, Philippines</span></div>
+      <div class="ai-meta">GDACS alert · 2026-07-28 09:00 PHT · Category 2, approaching northern Luzon</div>
+      <div style="margin-top:0.375rem;">
+        <span style="font-size:0.6875rem;color:var(--gray-500);">Affected travellers: 0 in projected path · Monitoring</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ITINERARIES ==================== -->
+  <div id="page-itineraries" class="page-section">
+    <div class="tabs">
+      <span class="tab active">Active <span style="color:var(--gray-400);font-weight:400;">(18)</span></span>
+      <span class="tab">Pending Approval <span style="color:var(--amber);font-weight:400;">(5)</span></span>
+      <span class="tab">Completed <span style="color:var(--gray-400);font-weight:400;">(43)</span></span>
+      <span class="tab">Drafts</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Traveller</th><th>Destination</th><th>Depart</th><th>Return</th><th>Risk</th><th>Approval</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Alex K.</td><td>Tokyo, Japan</td><td>2026-07-28</td><td>2026-08-04</td><td><span class="severity-badge critical">Critical</span></td><td><span class="severity-badge safe">Approved</span></td><td><span class="status-dot active">Active</span></td></tr>
+          <tr><td>Maria L.</td><td>Osaka, Japan</td><td>2026-07-26</td><td>2026-08-06</td><td><span class="severity-badge critical">Critical</span></td><td><span class="severity-badge safe">Approved</span></td><td><span class="status-dot active">Active</span></td></tr>
+          <tr><td>James R.</td><td>Bangkok, Thailand</td><td>2026-07-25</td><td>2026-08-10</td><td><span class="severity-badge warning">Watch</span></td><td><span class="severity-badge safe">Approved</span></td><td><span class="status-dot active">Active</span></td></tr>
+          <tr><td>Priya S.</td><td>Manila, Philippines</td><td>2026-07-29</td><td>2026-08-15</td><td><span class="severity-badge warning">Watch</span></td><td><span class="severity-badge info">Pending</span></td><td><span class="status-dot warning">Pending</span></td></tr>
+          <tr><td>Kate M.</td><td>Dubai, UAE</td><td>2026-07-27</td><td>2026-08-03</td><td><span class="severity-badge info">Low</span></td><td><span class="severity-badge safe">Approved</span></td><td><span class="status-dot active">Active</span></td></tr>
+          <tr><td>Lee W.</td><td>Singapore</td><td>2026-07-30</td><td>2026-08-07</td><td><span class="severity-badge info">Low</span></td><td><span class="severity-badge safe">Approved</span></td><td><span class="status-dot active">Active</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== REGION MONITORING ==================== -->
+  <div id="page-regions" class="page-section">
+    <div class="stats">
+      <div class="stat-card"><div class="stat-label">Monitored Regions</div><div class="stat-value">12</div></div>
+      <div class="stat-card"><div class="stat-label">Active Alerts</div><div class="stat-value high">3</div></div>
+      <div class="stat-card"><div class="stat-label">Sources Online</div><div class="stat-value good">6/6</div></div>
+      <div class="stat-card"><div class="stat-label">Travellers</div><div class="stat-value">18</div></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Region</th><th>Risk Level</th><th>Alert Status</th><th>Sources</th><th>Last Updated</th><th>Travellers</th></tr></thead>
+        <tbody>
+          <tr><td>Japan</td><td><span class="severity-badge critical">Critical</span></td><td>Earthquake M7.2</td><td><span class="src-badge jma">JMA</span> <span class="src-badge gdacs">GDACS</span></td><td>08:46 JST</td><td>2</td></tr>
+          <tr><td>Thailand</td><td><span class="severity-badge warning">Watch</span></td><td>Protest escalation</td><td><span class="src-badge fco">FCO</span> <span class="src-badge gdacs">GDACS</span></td><td>14:30 ICT</td><td>1</td></tr>
+          <tr><td>Philippines</td><td><span class="severity-badge warning">Watch</span></td><td>Typhoon approaching</td><td><span class="src-badge gdacs">GDACS</span> <span class="src-badge who">WHO</span></td><td>09:00 PHT</td><td>1</td></tr>
+          <tr><td>Singapore</td><td><span class="severity-badge info">Low</span></td><td>Normal</td><td><span class="src-badge fco">FCO</span></td><td>07:30 SGT</td><td>2</td></tr>
+          <tr><td>UK</td><td><span class="severity-badge info">Low</span></td><td>Normal</td><td><span class="src-badge fco">FCO</span></td><td>00:30 BST</td><td>3</td></tr>
+          <tr><td>UAE</td><td><span class="severity-badge info">Low</span></td><td>Normal</td><td><span class="src-badge fco">FCO</span></td><td>03:45 GST</td><td>1</td></tr>
+          <tr><td>New Zealand</td><td><span class="severity-badge info">Low</span></td><td>Normal</td><td><span class="src-badge gdacs">GDACS</span></td><td>11:30 NZST</td><td>1</td></tr>
+          <tr><td>USA</td><td><span class="severity-badge info">Low</span></td><td>Normal</td><td><span class="src-badge gdacs">GDACS</span> <span class="src-badge fco">FCO</span></td><td>19:45 EDT</td><td>4</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==================== EMERGENCY RESPONSE ==================== -->
+  <div id="page-response" class="page-section">
+    <div class="stats">
+      <div class="stat-card"><div class="stat-label">Active Incidents</div><div class="stat-value critical">1</div></div>
+      <div class="stat-card"><div class="stat-label">Affected Travellers</div><div class="stat-value high">2</div></div>
+      <div class="stat-card"><div class="stat-label">Time to Respond</div><div class="stat-value">4 min</div><div class="stat-sub">avg activation time</div></div>
+      <div class="stat-card"><div class="stat-label">Escalations</div><div class="stat-value high">1</div><div class="stat-sub">Duty Officer notified</div></div>
+    </div>
+
+    <div class="alert-item" style="border-left:4px solid var(--red);margin-bottom:1rem;">
+      <div class="ai-header"><span class="severity-badge critical">Critical</span><span class="ai-title">Incident #INC-2026-0042 — Japan Earthquake</span></div>
+      <div class="ai-meta">Opened: 2026-07-30 08:50 JST · Status: Response Active</div>
+      <div style="margin-top:0.75rem;font-size:0.75rem;">
+        <strong>Timeline:</strong>
+        <div style="display:flex;flex-direction:column;gap:0.25rem;margin-top:0.375rem;">
+          <div>08:46 — JMA earthquake alert received (M7.2, Kyushu)</div>
+          <div>08:47 — System matched affected travellers (2)</div>
+          <div>08:50 — Alert raised. Check-in requests sent via SMS + Teams</div>
+          <div style="color:var(--red);">08:50 — ⏳ Awaiting check-in responses (38m elapsed)</div>
+          <div style="color:var(--amber);">09:20 — ⏳ Escalation to Duty Officer (in 22m)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Response Actions</h3>
+        <div style="font-size:0.75rem;">
+          <div style="display:flex;align-items:center;gap:0.5rem;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span style="color:var(--green);">✅</span> Alert detected and verified
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span style="color:var(--green);">✅</span> Travellers identified (2)
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span style="color:var(--green);">✅</span> Check-in request sent
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span style="color:var(--amber);">⏳</span> Duty Officer notified (pending escalation)
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>⬜</span> Consular assistance engaged
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;padding:0.375rem 0;">
+            <span>⬜</span> After-action review
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Escalation Matrix</h3>
+        <div style="font-size:0.75rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Duty Officer</span>
+            <span class="severity-badge warning">Notified</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Travel Manager</span>
+            <span class="severity-badge safe">Standing By</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);">
+            <span>Head of Security</span>
+            <span class="severity-badge info">On-Call</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.375rem 0;">
+            <span>Executive Sponsor</span>
+            <span class="severity-badge info">On-Call</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== INTEGRATIONS (NEWS SOURCES) ==================== -->
+  <div id="page-integrations" class="page-section">
+    <div class="health-grid" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:1rem;margin-bottom:1.5rem;">
+      <div class="health-card" style="background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:1rem 1.25rem;">
+        <div style="font-weight:600;font-size:0.875rem;margin-bottom:0.25rem;"><span class="src-badge jma" style="font-size:0.75rem;">JMA</span> Japan Met Agency</div>
+        <div style="font-size:0.75rem;display:flex;align-items:center;gap:0.375rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;"></span> Connected</div>
+        <div style="font-size:0.6875rem;color:var(--gray-500);margin-top:0.375rem;">Last: 2 min ago · Earthquake alerts</div>
+      </div>
+      <div class="health-card" style="background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:1rem 1.25rem;">
+        <div style="font-weight:600;font-size:0.875rem;margin-bottom:0.25rem;"><span class="src-badge gdacs" style="font-size:0.75rem;">GDACS</span> Global Disaster Alerts</div>
+        <div style="font-size:0.75rem;display:flex;align-items:center;gap:0.375rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;"></span> Connected</div>
+        <div style="font-size:0.6875rem;color:var(--gray-500);margin-top:0.375rem;">Last: 7 min ago · Natural disasters</div>
+      </div>
+      <div class="health-card" style="background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:1rem 1.25rem;">
+        <div style="font-weight:600;font-size:0.875rem;margin-bottom:0.25rem;"><span class="src-badge fco" style="font-size:0.75rem;">FCO</span> Travel Advisories</div>
+        <div style="font-size:0.75rem;display:flex;align-items:center;gap:0.375rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;"></span> Connected</div>
+        <div style="font-size:0.6875rem;color:var(--gray-500);margin-top:0.375rem;">Last: 15 min ago · Gov travel advice</div>
+      </div>
+      <div class="health-card" style="background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:1rem 1.25rem;">
+        <div style="font-weight:600;font-size:0.875rem;margin-bottom:0.25rem;"><span class="src-badge who" style="font-size:0.75rem;">WHO</span> Disease Outbreaks</div>
+        <div style="font-size:0.75rem;display:flex;align-items:center;gap:0.375rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;"></span> Connected</div>
+        <div style="font-size:0.6875rem;color:var(--gray-500);margin-top:0.375rem;">Last: 32 min ago · Health alerts</div>
+      </div>
+      <div class="health-card" style="background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:1rem 1.25rem;">
+        <div style="font-weight:600;font-size:0.875rem;margin-bottom:0.25rem;"><span class="src-badge" style="background:#F3E8FF;color:#6B21A8;font-size:0.75rem;">USGS</span> US Geological Survey</div>
+        <div style="font-size:0.75rem;display:flex;align-items:center;gap:0.375rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;"></span> Connected</div>
+        <div style="font-size:0.6875rem;color:var(--gray-500);margin-top:0.375rem;">Last: 5 min ago · Seismic activity</div>
+      </div>
+      <div class="health-card" style="background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:1rem 1.25rem;">
+        <div style="font-weight:600;font-size:0.875rem;margin-bottom:0.25rem;"><span class="src-badge" style="background:#FFF7ED;color:#C2410C;font-size:0.75rem;">RSS</span> Custom Feeds</div>
+        <div style="font-size:0.75rem;display:flex;align-items:center;gap:0.375rem;"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;"></span> Connected</div>
+        <div style="font-size:0.6875rem;color:var(--gray-500);margin-top:0.375rem;">12 feeds · Region-specific</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:1rem;">
+      <h3>Alert Feed — Last 24 Hours</h3>
+      <div style="font-size:0.75rem;">
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>08:46 <span class="src-badge jma">JMA</span></span><span style="color:var(--red);">🔴 M7.2 Earthquake — Kyushu, Japan</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>14:30 <span class="src-badge fco">FCO</span></span><span style="color:var(--amber);">🟡 Protest advisory — Bangkok, Thailand</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>09:00 <span class="src-badge gdacs">GDACS</span></span><span style="color:var(--amber);">🟡 Typhoon alert — Luzon, Philippines</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;border-bottom:1px solid var(--gray-100);"><span>06:15 <span class="src-badge who">WHO</span></span><span style="color:var(--green);">🟢 All-clear — Zika advisory (Brazil)</span></div>
+        <div style="display:flex;justify-content:space-between;padding:0.375rem 0;"><span>22:00 <span class="src-badge gdacs">GDACS</span></span><span style="color:var(--green);">🟢 All-clear — Cyclone warning (Fiji)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <span><strong>Design Mockup</strong> — Travel Itineraries</span>
+    <span><span class="severity-badge safe">Status: Prototype</span> · 2026-07-30</span>
+    <span>Updates tracked in <a href="https://github.com/Blank-Look/opencode">GitHub</a></span>
+  </div>
+
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  const titles = {
+    dashboard: 'Dashboard',
+    travellers: 'Active Travellers',
+    detail: 'Traveller Detail — Alex K.',
+    alerts: 'Active Alerts',
+    itineraries: 'Itineraries',
+    regions: 'Region Monitoring',
+    response: 'Emergency Response',
+    integrations: 'News Sources'
+  };
+  document.getElementById('page-title').textContent = titles[id] || 'Dashboard';
+  event && event.preventDefault && event.preventDefault();
+}
+</script>
+</body>
+</html>

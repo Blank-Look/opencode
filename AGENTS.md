@@ -1,28 +1,41 @@
 # Project Context
 
-Public repository for SchoolCode public pages: **Knowledge Base** (`products/knowledgebase/`), **Products** mockups (`products/`), **Innovation Playground**, and the **Asset Governance** design template (`asset-governance/`). The Asset Governance Manager application itself lives in the separate private repository `Blank-Look/asset-governance-manager`.
+Public repository for the institution's **ICT Portal** — hosted on GitHub Pages at `https://blank-look.github.io/opencode/`. The root `index.html` is the portal front door with seven tier-2 governance domains:
 
-## Knowledge Base (`products/knowledgebase/`)
+| Domain | Path | Contains |
+|---|---|---|
+| Governance Framework | `governance/` | hub page → KB governance content |
+| Policy & Compliance | `policy/` | hub page → KB policy content |
+| Security | `security/` | hub page → KB security + Minimum Security Standards |
+| Development (SchoolCode) | `development/` | SDLC, AI Toolchain, Foundry, Innovation Playground, product portfolio |
+| Service Operations | `operations/` | hub page → KB service-operations |
+| Data & Information | `data/` | hub page → KB data-and-protection |
+| Infrastructure & Applications | `infrastructure/` | hub page → KB systems + enterprise applications |
+
+The **ICT Knowledge Base** (`knowledgebase/`) is the cross-domain knowledge engine: each domain hub deep-links to its KB category. The **Development** domain retains the **SchoolCode** brand for the dev space. The Asset Governance Manager application lives in the separate private repository `Blank-Look/asset-governance-manager`.
+
+## ICT Knowledge Base (`knowledgebase/`)
 
 Markdown + `generate.js` → static HTML/CSS, hosted on GitHub Pages.
 
 **Workflow:**
-- Edit `.md` files in `products/knowledgebase/content/` (frontmatter supports `title:` — `sidebar_position` is ignored by the generator)
-- Sidebar structure is hardcoded in `products/knowledgebase/generate.js` (not inferred from filesystem)
-- Regenerate with `node products/knowledgebase/generate.js` — this outputs to `products/knowledgebase/docs/`
-- `products/knowledgebase/docs/` is git-tracked (generated HTML committed alongside source)
+- Edit `.md` files in `knowledgebase/content/` (frontmatter supports `title:` — `sidebar_position` is ignored by the generator)
+- Sidebar structure is hardcoded in `knowledgebase/generate.js` (not inferred from filesystem)
+- Regenerate with `node knowledgebase/generate.js` — this outputs to `knowledgebase/docs/`
+- `knowledgebase/docs/` is git-tracked (generated HTML committed alongside source)
 - Links in markdown use **extensionless relative paths** (e.g. `data-classification`, `it-governance#policies`)
 - Dependency: `marked` (dynamically ESM-imported)
-- Nav bar in generated HTML: SchoolCode link goes up to root via `upToRoot()` in generate.js (works automatically from any depth)
+- Nav bar in generated HTML: ICT Portal link goes up to root via `upToRoot()` in generate.js (works automatically from any depth)
 
 ## Asset Governance Manager (`Blank-Look/asset-governance-manager`, private)
 
-ASP.NET Core modular monolith (Razor Pages + EF Core + PostgreSQL). Hosted on Azure Container Apps, Entra ID OIDC auth, read-only integrations (Freshservice, Microsoft Graph, Defender XDR). Work happens in that repository, not here. This repo only contains the public `asset-governance/app-mockup.html` design template.
+ASP.NET Core modular monolith (Razor Pages + EF Core + PostgreSQL). Hosted on Azure Container Apps, Entra ID OIDC auth, read-only integrations (Freshservice, Microsoft Graph, Defender XDR). Work happens in that repository, not here. This repo only contains the public `development/asset-governance/app-mockup.html` design template.
 
 ## Nav Bar Template
 
-All pages must have a **SchoolCode** brand link in the nav/header that links back to the root `index.html`:
+Portal pages (root `index.html`, domain hubs) use an **ICT Portal** brand link back to the root `index.html`. Development-space pages keep the **SchoolCode** brand linking to `development/index.html`:
 
+- **Portal pages** (Governance Framework, Policy, Security, Operations, Data, Infrastructure): `ICT Portal` link (uppercase, muted) + divider + domain title
 - **Light-theme pages** (Travel Itineraries, Products, Cadence, etc.): SchoolCode link (uppercase, muted) + divider + page title
 - **Dark-theme mockups** (Prism Academy): SchoolCode link (uppercase, subdued) + divider + product logo
 - **Sidebar mockups** (Innovation Playground): SchoolCode link above the product name in the sidebar-brand
@@ -58,7 +71,7 @@ All pages must have a **SchoolCode** brand link in the nav/header that links bac
 .navbar-schoolcode:hover { color: var(--primary); }
 ```
 
-Path to root is `../index.html` from top-level dirs, `../../index.html` from `products/` subdirs.
+Portal brand links to root: `../index.html` from top-level domain dirs, `index.html` from the root itself. Development-space SchoolCode links resolve to `development/index.html`: `../index.html` from `development/` children, `../../index.html` from `development/products/` subdirs.
 
 ## App Mockup Style (Default)
 
@@ -96,13 +109,13 @@ All new app mockups (`app-mockup.html`) should follow this established pattern:
 - All sidebar items are `cursor: default` (non-interactive mockup)
 - Inter font via Google Fonts
 
-**New app template:** Copy `asset-governance/app-mockup.html` as starting point, swap accent colour variables, update sidebar sections, page sections, and mock data.
+**New app template:** Copy `development/asset-governance/app-mockup.html` as starting point, swap accent colour variables, update sidebar sections, page sections, and mock data.
 
 **Anonymity:** All public pages are fictional demo mockups — no real names, identifiers, organisations, or product data. Never commit real data or secrets to this public repository.
 
 ## Delivery Prompt Template
 
-When asked to create a new product or application, follow the [Delivery Prompt Template](https://blank-look.github.io/opencode/sdlc/docs/lifecycle/delivery-prompt.html). This template enforces structured delivery:
+When asked to create a new product or application, follow the [Delivery Prompt Template](https://blank-look.github.io/opencode/development/sdlc/docs/lifecycle/delivery-prompt.html). This template enforces structured delivery:
 
 - **Phase 0 first**: inspect the existing repo, produce architecture docs, assumptions, risks, and implementation plan before writing code
 - **Modular monolith** over microservices unless there's a proven reason

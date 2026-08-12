@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenCode Delivery Prompt Template — SDLC</title>
+<meta name="description" content="This is a complete OpenCode delivery prompt produced during the Generate phase. It follows the standard template and is ready to be supplied to OpenCode after G">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div style="display:flex;align-items:center;gap:0;">
+      <a href="../../../index.html" class="navbar-schoolcode">SchoolCode</a>
+      <a href="../../index.html" class="navbar-brand">
+        <img src="../../img/logo.svg" alt="SDLC Logo" width="28" height="28">
+        AI-Assisted Delivery Lifecycle
+      </a>
+    </div>
+    <div class="navbar-links">
+      <a href="../overview/introduction.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Overview</div><a class="sidebar-item" href="../overview/introduction.html">Introduction</a></div><div class="sidebar-section"><div class="sidebar-section-title">The Lifecycle</div><a class="sidebar-item" href="../lifecycle/capture.html">1. Capture</a><a class="sidebar-item" href="../lifecycle/govern.html">2. Govern</a><a class="sidebar-item" href="../lifecycle/generate.html">3. Generate</a><a class="sidebar-item" href="../lifecycle/build.html">4. Build</a><a class="sidebar-item" href="../lifecycle/assure.html">5. Assure</a><a class="sidebar-item" href="../lifecycle/release.html">6. Release</a><a class="sidebar-item" href="../lifecycle/operate.html">7. Operate</a><a class="sidebar-item active" href="../lifecycle/delivery-prompt.html">Delivery Prompt Template</a></div><div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/stage-gates.html">Stage Gates</a><a class="sidebar-item" href="../governance/project-sizing.html">Project Sizing</a><a class="sidebar-item" href="../governance/application-architecture.html">Application Architecture</a><a class="sidebar-item" href="../governance/scaled-documentation.html">Scaled Documentation</a><a class="sidebar-item" href="../governance/cost-benefit-analysis.html">Build vs Buy — Cost-Benefit Analysis</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <p>This is a complete OpenCode delivery prompt produced during the Generate phase. It follows the standard template and is ready to be supplied to OpenCode after Gate 3 (Prompt and Design Approval) is passed.</p>
+<p>Paste the following into OpenCode from the root of a new Git repository.</p>
+<hr>
+<p>You are the lead solution architect and senior full-stack engineer responsible for designing and building an internal ICT Asset Lifecycle Governance application.</p>
+<p>The working product name is:</p>
+<p><strong>ICT Asset Governance Manager</strong></p>
+<p><strong>Existing asset register:</strong> The Asset Governance Manager prototype lives in the private repository <a href="https://github.com/Blank-Look/asset-governance-manager">Blank-Look/asset-governance-manager</a> (Express + SQLite + Freshservice/Entra/Defender connectors). Before designing the architecture, inspect this existing application and document in <code>/docs/assumptions-and-questions.md</code> whether it should be evolved, replaced, or integrated with the new application. Reference this decision in an Architecture Decision Record under <code>docs/adr/</code>.</p>
+<p>Your job is to create a secure, maintainable, production-ready MVP that can be hosted in Microsoft Azure with the fewest reasonable components.</p>
+<p>Do not begin by writing the entire application.</p>
+<p>First inspect the repository, identify what already exists, and then produce:</p>
+<ul>
+<li>docs/architecture.md</li>
+<li>docs/product-requirements.md</li>
+<li>docs/data-model.md</li>
+<li>docs/integrations.md</li>
+<li>docs/security-model.md</li>
+<li>docs/implementation-plan.md</li>
+<li>docs/assumptions-and-questions.md</li>
+<li>an initial AGENTS.md</li>
+</ul>
+<p>After producing those documents, stop and present the proposed architecture, assumptions, risks, phases, and repository structure for review.</p>
+<p>Do not start implementation until the architecture and implementation plan have been reviewed.</p>
+<h2>1. Product objective</h2>
+<p>Build an internal ICT governance tool that provides a consolidated view of organisational technology assets, ownership, lifecycle status, cost, sensitivity, security exposure, governance obligations, and overdue actions.</p>
+<p>The tool will be used by:</p>
+<ul>
+<li>Infrastructure teams</li>
+<li>Applications teams</li>
+<li>Data governance teams</li>
+<li>Cybersecurity teams</li>
+<li>The CTO and technology leadership</li>
+<li>Service Desk</li>
+<li>Business owners</li>
+<li>Service owners</li>
+<li>Data owners</li>
+<li>Governance, privacy, records, procurement, and risk functions</li>
+</ul>
+<p>The primary goal is to surface risky, unmanaged, unsupported, insecure, expensive, non-compliant, or ownerless assets.</p>
+<p>Users must be able to understand, at a glance:</p>
+<ul>
+<li>what assets exist;</li>
+<li>who is accountable for them;</li>
+<li>which business role owns them;</li>
+<li>what information they process;</li>
+<li>how sensitive or critical they are;</li>
+<li>what they cost;</li>
+<li>where they are hosted;</li>
+<li>what systems they depend on;</li>
+<li>what security issues affect them;</li>
+<li>what lifecycle stage they are in;</li>
+<li>what governance controls are missing;</li>
+<li>what reviews or actions are due;</li>
+<li>which exceptions are active;</li>
+<li>which assets should be remediated or retired; and</li>
+<li>which ownership assignments have become invalid because of organisational change.</li>
+</ul>
+<p>The product must generate role-based governance workflows such as:</p>
+<ul>
+<li>application ownership review;</li>
+<li>data ownership review;</li>
+<li>access review;</li>
+<li>security review;</li>
+<li>privacy review;</li>
+<li>records-retention review;</li>
+<li>vendor review;</li>
+<li>business-value review;</li>
+<li>technical-supportability review;</li>
+<li>disaster-recovery review;</li>
+<li>contract-renewal review;</li>
+<li>risk-acceptance review; and</li>
+<li>retirement and decommissioning workflow.</li>
+</ul>
+<h2>2. Core design principles</h2>
+<p>Apply these principles throughout the design and implementation.</p>
+<h3>2.1 Keep the architecture simple</h3>
+<p>Use a modular monolith unless there is a proven reason not to.</p>
+<p>Do not introduce microservices, Kubernetes, a service bus, event streaming, Cosmos DB, Redis, API Management, a data lake, Power BI, Microsoft Fabric, Azure Functions, Logic Apps, or multiple databases for the MVP unless a documented requirement cannot reasonably be met without them.</p>
+<p>Prefer:</p>
+<ul>
+<li>one web application;</li>
+<li>one relational database;</li>
+<li>one deployment unit;</li>
+<li>one source repository;</li>
+<li>one CI/CD workflow;</li>
+<li>scheduled background jobs within the same application codebase; and</li>
+<li>direct integrations with authorised APIs.</li>
+</ul>
+<h3>2.2 Governance by role, not by named individual</h3>
+<p>Accountability must be assigned primarily to organisational roles or groups, not permanently to individual people.</p>
+<p>Examples:</p>
+<ul>
+<li>Applications Manager</li>
+<li>Business Owner – Finance</li>
+<li>Data Owner – Customer Data</li>
+<li>Infrastructure Platform Owner</li>
+<li>Security Governance Manager</li>
+<li>Records Manager</li>
+</ul>
+<p>A person may currently occupy a role, but workflows must target the role assignment.</p>
+<p>When a person leaves or changes position:</p>
+<ul>
+<li>the governance obligation remains assigned to the role;</li>
+<li>a new active role holder can inherit outstanding work;</li>
+<li>no workflow definition should need to be rewritten;</li>
+<li>unresolved role vacancies must be visibly escalated;</li>
+<li>historical records must preserve who performed each action at the time; and</li>
+<li>role changes must not change historical audit records.</li>
+</ul>
+<p>Use Entra groups where practical to represent operational roles.</p>
+<p>Separate these concepts in the data model:</p>
+<ul>
+<li>governance role;</li>
+<li>organisational role or group;</li>
+<li>current role assignment;</li>
+<li>individual user;</li>
+<li>accountable asset-role relationship; and</li>
+<li>workflow task assignee.</li>
+</ul>
+<h3>2.3 Source systems remain authoritative</h3>
+<p>The new application is an aggregation and governance layer.</p>
+<p>Do not attempt to replace:</p>
+<ul>
+<li>Freshservice as the service-management or CMDB source;</li>
+<li>Microsoft Entra ID as the identity and application-registration source;</li>
+<li>Microsoft Defender as the security-alert source; or</li>
+<li>other authoritative systems introduced later.</li>
+</ul>
+<p>Store:</p>
+<ul>
+<li>external identifiers;</li>
+<li>source-system names;</li>
+<li>synchronisation timestamps;</li>
+<li>synchronisation status;</li>
+<li>selected normalised fields;</li>
+<li>calculated governance fields;</li>
+<li>local ownership and classification data;</li>
+<li>workflow records;</li>
+<li>evidence;</li>
+<li>exceptions;</li>
+<li>audit history; and</li>
+<li>source-data snapshots only where needed for auditability.</li>
+</ul>
+<p>Do not create uncontrolled duplicate master records.</p>
+<h3>2.4 Explainable risk</h3>
+<p>Every risk score must be explainable.</p>
+<p>A user must be able to open an asset and see:</p>
+<ul>
+<li>its overall score;</li>
+<li>its risk band;</li>
+<li>every contributing rule;</li>
+<li>the evidence used;</li>
+<li>the source of that evidence;</li>
+<li>the points or weighting contributed;</li>
+<li>when it was last calculated;</li>
+<li>any suppression or accepted exception; and</li>
+<li>the recommended remediation action.</li>
+</ul>
+<p>Do not use an opaque AI model for risk calculation.</p>
+<p>Use deterministic, configurable rules.</p>
+<h3>2.5 Security and least privilege</h3>
+<p>Use least-privileged access for users and integrations.</p>
+<p>Default to read-only integrations for the MVP.</p>
+<p>Do not allow the application to change Entra, Defender, or Freshservice records during the first implementation phase unless explicitly approved.</p>
+<p>Never store secrets in source code, committed configuration files, logs, or database fields.</p>
+<h3>2.6 Auditability</h3>
+<p>All material governance actions must create immutable audit events.</p>
+<p>Audit events should include:</p>
+<ul>
+<li>timestamp;</li>
+<li>actor;</li>
+<li>actor&#39;s effective role;</li>
+<li>action;</li>
+<li>entity type;</li>
+<li>entity ID;</li>
+<li>before value where appropriate;</li>
+<li>after value where appropriate;</li>
+<li>reason or comment;</li>
+<li>source IP or request correlation data where appropriate; and</li>
+<li>related workflow, exception, or approval ID.</li>
+</ul>
+<h2>3. Preferred technology architecture</h2>
+<p>Use this as the default architecture unless repository constraints make it unsuitable.</p>
+<h3>3.1 Application</h3>
+<p>Build a modular monolith using:</p>
+<ul>
+<li>ASP.NET Core on the latest supported long-term-support .NET release available in the environment;</li>
+<li>server-rendered Blazor Web App or another ASP.NET Core server-rendered UI approach;</li>
+<li>Entity Framework Core;</li>
+<li>PostgreSQL;</li>
+<li>FluentValidation or equivalent maintainable validation;</li>
+<li>structured logging;</li>
+<li>OpenTelemetry-compatible observability;</li>
+<li>background hosted services for local development; and</li>
+<li>Azure Container Apps jobs for scheduled production synchronisation and workflow evaluation.</li>
+</ul>
+<p>Prefer server-rendered pages over a separate single-page frontend and REST backend.</p>
+<p>Do not create separate frontend and backend repositories.</p>
+<p>Use JavaScript only where a server-rendered approach is inadequate.</p>
+<h3>3.2 Azure hosting</h3>
+<p>Target:</p>
+<ul>
+<li>Azure Container Apps for the web application;</li>
+<li>Azure Container Apps jobs for scheduled synchronisation and workflow processing;</li>
+<li>Azure Database for PostgreSQL Flexible Server;</li>
+<li>Azure Key Vault;</li>
+<li>Azure Container Registry;</li>
+<li>Application Insights with a Log Analytics workspace;</li>
+<li>Microsoft Entra ID for user authentication;</li>
+<li>managed identity wherever supported; and</li>
+<li>GitHub Actions for build, test, security checks, infrastructure deployment, database migration, and application deployment.</li>
+</ul>
+<p>Use one Azure resource group per environment.</p>
+<p>Initially support:</p>
+<ul>
+<li>development; and</li>
+<li>production.</li>
+</ul>
+<p>Design so that test or staging can be added later without changing the architecture.</p>
+<h3>3.3 Infrastructure as code</h3>
+<p>Use Bicep.</p>
+<p>Place infrastructure definitions under:</p>
+<pre><code>infra/
+</code></pre>
+<p>Infrastructure code must be idempotent and parameterised by environment.</p>
+<p>Do not deploy resources manually as the normal operating model.</p>
+<p>Create:</p>
+<ul>
+<li>resource group deployment entry point;</li>
+<li>Container Apps environment;</li>
+<li>web application;</li>
+<li>scheduled jobs;</li>
+<li>PostgreSQL;</li>
+<li>Key Vault;</li>
+<li>Container Registry;</li>
+<li>Application Insights;</li>
+<li>Log Analytics;</li>
+<li>managed identities;</li>
+<li>role assignments;</li>
+<li>environment-specific configuration; and</li>
+<li>diagnostic settings where appropriate.</li>
+</ul>
+<p>Provide Azure CLI deployment instructions.</p>
+<h3>3.4 Authentication</h3>
+<p>Use Microsoft Entra ID OpenID Connect authentication.</p>
+<p>The application is single-tenant.</p>
+<p>Do not implement local usernames or passwords.</p>
+<p>Authorisation must be application-role based.</p>
+<p>Initial application roles:</p>
+<ul>
+<li>Reader</li>
+<li>Contributor</li>
+<li>AssetGovernanceManager</li>
+<li>WorkflowApprover</li>
+<li>SecurityReviewer</li>
+<li>DataGovernanceReviewer</li>
+<li>ServiceDesk</li>
+<li>Auditor</li>
+<li>SystemAdministrator</li>
+</ul>
+<p>Map Entra users or groups to application roles.</p>
+<p>Use policy-based authorisation in code.</p>
+<p>Do not scatter role-name checks throughout controllers or UI components.</p>
+<h2>4. External integrations</h2>
+<p>Create an integration abstraction so each source connector is isolated behind an interface.</p>
+<p>Each connector must support:</p>
+<ul>
+<li>authentication;</li>
+<li>paginated retrieval;</li>
+<li>throttling;</li>
+<li>retry with bounded exponential backoff;</li>
+<li>request correlation;</li>
+<li>structured error handling;</li>
+<li>health status;</li>
+<li>last-successful synchronisation;</li>
+<li>incremental synchronisation where supported;</li>
+<li>full reconciliation;</li>
+<li>raw external identifier preservation;</li>
+<li>source-record deletion or disappearance handling;</li>
+<li>test doubles;</li>
+<li>contract tests where practical; and</li>
+<li>dry-run execution.</li>
+</ul>
+<p>Never log access tokens, API keys, confidential payloads, or sensitive personal data.</p>
+<h3>4.1 Freshservice</h3>
+<p>Integrate with the current supported Freshservice REST API.</p>
+<p>For the MVP, retrieve relevant available records such as:</p>
+<ul>
+<li>assets or configuration items;</li>
+<li>asset types;</li>
+<li>products where relevant;</li>
+<li>vendors;</li>
+<li>contracts if available under the organisation&#39;s Freshservice plan;</li>
+<li>departments;</li>
+<li>agents or requesters where needed for ownership matching;</li>
+<li>tickets linked to assets where beneficial;</li>
+<li>lifecycle or status fields;</li>
+<li>purchase and warranty fields;</li>
+<li>assigned users;</li>
+<li>location;</li>
+<li>serial number;</li>
+<li>asset tag;</li>
+<li>cost fields; and</li>
+<li>custom fields.</li>
+</ul>
+<p>Before implementing, create a documented Freshservice field-mapping table.</p>
+<p>The mapping must show:</p>
+<ul>
+<li>Freshservice object;</li>
+<li>Freshservice field;</li>
+<li>local entity and field;</li>
+<li>source of truth;</li>
+<li>transformation;</li>
+<li>null handling;</li>
+<li>synchronisation direction;</li>
+<li>sensitivity; and</li>
+<li>reconciliation rule.</li>
+</ul>
+<p>Treat Freshservice as authoritative for fields explicitly mapped as CMDB-owned.</p>
+<p>Authentication and API details must be configurable.</p>
+<p>Use Key Vault for any Freshservice secret that cannot use managed identity.</p>
+<h3>4.2 Microsoft Entra ID</h3>
+<p>Use Microsoft Graph to retrieve a live governance view of:</p>
+<ul>
+<li>application registrations;</li>
+<li>enterprise applications and service principals;</li>
+<li>application and service-principal owners;</li>
+<li>verified publisher status where available;</li>
+<li>sign-in audience;</li>
+<li>enabled or disabled state;</li>
+<li>creation date;</li>
+<li>tags;</li>
+<li>notes where available;</li>
+<li>redirect URI summary;</li>
+<li>credentials and certificate expiry metadata;</li>
+<li>API permissions;</li>
+<li>app-role assignments;</li>
+<li>user and group assignments where authorised;</li>
+<li>assignment-required settings;</li>
+<li>service-principal type;</li>
+<li>last sign-in or activity data where available and licensed;</li>
+<li>tenant ownership relationship;</li>
+<li>groups used as governance roles; and</li>
+<li>users required to resolve current group membership.</li>
+</ul>
+<p>Do not store credential secrets or certificate private data.</p>
+<p>Clearly distinguish:</p>
+<ul>
+<li>an application registration;</li>
+<li>its corresponding service principal in the home tenant;</li>
+<li>third-party enterprise applications;</li>
+<li>managed identities;</li>
+<li>Microsoft first-party applications; and</li>
+<li>duplicate or linked records.</li>
+</ul>
+<p>The application must detect governance conditions such as:</p>
+<ul>
+<li>no registered owner;</li>
+<li>owner no longer active;</li>
+<li>owner count below policy minimum;</li>
+<li>credential expiring soon;</li>
+<li>expired credential;</li>
+<li>high-privilege application permission;</li>
+<li>admin consent present;</li>
+<li>unverified publisher;</li>
+<li>assignment not required;</li>
+<li>broad user assignment;</li>
+<li>no recent observed use where data is available;</li>
+<li>enterprise application with no linked governed asset;</li>
+<li>app registration with no linked governed asset; and</li>
+<li>stale or orphaned registration.</li>
+</ul>
+<p>Use least-privileged Microsoft Graph application permissions.</p>
+<p>Document every required permission and why it is required.</p>
+<p>Do not request write permissions for the MVP.</p>
+<h3>4.3 Microsoft Defender</h3>
+<p>Integrate with supported Microsoft Defender XDR or Microsoft Graph security APIs.</p>
+<p>Begin with read-only retrieval of:</p>
+<ul>
+<li>active incidents;</li>
+<li>relevant alerts;</li>
+<li>severity;</li>
+<li>status;</li>
+<li>classification;</li>
+<li>determination;</li>
+<li>affected devices;</li>
+<li>affected users;</li>
+<li>affected applications or cloud resources where available;</li>
+<li>vulnerability or exposure information where licensed and supported;</li>
+<li>first seen;</li>
+<li>last updated;</li>
+<li>remediation state; and</li>
+<li>links back to the Defender portal.</li>
+</ul>
+<p>Use advanced hunting only for defined, documented queries that cannot be satisfied through a simpler supported endpoint.</p>
+<p>Each hunting query must be:</p>
+<ul>
+<li>version controlled;</li>
+<li>named;</li>
+<li>documented;</li>
+<li>bounded by time;</li>
+<li>tested;</li>
+<li>protected against excessive result volume; and</li>
+<li>associated with a specific governance use case.</li>
+</ul>
+<p>Create a mapping mechanism that associates Defender entities to governed assets through reliable identifiers such as:</p>
+<ul>
+<li>Entra application ID;</li>
+<li>service-principal ID;</li>
+<li>Azure resource ID;</li>
+<li>device ID;</li>
+<li>hostname;</li>
+<li>fully qualified domain name;</li>
+<li>Freshservice asset ID;</li>
+<li>serial number; or</li>
+<li>an approved manual relationship.</li>
+</ul>
+<p>Do not silently associate records based only on similar display names.</p>
+<h3>4.4 Integration freshness</h3>
+<p>Display integration freshness prominently.</p>
+<p>For every source show:</p>
+<ul>
+<li>last attempted synchronisation;</li>
+<li>last successful synchronisation;</li>
+<li>current state;</li>
+<li>records processed;</li>
+<li>records created;</li>
+<li>records updated;</li>
+<li>records marked missing;</li>
+<li>warnings;</li>
+<li>errors; and</li>
+<li>next scheduled run.</li>
+</ul>
+<p>Risk calculations must identify stale evidence.</p>
+<p>A failed integration must never appear as &quot;no risks found&quot;.</p>
+<h2>5. Core domain model</h2>
+<p>Create a normalised relational model.</p>
+<p>The following are conceptual entities. Refine them carefully before implementation.</p>
+<h3>5.1 Asset</h3>
+<p>An Asset is the central governed object.</p>
+<p>Support asset types including:</p>
+<ul>
+<li>Business Application</li>
+<li>SaaS Service</li>
+<li>Enterprise Application</li>
+<li>Application Registration</li>
+<li>Integration</li>
+<li>API</li>
+<li>Database</li>
+<li>Data Store</li>
+<li>Data Domain</li>
+<li>Dataset</li>
+<li>Server</li>
+<li>Virtual Machine</li>
+<li>Endpoint</li>
+<li>Network Device</li>
+<li>Cloud Resource</li>
+<li>Platform</li>
+<li>Vendor Service</li>
+<li>Certificate</li>
+<li>Contract</li>
+<li>Other Technology Service</li>
+</ul>
+<p>Asset fields should include:</p>
+<ul>
+<li>internal ID;</li>
+<li>canonical name;</li>
+<li>description;</li>
+<li>asset type;</li>
+<li>lifecycle stage;</li>
+<li>operational status;</li>
+<li>criticality;</li>
+<li>business impact;</li>
+<li>confidentiality classification;</li>
+<li>integrity requirement;</li>
+<li>availability requirement;</li>
+<li>privacy-data indicator;</li>
+<li>regulated-data indicator;</li>
+<li>records category;</li>
+<li>hosting model;</li>
+<li>region or data residency;</li>
+<li>business unit;</li>
+<li>support tier;</li>
+<li>business hours or service window;</li>
+<li>recovery time objective;</li>
+<li>recovery point objective;</li>
+<li>estimated annual cost;</li>
+<li>actual annual cost where known;</li>
+<li>currency;</li>
+<li>contract renewal date;</li>
+<li>end-of-support date;</li>
+<li>end-of-life date;</li>
+<li>last review date;</li>
+<li>next review date;</li>
+<li>onboarding date;</li>
+<li>retirement target date;</li>
+<li>source authority;</li>
+<li>source freshness;</li>
+<li>governance status;</li>
+<li>risk score;</li>
+<li>risk band;</li>
+<li>created timestamp;</li>
+<li>updated timestamp; and</li>
+<li>archived timestamp.</li>
+</ul>
+<p>Use AUD as the default display currency but store an ISO currency code on financial values.</p>
+<h3>5.2 ExternalSourceRecord</h3>
+<p>Track the relationship between a local governed entity and a source-system record.</p>
+<p>Include:</p>
+<ul>
+<li>source system;</li>
+<li>external object type;</li>
+<li>external ID;</li>
+<li>local entity type;</li>
+<li>local entity ID;</li>
+<li>source URL;</li>
+<li>source version or change token;</li>
+<li>source modified time;</li>
+<li>first observed time;</li>
+<li>last observed time;</li>
+<li>last synchronised time;</li>
+<li>record hash;</li>
+<li>state;</li>
+<li>missing-since time; and</li>
+<li>synchronisation metadata.</li>
+</ul>
+<h3>5.3 AssetRelationship</h3>
+<p>Represent dependencies and associations.</p>
+<p>Relationship types should include:</p>
+<ul>
+<li>depends on;</li>
+<li>hosted on;</li>
+<li>integrates with;</li>
+<li>exchanges data with;</li>
+<li>authenticates through;</li>
+<li>supplied by;</li>
+<li>covered by contract;</li>
+<li>supported by;</li>
+<li>stores data from;</li>
+<li>replaced by;</li>
+<li>parent of;</li>
+<li>child of;</li>
+<li>duplicate of;</li>
+<li>related enterprise application;</li>
+<li>related application registration; and</li>
+<li>related Defender entity.</li>
+</ul>
+<p>Relationships must have:</p>
+<ul>
+<li>source asset;</li>
+<li>target asset;</li>
+<li>relationship type;</li>
+<li>direction;</li>
+<li>criticality;</li>
+<li>evidence source;</li>
+<li>effective date;</li>
+<li>expiry date; and</li>
+<li>review status.</li>
+</ul>
+<h3>5.4 GovernanceRole</h3>
+<p>Represent role definitions independently of people.</p>
+<p>Examples:</p>
+<ul>
+<li>Business Owner</li>
+<li>Application Owner</li>
+<li>Service Owner</li>
+<li>Technical Owner</li>
+<li>Data Owner</li>
+<li>Security Reviewer</li>
+<li>Privacy Reviewer</li>
+<li>Records Reviewer</li>
+<li>Procurement Owner</li>
+<li>Vendor Manager</li>
+<li>Support Team</li>
+<li>Retirement Approver</li>
+</ul>
+<p><strong>Alignment with existing ICT role taxonomy:</strong> These roles align to the <a href="https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/data-governance.html">ICT Knowledge Base governance model</a> (Data Trustees, Data Stewards Council, Data Custodians, Data Owners). The mapping between application governance roles and KB organisational roles must be documented in <code>docs/security-model.md</code>.</p>
+<h3>5.5 RoleAssignment</h3>
+<p>Connect:</p>
+<ul>
+<li>a governance role;</li>
+<li>an asset or organisational scope;</li>
+<li>an Entra group or organisational role;</li>
+<li>optionally a current user for display and escalation;</li>
+<li>effective dates;</li>
+<li>assignment source;</li>
+<li>delegation;</li>
+<li>vacancy state; and</li>
+<li>review date.</li>
+</ul>
+<p>Assignments must support:</p>
+<ul>
+<li>more than one holder;</li>
+<li>temporary delegation;</li>
+<li>future-dated changes;</li>
+<li>role vacancy;</li>
+<li>inherited assignment;</li>
+<li>scoped assignment;</li>
+<li>reassignment without losing history; and</li>
+<li>an escalation role.</li>
+</ul>
+<h3>5.6 DataClassification</h3>
+<p>Support configurable classifications rather than hard-coded labels.</p>
+<p>Initial example levels (per the <a href="https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/data-classification.html">ICT Knowledge Base classification model</a>):</p>
+<ul>
+<li>Public</li>
+<li>Internal</li>
+<li>Sensitive  <em>(labelled &quot;Restricted&quot; in earlier drafts — use &quot;Sensitive&quot; to align with the existing KB standard)</em></li>
+<li>Confidential</li>
+</ul>
+<p>Do not assume these are final.</p>
+<p>Allow configuration of:</p>
+<ul>
+<li>name;</li>
+<li>description;</li>
+<li>rank;</li>
+<li>handling requirements;</li>
+<li>review frequency;</li>
+<li>encryption requirement;</li>
+<li>external-sharing rule;</li>
+<li>retention requirement;</li>
+<li>privacy review requirement; and</li>
+<li>mandatory controls.</li>
+</ul>
+<h3>5.7 Control</h3>
+<p>Represent a governance requirement.</p>
+<p>Examples:</p>
+<ul>
+<li>named business owner;</li>
+<li>named technical owner;</li>
+<li>approved data owner;</li>
+<li>SSO enabled;</li>
+<li>MFA enforced;</li>
+<li>least-privilege access;</li>
+<li>periodic access review;</li>
+<li>vendor security assessment;</li>
+<li>privacy assessment;</li>
+<li>records-retention determination;</li>
+<li>support model;</li>
+<li>backup and recovery plan;</li>
+<li>logging enabled;</li>
+<li>incident response process;</li>
+<li>vulnerability remediation;</li>
+<li>exit plan;</li>
+<li>decommissioning plan; and</li>
+<li>contract review.</li>
+</ul>
+<p>Controls must be configurable by:</p>
+<ul>
+<li>asset type;</li>
+<li>lifecycle stage;</li>
+<li>criticality;</li>
+<li>data classification;</li>
+<li>personal-data status;</li>
+<li>hosting model; and</li>
+<li>risk level.</li>
+</ul>
+<h3>5.8 ControlAssessment</h3>
+<p>Store:</p>
+<ul>
+<li>control;</li>
+<li>asset;</li>
+<li>status;</li>
+<li>assessment result;</li>
+<li>evidence;</li>
+<li>evidence source;</li>
+<li>assessed by;</li>
+<li>assessed date;</li>
+<li>expiry date;</li>
+<li>next due date;</li>
+<li>comments;</li>
+<li>exception reference; and</li>
+<li>automated or manual determination.</li>
+</ul>
+<p>Assessment statuses should include:</p>
+<ul>
+<li>Not Assessed</li>
+<li>Compliant</li>
+<li>Partially Compliant</li>
+<li>Non-Compliant</li>
+<li>Not Applicable</li>
+<li>Exception Approved</li>
+<li>Evidence Expired</li>
+</ul>
+<h3>5.9 RiskFinding</h3>
+<p>Store individual explainable findings.</p>
+<p>Include:</p>
+<ul>
+<li>title;</li>
+<li>description;</li>
+<li>asset;</li>
+<li>category;</li>
+<li>severity;</li>
+<li>likelihood;</li>
+<li>impact;</li>
+<li>score contribution;</li>
+<li>rule ID;</li>
+<li>evidence;</li>
+<li>evidence source;</li>
+<li>first detected;</li>
+<li>last detected;</li>
+<li>due date;</li>
+<li>owner role;</li>
+<li>status;</li>
+<li>recommended action;</li>
+<li>related Defender alert or incident;</li>
+<li>related exception; and</li>
+<li>resolution evidence.</li>
+</ul>
+<h3>5.10 WorkflowDefinition</h3>
+<p>A configurable workflow template based on:</p>
+<ul>
+<li>event;</li>
+<li>asset type;</li>
+<li>lifecycle stage;</li>
+<li>criticality;</li>
+<li>classification;</li>
+<li>risk rule;</li>
+<li>review frequency; and</li>
+<li>control status.</li>
+</ul>
+<h3>5.11 WorkflowInstance</h3>
+<p>A running workflow associated with an asset.</p>
+<h3>5.12 WorkflowTask</h3>
+<p>A task must be assigned to a role, not permanently to a named person.</p>
+<p>Include:</p>
+<ul>
+<li>task type;</li>
+<li>owning role;</li>
+<li>currently resolved assignee or Entra group;</li>
+<li>status;</li>
+<li>due date;</li>
+<li>escalation date;</li>
+<li>completion criteria;</li>
+<li>approval outcome;</li>
+<li>evidence;</li>
+<li>comment;</li>
+<li>completed by;</li>
+<li>completed timestamp; and</li>
+<li>reassignment history.</li>
+</ul>
+<h3>5.13 Exception</h3>
+<p>Store:</p>
+<ul>
+<li>affected asset;</li>
+<li>affected control or finding;</li>
+<li>control gap;</li>
+<li>risk description;</li>
+<li>business justification;</li>
+<li>compensating controls;</li>
+<li>accountable role;</li>
+<li>approver role;</li>
+<li>requested date;</li>
+<li>effective date;</li>
+<li>expiry date;</li>
+<li>status;</li>
+<li>review schedule; and</li>
+<li>closure outcome.</li>
+</ul>
+<p>Exceptions must always expire unless a policy explicitly allows otherwise.</p>
+<h3>5.14 Evidence</h3>
+<p>Evidence may include:</p>
+<ul>
+<li>API observation;</li>
+<li>uploaded document;</li>
+<li>URL;</li>
+<li>ticket reference;</li>
+<li>approval record;</li>
+<li>assessment result;</li>
+<li>configuration snapshot;</li>
+<li>policy acknowledgement; or</li>
+<li>reviewer comment.</li>
+</ul>
+<p>Store uploaded files in Azure Blob Storage only when file upload becomes part of the approved MVP.</p>
+<p>Until then, support links and structured evidence records without introducing Blob Storage.</p>
+<h3>5.15 AuditEvent</h3>
+<p>Create an append-only audit model.</p>
+<p>Application code must not update or delete historical audit events.</p>
+<h2>6. Lifecycle model</h2>
+<p>Support these lifecycle stages:</p>
+<ul>
+<li>Request and Business Justification</li>
+<li>Evaluation and Due Diligence</li>
+<li>Approval and Onboarding</li>
+<li>Implementation and Configuration</li>
+<li>Operational Use and Support</li>
+<li>Change and Enhancement</li>
+<li>Review and Assurance</li>
+<li>Retention, Archival, and Preservation</li>
+<li>Retirement and Disposal</li>
+<li>Retired</li>
+</ul>
+<p>Lifecycle transitions must be controlled.</p>
+<p>A transition may require:</p>
+<ul>
+<li>mandatory fields;</li>
+<li>completed controls;</li>
+<li>completed workflow tasks;</li>
+<li>approval by nominated roles;</li>
+<li>supporting evidence;</li>
+<li>no unresolved critical finding;</li>
+<li>accepted exception; or</li>
+<li>documented risk acceptance.</li>
+</ul>
+<p>Maintain transition history.</p>
+<p>Do not allow users to bypass a mandatory gate without an approved exception.</p>
+<h2>7. Initial governance rules</h2>
+<p>Implement the risk engine as configurable rules, not embedded UI conditions.</p>
+<h3>7.1 Ownership</h3>
+<p>Flag assets with:</p>
+<ul>
+<li>no business owner;</li>
+<li>no application or service owner;</li>
+<li>no technical owner;</li>
+<li>no data owner when material data is processed;</li>
+<li>inactive person occupying a required role;</li>
+<li>Entra group with no active member;</li>
+<li>unresolved role vacancy;</li>
+<li>ownership review overdue; or</li>
+<li>ownership assignment expiring soon.</li>
+</ul>
+<h3>7.2 Identity and access</h3>
+<p>Flag:</p>
+<ul>
+<li>sensitive application without supported SSO;</li>
+<li>sensitive application without MFA or equivalent control evidence;</li>
+<li>high-risk application without periodic access review;</li>
+<li>access review overdue;</li>
+<li>enterprise application where user assignment is not required, when policy requires assignment;</li>
+<li>privileged permission without current approval;</li>
+<li>application permission with no recorded business justification;</li>
+<li>credential expired;</li>
+<li>credential expiring within configurable thresholds;</li>
+<li>no valid owner on an Entra application;</li>
+<li>owner account disabled;</li>
+<li>stale service principal;</li>
+<li>orphaned app registration; and</li>
+<li>manual account management where central identity is required.</li>
+</ul>
+<h3>7.3 Security</h3>
+<p>Flag:</p>
+<ul>
+<li>unresolved critical or high-severity Defender incident linked to an asset;</li>
+<li>unresolved high-severity alert;</li>
+<li>unsupported software;</li>
+<li>end-of-life date passed;</li>
+<li>vulnerability remediation overdue;</li>
+<li>security assessment missing;</li>
+<li>security assessment expired;</li>
+<li>no logging evidence;</li>
+<li>no support model;</li>
+<li>no recovery requirement for a critical service; and</li>
+<li>critical asset without a tested continuity plan.</li>
+</ul>
+<h3>7.4 Data governance</h3>
+<p>Flag:</p>
+<ul>
+<li>data classification missing;</li>
+<li>sensitive data without a data owner;</li>
+<li>personal data without privacy assessment;</li>
+<li>retention rule missing;</li>
+<li>disposal decision overdue;</li>
+<li>data residency unknown;</li>
+<li>restricted data stored in an unapproved region;</li>
+<li>external sharing without approval;</li>
+<li>legal hold conflict;</li>
+<li>backup retention inconsistent with records obligations; and</li>
+<li>sensitive data without documented encryption controls.</li>
+</ul>
+<h3>7.5 Vendor and commercial</h3>
+<p>Flag:</p>
+<ul>
+<li>vendor owner missing;</li>
+<li>contract missing;</li>
+<li>contract renewal within configurable thresholds;</li>
+<li>contract expired;</li>
+<li>annual cost missing;</li>
+<li>duplicate product or overlapping capability;</li>
+<li>low-use or unused asset with material cost;</li>
+<li>vendor security assessment overdue;</li>
+<li>exit plan missing;</li>
+<li>data return or deletion terms missing;</li>
+<li>material vendor risk unresolved; and</li>
+<li>vendor compliance evidence missing.</li>
+</ul>
+<p>Do not hard-code &quot;GDPR present&quot; as a simple yes/no show-stopper.<br>Instead model applicable legal and privacy obligations as configurable requirements based on jurisdiction, data type, data subject, processing purpose, and organisational policy.</p>
+<h3>7.6 Lifecycle</h3>
+<p>Flag:</p>
+<ul>
+<li>production asset still marked as onboarding;</li>
+<li>material change without review;</li>
+<li>annual review overdue;</li>
+<li>retirement target passed;</li>
+<li>retired asset still active in Entra;</li>
+<li>retired asset still present in Freshservice as operational;</li>
+<li>active integration to a retired asset;</li>
+<li>active account or credential for a retired service;</li>
+<li>decommissioning task overdue; and</li>
+<li>residual data treatment not confirmed.</li>
+</ul>
+<h2>8. Risk scoring</h2>
+<p>Design an initial configurable scoring method.</p>
+<p>Do not claim that the score is an objective probability of loss.</p>
+<p>Use the score for prioritisation.</p>
+<p>Suggested approach:</p>
+<ul>
+<li>Critical finding: 40 points</li>
+<li>High finding: 20 points</li>
+<li>Medium finding: 8 points</li>
+<li>Low finding: 2 points</li>
+</ul>
+<p>Apply configurable multipliers for:</p>
+<ul>
+<li>critical service;</li>
+<li>restricted or sensitive data;</li>
+<li>regulated or personal data;</li>
+<li>internet exposure;</li>
+<li>privileged identity;</li>
+<li>high annual cost;</li>
+<li>past end-of-life;</li>
+<li>unresolved role vacancy; and</li>
+<li>stale source evidence.</li>
+</ul>
+<p>Cap the displayed score at 100 while retaining the uncapped calculated value internally for ranking.</p>
+<p>Initial risk bands:</p>
+<ul>
+<li>0–19: Low</li>
+<li>20–39: Moderate</li>
+<li>40–69: High</li>
+<li>70–100: Critical</li>
+</ul>
+<p>Store rule versions and score calculation history.</p>
+<p>A policy administrator must eventually be able to change weights and thresholds without code changes, but a simple seeded configuration is acceptable for the first working slice.</p>
+<h2>9. Required user experience</h2>
+<p>Design for clarity rather than visual complexity.</p>
+<h3>9.1 Executive dashboard</h3>
+<p>Display:</p>
+<ul>
+<li>total governed assets;</li>
+<li>assets by type;</li>
+<li>assets by lifecycle stage;</li>
+<li>assets by risk band;</li>
+<li>critical and high-risk assets;</li>
+<li>ownerless assets;</li>
+<li>unsupported and end-of-life assets;</li>
+<li>overdue reviews;</li>
+<li>overdue access reviews;</li>
+<li>expiring credentials;</li>
+<li>expiring contracts;</li>
+<li>unresolved Defender incidents;</li>
+<li>active exceptions;</li>
+<li>vacant governance roles;</li>
+<li>integration-health summary;</li>
+<li>annual-cost totals;</li>
+<li>cost by business unit;</li>
+<li>cost of high-risk assets; and</li>
+<li>recently increased risk.</li>
+</ul>
+<p>Every number or chart must link to the filtered underlying records.</p>
+<p>Avoid decorative charts.</p>
+<h3>9.2 Asset register</h3>
+<p>Provide a fast searchable and filterable table.</p>
+<p>Filters should include:</p>
+<ul>
+<li>asset type;</li>
+<li>lifecycle stage;</li>
+<li>status;</li>
+<li>risk band;</li>
+<li>criticality;</li>
+<li>data classification;</li>
+<li>business unit;</li>
+<li>owner role;</li>
+<li>role vacancy;</li>
+<li>hosting model;</li>
+<li>source system;</li>
+<li>security status;</li>
+<li>workflow due state;</li>
+<li>contract renewal window;</li>
+<li>end-of-life state; and</li>
+<li>cost range.</li>
+</ul>
+<p>Support saved views later, but do not let that delay the core MVP.</p>
+<h3>9.3 Asset detail</h3>
+<p>Use clear sections or tabs for:</p>
+<ul>
+<li>Overview</li>
+<li>Ownership</li>
+<li>Data and Classification</li>
+<li>Risk Findings</li>
+<li>Controls</li>
+<li>Workflows</li>
+<li>Security</li>
+<li>Entra</li>
+<li>Freshservice</li>
+<li>Relationships</li>
+<li>Cost and Contracts</li>
+<li>Lifecycle</li>
+<li>Exceptions</li>
+<li>Evidence</li>
+<li>Audit History</li>
+</ul>
+<p>Show source provenance beside synchronised fields.</p>
+<p>Users must be able to distinguish:</p>
+<ul>
+<li>source-controlled fields;</li>
+<li>locally governed fields;</li>
+<li>calculated fields; and</li>
+<li>stale fields.</li>
+</ul>
+<h3>9.4 My Governance Work</h3>
+<p>Show tasks based on the signed-in user&#39;s effective roles and group memberships.</p>
+<p>Include:</p>
+<ul>
+<li>tasks due soon;</li>
+<li>overdue tasks;</li>
+<li>approvals required;</li>
+<li>escalations;</li>
+<li>delegated tasks;</li>
+<li>access reviews;</li>
+<li>ownership reviews;</li>
+<li>exceptions awaiting approval; and</li>
+<li>retirement tasks.</li>
+</ul>
+<h3>9.5 Workflow administration</h3>
+<p>For the MVP, workflow definitions may be seeded in code or database migrations.</p>
+<p>Do not build a drag-and-drop workflow designer.</p>
+<p>Provide an administrative read-only view of definitions and a controlled configuration approach.</p>
+<h2>10. Workflow requirements</h2>
+<p>Create a simple state-machine workflow engine inside the modular monolith.</p>
+<p>Do not use an external workflow platform for the MVP.</p>
+<p>Required workflow triggers include:</p>
+<ul>
+<li>asset created;</li>
+<li>asset enters lifecycle stage;</li>
+<li>review date reached;</li>
+<li>ownership becomes invalid;</li>
+<li>credential approaches expiry;</li>
+<li>contract approaches renewal;</li>
+<li>risk finding created;</li>
+<li>risk severity increases;</li>
+<li>Defender incident linked;</li>
+<li>exception approaches expiry;</li>
+<li>end-of-support approaches;</li>
+<li>asset marked for retirement; and</li>
+<li>integration record disappears.</li>
+</ul>
+<p>Required workflow capabilities:</p>
+<ul>
+<li>role-based assignment;</li>
+<li>due date;</li>
+<li>escalation role;</li>
+<li>reminder schedule;</li>
+<li>approve;</li>
+<li>reject;</li>
+<li>request more information;</li>
+<li>complete;</li>
+<li>cancel;</li>
+<li>delegate;</li>
+<li>re-resolve assignee when role membership changes;</li>
+<li>comments;</li>
+<li>evidence;</li>
+<li>immutable history; and</li>
+<li>idempotent trigger handling.</li>
+</ul>
+<p>For notifications, use email initially.</p>
+<p>Abstract notification delivery behind an interface.</p>
+<p>Prefer Microsoft Graph mail delivery or an approved organisational email mechanism.</p>
+<p>Do not add Teams bots, SMS, or push notifications to the MVP.</p>
+<p>Ensure notification processing is retryable and does not duplicate messages.</p>
+<h2>11. Onboarding pipeline</h2>
+<p>Create a guided application onboarding process.</p>
+<p>The objective is to surface show-stoppers early.</p>
+<p>Initial stages:</p>
+<ul>
+<li>Business Idea</li>
+<li>Basic Triage</li>
+<li>Data and Privacy Triage</li>
+<li>Identity and Access Triage</li>
+<li>Vendor and Commercial Triage</li>
+<li>Architecture and Integration Review</li>
+<li>Security Assessment</li>
+<li>Records and Retention Review</li>
+<li>Approval</li>
+<li>Implementation</li>
+<li>Operational Handover</li>
+<li>Go-Live</li>
+</ul>
+<p>Early triage questions should include:</p>
+<ul>
+<li>What business problem is being solved?</li>
+<li>Is an existing approved application able to meet the need?</li>
+<li>Who is the business owner?</li>
+<li>Who is the proposed service owner?</li>
+<li>What data will be processed?</li>
+<li>Does it include personal, confidential, restricted, regulated, health, financial, employee, customer, or authentication data?</li>
+<li>Where will the data be hosted?</li>
+<li>Will data leave approved jurisdictions?</li>
+<li>Does the product support organisational SSO?</li>
+<li>Does it support MFA?</li>
+<li>Does it support role-based access control?</li>
+<li>Does it support audit logging?</li>
+<li>Does it expose an API?</li>
+<li>What integrations are required?</li>
+<li>Does it require privileged access?</li>
+<li>Is it internet-facing?</li>
+<li>What is the proposed annual cost in AUD?</li>
+<li>What contract commitment is required?</li>
+<li>What is the vendor exit plan?</li>
+<li>How will data be exported, retained, archived, or deleted?</li>
+<li>What happens if the service is unavailable?</li>
+<li>Who will support it?</li>
+<li>Is a similar vendor or application already in use?</li>
+</ul>
+<p>Potential show-stoppers must be configurable.</p>
+<p>Examples:</p>
+<ul>
+<li>no accountable business owner;</li>
+<li>no technical support owner;</li>
+<li>restricted data in a prohibited location;</li>
+<li>no acceptable authentication for a high-risk service;</li>
+<li>no audit capability for a critical service;</li>
+<li>no lawful processing basis where required;</li>
+<li>unacceptable vendor contract terms;</li>
+<li>no data export or deletion mechanism;</li>
+<li>unsupported mandatory integration;</li>
+<li>unresolved critical security finding; and</li>
+<li>duplicate capability without approved justification.</li>
+</ul>
+<p>A show-stopper should not silently reject a request.</p>
+<p>It must:</p>
+<ul>
+<li>identify the failed rule;</li>
+<li>explain why it matters;</li>
+<li>identify the evidence;</li>
+<li>identify the reviewing role;</li>
+<li>allow correction;</li>
+<li>permit a controlled exception path; and</li>
+<li>preserve the decision history.</li>
+</ul>
+<h2>12. Policy-to-system mapping</h2>
+<p>Create a traceability table under:</p>
+<pre><code>docs/policy-traceability.md
+</code></pre>
+<p>For each policy requirement, identify:</p>
+<ul>
+<li>policy section;</li>
+<li>requirement summary;</li>
+<li>system entity;</li>
+<li>field or control;</li>
+<li>workflow;</li>
+<li>report or view;</li>
+<li>evidence source;</li>
+<li>responsible role;</li>
+<li>accountable role;</li>
+<li>implementation phase; and</li>
+<li>test or acceptance criterion.</li>
+</ul>
+<p>At minimum, trace all requirements covering:</p>
+<ul>
+<li>ownership;</li>
+<li>onboarding;</li>
+<li>data classification;</li>
+<li>access approval;</li>
+<li>retention;</li>
+<li>security review;</li>
+<li>support model;</li>
+<li>material change;</li>
+<li>periodic review;</li>
+<li>retirement;</li>
+<li>exceptions;</li>
+<li>required lifecycle artefacts; and</li>
+<li>auditability.</li>
+</ul>
+<h2>13. Reporting</h2>
+<p>Provide built-in reports and CSV export.</p>
+<p>Do not introduce a separate analytics platform for the MVP.</p>
+<p>Initial reports:</p>
+<ul>
+<li>Asset Register</li>
+<li>Risk Register</li>
+<li>Ownerless Assets</li>
+<li>Vacant Governance Roles</li>
+<li>Overdue Reviews</li>
+<li>Access Reviews Due</li>
+<li>Credentials Expiring</li>
+<li>Contracts Expiring</li>
+<li>End-of-Life Assets</li>
+<li>Defender-Linked Risks</li>
+<li>Control Compliance</li>
+<li>Active Exceptions</li>
+<li>Retirement Pipeline</li>
+<li>Assets by Data Classification</li>
+<li>Assets by Business Unit</li>
+<li>Annual Cost by Asset Type</li>
+<li>High-Cost Low-Use Assets</li>
+<li>Integration Synchronisation Health</li>
+</ul>
+<p>Exports must respect the user&#39;s permissions.</p>
+<p>Prevent spreadsheet formula injection in CSV exports.</p>
+<h2>14. Security requirements</h2>
+<p>Align with the <a href="https://blank-look.github.io/opencode/knowledgebase/docs/security/security-assessment.html">ICT Knowledge Base Security Assessment</a> process (Initiation → Classification → Questionnaire → Review → Verdict → Onboarding). The application itself must meet the same assessment criteria it will enforce for governed assets.</p>
+<p>Implement:</p>
+<ul>
+<li>Entra authentication;</li>
+<li>policy-based authorisation;</li>
+<li>anti-forgery protection;</li>
+<li>secure cookies;</li>
+<li>HTTPS only;</li>
+<li>strict security headers;</li>
+<li>input validation;</li>
+<li>output encoding;</li>
+<li>parameterised database access through EF Core;</li>
+<li>secrets in Key Vault;</li>
+<li>managed identity;</li>
+<li>protection against mass assignment;</li>
+<li>safe file handling if uploads are later enabled;</li>
+<li>rate limiting for sensitive endpoints;</li>
+<li>correlation IDs;</li>
+<li>structured logs;</li>
+<li>redaction of sensitive values;</li>
+<li>dependency scanning;</li>
+<li>container image scanning where available;</li>
+<li>audit logging;</li>
+<li>least-privileged database access;</li>
+<li>database backups;</li>
+<li>health endpoints;</li>
+<li>readiness and liveness checks; and</li>
+<li>secure error handling without internal stack traces shown to users.</li>
+</ul>
+<p>Do not expose integration raw payloads to ordinary users.</p>
+<p>Define sensitive operational fields and their authorised roles.</p>
+<p>Do not store unnecessary personal data.</p>
+<p>Create a threat model using STRIDE or an equivalent structured method. Save it as:</p>
+<pre><code>docs/threat-model.md
+</code></pre>
+<h2>15. Privacy and records requirements</h2>
+<p>Build privacy and records governance into the data model.</p>
+<p>Support:</p>
+<ul>
+<li>data categories;</li>
+<li>data subjects;</li>
+<li>processing purposes;</li>
+<li>classification;</li>
+<li>jurisdiction;</li>
+<li>retention rule;</li>
+<li>disposal action;</li>
+<li>legal hold;</li>
+<li>privacy assessment status;</li>
+<li>records category;</li>
+<li>authoritative owner;</li>
+<li>review date; and</li>
+<li>evidence.</li>
+</ul>
+<p>Do not automatically delete governance audit records solely because an external asset has been removed.</p>
+<p>Define retention requirements for application audit records separately from source operational records.</p>
+<h2>16. Non-functional requirements</h2>
+<p>Target the following initial qualities:</p>
+<ul>
+<li>responsive on common desktop displays;</li>
+<li>usable on tablets;</li>
+<li>accessible keyboard navigation;</li>
+<li>page response under two seconds for common filtered views under expected organisational load;</li>
+<li>safe handling of at least 100,000 governed asset and source records without architectural replacement;</li>
+<li>idempotent synchronisation;</li>
+<li>recoverable failed jobs;</li>
+<li>database migrations with rollback guidance;</li>
+<li>structured application health reporting;</li>
+<li>support for one Azure region initially;</li>
+<li>documented backup and recovery process;</li>
+<li>documented recovery objectives;</li>
+<li>no single user account required for production operation;</li>
+<li>no permanent developer credentials in production; and</li>
+<li>no dependence on a specific employee remaining in a role.</li>
+</ul>
+<p>Do not over-optimise before measuring.</p>
+<h2>17. Testing requirements</h2>
+<p>Create:</p>
+<ul>
+<li>unit tests;</li>
+<li>integration tests;</li>
+<li>authorisation tests;</li>
+<li>risk-rule tests;</li>
+<li>workflow state-transition tests;</li>
+<li>role-reassignment tests;</li>
+<li>source reconciliation tests;</li>
+<li>connector contract tests;</li>
+<li>database migration tests where practical;</li>
+<li>security-sensitive validation tests; and</li>
+<li>a small number of browser-based end-to-end tests for critical workflows.</li>
+</ul>
+<p>Critical scenarios include:</p>
+<ul>
+<li>Owner leaves the organisation and the asset becomes visibly ownerless or transfers to the current role group.</li>
+<li>A new role holder can see outstanding tasks assigned to that role.</li>
+<li>Historical task completion still shows the original actor.</li>
+<li>A Freshservice synchronisation updates source-owned fields without overwriting local governance fields.</li>
+<li>A missing source record is marked missing rather than immediately deleted.</li>
+<li>An Entra app with an expired credential creates a risk finding.</li>
+<li>A Defender incident linked to a critical asset increases prioritisation.</li>
+<li>A failed Defender synchronisation displays stale or unavailable evidence rather than zero risk.</li>
+<li>A lifecycle transition is blocked when mandatory controls are incomplete.</li>
+<li>An approved, unexpired exception permits the specifically authorised transition.</li>
+<li>An expired exception reopens the control gap.</li>
+<li>A user without permission cannot view restricted evidence.</li>
+<li>CSV export cannot execute spreadsheet formulas.</li>
+<li>Duplicate workflow triggers do not create duplicate tasks.</li>
+<li>A retired asset with active Entra objects is flagged.</li>
+</ul>
+<p>Use deterministic test data.</p>
+<p>Do not make automated tests depend on live Freshservice, Entra, or Defender tenants.</p>
+<h2>18. Seed and demonstration data</h2>
+<p>Create realistic non-production seed data representing:</p>
+<ul>
+<li>several business applications;</li>
+<li>SaaS products;</li>
+<li>Entra app registrations;</li>
+<li>enterprise applications;</li>
+<li>databases;</li>
+<li>data domains;</li>
+<li>endpoints or servers;</li>
+<li>vendors;</li>
+<li>contracts;</li>
+<li>business units;</li>
+<li>role assignments;</li>
+<li>vacant roles;</li>
+<li>security findings;</li>
+<li>control assessments;</li>
+<li>exceptions;</li>
+<li>overdue reviews;</li>
+<li>access reviews;</li>
+<li>expiring credentials;</li>
+<li>an active Defender incident;</li>
+<li>an application in retirement; and</li>
+<li>a failed integration synchronisation.</li>
+</ul>
+<p>Clearly label demonstration data.</p>
+<p>Do not place demonstration data in production by default.</p>
+<h2>19. Repository structure</h2>
+<p>Prefer a structure similar to:</p>
+<pre><code>/
+├── src/
+│   ├── AssetGovernance.Web/
+│   ├── AssetGovernance.Application/
+│   ├── AssetGovernance.Domain/
+│   └── AssetGovernance.Infrastructure/
+├── tests/
+│   ├── AssetGovernance.UnitTests/
+│   ├── AssetGovernance.IntegrationTests/
+│   └── AssetGovernance.EndToEndTests/
+├── infra/
+├── docs/
+├── scripts/
+├── .github/
+│   └── workflows/
+├── AGENTS.md
+├── README.md
+├── Directory.Build.props
+├── Directory.Packages.props
+└── AssetGovernance.sln
+</code></pre>
+<p>Keep modules internally separated by domain capability, including:</p>
+<ul>
+<li>Assets</li>
+<li>Ownership</li>
+<li>DataGovernance</li>
+<li>Controls</li>
+<li>Risks</li>
+<li>Workflows</li>
+<li>Integrations</li>
+<li>Lifecycle</li>
+<li>Exceptions</li>
+<li>Reporting</li>
+<li>Administration</li>
+<li>Audit</li>
+</ul>
+<p>Do not create a generic &quot;Helpers&quot; dumping ground.</p>
+<h2>20. Delivery phases</h2>
+<p>Design the implementation in vertical slices.</p>
+<h3>Phase 0: Discovery and foundation</h3>
+<p>Deliver:</p>
+<ul>
+<li>architecture;</li>
+<li>product requirements;</li>
+<li>policy traceability;</li>
+<li>threat model;</li>
+<li>data model;</li>
+<li>integration mappings;</li>
+<li>implementation plan;</li>
+<li>repository foundation;</li>
+<li>local development instructions;</li>
+<li>infrastructure skeleton;</li>
+<li>authentication design; and</li>
+<li>key architectural decision records.</li>
+</ul>
+<h3>Phase 1: Core asset governance MVP</h3>
+<p>Deliver:</p>
+<ul>
+<li>Entra sign-in;</li>
+<li>role-based authorisation;</li>
+<li>asset register;</li>
+<li>asset detail;</li>
+<li>ownership model;</li>
+<li>classifications;</li>
+<li>lifecycle stages;</li>
+<li>controls;</li>
+<li>deterministic risk findings;</li>
+<li>dashboard;</li>
+<li>manual asset entry;</li>
+<li>audit history; and</li>
+<li>demonstration data.</li>
+</ul>
+<h3>Phase 2: Freshservice integration</h3>
+<p>Deliver:</p>
+<ul>
+<li>read-only synchronisation;</li>
+<li>mapping configuration;</li>
+<li>reconciliation;</li>
+<li>integration-health view;</li>
+<li>source-field provenance;</li>
+<li>error handling; and</li>
+<li>synchronisation audit.</li>
+</ul>
+<h3>Phase 3: Entra integration</h3>
+<p>Deliver:</p>
+<ul>
+<li>app registrations;</li>
+<li>enterprise applications;</li>
+<li>ownership;</li>
+<li>permissions;</li>
+<li>credential expiry;</li>
+<li>assignments where authorised;</li>
+<li>governance mappings;</li>
+<li>Entra-specific findings; and</li>
+<li>integration health.</li>
+</ul>
+<h3>Phase 4: Defender integration</h3>
+<p>Deliver:</p>
+<ul>
+<li>incidents and alerts;</li>
+<li>governed-asset mapping;</li>
+<li>security findings;</li>
+<li>source links;</li>
+<li>freshness handling; and</li>
+<li>integration health.</li>
+</ul>
+<h3>Phase 5: Workflow automation</h3>
+<p>Deliver:</p>
+<ul>
+<li>review workflows;</li>
+<li>access-review workflow;</li>
+<li>role-based task assignment;</li>
+<li>escalations;</li>
+<li>notifications;</li>
+<li>ownership-change handling;</li>
+<li>exception workflow; and</li>
+<li>retirement workflow.</li>
+</ul>
+<h3>Phase 6: Onboarding pipeline</h3>
+<p>Deliver:</p>
+<ul>
+<li>guided request;</li>
+<li>triage;</li>
+<li>show-stopper rules;</li>
+<li>approvals;</li>
+<li>evidence;</li>
+<li>operational handover; and</li>
+<li>go-live decision record.</li>
+</ul>
+<p>Do not attempt all phases in one change.</p>
+<h2>21. Coding standards</h2>
+<p>Use:</p>
+<ul>
+<li>nullable reference types;</li>
+<li>asynchronous I/O;</li>
+<li>dependency injection;</li>
+<li>cancellation tokens;</li>
+<li>clear domain types;</li>
+<li>UTC storage for timestamps;</li>
+<li>an explicit display timezone configuration;</li>
+<li>ISO currency codes;</li>
+<li>immutable records where appropriate;</li>
+<li>optimistic concurrency where simultaneous governance editing is possible;</li>
+<li>database constraints as well as application validation;</li>
+<li>pagination for list endpoints;</li>
+<li>centralised exception handling;</li>
+<li>centralised authorisation policies;</li>
+<li>structured logs;</li>
+<li>feature flags only where necessary; and</li>
+<li>XML documentation for public integration contracts.</li>
+</ul>
+<p>Avoid:</p>
+<ul>
+<li>unnecessary generic repositories over EF Core;</li>
+<li>static service locators;</li>
+<li>hidden global state;</li>
+<li>business logic in UI components;</li>
+<li>business logic in controllers;</li>
+<li>stringly typed roles and statuses spread throughout the code;</li>
+<li>database cascade deletes that could remove governance history;</li>
+<li>hard-coded tenant IDs;</li>
+<li>hard-coded API URLs;</li>
+<li>hard-coded email addresses;</li>
+<li>hard-coded personal names;</li>
+<li>secrets in configuration;</li>
+<li>silent exception swallowing; and</li>
+<li>unbounded API retrieval.</li>
+</ul>
+<h2>22. Configuration</h2>
+<p>Use strongly typed configuration.</p>
+<p>Support configuration for:</p>
+<ul>
+<li>Entra tenant;</li>
+<li>application client ID;</li>
+<li>integration schedules;</li>
+<li>API base addresses;</li>
+<li>Freshservice domain;</li>
+<li>Key Vault references;</li>
+<li>risk thresholds;</li>
+<li>review frequencies;</li>
+<li>contract-warning windows;</li>
+<li>credential-warning windows;</li>
+<li>notification sender;</li>
+<li>feature toggles;</li>
+<li>display timezone;</li>
+<li>default currency;</li>
+<li>allowed data jurisdictions; and</li>
+<li>support contacts represented as roles or groups.</li>
+</ul>
+<p>Provide a safe appsettings.Development.example.json.</p>
+<p>Do not commit real tenant identifiers or secrets.</p>
+<h2>23. Observability and operations</h2>
+<p>Provide:</p>
+<ul>
+<li>application health;</li>
+<li>database health;</li>
+<li>source-integration health;</li>
+<li>job execution history;</li>
+<li>synchronisation metrics;</li>
+<li>workflow metrics;</li>
+<li>risk-calculation metrics;</li>
+<li>structured errors;</li>
+<li>dependency telemetry;</li>
+<li>trace correlation; and</li>
+<li>operational runbooks.</li>
+</ul>
+<p>Create runbooks for:</p>
+<ul>
+<li>failed Freshservice synchronisation;</li>
+<li>failed Graph synchronisation;</li>
+<li>failed Defender synchronisation;</li>
+<li>database migration failure;</li>
+<li>expired integration credential;</li>
+<li>role group with no members;</li>
+<li>stuck workflow;</li>
+<li>notification failure;</li>
+<li>restoring the database; and</li>
+<li>rolling back a deployment.</li>
+</ul>
+<p>Place these under:</p>
+<pre><code>docs/runbooks/
+</code></pre>
+<h2>24. CI/CD</h2>
+<p>Create GitHub Actions workflows for:</p>
+<h3>Pull requests</h3>
+<ul>
+<li>restore;</li>
+<li>build;</li>
+<li>formatting verification;</li>
+<li>unit tests;</li>
+<li>integration tests;</li>
+<li>dependency vulnerability checks;</li>
+<li>secret scanning;</li>
+<li>Bicep validation; and</li>
+<li>container build validation.</li>
+</ul>
+<h3>Main branch</h3>
+<ul>
+<li>all pull-request checks;</li>
+<li>build versioned container;</li>
+<li>push to Azure Container Registry;</li>
+<li>deploy infrastructure changes;</li>
+<li>run controlled database migration;</li>
+<li>deploy application;</li>
+<li>execute smoke tests; and</li>
+<li>report deployment result.</li>
+</ul>
+<p>Use GitHub OpenID Connect federation to Azure where practical.</p>
+<p>Do not store a long-lived Azure service-principal secret in GitHub.</p>
+<p>Require protected environments for production deployment.</p>
+<h2>25. Documentation</h2>
+<p>The final repository must contain:</p>
+<ul>
+<li>clear README;</li>
+<li>Ubuntu development setup;</li>
+<li>local PostgreSQL setup using containers;</li>
+<li>Entra application-registration setup;</li>
+<li>Freshservice integration setup;</li>
+<li>Defender integration setup;</li>
+<li>configuration reference;</li>
+<li>Azure deployment instructions;</li>
+<li>GitHub Actions setup;</li>
+<li>database migration instructions;</li>
+<li>backup and restore instructions;</li>
+<li>operational runbooks;</li>
+<li>security model;</li>
+<li>permission matrix;</li>
+<li>data dictionary;</li>
+<li>API field mappings;</li>
+<li>architecture diagram using Mermaid;</li>
+<li>entity relationship diagram using Mermaid;</li>
+<li>workflow diagrams using Mermaid;</li>
+<li>threat model;</li>
+<li>policy traceability;</li>
+<li>testing instructions; and</li>
+<li>known limitations.</li>
+</ul>
+<h2>26. Architecture decisions to document</h2>
+<p>Create Architecture Decision Records under:</p>
+<pre><code>docs/adr/
+</code></pre>
+<p>At minimum document:</p>
+<ul>
+<li>Modular monolith instead of microservices.</li>
+<li>Azure Container Apps instead of Kubernetes or virtual machines.</li>
+<li>PostgreSQL as the single operational database.</li>
+<li>Server-rendered ASP.NET Core user interface.</li>
+<li>Source systems remain authoritative.</li>
+<li>Role-based assignment instead of person-based workflow ownership.</li>
+<li>Deterministic rules instead of opaque AI risk scoring.</li>
+<li>Internal workflow engine instead of an external workflow platform.</li>
+<li>Read-only external integrations for the MVP.</li>
+<li>Bicep for infrastructure as code.</li>
+<li>Managed identity and workload federation instead of long-lived secrets.</li>
+<li>Built-in reporting before a separate analytics platform.</li>
+</ul>
+<p>Each ADR must include:</p>
+<ul>
+<li>context;</li>
+<li>decision;</li>
+<li>alternatives;</li>
+<li>consequences;</li>
+<li>risks; and</li>
+<li>conditions that would justify revisiting the decision.</li>
+</ul>
+<h2>27. Definition of done</h2>
+<p>A feature is not complete unless:</p>
+<ul>
+<li>acceptance criteria are met;</li>
+<li>authorisation is enforced;</li>
+<li>validation is implemented;</li>
+<li>audit behaviour is implemented;</li>
+<li>tests pass;</li>
+<li>failure paths are handled;</li>
+<li>logs are safe and useful;</li>
+<li>documentation is updated;</li>
+<li>database migration is included where needed;</li>
+<li>accessibility has been considered;</li>
+<li>source provenance is displayed where relevant;</li>
+<li>no secret is committed;</li>
+<li>no unrelated files are modified; and</li>
+<li>the feature can be demonstrated with safe test data.</li>
+</ul>
+<h2>28. First task</h2>
+<p>Perform only Phase 0 initially.</p>
+<p>Follow this sequence:</p>
+<ol>
+<li>Inspect the repository and existing files.</li>
+<li>State any material assumptions.</li>
+<li>Create the proposed documentation.</li>
+<li>Produce a Mermaid architecture diagram.</li>
+<li>Produce a Mermaid entity relationship diagram.</li>
+<li>Produce a high-level permissions matrix.</li>
+<li>Produce the policy-to-system traceability table.</li>
+<li>Produce a prioritised implementation backlog.</li>
+<li>Identify required Freshservice, Microsoft Graph, and Defender permissions.</li>
+<li>Separate confirmed requirements from assumptions.</li>
+<li>Identify licensing or API availability dependencies.</li>
+<li>Identify security and privacy risks.</li>
+<li>Propose the first vertical slice.</li>
+<li>List the files that would be created or changed during that slice.</li>
+<li>Stop before writing application implementation code.</li>
+</ol>
+<p>Do not ask broad questions that can be addressed with sensible, documented assumptions.</p>
+<p>Ask only questions that block a secure or materially correct design.</p>
+<p>When requirements are uncertain:</p>
+<ul>
+<li>choose the simplest reversible option;</li>
+<li>document the assumption;</li>
+<li>isolate the decision behind an interface or configuration;</li>
+<li>do not add infrastructure merely to accommodate hypothetical future scale; and</li>
+<li>do not silently invent organisational policy.</li>
+</ul>
+<p>At the end of Phase 0, provide:</p>
+<ul>
+<li>a concise architecture summary;</li>
+<li>the top ten assumptions;</li>
+<li>the top ten delivery risks;</li>
+<li>the proposed Azure components;</li>
+<li>the proposed external permissions;</li>
+<li>the initial database entities;</li>
+<li>the first implementation slice;</li>
+<li>the commands needed to validate the documentation and repository; and</li>
+<li>a clear statement that implementation has not yet begun.</li>
+</ul>
+<hr>
+<p>The prompt deliberately asks OpenCode to stop after architecture and planning. That prevents it from generating a large, inconsistent codebase before the Freshservice fields, Entra permissions, Defender licensing, ownership model, and policy mappings have been validated. Freshservice provides REST APIs for service-management records, but exact object and field availability can vary with configuration and subscription, so the field-mapping stage is important.</p>
+<p>For the eventual integrations, OpenCode should document every Microsoft Graph permission before requesting tenant consent. Listing application registrations and service principals uses separate Graph resources, and Defender API access also requires an Entra application and specifically assigned permissions.</p>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 Infrastructure & Security. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

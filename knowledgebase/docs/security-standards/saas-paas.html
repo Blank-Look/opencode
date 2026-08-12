@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minimum Security Standards: SaaS &amp; PaaS — ICT Security Standards</title>
+<meta name="description" content="Minimum security standards for software-as-a-service and platform-as-a-service.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-left">
+      <a href="../../../index.html" class="navbar-schoolcode">ICT Portal</a>
+      <a href="index.html" class="navbar-brand">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z" fill="#7A1B2C"/>
+          <path d="m8.5 11.5 2.5 2.5 4.5-4.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        ICT Security Standards
+      </a>
+    </div>
+    <div class="navbar-links">
+      <a href="../../index.html">Knowledge Base</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Standards</div>
+      <a class="sidebar-item" href="index.html">Minimum Security Standards</a>
+      <a class="sidebar-item active" href="saas-paas.html">SaaS &amp; PaaS</a>
+      <a class="sidebar-item" href="iaas.html">IaaS &amp; Containers</a>
+      <a class="sidebar-item" href="iot.html">IoT Devices</a>
+      <a class="sidebar-item" href="cookbooks.html">Cookbooks</a>
+      <a class="sidebar-item" href="faq.html">FAQ</a>
+    </div>
+    <hr class="sidebar-divider">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Related Guides</div>
+      <a class="sidebar-item external" href="../policy-and-governance/data-classification.html">Data Classification</a>
+      <a class="sidebar-item external" href="../policy-and-governance/risk-management.html">Risk Management</a>
+      <a class="sidebar-item external" href="../security/overview.html">Security Overview</a>
+      <a class="sidebar-item external" href="../security/vulnerability-management.html">Vulnerability Management</a>
+    </div>
+    <hr class="sidebar-divider">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Contact</div>
+      <a class="sidebar-item" href="index.html#questions">Questions &amp; Inquiries</a>
+      <a class="sidebar-item" href="index.html#questions">Report an Incident</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="page-header">
+      <p class="eyebrow">ICT Security</p>
+      <h1>Minimum Security Standards: SaaS and PaaS</h1>
+      <p class="lede">The Institution is committed to protecting the privacy of its students, alumni, faculty, and staff, as well as protecting the confidentiality, integrity, and availability of information important to the Institution's mission.</p>
+    </div>
+
+    <div class="jump-links">
+      <a href="index.html#endpoints">Endpoints</a>
+      <a href="index.html#servers">Servers</a>
+      <a href="index.html#applications">Applications</a>
+      <a href="saas-paas.html">SaaS/PaaS</a>
+      <a href="iaas.html">IaaS</a>
+      <a href="iot.html">IoT</a>
+      <a href="index.html#definitions">Definitions</a>
+      <a href="cookbooks.html">Cookbooks</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#questions">Inquiries</a>
+    </div>
+
+    <h2>Minimum Security Standards: SaaS and PaaS</h2>
+    <ol class="steps">
+      <li>Determine the risk level by reviewing the data risk classification examples and selecting the highest applicable risk designation across all. For example, an endpoint storing Low Risk Data but used to access a High Risk application is designated as High Risk.</li>
+      <li>Follow the minimum security standards in the table below to safeguard SaaS and PaaS.</li>
+    </ol>
+
+    <div class="table-wrap">
+      <table class="minsec-table">
+        <thead>
+          <tr>
+            <th class="col-std">Standard</th>
+            <th class="col-what">What to do</th>
+            <th class="col-risk col-low">Low Risk</th>
+            <th class="col-risk col-mod">Moderate Risk</th>
+            <th class="col-risk col-high">High Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="std-name">Product Selection</td>
+            <td class="what">Follow the approved cloud solution selection workflow for choosing and purchasing a cloud solution.</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Pre-implementation Planning</td>
+            <td class="what">
+              <ul>
+                <li>Follow the SaaS considerations checklist.</li>
+                <li>Follow the PaaS considerations checklist.</li>
+                <li>Follow the security guidelines for using a cloud product.</li>
+              </ul>
+            </td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Inventory and Asset Classification</td>
+            <td class="what">Review and update cloud inventory records quarterly. Must indicate associated risk classification, data volume estimates, and service ownership.</td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Credential and Key Management</td>
+            <td class="what">
+              <ol>
+                <li>If possible, integrate with the Institution's single sign-on (SSO) services, preferably SAML.</li>
+                <li>Review administrative accounts and privileges quarterly.</li>
+                <li>Adhere to password complexity rules if not integrated with an SSO service.</li>
+                <li>API keys:
+                  <ul>
+                    <li>Minimize their generation.</li>
+                    <li>Grant minimum necessary privileges.</li>
+                    <li>Rotate at least annually.</li>
+                    <li>Do not hardcode.</li>
+                  </ul>
+                </li>
+                <li>Do not share credentials.</li>
+              </ol>
+            </td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Encryption</td>
+            <td class="what">
+              <ol>
+                <li>Enable transport layer encryption — TLS 1.2 or higher.</li>
+                <li>Use encryption of data at rest if available.</li>
+              </ol>
+            </td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Two-Step Authentication</td>
+            <td class="what">If user login cannot be integrated with the Institution's SSO, enable two-factor authentication if offered by the solution.</td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Logging and Auditing</td>
+            <td class="what">
+              <ol>
+                <li>Enable any available application logging that would assist in a forensic investigation in the event of a compromise. Seek vendor or security office guidance as needed.</li>
+                <li>Contractually ensure that the provider can export logs on request within five days.</li>
+              </ol>
+            </td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Data Management</td>
+            <td class="what">Contractually ensure that Institution data are purged upon termination of the agreement, with accommodations as necessary to comply with any applicable regulatory obligations.</td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Secure Admin Workstation</td>
+            <td class="what">
+              <p>Administration consoles should only be accessed through a Privileged Access Workstation (PAW) when logging in with an administrative account. A PAW is required for privileged (ring0) access.</p>
+              <p><strong>Administrative accounts are defined as:</strong></p>
+              <ol>
+                <li>Accounts with the ability to make unrestricted, potentially adverse, or system-wide changes.</li>
+                <li>Accounts with the ability to override or change security controls.</li>
+              </ol>
+            </td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Security, Privacy and Legal Review</td>
+            <td class="what">Follow the Data Risk Assessment process and implement recommendations prior to deployment.</td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td class="std-name">Regulated Data Security Controls</td>
+            <td class="what">
+              <ol>
+                <li>Follow all regulatory data controls as applicable.</li>
+                <li>For protected health data, ensure that only cloud services covered under a business associate agreement are used.</li>
+              </ol>
+            </td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="not-req">&mdash;</span></td>
+            <td class="risk"><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 ICT Team. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

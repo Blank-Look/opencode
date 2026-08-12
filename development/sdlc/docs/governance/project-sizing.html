@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Sizing — SDLC</title>
+<meta name="description" content="Existing financial thresholds can be retained while adding risk-based criteria.">
+<link rel="icon" href="../../img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div style="display:flex;align-items:center;gap:0;">
+      <a href="../../../index.html" class="navbar-schoolcode">SchoolCode</a>
+      <a href="../../index.html" class="navbar-brand">
+        <img src="../../img/logo.svg" alt="SDLC Logo" width="28" height="28">
+        AI-Assisted Delivery Lifecycle
+      </a>
+    </div>
+    <div class="navbar-links">
+      <a href="../overview/introduction.html">Docs</a>
+      <a href="https://github.com/Blank-Look/opencode">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-section"><div class="sidebar-section-title">Overview</div><a class="sidebar-item" href="../overview/introduction.html">Introduction</a></div><div class="sidebar-section"><div class="sidebar-section-title">The Lifecycle</div><a class="sidebar-item" href="../lifecycle/capture.html">1. Capture</a><a class="sidebar-item" href="../lifecycle/govern.html">2. Govern</a><a class="sidebar-item" href="../lifecycle/generate.html">3. Generate</a><a class="sidebar-item" href="../lifecycle/build.html">4. Build</a><a class="sidebar-item" href="../lifecycle/assure.html">5. Assure</a><a class="sidebar-item" href="../lifecycle/release.html">6. Release</a><a class="sidebar-item" href="../lifecycle/operate.html">7. Operate</a><a class="sidebar-item" href="../lifecycle/delivery-prompt.html">Delivery Prompt Template</a></div><div class="sidebar-section"><div class="sidebar-section-title">Governance</div><a class="sidebar-item" href="../governance/stage-gates.html">Stage Gates</a><a class="sidebar-item active" href="../governance/project-sizing.html">Project Sizing</a><a class="sidebar-item" href="../governance/application-architecture.html">Application Architecture</a><a class="sidebar-item" href="../governance/scaled-documentation.html">Scaled Documentation</a><a class="sidebar-item" href="../governance/cost-benefit-analysis.html">Build vs Buy — Cost-Benefit Analysis</a></div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <p>Existing financial thresholds can be retained while adding risk-based criteria.</p>
+<h2>Size Categories</h2>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Small</th>
+<th>Medium</th>
+<th>Large</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>12-month cost</td>
+<td>Under $25,000</td>
+<td>$25,000–$200,000</td>
+<td>Over $200,000</td>
+</tr>
+<tr>
+<td>Internal effort</td>
+<td>Under 3 weeks</td>
+<td>3 weeks–6 months</td>
+<td>Over 6 months</td>
+</tr>
+<tr>
+<td>Typical oversight</td>
+<td>CTO or delegate</td>
+<td>IT Steering Group</td>
+<td>Leadership Team</td>
+</tr>
+<tr>
+<td>Approving bodies</td>
+<td>CTO or delegate</td>
+<td>ITEC / IT Steering Group / ISAC</td>
+<td>IT BoD / ISAC / Leadership Team</td>
+</tr>
+<tr>
+<td>Minimum gates</td>
+<td>3</td>
+<td>5</td>
+<td>5 plus additional assurance</td>
+</tr>
+<tr>
+<td>AI prompt review</td>
+<td>Technical peer</td>
+<td>Technical owner and security</td>
+<td>Architecture, security and project governance</td>
+</tr>
+<tr>
+<td>Environment path</td>
+<td>Sandbox → Test → Production</td>
+<td>Sandbox → Development → Test → Production</td>
+<td>Sandbox → Development → Test → Pilot → Production</td>
+</tr>
+</tbody></table>
+<p>See <a href="https://blank-look.github.io/opencode/knowledgebase/docs/policy-and-governance/it-governance.html">IT Governance</a> for council membership and terms of reference. See <a href="../governance/stage-gates.html">Stage Gates</a> for the full gate-to-body mapping.</p>
+<h2>Size Escalation Factors</h2>
+<p>Project size should be increased where the work involves:</p>
+<ul>
+<li>sensitive or regulated data</li>
+<li>privileged access</li>
+<li>identity or security controls</li>
+<li>critical infrastructure</li>
+<li>significant architectural change</li>
+<li>external integrations</li>
+<li>high operational impact</li>
+<li>public-facing services</li>
+<li>difficult rollback</li>
+<li>substantial use of generated code with limited internal expertise</li>
+</ul>
+<p><strong>A low-cost but high-risk initiative should not be treated as a small project.</strong></p>
+
+    </div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p>Copyright &copy; 2026 Infrastructure & Security. Built with purpose.</p>
+</footer>
+
+</body>
+</html>

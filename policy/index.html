@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policy &amp; Compliance — ICT Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --maroon: #7A1B2C;
+  --maroon-dark: #6D1827;
+  --maroon-light: #A3243B;
+  --gray-50: #F8F7F6;
+  --gray-100: #F0EFEE;
+  --gray-200: #E2E0DE;
+  --gray-300: #C5C2BE;
+  --gray-400: #A39E99;
+  --gray-500: #847E78;
+  --gray-600: #66605A;
+  --gray-700: #4D4843;
+  --gray-800: #34302C;
+  --gray-900: #1C1A18;
+  --white: #FFFFFF;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font-sans);
+  color: var(--gray-800);
+  background: var(--white);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.navbar {
+  border-bottom: 1px solid var(--gray-200);
+  padding: 0 1.5rem;
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+.navbar-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-schoolcode {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--gray-300);
+  transition: color 0.15s;
+}
+.navbar-schoolcode:hover { color: var(--maroon); }
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  color: inherit;
+  text-decoration: none;
+}
+.navbar-links a {
+  text-decoration: none;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+.navbar-links a:hover { color: var(--maroon); background: var(--gray-100); }
+.hero {
+  background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 50%, var(--maroon-light) 100%);
+  color: var(--white);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.hero h1 { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+.hero p { font-size: 1.0625rem; max-width: 600px; margin: 0 auto; opacity: 0.9; }
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+  padding: 2.5rem 2rem 4rem;
+  max-width: 960px;
+  margin: 0 auto;
+  flex: 1;
+}
+.project-card {
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover {
+  border-color: var(--maroon);
+  box-shadow: 0 4px 20px rgba(122, 27, 44, 0.1);
+  transform: translateY(-2px);
+}
+.project-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.project-title { font-size: 1.0625rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--gray-900); }
+.project-desc { font-size: 0.875rem; color: var(--gray-600); line-height: 1.55; flex: 1; }
+.footer {
+  border-top: 1px solid var(--gray-200);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+@media (max-width: 640px) {
+  .hero { padding: 2.25rem 1.25rem; }
+  .hero h1 { font-size: 1.75rem; }
+  .section-grid { padding: 2rem 1rem 3rem; grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-left">
+      <a href="../index.html" class="navbar-schoolcode">ICT Portal</a>
+      <a href="index.html" class="navbar-brand">Policy &amp; Compliance</a>
+    </div>
+    <div class="navbar-links">
+      <a href="../knowledgebase/">Knowledge Base</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>Policy &amp; Compliance</h1>
+  <p>The rules every ICT service must meet — policies, standards, procedures, and compliance obligations.</p>
+</header>
+
+<div class="section-grid">
+
+  <a href="../knowledgebase/docs/policy-and-governance/policies.html" class="project-card">
+    <div class="project-icon">📜</div>
+    <div class="project-title">Policies</div>
+    <div class="project-desc">The policy register — the binding rules and obligations for ICT across the institution.</div>
+  </a>
+
+  <a href="../knowledgebase/docs/policy-and-governance/compliance.html" class="project-card">
+    <div class="project-icon">✅</div>
+    <div class="project-title">Compliance</div>
+    <div class="project-desc">Compliance obligations, assurance activities, and audit readiness for ICT services.</div>
+  </a>
+
+  <a href="../knowledgebase/docs/policy-and-governance/data-classification.html" class="project-card">
+    <div class="project-icon">🏷️</div>
+    <div class="project-title">Data Classification</div>
+    <div class="project-desc">How information is classified and the handling controls that apply to each level.</div>
+  </a>
+
+  <a href="../knowledgebase/docs/policy-and-governance/data-governance.html" class="project-card">
+    <div class="project-icon">🗂️</div>
+    <div class="project-title">Data Governance</div>
+    <div class="project-desc">Roles and responsibilities for data — trustees, stewards, custodians, and owners.</div>
+  </a>
+
+</div>
+
+<footer class="footer">
+  <p>ICT Portal &mdash; Policy &amp; Compliance</p>
+</footer>
+
+</body>
+</html>
